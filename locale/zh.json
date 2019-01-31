@@ -1,3 +1,6 @@
 {
-    "title": "efox flutter教学应用"
+    "title": "efox flutter教学应用",
+    "widgetType": {
+        "regularLayout": "常规布局"
+    }
 }

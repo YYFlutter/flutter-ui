@@ -41,6 +41,26 @@ class AppTranslations {
   }
 
   String t(String key) {
-    return _localisedValues[key] ?? "$key";
+    String finalReslut;
+    if (key.indexOf('.') >= 0) {
+      List langList = key.split('.');
+      Map tmpMap = _localisedValues;
+      for (final item in langList) {
+        if (tmpMap[item] != null) {
+          if (tmpMap[item] is String) {
+            finalReslut = tmpMap[item];
+            break;
+          } else {
+            tmpMap = tmpMap[item];
+          }
+        } else {
+          finalReslut = "$key";
+          break;
+        }
+      }
+    } else {
+      finalReslut = _localisedValues[key] ?? "$key";
+    }
+    return finalReslut;
   }
 }
