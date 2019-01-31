@@ -1,5 +1,5 @@
 import 'package:scoped_model/scoped_model.dart';
-import '../objects/UserInfo.dart';
+import '../objects/user_info.dart';
 
 class UserModel extends Model {
   UserInfo _userInfo = UserInfo();
@@ -11,7 +11,6 @@ class UserModel extends Model {
   }
 
   Function setAge() {
-    //_userInfo.age += 1;
     _userInfo.age += 1;
     notifyListeners();
   }

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 //语言包实例化
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:efox_flutter/lang/Application.dart';
-import 'package:efox_flutter/lang/AppTranslationsDelegate.dart';
+import 'package:efox_flutter/lang/application.dart';
+import 'package:efox_flutter/lang/app_translations_delegate.dart';
 //引用Store 层
-import 'package:efox_flutter/store/STORE.dart';
-//模块加载
-import 'package:efox_flutter/page/HomePage.dart';
+import 'package:efox_flutter/store/store.dart';
+//路由
+import 'package:efox_flutter/router/index.dart';
 
 void main() => runApp(MainApp());
 
@@ -41,25 +41,25 @@ class MainAppState extends State<MainApp> {
     return STORE.init(
         model: model,
         child: MaterialApp(
-          localeResolutionCallback: (deviceLocale, supportedLocales) {
-            print(
-                'deviceLocale=$deviceLocale supportedLocales=$supportedLocales');
-            return deviceLocale ?? Locale('en');
-          },
-          localizationsDelegates: [
-            _newLocaleDelegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-          ],
-          supportedLocales: [
-            const Locale('en'),
-            const Locale('zh'),
-          ],
-          title: 'Flutter Demo',
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
-          home: HomePage(),
-        ));
+            localeResolutionCallback: (deviceLocale, supportedLocales) {
+              print(
+                  'deviceLocale=$deviceLocale supportedLocales=$supportedLocales');
+              return deviceLocale ?? Locale('en');
+            },
+            localizationsDelegates: [
+              _newLocaleDelegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+            ],
+            supportedLocales: [
+              const Locale('en'),
+              const Locale('zh'),
+            ],
+            title: 'Flutter Demo',
+            theme: ThemeData(
+              primarySwatch: Colors.blue,
+            ),
+            initialRoute: '/',
+            routes: getRoutesConfig(context)));
   }
 }
