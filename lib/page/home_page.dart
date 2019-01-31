@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:efox_flutter/lang/Application.dart';
-import 'package:efox_flutter/lang/AppTranslations.dart';
+import 'package:efox_flutter/lang/application.dart';
+import 'package:efox_flutter/lang/app_translations.dart';
 //
 import 'package:efox_flutter/store/STORE.dart';
 
@@ -53,6 +53,16 @@ class HomePage extends StatelessWidget {
                 model.userInfo.age.toString(),
                 style: Theme.of(context).textTheme.display1,
               ),
+              RaisedButton(
+                child: Text('go test 1'),
+                onPressed: () =>
+                    Navigator.pushNamed(context, '/test/test_page_one'),
+              ),
+              RaisedButton(
+                child: Text('go test 2'),
+                onPressed: () =>
+                    Navigator.pushNamed(context, '/test/test_page_two'),
+              )
             ],
           ),
         ),

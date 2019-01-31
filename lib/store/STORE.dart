@@ -1,6 +1,6 @@
 import 'package:scoped_model/scoped_model.dart';
-import './models/MainStateModel.dart';
-export './models/MainStateModel.dart';
+import './models/main_state_model.dart';
+export './models/main_state_model.dart';
 
 class STORE {
   static init({model, child}) {
