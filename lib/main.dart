@@ -39,27 +39,29 @@ class MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return STORE.init(
-        model: model,
-        child: MaterialApp(
-            localeResolutionCallback: (deviceLocale, supportedLocales) {
-              print(
-                  'deviceLocale=$deviceLocale supportedLocales=$supportedLocales');
-              return deviceLocale ?? Locale('en');
-            },
-            localizationsDelegates: [
-              _newLocaleDelegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-            ],
-            supportedLocales: [
-              const Locale('en'),
-              const Locale('zh'),
-            ],
-            title: 'Flutter Demo',
-            theme: ThemeData(
-              primarySwatch: Colors.blue,
-            ),
-            initialRoute: '/',
-            routes: getRoutesConfig(context)));
+      model: model,
+      child: MaterialApp(
+        localeResolutionCallback: (deviceLocale, supportedLocales) {
+          print(
+              'deviceLocale=$deviceLocale supportedLocales=$supportedLocales');
+          return deviceLocale ?? Locale('en');
+        },
+        localizationsDelegates: [
+          _newLocaleDelegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
+        supportedLocales: [
+          const Locale('en'),
+          const Locale('zh'),
+        ],
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        initialRoute: '/',
+        routes: getRoutesConfig(context),
+      ),
+    );
   }
 }
