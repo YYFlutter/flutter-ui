@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 //首页
-import 'package:efox_flutter/page/home_page.dart';
+import 'package:efox_flutter/page/home.dart';
 
 //测试路由配置
 import 'package:efox_flutter/router/test/index.dart';

@@ -1,0 +1,57 @@
+{
+  "name": "widget list",
+  "list": [
+    {
+      "typeName": "regularLayout",
+      "widgetList": [
+        {
+          "name": "Row"
+        },
+        {
+          "name": "Column"
+        },
+        {
+          "name": "Container"
+        },
+        {
+          "name": "Center"
+        },
+        {
+          "name": "Padding"
+        },
+        {
+          "name": "Stack"
+        },
+        {
+          "name": "Expanded"
+        },
+        {
+          "name": "Align"
+        }
+      ]
+    },
+    {
+      "typeName": "advancedLayout",
+      "widgetList": [
+        {
+          "name": "FittedBox"
+        },
+        {
+          "name": "ConstrainedBox"
+        },
+        {
+          "name": "DecoratedBox"
+        },
+        {
+          "name": "LimitedBox"
+        },
+        {
+          "name": "RotatedBox"
+        },
+        {
+          "name": "Table"
+        }
+      ]
+    }
+  ]
+}

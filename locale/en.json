@@ -1,3 +1,6 @@
 {
-    "title": "efox flutter tech app"
+    "title": "efox flutter tech app",
+    "widgetType": {
+        "regularLayout": "common layout"
+    }
 }
