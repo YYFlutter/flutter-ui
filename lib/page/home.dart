@@ -5,6 +5,7 @@ import 'package:efox_flutter/lang/app_translations.dart';
 import 'package:efox_flutter/store/STORE.dart';
 
 //
+import 'tabbar/index.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -83,36 +84,29 @@ class _HomePageState extends State<HomePage>
                           value: 'en',
                         ),
                       ],
-                )
+                ),
               ],
             ),
             bottomNavigationBar: menu(),
             body: TabBarView(
               children: <Widget>[
+                ComponentsPage(),
                 Center(
-                  child: ExpansionTile(
-                    title: Text(lang.t('widgetType.regularLayout')),
-                    leading: Icon(Icons.account_balance_wallet),
-                    backgroundColor: Colors.white12,
-                    children: <Widget>[
-                      ListTile(
-                          title: Text('list tile'), subtitle: Text('subtitle'))
-                    ],
-                    initiallyExpanded: true,
+                  child: new GridView.count(
+                    // Create a grid with 2 columns. If you change the scrollDirection to
+                    // horizontal, this would produce 2 rows.
+                    crossAxisCount: 3,
+                    // Generate 100 Widgets that display their index in the List
+                    children: new List.generate(10, (index) {
+                      return new Center(
+                        child: new Text(
+                          'Item $index',
+                          style: Theme.of(context).textTheme.headline,
+                        ),
+                      );
+                    }),
                   ),
                 ),
-                Center(
-                  child: ExpansionTile(
-                    title: Text(lang.t('widgetType.regularLayout')),
-                    leading: Icon(Icons.account_balance_wallet),
-                    backgroundColor: Colors.white12,
-                    children: <Widget>[
-                      ListTile(
-                          title: Text('list tile'), subtitle: Text('subtitle'))
-                    ],
-                    initiallyExpanded: true,
-                  ),
-                )
               ],
             ),
           ),
