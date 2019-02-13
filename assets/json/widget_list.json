@@ -3,35 +3,45 @@
   "list": [
     {
       "typeName": "regularLayout",
+      "code": 58353,
       "widgetList": [
         {
+          "code": 59101,
           "name": "Row"
         },
         {
+          "code": 59103,
           "name": "Column"
         },
         {
+          "code": 59105,
           "name": "Container"
         },
         {
+          "code": 57897,
           "name": "Center"
         },
         {
+          "code": 59497,
           "name": "Padding"
         },
         {
+          "code": 59497,
           "name": "Stack"
         },
         {
+          "code": 59497,
           "name": "Expanded"
         },
         {
+          "code": 59497,
           "name": "Align"
         }
       ]
     },
     {
       "typeName": "advancedLayout",
+      "code": 58353,
       "widgetList": [
         {
           "name": "FittedBox"
@@ -55,6 +65,7 @@
     },
     {
       "typeName": "form",
+      "code": 58353,
       "widgetList": [
         {
           "name": "FittedBox"

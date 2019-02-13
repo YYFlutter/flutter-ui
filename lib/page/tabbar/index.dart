@@ -7,7 +7,8 @@ class ComponentsPage extends StatefulWidget {
   _ComponentsPageState createState() => _ComponentsPageState();
 }
 
-class _ComponentsPageState extends State<ComponentsPage> {
+class _ComponentsPageState extends State<ComponentsPage>
+    with SingleTickerProviderStateMixin {
   List mapList = [];
 
   @override
@@ -26,37 +27,66 @@ class _ComponentsPageState extends State<ComponentsPage> {
     return json.decode(widgetString);
   }
 
+  Widget renderExpanel(item) {
+    List _tmpWidgetList = item['widgetList'];
+    return ExpansionTile(
+      title: Text(
+        item['typeName'],
+      ),
+      leading: Icon(
+        IconData(item['code'] ?? 58353,
+            fontFamily: 'MaterialIcons', matchTextDirection: true),
+        color: Colors.deepOrange,
+      ),
+      backgroundColor: Colors.white12,
+      children: [
+        Container(
+          height: 300,
+          child: GridView.count(
+            crossAxisCount: 3,
+            children: List.generate(
+              _tmpWidgetList.length,
+              (index) {
+                return Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                        iconSize: 48,
+                        icon: Icon(
+                          IconData(_tmpWidgetList[index]['code'] ?? 59101,
+                              fontFamily: 'MaterialIcons',
+                              matchTextDirection: true),
+                          color: Colors.deepOrange,
+                        ),
+                        onPressed: () {},
+                      ),
+                      Text(_tmpWidgetList[index]['name']),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+        )
+      ],
+      initiallyExpanded: false,
+    );
+  }
+
   Widget build(BuildContext context) {
     AppTranslations lang = AppTranslations.of(context);
-    const box_height = 100.0;
     return Scrollbar(
       child: SingleChildScrollView(
-        child: Center(
+        child: Container(
+          padding: EdgeInsets.all(10.0),
           child: Column(
             children: mapList.map(
               (item) {
-                
-                print('item ${item}  ${(item['widgetList'].length / 3).ceil()}');
-                return ExpansionTile(
-                  title: Text(item['typeName']),
-                  leading: Icon(Icons.account_balance_wallet),
-                  backgroundColor: Colors.white12,
-                  children: [
-                    Container(
-                      height: ((item['widgetList'].length / 3).ceil()) * 140.0,
-                      child: GridView.count(
-                        crossAxisCount: 3,
-                        children: List.generate(item['widgetList'].length, (index) {
-                          return Container(
-                            height: box_height,
-                            child: Text('index ${item['widgetList'][index]['name']}'),
-                          );
-                        }),
-                      ),
-                    )
-                  ],
-                  initiallyExpanded: false,
-                );
+                return renderExpanel(item);
               },
             ).toList(),
           ),

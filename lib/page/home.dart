@@ -21,10 +21,23 @@ class _HomePageState extends State<HomePage>
 
   Widget menu() {
     return Container(
-      color: Colors.white12,
+      decoration: BoxDecoration(
+        border: Border(
+          top: BorderSide(
+            color: Colors.deepOrange,
+          ),
+        ),
+      ),
       child: TabBar(
-        labelColor: Colors.black,
-        unselectedLabelColor: Colors.black26,
+        indicator: BoxDecoration(
+          border: Border(
+            top: BorderSide(
+              color: Colors.deepOrange,
+            ),
+          ),
+        ),
+        labelColor: Colors.deepOrange,
+        unselectedLabelColor: Colors.orangeAccent,
         indicatorSize: TabBarIndicatorSize.tab,
         indicatorColor: Colors.transparent,
         tabs: [
@@ -58,7 +71,6 @@ class _HomePageState extends State<HomePage>
           length: 2,
           child: Scaffold(
             appBar: AppBar(
-              backgroundColor: Colors.black87,
               title: Text(lang.t('title')),
               actions: <Widget>[
                 PopupMenuButton(
@@ -73,13 +85,17 @@ class _HomePageState extends State<HomePage>
                   itemBuilder: (context) => [
                         PopupMenuItem(
                           child: Row(
-                            children: <Widget>[Text('中文')],
+                            children: <Widget>[
+                              Text('中文'),
+                            ],
                           ),
                           value: 'zh',
                         ),
                         PopupMenuItem(
                           child: Row(
-                            children: <Widget>[Text('english')],
+                            children: <Widget>[
+                              Text('english'),
+                            ],
                           ),
                           value: 'en',
                         ),

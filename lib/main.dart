@@ -57,7 +57,7 @@ class MainAppState extends State<MainApp> {
         ],
         title: 'Flutter Demo',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.deepOrange,
         ),
         initialRoute: '/',
         routes: getRoutesConfig(context),
