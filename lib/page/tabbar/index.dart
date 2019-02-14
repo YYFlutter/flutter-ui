@@ -40,38 +40,38 @@ class _ComponentsPageState extends State<ComponentsPage>
       ),
       backgroundColor: Colors.white12,
       children: [
-        Container(
-          height: 300,
-          child: GridView.count(
-            crossAxisCount: 3,
-            children: List.generate(
-              _tmpWidgetList.length,
-              (index) {
-                return Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      IconButton(
-                        iconSize: 48,
-                        icon: Icon(
-                          IconData(_tmpWidgetList[index]['code'] ?? 59101,
-                              fontFamily: 'MaterialIcons',
-                              matchTextDirection: true),
-                          color: Colors.deepOrange,
-                        ),
-                        onPressed: () {},
+        GridView.count(
+          shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
+          childAspectRatio: 1,
+          crossAxisCount: 3,
+          children: List.generate(
+            _tmpWidgetList.length,
+            (index) {
+              return Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                      iconSize: 48,
+                      icon: Icon(
+                        IconData(_tmpWidgetList[index]['code'] ?? 59101,
+                            fontFamily: 'MaterialIcons',
+                            matchTextDirection: true),
+                        color: Colors.deepOrange,
                       ),
-                      Text(_tmpWidgetList[index]['name']),
-                    ],
-                  ),
-                );
-              },
-            ),
+                      onPressed: () {},
+                    ),
+                    Text(_tmpWidgetList[index]['name']),
+                  ],
+                ),
+              );
+            },
           ),
-        )
+        ),
       ],
       initiallyExpanded: false,
     );
