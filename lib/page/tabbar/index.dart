@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:efox_flutter/lang/app_translations.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:efox_flutter/store/objects/widget_list.dart';
 
 class ComponentsPage extends StatefulWidget {
   _ComponentsPageState createState() => _ComponentsPageState();
@@ -16,7 +17,7 @@ class _ComponentsPageState extends State<ComponentsPage>
     super.initState();
     getWidgetList().then((res) {
       setState(() {
-        mapList = res['list'];
+        mapList = res.list;
       });
     });
   }
@@ -24,17 +25,18 @@ class _ComponentsPageState extends State<ComponentsPage>
   getWidgetList() async {
     String widgetString = await rootBundle
         .loadString('assets/json/widget_list.json', cache: false);
-    return json.decode(widgetString);
+    var _tmpMap = new WidgetListInfo.fromJson(json.decode(widgetString));
+    return _tmpMap;
   }
 
   Widget renderExpanel(item) {
-    List _tmpWidgetList = item['widgetList'];
+    List _tmpWidgetList = item.widgetList;
     return ExpansionTile(
       title: Text(
-        item['typeName'],
+        item.typeName,
       ),
       leading: Icon(
-        IconData(item['code'] ?? 58353,
+        IconData(item.code ?? 58353,
             fontFamily: 'MaterialIcons', matchTextDirection: true),
         color: Colors.deepOrange,
       ),
@@ -58,14 +60,14 @@ class _ComponentsPageState extends State<ComponentsPage>
                     IconButton(
                       iconSize: 48,
                       icon: Icon(
-                        IconData(_tmpWidgetList[index]['code'] ?? 59101,
+                        IconData(_tmpWidgetList[index].code ?? 59101,
                             fontFamily: 'MaterialIcons',
                             matchTextDirection: true),
                         color: Colors.deepOrange,
                       ),
                       onPressed: () {},
                     ),
-                    Text(_tmpWidgetList[index]['name']),
+                    Text(_tmpWidgetList[index].name),
                   ],
                 ),
               );
