@@ -10,7 +10,7 @@ class UserModel extends Model {
     notifyListeners();
   }
 
-  Function setAge() {
+  void setAge() {
     _userInfo.age += 1;
     notifyListeners();
   }

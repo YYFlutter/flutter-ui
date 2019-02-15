@@ -3,6 +3,7 @@ import 'package:efox_flutter/lang/app_translations.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:efox_flutter/store/objects/widget_list.dart';
+import 'package:efox_flutter/router/index.dart';
 
 class ComponentsPage extends StatefulWidget {
   _ComponentsPageState createState() => _ComponentsPageState();
@@ -29,6 +30,9 @@ class _ComponentsPageState extends State<ComponentsPage>
     return _tmpMap;
   }
 
+  /**
+   * 渲染折叠板
+   */
   Widget renderExpanel(item) {
     List _tmpWidgetList = item.widgetList;
     return ExpansionTile(
@@ -52,7 +56,7 @@ class _ComponentsPageState extends State<ComponentsPage>
             (index) {
               return Container(
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black),
+                  border: Border.all(color: Colors.deepOrange, width: 0.4),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -65,7 +69,10 @@ class _ComponentsPageState extends State<ComponentsPage>
                             matchTextDirection: true),
                         color: Colors.deepOrange,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        print('idndex, $index ${routesMap()['ScrollViewGridView']}');
+                        Navigator.pushNamed(context, routesMap()['ScrollViewGridView']);
+                      },
                     ),
                     Text(_tmpWidgetList[index].name),
                   ],
@@ -81,6 +88,7 @@ class _ComponentsPageState extends State<ComponentsPage>
 
   Widget build(BuildContext context) {
     AppTranslations lang = AppTranslations.of(context);
+    print('lang${lang}');
     return Scrollbar(
       child: SingleChildScrollView(
         child: Container(

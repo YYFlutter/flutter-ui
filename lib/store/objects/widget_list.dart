@@ -14,7 +14,6 @@ class ItemListInfo {
   List widgetList;
 
   ItemListInfo.fromJson(Map<String, dynamic> json) {
-    print('item ${json}  ${json.runtimeType}');
     typeName = json['typeName'];
     code = json['code'];
 
