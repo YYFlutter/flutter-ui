@@ -70,8 +70,8 @@ class _ComponentsPageState extends State<ComponentsPage>
                         color: Colors.deepOrange,
                       ),
                       onPressed: () {
-                        print('idndex, $index ${routesMap()['ScrollViewGridView']}');
-                        Navigator.pushNamed(context, routesMap()['ScrollViewGridView']);
+                        String _key = _tmpWidgetList[index].key;
+                        Navigator.pushNamed(context, routesMap()['${_key}']);
                       },
                     ),
                     Text(_tmpWidgetList[index].name),

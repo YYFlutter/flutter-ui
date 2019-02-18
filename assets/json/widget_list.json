@@ -7,35 +7,43 @@
       "widgetList": [
         {
           "code": 59101,
-          "name": "Row"
+          "name": "Row",
+          "key": "Row"
         },
         {
           "code": 59103,
-          "name": "Column"
+          "name": "Column",
+          "key": "Column"
         },
         {
           "code": 59105,
-          "name": "Container"
+          "name": "Container",
+          "key": "Container"
         },
         {
           "code": 57897,
-          "name": "Center"
+          "name": "Center",
+          "key": "Center"
         },
         {
           "code": 59497,
-          "name": "Padding"
+          "name": "Padding",
+          "key": "Padding"
         },
         {
           "code": 59497,
-          "name": "Stack"
+          "name": "Stack",
+          "key": "Stack"
         },
         {
           "code": 59497,
-          "name": "Expanded"
+          "name": "Expanded",
+          "key": "Expanded"
         },
         {
           "code": 59497,
-          "name": "Align"
+          "name": "Align",
+          "key": "Align"
         }
       ]
     },
@@ -44,22 +52,28 @@
       "code": 58353,
       "widgetList": [
         {
-          "name": "FittedBox"
+          "name": "FittedBox",
+          "key": "FittedBox"
         },
         {
-          "name": "ConstrainedBox"
+          "name": "ConstrainedBox",
+          "key": "ConstrainedBox"
         },
         {
-          "name": "DecoratedBox"
+          "name": "DecoratedBox",
+          "key": "DecoratedBox"
         },
         {
-          "name": "LimitedBox"
+          "name": "LimitedBox",
+          "key": "LimitedBox"
         },
         {
-          "name": "RotatedBox"
+          "name": "RotatedBox",
+          "key": "RotatedBox"
         },
         {
-          "name": "Table"
+          "name": "Table",
+          "key": "Table"
         }
       ]
     },
@@ -68,22 +82,39 @@
       "code": 58353,
       "widgetList": [
         {
-          "name": "FittedBox"
+          "name": "FittedBox",
+          "key": "FittedBox"
         },
         {
-          "name": "ConstrainedBox"
+          "name": "ConstrainedBox",
+          "key": "ConstrainedBox"
         },
         {
-          "name": "DecoratedBox"
+          "name": "DecoratedBox",
+          "key": "DecoratedBox"
         },
         {
-          "name": "LimitedBox"
+          "name": "LimitedBox",
+          "key": "LimitedBox"
         },
         {
-          "name": "RotatedBox"
+          "name": "RotatedBox",
+          "key": "RotatedBox"
         },
         {
-          "name": "Table"
+          "name": "Table",
+          "key": "Table"
+        }
+      ]
+    },
+    {
+      "typeName": "scrollview",
+      "code": 58353,
+      "widgetList": [
+        {
+          "code": 59673,
+          "name": "GridView",
+          "key": "scrollview_gridview"
         }
       ]
     }
