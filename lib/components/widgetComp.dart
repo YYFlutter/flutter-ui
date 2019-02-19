@@ -26,7 +26,7 @@ class WidgetComp extends StatelessWidget {
           title: Text(this.title),
         ),
         body: ListView(
-          padding: EdgeInsets.all(20.0),
+          padding: EdgeInsets.fromLTRB(10.0, 20.0, 10.0, 20.0),
           shrinkWrap: true,
           children: _bodyList,
         ),

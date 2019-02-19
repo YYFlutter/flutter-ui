@@ -56,7 +56,12 @@ class _ComponentsPageState extends State<ComponentsPage>
             (index) {
               return Container(
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.deepOrange, width: 0.4),
+                  border: Border(
+                    bottom: BorderSide(
+                      width: .1,
+                      color: Colors.orange.shade300,
+                    )
+                  ),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,

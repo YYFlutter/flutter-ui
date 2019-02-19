@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/components/widgetComp.dart';
+import 'package:efox_flutter/store/http.dart';
 import 'intro.dart';
 
 class GridViewDemo extends StatefulWidget {
@@ -8,6 +9,18 @@ class GridViewDemo extends StatefulWidget {
 }
 
 class _GridViewDemoState extends State<GridViewDemo> {
+  String mdList = '';
+  @override
+  void initState() {
+    super.initState();
+    this.initMd ();
+  }
+  initMd () async {
+    dynamic res = await RestApi.get('https://wanwusangzhi.github.io/WebStudy/readme.md');
+    setState(() {
+      this.mdList = res.toString();
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return WidgetComp(
@@ -15,25 +28,11 @@ class _GridViewDemoState extends State<GridViewDemo> {
       modelChild: (context, child, model) {
         return [
           md_01,
+          mdList,
           Container(
-            constraints: BoxConstraints.expand(
-              height: Theme.of(context).textTheme.display1.fontSize * 1.1 + 200.0,
-            ),
-            padding: const EdgeInsets.all(8.0),
             color: Colors.teal.shade700,
             alignment: Alignment.center,
-            child: Text('Hello World', style: Theme.of(context).textTheme.display1.copyWith(color: Colors.white)),
-            transform: Matrix4.rotationZ(0.1),
-          ),
-          Container(
-            constraints: BoxConstraints.expand(
-              height: Theme.of(context).textTheme.display1.fontSize * 1.1 + 200.0,
-            ),
-            padding: const EdgeInsets.all(8.0),
-            color: Colors.teal.shade700,
-            alignment: Alignment.center,
-            child: Text('Hello World', style: Theme.of(context).textTheme.display1.copyWith(color: Colors.white)),
-            transform: Matrix4.rotationZ(0.1),
+            child: Text('Hello WorldHello WorldHello  WorldHello WorldHello World', style: Theme.of(context).textTheme.display1.copyWith(color: Colors.white)),
           ),
         ];
       },
