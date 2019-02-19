@@ -1,10 +1,12 @@
 class ItemInfo extends Object {
   int code;
   String name;
+  String key;
 
   ItemInfo.fromJson(Map<String, dynamic> json) {
     code = json['code'];
     name = json['name'];
+    key = json['key'];
   }
 }
 

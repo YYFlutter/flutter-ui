@@ -56,7 +56,12 @@ class _ComponentsPageState extends State<ComponentsPage>
             (index) {
               return Container(
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.deepOrange, width: 0.4),
+                  border: Border(
+                    bottom: BorderSide(
+                      width: .1,
+                      color: Colors.orange.shade300,
+                    )
+                  ),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -70,8 +75,8 @@ class _ComponentsPageState extends State<ComponentsPage>
                         color: Colors.deepOrange,
                       ),
                       onPressed: () {
-                        print('idndex, $index ${routesMap()['ScrollViewGridView']}');
-                        Navigator.pushNamed(context, routesMap()['ScrollViewGridView']);
+                        String _key = _tmpWidgetList[index].key;
+                        Navigator.pushNamed(context, routesMap()['${_key}']);
                       },
                     ),
                     Text(_tmpWidgetList[index].name),
