@@ -78,36 +78,6 @@
       ]
     },
     {
-      "typeName": "form",
-      "code": 58353,
-      "widgetList": [
-        {
-          "name": "FittedBox",
-          "key": "FittedBox"
-        },
-        {
-          "name": "ConstrainedBox",
-          "key": "ConstrainedBox"
-        },
-        {
-          "name": "DecoratedBox",
-          "key": "DecoratedBox"
-        },
-        {
-          "name": "LimitedBox",
-          "key": "LimitedBox"
-        },
-        {
-          "name": "RotatedBox",
-          "key": "RotatedBox"
-        },
-        {
-          "name": "Table",
-          "key": "Table"
-        }
-      ]
-    },
-    {
       "typeName": "scrollview",
       "code": 58353,
       "widgetList": [

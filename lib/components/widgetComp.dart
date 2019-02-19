@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/store/STORE.dart';
+import 'package:efox_flutter/components/markdownComp.dart';
 
 class WidgetComp extends StatelessWidget {
   final dynamic modelChild;
@@ -14,7 +15,11 @@ class WidgetComp extends StatelessWidget {
       List _list = this.modelChild(context, child, model);
       List<Widget> _bodyList = [];
       _list.forEach((item) {
-        _bodyList.add(item);
+        if (item.runtimeType == String) {
+          _bodyList.add(MarkDownComp(item));
+        } else {
+          _bodyList.add(item);
+        }
       });
       return Scaffold(
         appBar: AppBar(

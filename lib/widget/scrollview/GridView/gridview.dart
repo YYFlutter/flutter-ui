@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/components/widgetComp.dart';
+import 'intro.dart';
 
 class GridViewDemo extends StatefulWidget {
   @override
@@ -13,7 +14,7 @@ class _GridViewDemoState extends State<GridViewDemo> {
       title: 'GridViewDemo',
       modelChild: (context, child, model) {
         return [
-
+          md_01,
           Container(
             constraints: BoxConstraints.expand(
               height: Theme.of(context).textTheme.display1.fontSize * 1.1 + 200.0,
@@ -22,12 +23,6 @@ class _GridViewDemoState extends State<GridViewDemo> {
             color: Colors.teal.shade700,
             alignment: Alignment.center,
             child: Text('Hello World', style: Theme.of(context).textTheme.display1.copyWith(color: Colors.white)),
-            foregroundDecoration: BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage('https://www.example.com/images/frame.png'),
-                centerSlice: Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0),
-              ),
-            ),
             transform: Matrix4.rotationZ(0.1),
           ),
           Container(
@@ -38,15 +33,8 @@ class _GridViewDemoState extends State<GridViewDemo> {
             color: Colors.teal.shade700,
             alignment: Alignment.center,
             child: Text('Hello World', style: Theme.of(context).textTheme.display1.copyWith(color: Colors.white)),
-            foregroundDecoration: BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage('https://www.example.com/images/frame.png'),
-                centerSlice: Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0),
-              ),
-            ),
             transform: Matrix4.rotationZ(0.1),
           ),
-
         ];
       },
     );

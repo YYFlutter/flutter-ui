@@ -2,13 +2,19 @@ import 'package:flutter/widgets.dart';
 
 import 'package:efox_flutter/widget/scrollview/GridView/gridview.dart';
 
+const nameSpaces = 'scrollview_';
+const gridview = nameSpaces + 'gridview';
+
+const routerMaps = {
+  gridview: '/widget/scrollview/GridView/gridview',
+};
+
 Map<String, WidgetBuilder> getScrollViewRoutersConfig(BuildContext context) {
   return {
-    '/widget/scrollview/GridView/gridview': (context) => GridViewDemo(),
+    routerMaps[gridview] : (context) => GridViewDemo(),
   };
 }
 
-const nameSpaces = 'scrollview_';
 Map<String, String> routesMapScrollView = {
-  nameSpaces + 'gridview': '/widget/scrollview/GridView/gridview',
+  gridview: routerMaps[gridview],
 };
