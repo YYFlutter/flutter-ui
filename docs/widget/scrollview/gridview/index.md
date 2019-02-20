@@ -1,6 +1,3 @@
-import 'package:flutter/material.dart';
-
-const md_01 = """
 ### ***GridView***
 
 > GridView可创建一个二维的网格布局
@@ -23,6 +20,3 @@ const md_01 = """
   List<Widget> children: const [],
   int semanticChildCount
 })
-```
-
-""";

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:efox_flutter/components/widgetComp.dart';
-import 'package:efox_flutter/store/http.dart';
-import 'intro.dart';
+import 'package:efox_flutter/components/widgetLodingComp.dart';
+import 'package:efox_flutter/utils/file.dart' as FileUtils;
 
 class GridViewDemo extends StatefulWidget {
   @override
@@ -9,30 +8,42 @@ class GridViewDemo extends StatefulWidget {
 }
 
 class _GridViewDemoState extends State<GridViewDemo> {
-  String mdList = '';
+  static String routerName = 'scrollview_gridview';
+  bool loading = true;
+  String ___MD___01 = 'docs/widget/scrollview/gridview/index.md';
   @override
   void initState() {
     super.initState();
-    this.initMd ();
+    this.initMd();
   }
-  initMd () async {
-    dynamic res = await RestApi.get('https://wanwusangzhi.github.io/WebStudy/readme.md');
+
+  initMd() async {
+    String mdStr = await FileUtils.readLocaleFile(___MD___01);
     setState(() {
-      this.mdList = res.toString();
+      this.___MD___01 = mdStr;
+      loading = false;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return WidgetComp(
       title: 'GridViewDemo',
+      codeUrl: 'https://github.com/efoxTeam/flutter-ui/blob/master/readme.md',
+      loading: loading,
       modelChild: (context, child, model) {
         return [
-          md_01,
-          mdList,
+          ___MD___01,
           Container(
             color: Colors.teal.shade700,
             alignment: Alignment.center,
-            child: Text('Hello WorldHello WorldHello  WorldHello WorldHello World', style: Theme.of(context).textTheme.display1.copyWith(color: Colors.white)),
+            child: Text(
+              'Hello WorldHello WorldHello  WorldHello WorldHello World',
+              style: Theme.of(context)
+                  .textTheme
+                  .display1
+                  .copyWith(color: Colors.white),
+            ),
           ),
         ];
       },

@@ -2,5 +2,6 @@
     "title": "efox flutter教学应用",
     "widgetType": {
         "regularLayout": "常规布局"
-    }
+    },
+    "loading": "加载中"
 }

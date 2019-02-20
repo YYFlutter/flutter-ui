@@ -75,8 +75,7 @@ class _ComponentsPageState extends State<ComponentsPage>
                         color: Colors.deepOrange,
                       ),
                       onPressed: () {
-                        String _key = _tmpWidgetList[index].key;
-                        Navigator.pushNamed(context, routesMap()['${_key}']);
+                        FluroRouter.router.navigateTo(context, '/scrollview_gridview');
                       },
                     ),
                     Text(_tmpWidgetList[index].name),

@@ -1,20 +1,21 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:efox_flutter/widget/scrollview/gridview/gridview.dart';
+import 'package:fluro/fluro.dart';
 
-import 'package:efox_flutter/widget/scrollview/GridView/gridview.dart';
-
-const nameSpaces = 'scrollview_';
+const nameSpaces = '/scrollview_';
 const gridview = nameSpaces + 'gridview';
 
 const routerMaps = {
-  gridview: '/widget/scrollview/GridView/gridview',
+  gridview: '/widget/scrollview/gridview/gridview',
 };
 
-Map<String, WidgetBuilder> getScrollViewRoutersConfig(BuildContext context) {
-  return {
-    routerMaps[gridview] : (context) => GridViewDemo(),
-  };
+void initRouter(router) {
+  router.define(
+    gridview,
+    handler: Handler(
+      handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+        return GridViewDemo();
+      },
+    ),
+  );
 }
-
-Map<String, String> routesMapScrollView = {
-  gridview: routerMaps[gridview],
-};
