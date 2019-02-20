@@ -11,7 +11,7 @@ class WebViewComp extends StatelessWidget {
     return WebviewScaffold(
       url: this.url,
       appBar: new AppBar(
-        title: new Text("Widget webview"),
+        title: new Text("Webview"),
       ),
     );
   }

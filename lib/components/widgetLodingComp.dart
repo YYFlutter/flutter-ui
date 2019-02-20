@@ -2,21 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:efox_flutter/store/STORE.dart';
 import 'package:efox_flutter/components/markdownComp.dart';
 import 'package:efox_flutter/lang/app_translations.dart';
+import 'package:efox_flutter/components/baseComp.dart';
+import 'package:efox_flutter/utils/file.dart' as FileUtils;
 import 'package:efox_flutter/router/index.dart' show FluroRouter;
 
 class WidgetComp extends StatelessWidget {
   final List<Widget> _bodyList = [];
   final dynamic modelChild;
   final String codeUrl;
-  final String title;
+  final String mdUrl;
+  final String name;
   final bool loading;
 
   WidgetComp({
     Key key,
-    this.title,
+    this.name,
     @required this.modelChild,
     this.loading,
     this.codeUrl,
+    this.mdUrl,
   }) : super(key: key);
 
   @override
@@ -32,7 +36,7 @@ class WidgetComp extends StatelessWidget {
       });
       return Scaffold(
         appBar: AppBar(
-          title: Text(this.title),
+          title: Text(this.name),
           actions: <Widget>[
             IconButton(
               icon: Icon(
@@ -46,8 +50,18 @@ class WidgetComp extends StatelessWidget {
               icon: Icon(
                 Icons.code,
               ),
-              onPressed: () {
-                print('prs');
+              onPressed: () async {
+                String mdStr = await FileUtils.readLocaleFile(this.mdUrl);
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return BaseComp(
+                      title: this.name,
+                      child: (context, child, model) {
+                        return MarkDownComp(mdStr);
+                      }
+                    );
+                  }
+                ));
               },
             ),
           ],

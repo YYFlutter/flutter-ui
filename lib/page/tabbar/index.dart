@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/lang/app_translations.dart';
-import 'dart:convert';
-import 'package:flutter/services.dart' show rootBundle;
-import 'package:efox_flutter/store/objects/widget_list.dart';
 import 'package:efox_flutter/router/index.dart';
+import 'package:efox_flutter/widget/index.dart' as WidgetRoot;
 
 class ComponentsPage extends StatefulWidget {
   _ComponentsPageState createState() => _ComponentsPageState();
@@ -16,18 +14,7 @@ class _ComponentsPageState extends State<ComponentsPage>
   @override
   initState() {
     super.initState();
-    getWidgetList().then((res) {
-      setState(() {
-        mapList = res.list;
-      });
-    });
-  }
-
-  getWidgetList() async {
-    String widgetString = await rootBundle
-        .loadString('assets/json/widget_list.json', cache: false);
-    var _tmpMap = new WidgetListInfo.fromJson(json.decode(widgetString));
-    return _tmpMap;
+    this.mapList = WidgetRoot.getAllWidgets(); 
   }
 
   /**
@@ -75,7 +62,7 @@ class _ComponentsPageState extends State<ComponentsPage>
                         color: Colors.deepOrange,
                       ),
                       onPressed: () {
-                        FluroRouter.router.navigateTo(context, '/scrollview_gridview');
+                        FluroRouter.router.navigateTo(context, _tmpWidgetList[index].routerName);
                       },
                     ),
                     Text(_tmpWidgetList[index].name),
