@@ -7,12 +7,11 @@ import 'package:efox_flutter/lang/app_translations_delegate.dart';
 import 'package:efox_flutter/store/store.dart';
 //路由
 import 'package:efox_flutter/router/index.dart';
-import 'package:fluro/fluro.dart';
 void main() => runApp(MainApp());
 
 class MainApp extends StatefulWidget {
   MainApp() {
-    FluroRouter.initRouter(Router());
+    FluroRouter.initRouter();
   }
   @override
   MainAppState createState() => MainAppState();

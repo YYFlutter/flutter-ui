@@ -15,7 +15,11 @@ class BaseComp extends StatelessWidget {
           appBar: AppBar(
             title: Text(this.title),
           ),
-          body: this.child(context, child, model),
+          body: ListView(
+            children: [
+              this.child(context, child, model)
+            ],
+          ),
         );
       }
     );

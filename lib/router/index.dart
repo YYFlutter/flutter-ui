@@ -2,16 +2,14 @@ import 'package:flutter/widgets.dart';
 import 'package:fluro/fluro.dart';
 //首页
 import 'package:efox_flutter/page/home.dart';
-
-import 'package:flutter/material.dart';
+import 'package:efox_flutter/widget/index.dart' as WidgetConfig;
 import 'handles.dart';
-import 'scrollview/index.dart' as scrollview;
 
 class FluroRouter {
   static Router router;
 
-  static Router initRouter(Router router) {
-    FluroRouter.router = router;
+  static Router initRouter() {
+    FluroRouter.router = Router();
     router.define(
       '/',
       handler: Handler(
@@ -23,7 +21,18 @@ class FluroRouter {
 
     router.define('/webview', handler: webviewHandler);
     
-    scrollview.initRouter(router);
+    // 组件
+    WidgetConfig.getAllWidgets().forEach((widgetListInfo) {
+      widgetListInfo.widgetList.forEach((widgetInfo) {
+        router.define(
+          widgetInfo.routerName,
+          handler: Handler(
+              handlerFunc: (BuildContext context, Map<String, List> params) {
+            return widgetInfo.widget;
+          }),
+        );
+      });
+    });
     return router;
   }
 }
