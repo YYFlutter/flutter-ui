@@ -1,21 +1,38 @@
 import 'package:flutter/widgets.dart';
+import 'package:fluro/fluro.dart';
 //首页
 import 'package:efox_flutter/page/home.dart';
+import 'package:efox_flutter/widget/index.dart' as WidgetConfig;
+import 'handles.dart';
 
-//测试路由配置
-import 'package:efox_flutter/router/test/index.dart';
-import 'package:efox_flutter/router/scrollview/index.dart';
+class FluroRouter {
+  static Router router;
 
-Map<String, WidgetBuilder> getRoutesConfig(BuildContext context) {
-  Map<String, WidgetBuilder> finalMap = {};
-  finalMap.addAll({'/': (context) => HomePage()});
-  finalMap.addAll(getTestRoutesConfig(context));
-  finalMap.addAll(getScrollViewRoutersConfig(context));
-  return finalMap;
-}
+  static Router initRouter() {
+    FluroRouter.router = Router();
+    router.define(
+      '/',
+      handler: Handler(
+        handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+          return HomePage();
+        },
+      ),
+    );
 
-Map<String, String> routesMap() {
-  Map<String, String> routesMap= {};
-  routesMap.addAll(routesMapScrollView);
-  return routesMap;
+    router.define('/webview', handler: webviewHandler);
+    
+    // 组件
+    WidgetConfig.getAllWidgets().forEach((widgetListInfo) {
+      widgetListInfo.widgetList.forEach((widgetInfo) {
+        router.define(
+          widgetInfo.routerName,
+          handler: Handler(
+              handlerFunc: (BuildContext context, Map<String, List> params) {
+            return widgetInfo.widget;
+          }),
+        );
+      });
+    });
+    return router;
+  }
 }

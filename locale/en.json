@@ -2,5 +2,6 @@
     "title": "efox flutter tech app",
     "widgetType": {
         "regularLayout": "common layout"
-    }
+    },
+    "loading": "Loading"
 }

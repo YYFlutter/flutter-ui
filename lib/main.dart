@@ -7,10 +7,12 @@ import 'package:efox_flutter/lang/app_translations_delegate.dart';
 import 'package:efox_flutter/store/store.dart';
 //路由
 import 'package:efox_flutter/router/index.dart';
-
 void main() => runApp(MainApp());
 
 class MainApp extends StatefulWidget {
+  MainApp() {
+    FluroRouter.initRouter();
+  }
   @override
   MainAppState createState() => MainAppState();
 }
@@ -59,8 +61,7 @@ class MainAppState extends State<MainApp> {
         theme: ThemeData(
           primarySwatch: Colors.deepOrange,
         ),
-        initialRoute: '/',
-        routes: getRoutesConfig(context),
+        onGenerateRoute: FluroRouter.router.generator,
       ),
     );
   }
