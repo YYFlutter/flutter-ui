@@ -9,7 +9,7 @@ class Demo extends StatefulWidget {
   static String name = 'GridView';
   static String routerName = 'gridview';
   static String originUrl = 'https://flutter.io/docs/cookbook/lists/grid-lists';
-  static String codeUrl = 'https://github.com/efoxTeam/flutter-ui/blob/master/readme.md';
+  static String codeUrl = 'https://github.com/efoxTeam/flutter-ui/blob/master/docs/widget/scrollview/gridview/code.md';
   static String mdUrl = _mdUrl;
 
   @override
