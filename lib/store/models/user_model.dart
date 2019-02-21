@@ -1,7 +1,7 @@
 import 'package:scoped_model/scoped_model.dart';
 import '../objects/user_info.dart';
 
-class UserModel extends Model {
+mixin UserModel on Model {
   UserInfo _userInfo = UserInfo();
   get userInfo => _userInfo;
 

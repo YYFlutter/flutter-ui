@@ -24,7 +24,7 @@ class Example extends StatelessWidget {
           return Container(
             decoration: BoxDecoration(
               border: Border.all(
-                color: Colors.redAccent,
+                color: Colors.lightBlue,
               ),
             ),
             child: Center(
