@@ -6,6 +6,12 @@ class WebViewComp extends StatelessWidget {
   final String title;
   WebViewComp({Key key, @required this.url, this.title}) : super(key: key);
 
+  void controller() {
+    final flutterWebviewPlugin = new FlutterWebviewPlugin();
+    flutterWebviewPlugin.onUrlChanged.listen((String url) {
+      print('url ${url}');
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return WebviewScaffold(
@@ -13,6 +19,14 @@ class WebViewComp extends StatelessWidget {
       appBar: new AppBar(
         title: new Text("Webview"),
       ),
+      withZoom: true,
+      withLocalStorage: true,
+      hidden: true,
+      // initialChild: Container(
+      //   child: const Center(
+      //     child: CircularProgressIndicator(),
+      //   ),
+      // ),
     );
   }
 }

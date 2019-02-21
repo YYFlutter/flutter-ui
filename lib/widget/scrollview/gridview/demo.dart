@@ -1,11 +1,12 @@
-```
 import 'package:flutter/material.dart';
+import 'dart:math';
 class Example extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    int _value = Random().nextInt(60);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Gridview'),
+        title: Text('Gridview ${_value} items'),
       ),
       body: GridView.count(
         crossAxisCount: 3,
@@ -19,7 +20,7 @@ class Example extends StatelessWidget {
         childAspectRatio: 2,
         physics: BouncingScrollPhysics(),
         primary: false,
-        children: List.generate(25, (index) {
+        children: List.generate(_value, (index) {
           return Container(
             decoration: BoxDecoration(
               border: Border.all(
@@ -36,5 +37,3 @@ class Example extends StatelessWidget {
     );
   }
 }
-
-```
