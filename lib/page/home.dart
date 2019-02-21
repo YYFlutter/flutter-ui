@@ -4,8 +4,7 @@ import 'package:efox_flutter/lang/app_translations.dart';
 //
 import 'package:efox_flutter/store/STORE.dart';
 
-//
-import 'tabbar/index.dart';
+import 'tabbar/index.dart' as TabIndex;
 
 class HomePage extends StatefulWidget {
   @override
@@ -19,12 +18,12 @@ class _HomePageState extends State<HomePage>
     super.initState();
   }
 
-  Widget menu() {
+  Widget menu(MainStateModel model) {
     return Container(
       decoration: BoxDecoration(
         border: Border(
           top: BorderSide(
-            color: Colors.deepOrange,
+            color: Color(model.theme.mainColor),
           ),
         ),
       ),
@@ -32,12 +31,12 @@ class _HomePageState extends State<HomePage>
         indicator: BoxDecoration(
           border: Border(
             top: BorderSide(
-              color: Colors.deepOrange,
+              color: Color(model.theme.mainColor),
             ),
           ),
         ),
-        labelColor: Colors.deepOrange,
-        unselectedLabelColor: Colors.orangeAccent,
+        labelColor: Color(model.theme.mainColor),
+        unselectedLabelColor: Color(model.theme.secondColor),
         indicatorSize: TabBarIndicatorSize.tab,
         indicatorColor: Colors.transparent,
         tabs: [
@@ -103,10 +102,10 @@ class _HomePageState extends State<HomePage>
                 ),
               ],
             ),
-            bottomNavigationBar: menu(),
+            bottomNavigationBar: menu(model),
             body: TabBarView(
               children: <Widget>[
-                ComponentsPage(),
+                TabIndex.ComponentsPage(),
                 Center(
                   child: new GridView.count(
                     // Create a grid with 2 columns. If you change the scrollDirection to
