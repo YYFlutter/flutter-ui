@@ -3,12 +3,14 @@ import 'package:efox_flutter/store/STORE.dart';
 import 'package:efox_flutter/components/markdownComp.dart';
 import 'package:efox_flutter/lang/app_translations.dart';
 import 'package:efox_flutter/components/baseComp.dart';
+import 'package:efox_flutter/components/exampleComp.dart';
 import 'package:efox_flutter/utils/file.dart' as FileUtils;
 import 'package:efox_flutter/router/index.dart' show FluroRouter;
 
 class WidgetComp extends StatelessWidget {
   final List<Widget> _bodyList = [];
   final dynamic modelChild;
+  final List<Widget> demoChild;
   final String codeUrl;
   final String mdUrl;
   final String name;
@@ -18,6 +20,7 @@ class WidgetComp extends StatelessWidget {
     Key key,
     this.name,
     @required this.modelChild,
+    this.demoChild,
     this.loading,
     this.codeUrl,
     this.mdUrl,
@@ -26,6 +29,7 @@ class WidgetComp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return STORE.connect(builder: (context, child, model) {
+      _bodyList.length = 0;
       List _list = this.modelChild(context, child, model);
       _list.forEach((item) {
         if (item.runtimeType == String) {
@@ -34,6 +38,13 @@ class WidgetComp extends StatelessWidget {
           _bodyList.add(item);
         }
       });
+      // 增加
+      if (this.demoChild != null){
+        this.demoChild.forEach((Widget item) {
+          _bodyList.add(ExampleComp(child: item));
+        });
+      }
+      
       return Scaffold(
         appBar: AppBar(
           title: Text(this.name),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/components/widgetLodingComp.dart';
+import 'demo.dart' as Example;
 import 'package:efox_flutter/utils/file.dart' as FileUtils;
 
 String _mdUrl = 'docs/widget/scrollview/gridview/index.md';
@@ -7,6 +8,7 @@ String _mdUrl = 'docs/widget/scrollview/gridview/index.md';
 class Demo extends StatefulWidget {
   static String name = 'GridView';
   static String routerName = 'gridview';
+  static String originUrl = 'https://flutter.io/docs/cookbook/lists/grid-lists';
   static String codeUrl = 'https://github.com/efoxTeam/flutter-ui/blob/master/readme.md';
   static String mdUrl = _mdUrl;
 
@@ -42,19 +44,11 @@ class _DemoState extends State<Demo> {
       modelChild: (context, child, model) {
         return [
           ___MD___,
-          Container(
-            color: Colors.teal.shade700,
-            alignment: Alignment.center,
-            child: Text(
-              'Hello WorldHello WorldHello  WorldHello WorldHello World',
-              style: Theme.of(context)
-                  .textTheme
-                  .display1
-                  .copyWith(color: Colors.white),
-            ),
-          ),
         ];
       },
+      demoChild: [
+        Example.Example(),
+      ]
     );
   }
 }
