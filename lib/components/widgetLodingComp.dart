@@ -39,12 +39,12 @@ class WidgetComp extends StatelessWidget {
         }
       });
       // 增加
-      if (this.demoChild != null){
+      if (this.demoChild != null) {
         this.demoChild.forEach((Widget item) {
           _bodyList.add(ExampleComp(child: item));
         });
       }
-      
+
       return Scaffold(
         appBar: AppBar(
           title: Text(this.name),
@@ -52,14 +52,6 @@ class WidgetComp extends StatelessWidget {
             IconButton(
               icon: Icon(
                 Icons.favorite_border,
-              ),
-              onPressed: () {
-                FluroRouter.router.navigateTo(context, '/webview?url=${Uri.encodeComponent(this.codeUrl)}');
-              },
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.code,
               ),
               onPressed: () async {
                 String mdStr = await FileUtils.readLocaleFile(this.mdUrl);
@@ -73,6 +65,37 @@ class WidgetComp extends StatelessWidget {
                     );
                   }
                 ));
+              },
+            ),
+            IconButton(
+              icon: Icon(
+                Icons.code,
+              ),
+              onPressed: () async {
+                FluroRouter.router.navigateTo(context,
+                    '/webview?url=${Uri.encodeComponent(this.codeUrl)}');
+              },
+            ),
+            PopupMenuButton(
+              onSelected: (index) {
+                print('index ${index.runtimeType}');
+                if (index == 0) {
+                  FluroRouter.router.navigateTo(context,
+                      '/webview?url=${Uri.encodeComponent('https://github.com/efoxTeam/flutter-ui')}');
+                }
+              },
+              itemBuilder: (context) {
+                return [
+                  PopupMenuItem(
+                    child: Row(children: [
+                      Icon(
+                        Icons.swap_horiz,
+                      ),
+                      Text('官网'),
+                    ]),
+                    value: 0,
+                  ),
+                ];
               },
             ),
           ],
@@ -126,10 +149,11 @@ class WidgetComp extends StatelessWidget {
       );
     }
     // 加载完成后返回页面
-    return ListView(
-      padding: EdgeInsets.fromLTRB(10.0, 20.0, 10.0, 20.0),
-      shrinkWrap: true,
-      children: this._bodyList,
+    return Scrollbar(
+      child: ListView(
+        padding: EdgeInsets.all(10.0),
+        children: this._bodyList,
+      ),
     );
   }
 }
