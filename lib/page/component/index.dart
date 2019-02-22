@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-// import 'package:efox_flutter/lang/app_translations.dart';
 import 'package:efox_flutter/router/index.dart';
 import 'package:efox_flutter/store/models/main_state_model.dart';
-import 'package:efox_flutter/store/STORE.dart' show STORE;
 import 'package:efox_flutter/widget/index.dart' as WidgetRoot;
 
-class ComponentsPage extends StatefulWidget {
-  _ComponentsPageState createState() => _ComponentsPageState();
+class Index extends StatefulWidget {
+  final MainStateModel model;
+
+  Index({Key key, this.model}) : super(key: key);
+
+  _IndexState createState() => _IndexState(model: this.model);
 }
 
-class _ComponentsPageState extends State<ComponentsPage>
-    with SingleTickerProviderStateMixin {
+class _IndexState extends State<Index> {
+  final MainStateModel model;
   List mapList = [];
-
+  _IndexState({Key key, this.model});
   @override
   initState() {
     super.initState();
@@ -27,11 +29,14 @@ class _ComponentsPageState extends State<ComponentsPage>
     return ExpansionTile(
       title: Text(
         item.typeName,
+        style: TextStyle(
+          color: Color(model.theme.textColor),
+        ),
       ),
       leading: Icon(
         IconData(item.code ?? 58353,
             fontFamily: 'MaterialIcons', matchTextDirection: true),
-        color: Color(model.theme.secondColor),
+        color: Color(model.theme.textColor),
       ),
       backgroundColor: Colors.white70,
       children: [
@@ -48,7 +53,6 @@ class _ComponentsPageState extends State<ComponentsPage>
                   border: Border(
                       bottom: BorderSide(
                     width: .1,
-                    color: Color(model.theme.mainColor),
                   )),
                 ),
                 child: Column(
@@ -57,17 +61,26 @@ class _ComponentsPageState extends State<ComponentsPage>
                     IconButton(
                       iconSize: 48,
                       icon: Icon(
-                        IconData(_tmpWidgetList[index].code ?? 59101,
-                            fontFamily: 'MaterialIcons',
-                            matchTextDirection: true),
-                        color: Color(model.theme.mainColor),
+                        IconData(
+                          _tmpWidgetList[index].code ?? 59101,
+                          fontFamily: 'MaterialIcons',
+                          matchTextDirection: true,
+                        ),
+                        color: Color(model.theme.secondColor),
                       ),
                       onPressed: () {
                         FluroRouter.router.navigateTo(
-                            context, _tmpWidgetList[index].routerName);
+                          context,
+                          _tmpWidgetList[index].routerName,
+                        );
                       },
                     ),
-                    Text(_tmpWidgetList[index].name),
+                    Text(
+                      _tmpWidgetList[index].name,
+                      style: TextStyle(
+                        color: Color(model.theme.secondColor),
+                      ),
+                    ),
                   ],
                 ),
               );
@@ -80,20 +93,16 @@ class _ComponentsPageState extends State<ComponentsPage>
   }
 
   Widget build(BuildContext context) {
-    return STORE.connect(
-      builder: (context, child, model) {
-        return SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
-          padding: EdgeInsets.all(10),
-          child: Column(
-            children: mapList.map(
-              (item) {
-                return renderExpanel(model, item);
-              },
-            ).toList(),
-          ),
-        );
-      },
+    return SingleChildScrollView(
+      physics: BouncingScrollPhysics(),
+      padding: EdgeInsets.all(10),
+      child: Column(
+        children: mapList.map(
+          (item) {
+            return renderExpanel(model, item);
+          },
+        ).toList(),
+      ),
     );
   }
 }

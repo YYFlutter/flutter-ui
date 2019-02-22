@@ -4,15 +4,15 @@ import 'package:efox_flutter/lang/app_translations.dart';
 //
 import 'package:efox_flutter/store/STORE.dart';
 
-import 'tabbar/index.dart' as TabIndex;
+import 'component/index.dart' as TabIndex;
+import 'mine/index.dart' as MyIndex;
 
-class HomePage extends StatefulWidget {
+class Index extends StatefulWidget {
   @override
-  _HomePageState createState() => new _HomePageState();
+  _IndexState createState() => new _IndexState();
 }
 
-class _HomePageState extends State<HomePage>
-    with SingleTickerProviderStateMixin {
+class _IndexState extends State<Index> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
@@ -30,33 +30,68 @@ class _HomePageState extends State<HomePage>
       child: TabBar(
         indicator: BoxDecoration(
           border: Border(
-            top: BorderSide(
+            bottom: BorderSide(
               color: Color(model.theme.mainColor),
             ),
           ),
         ),
         labelColor: Color(model.theme.mainColor),
-        unselectedLabelColor: Color(model.theme.secondColor),
+        unselectedLabelColor: Color(model.theme.thirdColor),
         indicatorSize: TabBarIndicatorSize.tab,
-        indicatorColor: Colors.transparent,
+        indicatorColor: Color(model.theme.secondColor),
+        labelStyle: TextStyle(
+            color: Colors.white, fontWeight: FontWeight.w500, fontSize: 16),
         tabs: [
           Tab(
-            text: "Components",
+            text: AppTranslations.of(context).t('title_component'),
             icon: Icon(
               Icons.dashboard,
               size: 28,
             ),
           ),
           Tab(
-            text: "My",
+            text: AppTranslations.of(context).t('title_my'),
             icon: Icon(
-              Icons.account_circle,
+              Icons.person_outline,
               size: 28,
             ),
           ),
         ],
       ),
     );
+  }
+
+  List<Widget> appBarActions(model) {
+    return [
+      PopupMenuButton(
+        icon: Icon(
+          Icons.more_vert,
+          color: Color(model.theme.textColor),
+        ),
+        onSelected: (local) {
+          Application().onLocaleChanged(Locale(local));
+          print('local=$local');
+        },
+        itemBuilder: (context) => [
+              PopupMenuItem(
+                child: Row(
+                  children: <Widget>[
+                    Text('中文'),
+                  ],
+                ),
+                value: 'zh',
+              ),
+              PopupMenuItem(
+                child: Row(
+                  children: <Widget>[
+                    Text('english'),
+                  ],
+                ),
+                value: 'en',
+              ),
+            ],
+      ),
+    ];
   }
 
   @override
@@ -71,57 +106,13 @@ class _HomePageState extends State<HomePage>
           child: Scaffold(
             appBar: AppBar(
               title: Text(lang.t('title')),
-              actions: <Widget>[
-                PopupMenuButton(
-                  icon: Icon(
-                    Icons.more_vert,
-                    color: Color(0xffffffff),
-                  ),
-                  onSelected: (local) {
-                    Application().onLocaleChanged(Locale(local));
-                    print('local=$local');
-                  },
-                  itemBuilder: (context) => [
-                        PopupMenuItem(
-                          child: Row(
-                            children: <Widget>[
-                              Text('中文'),
-                            ],
-                          ),
-                          value: 'zh',
-                        ),
-                        PopupMenuItem(
-                          child: Row(
-                            children: <Widget>[
-                              Text('english'),
-                            ],
-                          ),
-                          value: 'en',
-                        ),
-                      ],
-                ),
-              ],
+              actions: appBarActions(model),
             ),
             bottomNavigationBar: menu(model),
             body: TabBarView(
               children: <Widget>[
-                TabIndex.ComponentsPage(),
-                Center(
-                  child: new GridView.count(
-                    // Create a grid with 2 columns. If you change the scrollDirection to
-                    // horizontal, this would produce 2 rows.
-                    crossAxisCount: 3,
-                    // Generate 100 Widgets that display their index in the List
-                    children: new List.generate(10, (index) {
-                      return new Center(
-                        child: new Text(
-                          'Item $index',
-                          style: Theme.of(context).textTheme.headline,
-                        ),
-                      );
-                    }),
-                  ),
-                ),
+                TabIndex.Index(model: model),
+                MyIndex.Index(model: model),
               ],
             ),
           ),
