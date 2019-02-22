@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/store/STORE.dart';
 
-class BaseComp extends StatelessWidget {
+class Index extends StatelessWidget {
   final dynamic child;
   final String title;
 
-  BaseComp({Key key, this.title, this.child}):super(key: key);
+  Index({Key key, this.title, this.child}):super(key: key);
 
   @override
   Widget build (BuildContext context ) {
@@ -27,7 +27,7 @@ class BaseComp extends StatelessWidget {
 }
 
 //import 'package:flutter/material.dart';
-//import 'package:efox_flutter/page/baseComp.dart';
+//import 'package:efox_flutter/page/Index.dart';
 //
 //class TestDemo extends StatefulWidget {
 //  @override
@@ -37,7 +37,7 @@ class BaseComp extends StatelessWidget {
 //class _TestDemoState extends State<TestDemo> {
 //  @override
 //  Widget build(BuildContext context) {
-//    return BaseComp(
+//    return Index(
 //      title: 'TestDemo',
 //      child: (context, child, model) {
 //        return Center(
