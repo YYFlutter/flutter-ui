@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart' as md;
 
-class MarkDownComp extends StatelessWidget {
+class Index extends StatelessWidget {
   final String data;
-  MarkDownComp(this.data);
+  Index(this.data);
 
   @override
   Widget build(BuildContext build ) {

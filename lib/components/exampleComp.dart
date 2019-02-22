@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:efox_flutter/store/models/main_state_model.dart' show MainStateModel;
 import 'package:efox_flutter/store/STORE.dart' show STORE;
 
-class ExampleComp extends StatelessWidget {
+class Index extends StatelessWidget {
   final Widget child;
 
-  ExampleComp({Key key, this.child}):super(key: key);
+  Index({Key key, this.child}):super(key: key);
 
   @override
   Widget build(BuildContext context) {
