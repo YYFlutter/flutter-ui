@@ -5,16 +5,16 @@ const nameSpaces = '/scrollview_';
 
 List widgets = [
   ItemInfo(
-    routerName: nameSpaces + GridView.Demo.routerName,
-    widget: GridView.Demo(),
+    routerName: nameSpaces + GridView.Index.routerName,
+    widget: GridView.Index(),
     code: 59673,
-    name: GridView.Demo.name,
+    name: GridView.Index.name,
   ),
   ItemInfo(
-    routerName: nameSpaces + GridView.Demo.routerName,
-    widget: GridView.Demo(),
+    routerName: nameSpaces + GridView.Index.routerName,
+    widget: GridView.Index(),
     code: 59473,
-    name: GridView.Demo.name,
+    name: GridView.Index.name,
   )
 ];
 

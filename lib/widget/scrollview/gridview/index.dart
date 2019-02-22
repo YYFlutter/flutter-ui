@@ -5,7 +5,7 @@ import 'package:efox_flutter/utils/file.dart' as FileUtils;
 
 String _mdUrl = 'docs/widget/scrollview/gridview/index.md';
 
-class Demo extends StatefulWidget {
+class Index extends StatefulWidget {
   static String name = 'GridView';
   static String routerName = 'gridview';
   static String originUrl = 'https://flutter.io/docs/cookbook/lists/grid-lists';
@@ -13,10 +13,10 @@ class Demo extends StatefulWidget {
   static String mdUrl = _mdUrl;
 
   @override
-  _DemoState createState() => new _DemoState();
+  _IndexState createState() => new _IndexState();
 }
 
-class _DemoState extends State<Demo> {
+class _IndexState extends State<Index> {
   bool loading = true;
   String ___MD___ = _mdUrl;
 
@@ -37,9 +37,9 @@ class _DemoState extends State<Demo> {
   @override
   Widget build(BuildContext context) {
     return WidgetComp.Index(
-      name: Demo.name,
-      codeUrl: Demo.codeUrl,
-      mdUrl: Demo.mdUrl,
+      name: Index.name,
+      codeUrl: Index.codeUrl,
+      mdUrl: Index.mdUrl,
       loading: loading,
       modelChild: (context, child, model) {
         return [
@@ -47,7 +47,7 @@ class _DemoState extends State<Demo> {
         ];
       },
       demoChild: [
-        Example.Example(),
+        Example.Index(),
       ]
     );
   }

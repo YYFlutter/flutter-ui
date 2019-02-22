@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
-class Example extends StatelessWidget {
+class Index extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     int _value = Random().nextInt(60);
