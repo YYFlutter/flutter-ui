@@ -35,18 +35,3 @@ class ItemListInfo {
     widgetList = _list;
   }
 }
-
-class WidgetListInfo extends Object {
-  String name;
-  List list;
-
-  WidgetListInfo.fromJson(Map<dynamic, dynamic> json) {
-    name = json['name'];
-
-    List _list = [];
-    json['list'].forEach((item) {
-      _list.add(new ItemListInfo.fromJson(item));
-    });
-    list = _list;
-  }
-}
