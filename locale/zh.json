@@ -1,5 +1,7 @@
 {
     "title": "efox flutter教学应用",
+    "title_component": "组件",
+    "title_my": "我的",
     "widgetType": {
         "regularLayout": "常规布局"
     },

@@ -1,5 +1,7 @@
 {
     "title": "efox flutter tech app",
+    "title_component": "Components",
+    "title_my": "My",
     "widgetType": {
         "regularLayout": "common layout"
     },

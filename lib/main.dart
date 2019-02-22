@@ -60,11 +60,6 @@ class MainAppState extends State<MainApp> {
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.indigo,
-          textTheme: TextTheme(
-            display1: TextStyle(
-              color: Colors.red,
-            ),
-          )
         ),
         onGenerateRoute: FluroRouter.router.generator,
       ),
