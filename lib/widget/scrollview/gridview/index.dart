@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:efox_flutter/components/widgetLodingComp.dart';
+import 'package:efox_flutter/components/widgetComp.dart' as WidgetComp;
 import 'demo.dart' as Example;
 import 'package:efox_flutter/utils/file.dart' as FileUtils;
 
@@ -36,7 +36,7 @@ class _DemoState extends State<Demo> {
 
   @override
   Widget build(BuildContext context) {
-    return WidgetComp(
+    return WidgetComp.Index(
       name: Demo.name,
       codeUrl: Demo.codeUrl,
       mdUrl: Demo.mdUrl,
