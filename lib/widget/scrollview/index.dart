@@ -9,12 +9,6 @@ List widgets = [
     widget: GridView.Index(),
     code: 59673,
     name: GridView.Index.name,
-  ),
-  ItemInfo(
-    routerName: nameSpaces + GridView.Index.routerName,
-    widget: GridView.Index(),
-    code: 59473,
-    name: GridView.Index.name,
   )
 ];
 

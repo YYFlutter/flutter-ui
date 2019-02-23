@@ -1,4 +1,4 @@
-class UserInfo extends Object {
+class UserInfo extends Object{
   String fbid;
   String uid;
   String name;
@@ -8,6 +8,7 @@ class UserInfo extends Object {
   int expireTime;
   bool loading;
   int age;
+
   //
   UserInfo(
       {this.fbid,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/store/STORE.dart';
 import 'package:efox_flutter/components/markdownComp.dart' as MarkDownComp;
-import 'package:efox_flutter/lang/app_translations.dart';
+import 'package:efox_flutter/lang/app_translations.dart' show AppTranslations;
 import 'package:efox_flutter/components/baseComp.dart' as BaseComp;
 import 'package:efox_flutter/components/exampleComp.dart' as ExampleComp;
 import 'package:efox_flutter/utils/file.dart' as FileUtils;
@@ -11,6 +11,7 @@ class Index extends StatelessWidget {
   final List<Widget> _bodyList = [];
   final dynamic modelChild;
   final List<Widget> demoChild;
+  final String originCodeUrl;
   final String codeUrl;
   final String mdUrl;
   final String name;
@@ -22,87 +23,139 @@ class Index extends StatelessWidget {
     @required this.modelChild,
     this.demoChild,
     this.loading,
+    this.originCodeUrl,
     this.codeUrl,
     this.mdUrl,
   }) : super(key: key);
 
+  openPage(context, model, String url) async {
+    // 加载页面
+    if (model.configInfo.isPro) {
+      FluroRouter.router.navigateTo(context,
+          '/webview?url=${Uri.encodeComponent(model.configInfo.assetOrigin + url)}');
+    } else {
+      // 加载本地
+      String mdStr = await FileUtils.readLocaleFile(this.mdUrl);
+      Navigator.of(context).push(
+        MaterialPageRoute(builder: (BuildContext context) {
+          return BaseComp.Index(
+            title: this.name,
+            child: (context, child, model) {
+              return MarkDownComp.Index(mdStr);
+            },
+          );
+        }),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return STORE.connect(builder: (context, child, model) {
-      _bodyList.length = 0;
-      List _list = this.modelChild(context, child, model);
-      _list.forEach((item) {
-        if (item.runtimeType == String) {
-          _bodyList.add(MarkDownComp.Index(item));
-        } else {
-          _bodyList.add(item);
-        }
-      });
-      // 增加
-      if (this.demoChild != null) {
-        this.demoChild.forEach((Widget item) {
-          _bodyList.add(ExampleComp.Index(child: item));
-        });
-      }
 
+      this.beforeRender(context, child, model);
       return Scaffold(
         appBar: AppBar(
           title: Text(this.name),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(
-                Icons.favorite_border,
-              ),
-              onPressed: () async {
-                String mdStr = await FileUtils.readLocaleFile(this.mdUrl);
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) {
-                    return BaseComp.Index(
-                      title: this.name,
-                      child: (context, child, model) {
-                        return MarkDownComp.Index(mdStr);
-                      }
-                    );
-                  }
-                ));
-              },
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.code,
-              ),
-              onPressed: () async {
-                FluroRouter.router.navigateTo(context,
-                    '/webview?url=${Uri.encodeComponent(this.codeUrl)}');
-              },
-            ),
-            PopupMenuButton(
-              onSelected: (index) {
-                print('index ${index.runtimeType}');
-                if (index == 0) {
-                  FluroRouter.router.navigateTo(context,
-                      '/webview?url=${Uri.encodeComponent('https://github.com/efoxTeam/flutter-ui')}');
-                }
-              },
-              itemBuilder: (context) {
-                return [
-                  PopupMenuItem(
-                    child: Row(children: [
-                      Icon(
-                        Icons.swap_horiz,
-                      ),
-                      Text('官网'),
-                    ]),
-                    value: 0,
-                  ),
-                ];
-              },
-            ),
-          ],
+          actions: this.getActions(context, model),
         ),
         body: this.renderWidget(context),
       );
     });
+  }
+
+  beforeRender(context, child, model) {
+    _bodyList.length = 0;
+    List _list = modelChild(context, child, model);
+
+    _list.forEach((item) {
+      if (item.runtimeType == String) {
+        _bodyList.add(MarkDownComp.Index(item));
+      } else {
+        _bodyList.add(item);
+      }
+    });
+    // 增加
+    if (this.demoChild != null) {
+      this.demoChild.forEach((Widget item) {
+        _bodyList.add(ExampleComp.Index(child: item));
+      });
+    }
+  }
+
+  getActions(context, model) {
+    return [
+      IconButton(
+        icon: Icon(
+          Icons.favorite_border,
+        ),
+        onPressed: () async {
+          // TODO favirote
+          this.openPage(context, model, this.mdUrl);
+        },
+      ),
+      IconButton(
+        icon: Icon(
+          Icons.code,
+        ),
+        onPressed: () async {
+          this.openPage(context, model, this.codeUrl);
+        },
+      ),
+      PopupMenuButton(
+        offset: Offset(0, 80),
+        onSelected: (index) {
+          switch (index) {
+            case 0:
+              FluroRouter.router.navigateTo(
+                context,
+                '/webview?url=${Uri.encodeComponent('https://github.com/efoxTeam/flutter-ui')}',
+              );
+              break;
+            case 1:
+              this.openPage(context, model, this.mdUrl);
+              break;
+            case 2:
+              FluroRouter.router.navigateTo(
+                context,
+                '/webview?url=${Uri.encodeComponent(this.originCodeUrl)}',
+              );
+              break;
+          }
+        },
+        itemBuilder: (context) {
+          return [
+            PopupMenuItem(
+              child: Row(children: [
+                Icon(
+                  Icons.home,
+                ),
+                Text('官网'),
+              ]),
+              value: 0,
+            ),
+            PopupMenuItem(
+              child: Row(children: [
+                Icon(
+                  Icons.all_inclusive,
+                ),
+                Text("Markdown"),
+              ]),
+              value: 1,
+            ),
+            PopupMenuItem(
+              child: Row(children: [
+                Icon(
+                  Icons.code,
+                ),
+                Text(this.name),
+              ]),
+              value: 2,
+            ),
+          ];
+        },
+      ),
+    ];
   }
 
   Widget renderWidget(BuildContext context) {

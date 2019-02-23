@@ -6,7 +6,7 @@ class Index extends StatelessWidget {
     int _value = Random().nextInt(60);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Gridview ${_value} items'),
+        title: Text('GridView.count ${_value} items'),
       ),
       body: GridView.count(
         crossAxisCount: 3,
