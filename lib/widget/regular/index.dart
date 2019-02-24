@@ -1,14 +1,14 @@
 import 'package:efox_flutter/store/objects/widget_info.dart';
-import 'gridview/index.dart' as GridView;
+import 'row/index.dart' as Row;
 
 const nameSpaces = '/Regular_';
 
 List widgets = [
   ItemInfo(
-    routerName: nameSpaces + GridView.Index.routerName,
-    widget: GridView.Index(),
-    code: 59673,
-    name: GridView.Index.name,
+    routerName: nameSpaces + Row.Index.routerName,
+    widget: Row.Index(),
+    code: 59692,
+    name: Row.Index.name,
   )
 ];
 
@@ -16,6 +16,6 @@ List widgetMap = [
   ItemListInfo(
     widgetList: widgets,
     typeName: 'Regular',
-    code: 58353,
+    code: 59692,
   )
 ];

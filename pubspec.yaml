@@ -56,6 +56,7 @@ flutter:
   assets:
       - locale/
       - docs/widget/scrollview/gridview/
+      - docs/widget/regular/row/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
 

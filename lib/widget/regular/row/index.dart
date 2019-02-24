@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/components/widgetComp.dart' as WidgetComp;
-import 'demo.dart' as Example;
+import 'demo.dart' as Demo;
+import 'demo_extend.dart' as DemoExtend;
 import 'package:efox_flutter/utils/file.dart' as FileUtils;
 
-String _mdUrl = 'docs/widget/scrollview/gridview/index.md';
+String _mdUrl = 'docs/widget/regular/row/index.md';
 
 class Index extends StatefulWidget {
-  static String name = 'GridView';
-  static String routerName = 'gridview';
-  static String originUrl = 'https://flutter.io/docs/cookbook/lists/grid-lists';
-  static String codeUrl = 'https://github.com/efoxTeam/flutter-ui/blob/master/docs/widget/scrollview/gridview/code.md';
+  static String name = 'Row';
+  static String routerName = 'row';
+  static String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/Row-class.html';
+  static String codeUrl = 'docs/widget/regular/row/code.md';
   static String mdUrl = _mdUrl;
 
   @override
@@ -39,6 +40,7 @@ class _IndexState extends State<Index> {
     return WidgetComp.Index(
       name: Index.name,
       codeUrl: Index.codeUrl,
+      originCodeUrl: Index.originCodeUrl,
       mdUrl: Index.mdUrl,
       loading: loading,
       modelChild: (context, child, model) {
@@ -47,7 +49,8 @@ class _IndexState extends State<Index> {
         ];
       },
       demoChild: [
-        Example.Index(),
+        Demo.Index(),
+        DemoExtend.Index()
       ]
     );
   }
