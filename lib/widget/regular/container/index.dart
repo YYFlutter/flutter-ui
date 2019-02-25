@@ -2,18 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:efox_flutter/components/widgetComp.dart' as WidgetComp;
 import 'package:efox_flutter/utils/file.dart' as FileUitls;
 import 'demo.dart' as Demo;
-import 'demo_expanded.dart' as DemoExpanded;
 
-String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/Column-class.html';
-String codeUrl = 'docs/widget/regular/column/code.md';
-String mdUrl = 'docs/widget/regular/column/index.md';
+String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/Container-class.html';
+String codeUrl = 'docs/widget/regular/container/code.md';
+String mdUrl = 'docs/widget/regular/container/index.md';
 
 class Index extends StatefulWidget {
-  static String name = 'Column';
-  static String routerName = 'column';
+  static String name = 'Container';
+  static String routerName = 'container';
 
   @override
-  _IndexState createState() => new _IndexState();
+  _IndexState createState() => _IndexState();
 }
 
 class _IndexState extends State<Index> {
@@ -21,10 +20,11 @@ class _IndexState extends State<Index> {
   String ___MD___ = mdUrl;
 
   @override
-  void initState() {
-    super.initState();
-    this.initMd();
-  }
+    void initState() {
+      // TODO: implement initState
+      super.initState();
+      this.initMd();
+    }
 
   initMd() async {
     String mdStr = await FileUitls.readLocaleFile(___MD___);
@@ -33,6 +33,7 @@ class _IndexState extends State<Index> {
       loading = false;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return WidgetComp.Index(
@@ -46,8 +47,7 @@ class _IndexState extends State<Index> {
         ];
       },
       demoChild: <Widget>[
-        Demo.Index(),
-        DemoExpanded.Index()
+        Demo.Index()
       ],
     );
   }
