@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:efox_flutter/config/index.dart' as Config;
 import 'package:efox_flutter/store/STORE.dart' show STORE;
 import 'package:efox_flutter/components/markdownComp.dart' as MarkDownComp;
 import 'package:efox_flutter/lang/app_translations.dart' show AppTranslations;
 import 'package:efox_flutter/components/baseComp.dart' as BaseComp;
 import 'package:efox_flutter/components/exampleComp.dart' as ExampleComp;
 import 'package:efox_flutter/utils/file.dart' as FileUtils;
-import 'package:efox_flutter/utils/loadAsset.dart' as LoadAssetsUtils;
 import 'package:efox_flutter/router/index.dart' show FluroRouter;
 
 class Index extends StatefulWidget {
@@ -70,33 +68,29 @@ class IndexState extends State<Index> {
       this.loading = true;
     }
   }
-  
-  void init () async {
+
+  void init() async {
     this._bodyList.length = 0;
-    for(var i in mdList) {
-      print('i  $i');
-      Future res = Future.sync(() {
-        this.getMdFile(i);
-      });
-      res.then((a) {
-        print('======== $a');
-      });
-      // this._bodyList.insert(0, MarkDownComp.Index(await this.getMdFile(i)));
-      print('=======');
-    }
-    // await mdList.reversed.forEach((item) async {
-    //   this._bodyList.insert(0, MarkDownComp.Index(await this.getMdFile(item)));
-    // });
+    // for (var i in this.mdList) {
+    //   this
+    //       ._bodyList
+    //       .insert(0, await MarkDownComp.Index(await this.getMdFile(i)));
+    // }
+    await this.mdList.reversed.forEach((item) async {
+      this._bodyList.insert(0, await MarkDownComp.Index(await this.getMdFile(item)));
+    });
 
     // 增加
     if (this.demoChild != null) {
       this.demoChild.forEach((Widget item) {
-      print('======= ${_bodyList}');
         this._bodyList.add(ExampleComp.Index(child: item));
       });
     }
+    print('end $_bodyList');
+    setState(() {
+      this.loading = false;
+    });
   }
-
 
   openPage(context, model, String url) async {
     // 加载页面
@@ -119,7 +113,6 @@ class IndexState extends State<Index> {
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
     return STORE.connect(builder: (context, child, model) {
@@ -129,19 +122,14 @@ class IndexState extends State<Index> {
           title: Text(this.name),
           actions: this.getActions(context, model),
         ),
-        body: this.loading ? this.renderLoading(): this.renderWidget(),
+        body: this.loading ? this.renderLoading() : this.renderWidget(),
       );
     });
   }
 
-  dynamic getMdFile(url) async {
-    if (Config.isPro) {
-      String mdr = await LoadAssetsUtils.loadMarkdownAssets(Config.env['GitHubAssetOrigin'] + url, Config.isPro);
-      return mdr;
-    } else {
-      String mdStr = await FileUtils.readLocaleFile(url);
-      return mdStr;
-    }
+  Future getMdFile(url) async {
+    String mdStr = await FileUtils.readLocaleFile(url);
+    return mdStr;
   }
 
   getActions(context, model) {
@@ -219,7 +207,7 @@ class IndexState extends State<Index> {
     ];
   }
 
-  Widget renderLoading () {
+  Widget renderLoading() {
     return Center(
       child: Stack(
         children: <Widget>[
@@ -250,8 +238,9 @@ class IndexState extends State<Index> {
                     padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
                     child: Text(
                       AppTranslations.of(context).t('loading'),
-                      style:
-                          TextStyle(color: Color(this.model.theme.secondColor), fontSize: 16.0),
+                      style: TextStyle(
+                          color: Color(this.model.theme.secondColor),
+                          fontSize: 16.0),
                     ),
                   )
                 ],
@@ -262,6 +251,7 @@ class IndexState extends State<Index> {
       ),
     );
   }
+
   Widget renderWidget() {
     // 加载完成后返回页面
     return Scrollbar(

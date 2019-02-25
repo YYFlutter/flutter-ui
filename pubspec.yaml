@@ -26,7 +26,7 @@ dependencies:
   pull_to_refresh: ^1.1.6 #加载更多
   shared_preferences: ^0.4.2 #简单数据存储
   scoped_model: ^1.0.1
-  dio: ^1.0.12
+  dio: ^2.0.14
   cached_network_image: ^0.5.1
   intl: ^0.15.7
   flutter_markdown: ^0.2.0

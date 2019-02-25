@@ -4,7 +4,6 @@ import 'demo_count.dart' as DemoCount;
 import 'demo_extent.dart' as DemoExtent;
 import 'demo_custom.dart' as DemoCustom;
 import 'demo_builder.dart' as DemoBuilder;
-import 'package:efox_flutter/utils/file.dart' as FileUtils;
 
 String mdUrl = 'docs/widget/scrollview/gridview/index.md';
 String codeUrl = 'docs/widget/scrollview/gridview/code.md';
