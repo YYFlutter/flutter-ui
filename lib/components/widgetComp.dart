@@ -35,7 +35,7 @@ class Index extends StatelessWidget {
           '/webview?url=${Uri.encodeComponent(model.configInfo.assetOrigin + url)}');
     } else {
       // 加载本地
-      String mdStr = await FileUtils.readLocaleFile(this.mdUrl);
+      String mdStr = await FileUtils.readLocaleFile(url);
       Navigator.of(context).push(
         MaterialPageRoute(builder: (BuildContext context) {
           return BaseComp.Index(
