@@ -14,12 +14,16 @@ class _IndexState extends State<Index> {
     MainAxisAlignment.spaceBetween,
     MainAxisAlignment.spaceEvenly
   ];
+  List mainValue1 = ['start', 'center', 'end'];
+  List mainValue2 = ['Around', 'Between', 'Evenly'];
   int mainAxisAlignmentIndex = 0;
+
   List crossAxisAlignment = [
     CrossAxisAlignment.start,
     CrossAxisAlignment.center,
     CrossAxisAlignment.end
   ];
+  List crossValue1 = ['start', 'center', 'end'];
   int crossAxisAlignmentIndex = 0;
 
   @override
@@ -35,91 +39,43 @@ class _IndexState extends State<Index> {
             child: Text('修改mainAxisAligment的值'),
           ),
           Row(
-            children: <Widget>[
-             FlatButton(
-                child: Text('start'),
+            children: List.generate(3, (index) {
+              return FlatButton(
+                child: Text('${mainValue1[index]}'),
                 onPressed: (){
                   setState(() {
-                    mainAxisAlignmentIndex = 0;
+                    mainAxisAlignmentIndex = index;
                   });
                 },
-              ),
-             FlatButton(
-                child: Text('center'),
-                onPressed: (){
-                  setState(() {
-                    mainAxisAlignmentIndex = 1;
-                  });
-                },
-              ),
-              FlatButton(
-                child: Text('end'),
-                onPressed: (){
-                  setState(() {
-                    mainAxisAlignmentIndex = 2;
-                  });
-                },
-              )
-            ],
+              );
+            })
           ),
           Row(
-            children: <Widget>[
-              FlatButton(
-                child: Text('Around'),
+            children: List.generate(3, (index) {
+              return FlatButton(
+                child: Text('${mainValue2[index]}'),
                 onPressed: (){
                   setState(() {
-                    mainAxisAlignmentIndex = 3;
+                    mainAxisAlignmentIndex = index + 3;
                   });
                 },
-              ),
-              FlatButton(
-                child: Text('Between'),
-                onPressed: (){
-                  setState(() {
-                    mainAxisAlignmentIndex = 4;
-                  });
-                },
-              ),
-              FlatButton(
-                child: Text('Evenly'),
-                onPressed: (){
-                  setState(() {
-                    mainAxisAlignmentIndex = 5;
-                  });
-                },
-              ),
-            ],
+              );
+            })
           ),
           SizedBox(
             child: Text('修改crossAxisAlignment的值')
           ),
           Row(
-            children: <Widget>[
-              FlatButton(
-                child: Text('start'),
+            children: List.generate(3, (index) {
+              return FlatButton(
+                child: Text('${crossValue1[index]}'),
                 onPressed: (){
                   setState(() {
-                    crossAxisAlignmentIndex = 0;
+                    crossAxisAlignmentIndex = index;
                   });
                 },
-              ),
-              FlatButton(
-                child: Text('center'),
-                onPressed: (){
-                  setState(() {
-                    crossAxisAlignmentIndex = 1;
-                  });
-                },
-              ),
-              FlatButton(
-                child: Text('end'),
-                onPressed: (){
-                  setState(() {
-                    crossAxisAlignmentIndex = 2;
-                  });
-                },
-              ),
-            ],
+              );
+            })
           ),
           Row(
             mainAxisAlignment: mainAxisAlignment[mainAxisAlignmentIndex],
