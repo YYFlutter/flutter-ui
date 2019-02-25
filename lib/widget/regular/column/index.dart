@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:efox_flutter/components/widgetComp.dart' as WidgetComp;
 import 'package:efox_flutter/utils/file.dart' as FileUitls;
 import 'demo.dart' as Demo;
+import 'demo_expanded.dart' as DemoExpanded;
 
-String originCodeUrl = '';
-String codeUrl = '';
+String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/Column-class.html';
+String codeUrl = 'docs/widget/regular/column/code.md';
 String mdUrl = 'docs/widget/regular/column/index.md';
 
 class Index extends StatefulWidget {
@@ -45,7 +46,8 @@ class _IndexState extends State<Index> {
         ];
       },
       demoChild: <Widget>[
-        Demo.Index()
+        Demo.Index(),
+        DemoExpanded.Index()
       ],
     );
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/components/widgetComp.dart' as WidgetComp;
 import 'demo.dart' as Demo;
-import 'demo_extend.dart' as DemoExtend;
+import 'demo_expanded.dart' as DemoExpanded;
 import 'package:efox_flutter/utils/file.dart' as FileUtils;
 
 String _mdUrl = 'docs/widget/regular/row/index.md';
@@ -50,7 +50,7 @@ class _IndexState extends State<Index> {
       },
       demoChild: [
         Demo.Index(),
-        DemoExtend.Index()
+        DemoExpanded.Index()
       ]
     );
   }

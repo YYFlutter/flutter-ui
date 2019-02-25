@@ -9,7 +9,7 @@ class _IndexState extends State<Index> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Row Extend'),),
+      appBar: AppBar(title: Text('Row Expanded'),),
       body: Row(
         children: <Widget>[
           Expanded(
