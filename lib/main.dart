@@ -59,7 +59,26 @@ class MainAppState extends State<MainApp> {
         ],
         title: 'Flutter Demo',
         theme: ThemeData(
-          primarySwatch: Colors.indigo,
+          // primarySwatch: Colors.blue,
+          textTheme: TextTheme(
+            body1: TextStyle(
+              // color: Colors.black,
+              // fontWeight: FontWeight.bold,
+            ),
+          ),
+          platform: TargetPlatform.iOS,
+          iconTheme: IconThemeData(
+            size: 32,
+            color: Colors.grey.shade900,
+            opacity: 0.85,
+          ),
+          primaryIconTheme: IconThemeData(
+            color: Colors.black,
+          ),
+          accentColor: Colors.grey,
+          accentColorBrightness: Brightness.light,
+          primaryColor: Colors.grey.shade50, // appbar背景
+          scaffoldBackgroundColor: Colors.grey.shade50, // 整体的scaffold背景颜色
         ),
         onGenerateRoute: FluroRouter.router.generator,
       ),

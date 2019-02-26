@@ -7,7 +7,6 @@ import 'demo_builder.dart' as DemoBuilder;
 
 class Index extends StatefulWidget {
   static String name = 'GridView';
-  static String routerName = 'gridview';
   static String mdUrl = 'docs/widget/scrollview/gridview/index.md';
   static String codeUrl = 'docs/widget/scrollview/gridview/code.md';
   static String originCodeUrl = 'https://flutter.io/docs/cookbook/lists/grid-lists';

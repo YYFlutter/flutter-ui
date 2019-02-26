@@ -5,7 +5,6 @@ const nameSpaces = '/scrollview_';
 
 List widgets = [
   ItemInfo(
-    routerName: nameSpaces + GridView.Index.routerName,
     widget: GridView.Index(),
     code: 59673,
     name: GridView.Index.name,
@@ -14,6 +13,7 @@ List widgets = [
 
 List widgetMap = [
   ItemListInfo(
+    nameSpaces: nameSpaces,
     widgetList: widgets,
     typeName: 'ScrollView',
     code: 58353,

@@ -5,7 +5,6 @@ import 'demo_expanded.dart' as DemoExpanded;
 
 class Index extends StatefulWidget {
   static String name = 'Column';
-  static String routerName = 'column';
   static String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/Column-class.html';
   static String codeUrl = 'docs/widget/regular/column/code.md';
   static String mdUrl = 'docs/widget/regular/column/index.md';

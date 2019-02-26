@@ -5,7 +5,6 @@ import 'demo_expanded.dart' as DemoExpanded;
 
 class Index extends StatefulWidget {
   static String name = 'Row';
-  static String routerName = 'row';
   static String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/Row-class.html';
   static String codeUrl = 'docs/widget/regular/row/code.md';
   static String mdUrl = 'docs/widget/regular/row/index.md';

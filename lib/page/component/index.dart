@@ -24,21 +24,26 @@ class _IndexState extends State<Index> {
   /**
    * 渲染折叠板
    */
-  Widget renderExpanel(MainStateModel model, item) {
-    List _tmpWidgetList = item.widgetList;
+  Widget renderExpanel(MainStateModel model, widgetsItem) {
+    String nameSpaces = widgetsItem.nameSpaces;
+    List _tmpWidgetList = widgetsItem.widgetList;
     return ExpansionTile(
       title: Text(
-        item.typeName,
+        widgetsItem.typeName,
         style: TextStyle(
-          color: Color(model.theme.textColor),
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
         ),
       ),
       leading: Icon(
-        IconData(item.code ?? 58353,
-            fontFamily: 'MaterialIcons', matchTextDirection: true),
-        color: Color(model.theme.textColor),
+        IconData(
+          widgetsItem.code ?? 58353,
+          fontFamily: 'MaterialIcons',
+          matchTextDirection: true,
+        ),
+        color: Color(model.theme.mainColor),
       ),
-      backgroundColor: Colors.white70,
+      backgroundColor: Colors.white,
       children: [
         GridView.count(
           shrinkWrap: true,
@@ -66,20 +71,16 @@ class _IndexState extends State<Index> {
                           fontFamily: 'MaterialIcons',
                           matchTextDirection: true,
                         ),
-                        color: Color(model.theme.secondColor),
                       ),
                       onPressed: () {
                         FluroRouter.router.navigateTo(
                           context,
-                          _tmpWidgetList[index].routerName,
+                          nameSpaces + _tmpWidgetList[index].name,
                         );
                       },
                     ),
                     Text(
                       _tmpWidgetList[index].name,
-                      style: TextStyle(
-                        color: Color(model.theme.secondColor),
-                      ),
                     ),
                   ],
                 ),
@@ -98,8 +99,8 @@ class _IndexState extends State<Index> {
       padding: EdgeInsets.all(10),
       child: Column(
         children: mapList.map(
-          (item) {
-            return renderExpanel(model, item);
+          (widgetsItem) {
+            return renderExpanel(model, widgetsItem);
           },
         ).toList(),
       ),

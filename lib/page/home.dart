@@ -23,6 +23,7 @@ class _IndexState extends State<Index> with SingleTickerProviderStateMixin {
       decoration: BoxDecoration(
         border: Border(
           top: BorderSide(
+            width: .1,
             color: Color(model.theme.mainColor),
           ),
         ),
@@ -31,6 +32,7 @@ class _IndexState extends State<Index> with SingleTickerProviderStateMixin {
         indicator: BoxDecoration(
           border: Border(
             bottom: BorderSide(
+              width: .2,
               color: Color(model.theme.mainColor),
             ),
           ),
@@ -40,7 +42,10 @@ class _IndexState extends State<Index> with SingleTickerProviderStateMixin {
         indicatorSize: TabBarIndicatorSize.tab,
         indicatorColor: Color(model.theme.secondColor),
         labelStyle: TextStyle(
-            color: Colors.white, fontWeight: FontWeight.w500, fontSize: 16),
+          color: Colors.green,
+          fontWeight: FontWeight.w700,
+          fontSize: 16,
+        ),
         tabs: [
           Tab(
             text: AppTranslations.of(context).t('title_component'),
@@ -66,7 +71,7 @@ class _IndexState extends State<Index> with SingleTickerProviderStateMixin {
       PopupMenuButton(
         icon: Icon(
           Icons.more_vert,
-          color: Color(model.theme.textColor),
+          // color: Color(model.theme.textColor),
         ),
         onSelected: (local) {
           Application().onLocaleChanged(Locale(local));

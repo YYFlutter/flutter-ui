@@ -71,7 +71,6 @@ class IndexState extends State<Index> {
       });
     }
     
-    print('end $_bodyList');
     setState(() {
       this.loading = false;
     });

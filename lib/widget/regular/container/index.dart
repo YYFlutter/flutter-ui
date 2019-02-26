@@ -5,7 +5,6 @@ import 'demo.dart' as Demo;
 
 class Index extends StatefulWidget {
   static String name = 'Container';
-  static String routerName = 'container';
   static String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/Container-class.html';
   static String codeUrl = 'docs/widget/regular/container/code.md';
   static String mdUrl = 'docs/widget/regular/container/index.md';
