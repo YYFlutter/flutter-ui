@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:efox_flutter/components/widgetComp.dart' as WidgetComp;
 import 'demo.dart' as Demo;
 
-String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/Padding-class.html';
-String codeUrl = 'docs/widget/regular/padding/code.md';
-String mdUrl = 'docs/widget/regular/padding/index.md';
 
 class Index extends StatefulWidget {
   static String name = 'Padding';
   static String routerName = 'padding';
-
+  static String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/Padding-class.html';
+  static String codeUrl = 'docs/widget/regular/padding/code.md';
+  static String mdUrl = 'docs/widget/regular/padding/index.md';
   @override
   _IndexState createState() => _IndexState();
 }
@@ -19,9 +18,9 @@ class _IndexState extends State<Index> {
   Widget build(BuildContext context) {
     return WidgetComp.Index(
       name: Index.name,
-      codeUrl: codeUrl,
-      originCodeUrl: originCodeUrl,
-      mdUrl: mdUrl,
+      codeUrl: Index.codeUrl,
+      originCodeUrl: Index.originCodeUrl,
+      mdUrl: Index.mdUrl,
       demoChild: <Widget>[
         Demo.Index()
       ],
