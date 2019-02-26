@@ -4,7 +4,7 @@
 一个常用的widget，它结合了常见的绘画，定位和大小调整
 
 ### 构造方法
-```
+``` dart
 Container({
   Key key,
   this.alignment,

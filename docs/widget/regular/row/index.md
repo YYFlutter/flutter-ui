@@ -4,7 +4,7 @@
 Row是一个将其child显示在水平方向的widget
 
 ### 构造方法
-```
+``` dart
 Row({
   Key key,
   MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,

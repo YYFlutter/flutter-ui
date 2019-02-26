@@ -6,7 +6,7 @@ Column是一个将其child显示在竖直方向的widget
 * Column将其child填充在可用的竖直空间，默认竖直空间无法滚动，如有很多children，竖直方向空间饱和无法放置，请考虑使用ListView，可在没有足够空间中滚动
 
 ### 构造方法
-```
+``` dart
 Column({
   Key key,
   MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
