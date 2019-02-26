@@ -3,6 +3,7 @@ import 'row/index.dart' as Row;
 import 'column/index.dart' as Column;
 import 'container/index.dart' as Container;
 import 'padding/index.dart' as Padding;
+import 'align/index.dart' as Align;
 
 const nameSpaces = '/Regular_';
 
@@ -30,6 +31,12 @@ List widgets = [
     widget: Padding.Index(),
     code: 59483, // aspect_ratio
     name: Padding.Index.name
+  ),
+  ItemInfo(
+    routerName: nameSpaces + Align.Index.routerName,
+    widget: Align.Index(),
+    code: 57917, // format_indent_decrease
+    name: Align.Index.name
   )
 ];
 
