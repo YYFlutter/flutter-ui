@@ -4,6 +4,7 @@ import 'column/index.dart' as Column;
 import 'container/index.dart' as Container;
 import 'padding/index.dart' as Padding;
 import 'align/index.dart' as Align;
+import 'center/index.dart' as Center;
 
 const nameSpaces = '/regular_';
 
@@ -32,6 +33,11 @@ List widgets = [
     widget: Align.Index(),
     code: 57917, // format_indent_decrease
     name: Align.Index.name
+  ),
+  ItemInfo(
+    widget: Center.Index(),
+    code: 57932, // format_indent_decrease
+    name: Center.Index.name
   )
 ];
 

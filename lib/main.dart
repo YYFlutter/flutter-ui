@@ -77,7 +77,7 @@ class MainAppState extends State<MainApp> {
           ),
           accentColor: Colors.grey,
           accentColorBrightness: Brightness.light,
-          primaryColor: Colors.grey.shade50, // appbar背景
+          primaryColor: Colors.redAccent, // appbar背景
           scaffoldBackgroundColor: Colors.grey.shade50, // 整体的scaffold背景颜色
         ),
         onGenerateRoute: FluroRouter.router.generator,
