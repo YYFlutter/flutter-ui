@@ -22,13 +22,14 @@ class FluroRouter {
     router.define('/webview', handler: webviewHandler);
     
     // 组件
-    WidgetConfig.getAllWidgets().forEach((widgetListInfo) {
-      widgetListInfo.widgetList.forEach((widgetInfo) {
+    WidgetConfig.getAllWidgets().forEach((widgetsItem) {
+      print('widgetsItem $widgetsItem');
+      widgetsItem.widgetList.forEach((itemInfo) {
         router.define(
-          widgetInfo.routerName,
+          widgetsItem.nameSpaces + itemInfo.name,
           handler: Handler(
               handlerFunc: (BuildContext context, Map<String, List> params) {
-            return widgetInfo.widget;
+            return itemInfo.widget;
           }),
         );
       });
