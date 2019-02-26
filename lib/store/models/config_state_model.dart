@@ -1,11 +1,22 @@
-import 'package:scoped_model/scoped_model.dart';
 import 'package:efox_flutter/config/index.dart' as Config;
 
 class ConfigInfo {
   bool isPro = Config.isPro;
-  dynamic config = Config.env;
+  dynamic env = Config.env;
 }
-mixin ConfigModel on Model {
-  ConfigInfo _appConfigInfo = new ConfigInfo();
-  get configInfo => _appConfigInfo;
+
+ConfigInfo _appConfigInfo = new ConfigInfo();
+
+class ConfigModel {
+  get state => _appConfigInfo;
+
+  methods(name, payload) {
+    print('payload= $payload');
+
+    switch (name) {
+      case 'setEnv':
+        _appConfigInfo.isPro = !_appConfigInfo.isPro;
+        break;
+    }
+  }
 }

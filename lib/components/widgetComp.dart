@@ -5,6 +5,7 @@ import 'package:efox_flutter/lang/app_translations.dart' show AppTranslations;
 import 'package:efox_flutter/components/baseComp.dart' as BaseComp;
 import 'package:efox_flutter/components/exampleComp.dart' as ExampleComp;
 import 'package:efox_flutter/utils/file.dart' as FileUtils;
+import 'package:efox_flutter/utils/loadAsset.dart' as LoadAssetUtils;
 import 'package:efox_flutter/router/index.dart' show FluroRouter;
 
 class Index extends StatefulWidget {
@@ -92,9 +93,9 @@ class IndexState extends State<Index> {
 
   openPage(context, model, String url) async {
     // 加载页面
-    if (model.configInfo.isPro) {
+    if (model.config.state.isPro) {
       FluroRouter.router.navigateTo(context,
-          '/webview?url=${Uri.encodeComponent(this.model.configInfo.config['GitHubAssetOrigin'] + url)}');
+          '/webview?url=${Uri.encodeComponent(model.config.state.env.GithubAssetOrigin + url)}');
     } else {
       // 加载本地
       String mdStr = await FileUtils.readLocaleFile(url);
@@ -112,7 +113,7 @@ class IndexState extends State<Index> {
   }
 
   Future getMdFile(url) async {
-    String mdStr = await FileUtils.readLocaleFile(url);
+    String mdStr = await LoadAssetUtils.loadMarkdownAssets(url);
     return mdStr;
   }
 

@@ -1,12 +1,13 @@
-import 'package:efox_flutter/store/http.dart' show RestApi;
+import 'package:dio/dio.dart';
+import 'package:efox_flutter/store/STORE.dart' as Store;
 import 'file.dart' as FileUtil;
 
-Future<String> loadMarkdownAssets(path, productionEnv) async {
-  if (productionEnv) {
-    return await RestApi.get(path).then((res) {
-      return 'res';
-    });
-    // return await RestApi.get(path);
+Future<String> loadMarkdownAssets(path) async {
+  if (!Store.model.config.state.isPro) {
+    return FileUtil.readLocaleFile(path);
   }
-  return FileUtil.readLocaleFile(path);
+  String url = Store.model.config.state.env.GithubMarkdownOrigin + path;
+  return Dio().get(url).then((res) {
+    return res.data;
+  });
 }
