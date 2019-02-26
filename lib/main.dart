@@ -4,7 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:efox_flutter/lang/application.dart';
 import 'package:efox_flutter/lang/app_translations_delegate.dart';
 //引用Store 层
-import 'package:efox_flutter/store/store.dart';
+import 'package:efox_flutter/store/store.dart' show model, STORE;
 //路由
 import 'package:efox_flutter/router/index.dart';
 void main() => runApp(MainApp());
@@ -18,8 +18,6 @@ class MainApp extends StatefulWidget {
 }
 
 class MainAppState extends State<MainApp> {
-  //实例化 model
-  final model = MainStateModel();
   // 定义全局 语言代理
   AppTranslationsDelegate _newLocaleDelegate;
 

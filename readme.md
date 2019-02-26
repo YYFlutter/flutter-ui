@@ -2,10 +2,19 @@
 
 # 目录
 ```
-__lib
-  __lang
-  __page
-  __router
-  __store
-  __widget
+——locale
+——docs
+  ——widget
+    ——regular
+    ——scrollview
+——lib
+  ——components
+  ——config
+  ——page
+  ——router
+  ——store
+  ——utils
+  ——widget
+    ——regular
+    ——scrollview
 ```
