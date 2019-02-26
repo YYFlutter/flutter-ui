@@ -2,6 +2,7 @@ import 'package:efox_flutter/store/objects/widget_info.dart';
 import 'row/index.dart' as Row;
 import 'column/index.dart' as Column;
 import 'container/index.dart' as Container;
+import 'padding/index.dart' as Padding;
 
 const nameSpaces = '/Regular_';
 
@@ -23,6 +24,12 @@ List widgets = [
     widget: Container.Index(),
     code: 60219, // ac_unit 
     name: Container.Index.name
+  ),
+  ItemInfo(
+    routerName: nameSpaces + Padding.Index.routerName,
+    widget: Padding.Index(),
+    code: 59483, // aspect_ratio
+    name: Padding.Index.name
   )
 ];
 
