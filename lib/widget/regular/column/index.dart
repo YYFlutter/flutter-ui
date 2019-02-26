@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/components/widgetComp.dart' as WidgetComp;
-import 'package:efox_flutter/utils/file.dart' as FileUitls;
 import 'demo.dart' as Demo;
 import 'demo_expanded.dart' as DemoExpanded;
 
@@ -17,22 +16,6 @@ class Index extends StatefulWidget {
 }
 
 class _IndexState extends State<Index> {
-  bool loading = true;
-  String ___MD___ = mdUrl;
-
-  @override
-  void initState() {
-    super.initState();
-    this.initMd();
-  }
-
-  initMd() async {
-    String mdStr = await FileUitls.readLocaleFile(___MD___);
-    setState(() {
-      this.___MD___ = mdStr;
-      loading = false;
-    });
-  }
   @override
   Widget build(BuildContext context) {
     return WidgetComp.Index(
@@ -40,11 +23,6 @@ class _IndexState extends State<Index> {
       codeUrl: codeUrl,
       originCodeUrl: originCodeUrl,
       mdUrl: mdUrl,
-      modelChild: (context, child, model) {
-        return [
-          ___MD___
-        ];
-      },
       demoChild: <Widget>[
         Demo.Index(),
         DemoExpanded.Index()

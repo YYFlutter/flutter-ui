@@ -8,8 +8,6 @@ import 'package:efox_flutter/utils/file.dart' as FileUtils;
 import 'package:efox_flutter/router/index.dart' show FluroRouter;
 
 class Index extends StatefulWidget {
-  final dynamic modelChild;
-  final List mdList;
   final List<Widget> demoChild;
   final String originCodeUrl;
   final String codeUrl;
@@ -18,8 +16,6 @@ class Index extends StatefulWidget {
   Index({
     Key key,
     this.name,
-    this.modelChild,
-    this.mdList,
     this.demoChild,
     this.originCodeUrl,
     this.codeUrl,
@@ -29,8 +25,6 @@ class Index extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => IndexState(
       name: name,
-      modelChild: modelChild,
-      mdList: mdList,
       demoChild: demoChild,
       originCodeUrl: originCodeUrl,
       codeUrl: codeUrl,
@@ -46,7 +40,7 @@ class IndexState extends State<Index> {
   final String codeUrl;
   final String mdUrl;
   final String name;
-  bool loading = false;
+  bool loading = true;
   dynamic model;
 
   IndexState({
@@ -63,22 +57,12 @@ class IndexState extends State<Index> {
   @override
   void initState() {
     super.initState();
-    if (this.mdList != null && this.mdList.length > 0) {
-      this.init();
-      this.loading = true;
-    }
+    this.init();
   }
 
   void init() async {
     this._bodyList.length = 0;
-    // for (var i in this.mdList) {
-    //   this
-    //       ._bodyList
-    //       .insert(0, await MarkDownComp.Index(await this.getMdFile(i)));
-    // }
-    await this.mdList.reversed.forEach((item) async {
-      this._bodyList.insert(0, await MarkDownComp.Index(await this.getMdFile(item)));
-    });
+    this._bodyList.add(await MarkDownComp.Index(await this.getMdFile(this.mdUrl)));
 
     // 增加
     if (this.demoChild != null) {
@@ -86,31 +70,11 @@ class IndexState extends State<Index> {
         this._bodyList.add(ExampleComp.Index(child: item));
       });
     }
+    
     print('end $_bodyList');
     setState(() {
       this.loading = false;
     });
-  }
-
-  openPage(context, model, String url) async {
-    // 加载页面
-    if (model.configInfo.isPro) {
-      FluroRouter.router.navigateTo(context,
-          '/webview?url=${Uri.encodeComponent(model.configInfo.assetOrigin + url)}');
-    } else {
-      // 加载本地
-      String mdStr = await FileUtils.readLocaleFile(url);
-      Navigator.of(context).push(
-        MaterialPageRoute(builder: (BuildContext context) {
-          return BaseComp.Index(
-            title: this.name,
-            child: (context, child, model) {
-              return MarkDownComp.Index(mdStr);
-            },
-          );
-        }),
-      );
-    }
   }
 
   @override
@@ -125,6 +89,27 @@ class IndexState extends State<Index> {
         body: this.loading ? this.renderLoading() : this.renderWidget(),
       );
     });
+  }
+
+  openPage(context, model, String url) async {
+    // 加载页面
+    if (model.configInfo.isPro) {
+      FluroRouter.router.navigateTo(context,
+          '/webview?url=${Uri.encodeComponent(this.model.configInfo.config['GitHubAssetOrigin'] + url)}');
+    } else {
+      // 加载本地
+      String mdStr = await FileUtils.readLocaleFile(url);
+      Navigator.of(context).push(
+        MaterialPageRoute(builder: (BuildContext context) {
+          return BaseComp.Index(
+            title: this.name,
+            child: (context, child, model) {
+              return MarkDownComp.Index(mdStr);
+            },
+          );
+        }),
+      );
+    }
   }
 
   Future getMdFile(url) async {

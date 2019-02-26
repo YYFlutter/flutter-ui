@@ -19,12 +19,6 @@ class Index extends StatefulWidget {
 }
 
 class _IndexState extends State<Index> {
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return WidgetComp.Index(
@@ -32,7 +26,6 @@ class _IndexState extends State<Index> {
       codeUrl: codeUrl,
       originCodeUrl: originCodeUrl,
       mdUrl: mdUrl,
-      mdList: [mdUrl],
       demoChild: [
         DemoCount.Index(),
         DemoExtent.Index(),
