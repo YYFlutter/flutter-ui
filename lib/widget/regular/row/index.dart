@@ -18,7 +18,6 @@ class Index extends StatefulWidget {
 }
 
 class _IndexState extends State<Index> {
-  bool loading = true;
   String ___MD___ = _mdUrl;
 
   @override
@@ -31,7 +30,6 @@ class _IndexState extends State<Index> {
     String mdStr = await FileUtils.readLocaleFile(___MD___);
     setState(() {
       this.___MD___ = mdStr;
-      loading = false;
     });
   }
 
@@ -42,7 +40,6 @@ class _IndexState extends State<Index> {
       codeUrl: Index.codeUrl,
       originCodeUrl: Index.originCodeUrl,
       mdUrl: Index.mdUrl,
-      loading: loading,
       modelChild: (context, child, model) {
         return [
           ___MD___,

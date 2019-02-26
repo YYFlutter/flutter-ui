@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:efox_flutter/store/STORE.dart';
+import 'package:efox_flutter/store/STORE.dart' show STORE;
 import 'package:efox_flutter/components/markdownComp.dart' as MarkDownComp;
 import 'package:efox_flutter/lang/app_translations.dart' show AppTranslations;
 import 'package:efox_flutter/components/baseComp.dart' as BaseComp;
@@ -7,26 +7,90 @@ import 'package:efox_flutter/components/exampleComp.dart' as ExampleComp;
 import 'package:efox_flutter/utils/file.dart' as FileUtils;
 import 'package:efox_flutter/router/index.dart' show FluroRouter;
 
-class Index extends StatelessWidget {
-  final List<Widget> _bodyList = [];
+class Index extends StatefulWidget {
   final dynamic modelChild;
+  final List mdList;
   final List<Widget> demoChild;
   final String originCodeUrl;
   final String codeUrl;
   final String mdUrl;
   final String name;
-  final bool loading;
-
   Index({
     Key key,
     this.name,
-    @required this.modelChild,
+    this.modelChild,
+    this.mdList,
     this.demoChild,
-    this.loading,
     this.originCodeUrl,
     this.codeUrl,
     this.mdUrl,
   }) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => IndexState(
+      name: name,
+      modelChild: modelChild,
+      mdList: mdList,
+      demoChild: demoChild,
+      originCodeUrl: originCodeUrl,
+      codeUrl: codeUrl,
+      mdUrl: mdUrl);
+}
+
+class IndexState extends State<Index> {
+  List<Widget> _bodyList = [];
+  final dynamic modelChild;
+  final List mdList;
+  final List<Widget> demoChild;
+  final String originCodeUrl;
+  final String codeUrl;
+  final String mdUrl;
+  final String name;
+  bool loading = false;
+  dynamic model;
+
+  IndexState({
+    Key key,
+    this.name,
+    this.modelChild,
+    this.mdList,
+    this.demoChild,
+    this.originCodeUrl,
+    this.codeUrl,
+    this.mdUrl,
+  });
+
+  @override
+  void initState() {
+    super.initState();
+    if (this.mdList != null && this.mdList.length > 0) {
+      this.init();
+      this.loading = true;
+    }
+  }
+
+  void init() async {
+    this._bodyList.length = 0;
+    // for (var i in this.mdList) {
+    //   this
+    //       ._bodyList
+    //       .insert(0, await MarkDownComp.Index(await this.getMdFile(i)));
+    // }
+    await this.mdList.reversed.forEach((item) async {
+      this._bodyList.insert(0, await MarkDownComp.Index(await this.getMdFile(item)));
+    });
+
+    // 增加
+    if (this.demoChild != null) {
+      this.demoChild.forEach((Widget item) {
+        this._bodyList.add(ExampleComp.Index(child: item));
+      });
+    }
+    print('end $_bodyList');
+    setState(() {
+      this.loading = false;
+    });
+  }
 
   openPage(context, model, String url) async {
     // 加载页面
@@ -52,35 +116,20 @@ class Index extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return STORE.connect(builder: (context, child, model) {
-
-      this.beforeRender(context, child, model);
+      this.model = model;
       return Scaffold(
         appBar: AppBar(
           title: Text(this.name),
           actions: this.getActions(context, model),
         ),
-        body: this.renderWidget(context),
+        body: this.loading ? this.renderLoading() : this.renderWidget(),
       );
     });
   }
 
-  beforeRender(context, child, model) {
-    _bodyList.length = 0;
-    List _list = modelChild(context, child, model);
-
-    _list.forEach((item) {
-      if (item.runtimeType == String) {
-        _bodyList.add(MarkDownComp.Index(item));
-      } else {
-        _bodyList.add(item);
-      }
-    });
-    // 增加
-    if (this.demoChild != null) {
-      this.demoChild.forEach((Widget item) {
-        _bodyList.add(ExampleComp.Index(child: item));
-      });
-    }
+  Future getMdFile(url) async {
+    String mdStr = await FileUtils.readLocaleFile(url);
+    return mdStr;
   }
 
   getActions(context, model) {
@@ -158,49 +207,52 @@ class Index extends StatelessWidget {
     ];
   }
 
-  Widget renderWidget(BuildContext context) {
-    var _loading = this.loading;
-    if (_loading != null && _loading) {
-      return Center(
-        child: Stack(
-          children: <Widget>[
-            // 遮罩
-            Opacity(
-              opacity: .8,
-              child: ModalBarrier(
+  Widget renderLoading() {
+    return Center(
+      child: Stack(
+        children: <Widget>[
+          // 遮罩
+          Opacity(
+            opacity: .8,
+            child: ModalBarrier(
+              color: Colors.black87,
+            ),
+          ),
+          // 居中显示
+          Center(
+            child: Container(
+              padding: const EdgeInsets.all(20.0),
+              decoration: BoxDecoration(
                 color: Colors.black87,
+                borderRadius: BorderRadius.circular(4.0),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  CircularProgressIndicator(
+                    backgroundColor: Color(this.model.theme.secondColor),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
+                    child: Text(
+                      AppTranslations.of(context).t('loading'),
+                      style: TextStyle(
+                          color: Color(this.model.theme.secondColor),
+                          fontSize: 16.0),
+                    ),
+                  )
+                ],
               ),
             ),
-            // 居中显示
-            Center(
-              child: Container(
-                padding: const EdgeInsets.all(20.0),
-                decoration: BoxDecoration(
-                  color: Colors.black87,
-                  borderRadius: BorderRadius.circular(4.0),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    CircularProgressIndicator(),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
-                      child: Text(
-                        AppTranslations.of(context).t('loading'),
-                        style:
-                            TextStyle(color: Colors.deepOrange, fontSize: 16.0),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      );
-    }
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget renderWidget() {
     // 加载完成后返回页面
     return Scrollbar(
       child: ListView(
