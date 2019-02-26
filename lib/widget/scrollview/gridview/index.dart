@@ -5,14 +5,12 @@ import 'demo_extent.dart' as DemoExtent;
 import 'demo_custom.dart' as DemoCustom;
 import 'demo_builder.dart' as DemoBuilder;
 
-String mdUrl = 'docs/widget/scrollview/gridview/index.md';
-String codeUrl = 'docs/widget/scrollview/gridview/code.md';
-String codeUrl1 = 'docs/widget/scrollview/gridview/code.md';
-String originCodeUrl = 'https://flutter.io/docs/cookbook/lists/grid-lists';
-
 class Index extends StatefulWidget {
   static String name = 'GridView';
   static String routerName = 'gridview';
+  static String mdUrl = 'docs/widget/scrollview/gridview/index.md';
+  static String codeUrl = 'docs/widget/scrollview/gridview/code.md';
+  static String originCodeUrl = 'https://flutter.io/docs/cookbook/lists/grid-lists';
 
   @override
   _IndexState createState() => new _IndexState();
@@ -23,9 +21,9 @@ class _IndexState extends State<Index> {
   Widget build(BuildContext context) {
     return WidgetComp.Index(
       name: Index.name,
-      codeUrl: codeUrl,
-      originCodeUrl: originCodeUrl,
-      mdUrl: mdUrl,
+      codeUrl: Index.codeUrl,
+      originCodeUrl: Index.originCodeUrl,
+      mdUrl: Index.mdUrl,
       demoChild: [
         DemoCount.Index(),
         DemoExtent.Index(),
