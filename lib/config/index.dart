@@ -3,4 +3,4 @@ import 'production.dart' as Production;
 
 const bool isPro = false;
 
-Object env = isPro ? Production.Config : Development.Config;
+Map<String, dynamic> env = isPro ? Production.Config : Development.Config;

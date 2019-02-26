@@ -5,7 +5,7 @@ import 'container/index.dart' as Container;
 import 'padding/index.dart' as Padding;
 import 'align/index.dart' as Align;
 
-const nameSpaces = '/Regular_';
+const nameSpaces = '/regular_';
 
 List widgets = [
   ItemInfo(
