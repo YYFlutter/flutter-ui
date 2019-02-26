@@ -29,7 +29,6 @@ List widgets = [
     name: Padding.Index.name
   ),
   ItemInfo(
-    routerName: nameSpaces + Align.Index.routerName,
     widget: Align.Index(),
     code: 57917, // format_indent_decrease
     name: Align.Index.name

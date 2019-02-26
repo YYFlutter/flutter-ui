@@ -4,7 +4,6 @@ import 'demo.dart' as Demo;
 
 class Index extends StatefulWidget {
   static String name = 'Align';
-  static String routerName = 'align';
   static String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/Align-class.html';
   static String codeUrl = 'docs/widget/regular/align/code.md';
   static String mdUrl = 'docs/widget/regular/align/index.md';
