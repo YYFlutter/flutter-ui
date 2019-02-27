@@ -4,7 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:efox_flutter/lang/application.dart';
 import 'package:efox_flutter/lang/app_translations_delegate.dart';
 //引用Store 层
-import 'package:efox_flutter/store/store.dart' show model, STORE;
+import 'package:efox_flutter/store/store.dart' show model, Store;
 //路由
 import 'package:efox_flutter/router/index.dart';
 void main() => runApp(MainApp());
@@ -38,7 +38,7 @@ class MainAppState extends State<MainApp> {
 
   @override
   Widget build(BuildContext context) {
-    return STORE.init(
+    return Store.init(
       model: model,
       child: MaterialApp(
         localeResolutionCallback: (deviceLocale, supportedLocales) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/store/models/main_state_model.dart' show MainStateModel;
-import 'package:efox_flutter/store/store.dart' show STORE;
+import 'package:efox_flutter/store/store.dart' show Store;
 
 class Index extends StatelessWidget {
   final Widget child;
@@ -9,7 +9,7 @@ class Index extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return STORE.connect(
+    return Store.connect(
       builder: (context, child, MainStateModel model) {
         return Container(
           height: 420.0,

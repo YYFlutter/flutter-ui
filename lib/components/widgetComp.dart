@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:efox_flutter/store/store.dart' show STORE;
+import 'package:efox_flutter/store/store.dart' show Store;
 import 'header.dart' as Header;
 import 'package:efox_flutter/components/markdownComp.dart' as MarkDownComp;
 import 'package:efox_flutter/lang/app_translations.dart' show AppTranslations;
@@ -82,7 +82,7 @@ class IndexState extends State<Index> {
 
   @override
   Widget build(BuildContext context) {
-    return STORE.connect(builder: (context, child, model) {
+    return Store.connect(builder: (context, child, model) {
       this.model = model;
       return Scaffold(
         appBar: AppBar(

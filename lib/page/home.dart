@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:efox_flutter/lang/application.dart';
 import 'package:efox_flutter/lang/app_translations.dart';
 //
-import 'package:efox_flutter/store/store.dart' show STORE, MainStateModel;
+import 'package:efox_flutter/store/store.dart' show Store, MainStateModel;
 
 import 'package:efox_flutter/components/header.dart' as Header;
 import 'component/index.dart' as TabIndex;
@@ -104,7 +104,7 @@ class _IndexState extends State<Index> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     // 实例化语言包
     AppTranslations lang = AppTranslations.of(context);
-    return STORE.connect(
+    return Store.connect(
       builder: (context, child, model) {
         return DefaultTabController(
           initialIndex: 0,

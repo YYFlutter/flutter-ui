@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:efox_flutter/store/store.dart' show STORE;
+import 'package:efox_flutter/store/store.dart' show Store;
 import 'header.dart' as Header;
 
 class Index extends StatelessWidget {
@@ -10,7 +10,7 @@ class Index extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return STORE.connect(builder: (context, child, model) {
+    return Store.connect(builder: (context, child, model) {
       return Scaffold(
         appBar: AppBar(
           title: Header.Index(this.title),
