@@ -3,11 +3,12 @@ import 'package:efox_flutter/components/widgetComp.dart' as WidgetComp;
 import 'demo.dart' as Demo;
 
 class Index extends StatefulWidget {
-  static String title = 'Center';
-  static String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/Center-class.html';
-  static String mdUrl = 'docs/widget/regular/center/index.md';
+  static String title = 'ListView';
+  static String mdUrl = 'docs/widget/scrollview/listview/index.md';
+  static String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/ListView-class.html';
+
   @override
-  _IndexState createState() => _IndexState();
+  _IndexState createState() => new _IndexState();
 }
 
 class _IndexState extends State<Index> {
@@ -17,9 +18,9 @@ class _IndexState extends State<Index> {
       title: Index.title,
       originCodeUrl: Index.originCodeUrl,
       mdUrl: Index.mdUrl,
-      demoChild: <Widget>[
-        Demo.Index()
-      ],
+      demoChild: [
+        Demo.Index(),
+      ]
     );
   }
 }

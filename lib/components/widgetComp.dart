@@ -12,7 +12,6 @@ import 'package:efox_flutter/router/index.dart' show FluroRouter;
 class Index extends StatefulWidget {
   final List<Widget> demoChild;
   final String originCodeUrl;
-  final String codeUrl;
   final String mdUrl;
   final String title;
   Index({
@@ -20,7 +19,6 @@ class Index extends StatefulWidget {
     this.title,
     this.demoChild,
     this.originCodeUrl,
-    this.codeUrl,
     this.mdUrl,
   }) : super(key: key);
 
@@ -29,7 +27,6 @@ class Index extends StatefulWidget {
       title: title,
       demoChild: demoChild,
       originCodeUrl: originCodeUrl,
-      codeUrl: codeUrl,
       mdUrl: mdUrl);
 }
 
@@ -39,7 +36,6 @@ class IndexState extends State<Index> {
   final List mdList;
   final List<Widget> demoChild;
   final String originCodeUrl;
-  final String codeUrl;
   final String mdUrl;
   final String title;
   bool loading = true;
@@ -52,7 +48,6 @@ class IndexState extends State<Index> {
     this.mdList,
     this.demoChild,
     this.originCodeUrl,
-    this.codeUrl,
     this.mdUrl,
   });
 
@@ -98,7 +93,7 @@ class IndexState extends State<Index> {
     // 加载页面
     if (model.config.state.isPro) {
       FluroRouter.router.navigateTo(context,
-          '/webview?url=${Uri.encodeComponent(model.config.state.env.GithubAssetOrigin + url)}');
+          '/webview?url=${Uri.encodeComponent(model.config.state.env.GithubAssetOrigin + url.replaceAll(RegExp('/index.md'), ''))}');
     } else {
       // 加载本地
       String mdStr = await FileUtils.readLocaleFile(url);
@@ -116,7 +111,7 @@ class IndexState extends State<Index> {
   }
 
   Future getMdFile(url) async {
-    String mdStr = await LoadAssetUtils.loadMarkdownAssets(url);
+    String mdStr = (await LoadAssetUtils.loadMarkdownAssets(url)).toString();
     return mdStr;
   }
 
@@ -124,19 +119,10 @@ class IndexState extends State<Index> {
     return [
       IconButton(
         icon: Icon(
-          Icons.favorite_border,
-        ),
-        onPressed: () async {
-          // TODO favirote
-          this.openPage(context, model, this.mdUrl);
-        },
-      ),
-      IconButton(
-        icon: Icon(
           Icons.code,
         ),
         onPressed: () async {
-          this.openPage(context, model, this.codeUrl);
+          this.openPage(context, model, this.mdUrl);
         },
       ),
       PopupMenuButton(
@@ -150,9 +136,6 @@ class IndexState extends State<Index> {
               );
               break;
             case 1:
-              this.openPage(context, model, this.mdUrl);
-              break;
-            case 2:
               FluroRouter.router.navigateTo(
                 context,
                 '/webview?url=${Uri.encodeComponent(this.originCodeUrl)}',
@@ -166,34 +149,23 @@ class IndexState extends State<Index> {
               child: Row(children: [
                 Icon(
                   Icons.home,
-                  color: Color(model.theme.blackColor),
+                  color: Color(model.theme.greyColor),
                 ),
                 Text("  "),
-                Text('官网'),
+                Text('Flutter-UI'),
               ]),
               value: 0,
             ),
             PopupMenuItem(
               child: Row(children: [
                 Icon(
-                  Icons.all_inclusive,
-                  color: Color(model.theme.blackColor),
-                ),
-                Text("  "),
-                Text("Markdown"),
-              ]),
-              value: 1,
-            ),
-            PopupMenuItem(
-              child: Row(children: [
-                Icon(
                   Icons.code,
-                  color: Color(model.theme.blackColor),
+                  color: Color(model.theme.greyColor),
                 ),
                 Text("  "),
                 Text(this.title),
               ]),
-              value: 2,
+              value: 1,
             ),
           ];
         },
@@ -226,7 +198,6 @@ class IndexState extends State<Index> {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   CircularProgressIndicator(
-                    // backgroundColor: Color(this.model.theme.mainColor),
                     strokeWidth: 4,
                   ),
                   Container(
