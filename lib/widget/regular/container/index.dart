@@ -6,7 +6,6 @@ import 'demo.dart' as Demo;
 class Index extends StatefulWidget {
   static String title = 'Container';
   static String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/Container-class.html';
-  static String codeUrl = 'docs/widget/regular/container/code.md';
   static String mdUrl = 'docs/widget/regular/container/index.md';
 
   @override
@@ -18,7 +17,6 @@ class _IndexState extends State<Index> {
   Widget build(BuildContext context) {
     return WidgetComp.Index(
       title: Index.title,
-      codeUrl: Index.codeUrl,
       originCodeUrl: Index.originCodeUrl,
       mdUrl: Index.mdUrl,
       demoChild: <Widget>[
