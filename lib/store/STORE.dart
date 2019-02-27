@@ -3,7 +3,7 @@ import './models/main_state_model.dart';
 export './models/main_state_model.dart';
 
 /**
- * import 'package:efox_flutter/store/STORE.dart' as Store;
+ * import 'package:efox_flutter/store/store.dart' as Store;
  * Store.model.config.state.isPro
  */
 class STORE {

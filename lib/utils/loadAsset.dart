@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:efox_flutter/store/STORE.dart' as Store;
+import 'package:efox_flutter/store/store.dart' as Store;
 import 'file.dart' as FileUtil;
 
 Future<String> loadMarkdownAssets(path) async {

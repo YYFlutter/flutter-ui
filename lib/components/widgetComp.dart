@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:efox_flutter/store/STORE.dart' show STORE;
+import 'package:efox_flutter/store/store.dart' show STORE;
+import 'header.dart' as Header;
 import 'package:efox_flutter/components/markdownComp.dart' as MarkDownComp;
 import 'package:efox_flutter/lang/app_translations.dart' show AppTranslations;
 import 'package:efox_flutter/components/baseComp.dart' as BaseComp;
@@ -13,10 +14,10 @@ class Index extends StatefulWidget {
   final String originCodeUrl;
   final String codeUrl;
   final String mdUrl;
-  final String name;
+  final String title;
   Index({
     Key key,
-    this.name,
+    this.title,
     this.demoChild,
     this.originCodeUrl,
     this.codeUrl,
@@ -25,7 +26,7 @@ class Index extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() => IndexState(
-      name: name,
+      title: title,
       demoChild: demoChild,
       originCodeUrl: originCodeUrl,
       codeUrl: codeUrl,
@@ -40,13 +41,13 @@ class IndexState extends State<Index> {
   final String originCodeUrl;
   final String codeUrl;
   final String mdUrl;
-  final String name;
+  final String title;
   bool loading = true;
   dynamic model;
 
   IndexState({
     Key key,
-    this.name,
+    this.title,
     this.modelChild,
     this.mdList,
     this.demoChild,
@@ -63,7 +64,9 @@ class IndexState extends State<Index> {
 
   void init() async {
     this._bodyList.length = 0;
-    this._bodyList.add(await MarkDownComp.Index(await this.getMdFile(this.mdUrl)));
+    this
+        ._bodyList
+        .add(await MarkDownComp.Index(await this.getMdFile(this.mdUrl)));
 
     // 增加
     if (this.demoChild != null) {
@@ -71,7 +74,7 @@ class IndexState extends State<Index> {
         this._bodyList.add(ExampleComp.Index(child: item));
       });
     }
-    
+
     setState(() {
       this.loading = false;
     });
@@ -83,7 +86,7 @@ class IndexState extends State<Index> {
       this.model = model;
       return Scaffold(
         appBar: AppBar(
-          title: Text(this.name),
+          title: Header.Index(this.title),
           actions: this.getActions(context, model),
         ),
         body: this.loading ? this.renderLoading() : this.renderWidget(),
@@ -102,7 +105,7 @@ class IndexState extends State<Index> {
       Navigator.of(context).push(
         MaterialPageRoute(builder: (BuildContext context) {
           return BaseComp.Index(
-            title: this.name,
+            title: this.title,
             child: (context, child, model) {
               return MarkDownComp.Index(mdStr);
             },
@@ -163,7 +166,9 @@ class IndexState extends State<Index> {
               child: Row(children: [
                 Icon(
                   Icons.home,
+                  color: Color(model.theme.blackColor),
                 ),
+                Text("  "),
                 Text('官网'),
               ]),
               value: 0,
@@ -172,7 +177,9 @@ class IndexState extends State<Index> {
               child: Row(children: [
                 Icon(
                   Icons.all_inclusive,
+                  color: Color(model.theme.blackColor),
                 ),
+                Text("  "),
                 Text("Markdown"),
               ]),
               value: 1,
@@ -181,8 +188,10 @@ class IndexState extends State<Index> {
               child: Row(children: [
                 Icon(
                   Icons.code,
+                  color: Color(model.theme.blackColor),
                 ),
-                Text(this.name),
+                Text("  "),
+                Text(this.title),
               ]),
               value: 2,
             ),
@@ -217,7 +226,8 @@ class IndexState extends State<Index> {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   CircularProgressIndicator(
-                    backgroundColor: Color(this.model.theme.secondColor),
+                    // backgroundColor: Color(this.model.theme.mainColor),
+                    strokeWidth: 4,
                   ),
                   Container(
                     padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
@@ -225,7 +235,7 @@ class IndexState extends State<Index> {
                       AppTranslations.of(context).t('loading'),
                       style: TextStyle(
                           color: Color(this.model.theme.secondColor),
-                          fontSize: 16.0),
+                          fontSize: 20.0),
                     ),
                   )
                 ],

@@ -7,7 +7,7 @@ List widgets = [
   ItemInfo(
     widget: GridView.Index(),
     code: 59673,
-    name: GridView.Index.name,
+    title: GridView.Index.title,
   )
 ];
 

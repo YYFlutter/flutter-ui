@@ -57,7 +57,6 @@ class MainAppState extends State<MainApp> {
         ],
         title: 'Flutter Demo',
         theme: ThemeData(
-          // primarySwatch: Colors.blue,
           textTheme: TextTheme(
             body1: TextStyle(
               // color: Colors.black,
@@ -67,16 +66,16 @@ class MainAppState extends State<MainApp> {
           platform: TargetPlatform.iOS,
           iconTheme: IconThemeData(
             size: 32,
-            color: Colors.grey.shade900,
+            color: Color(model.theme.thirdColor),
             opacity: 0.85,
           ),
+          // primaryIconTheme 导航栏按钮颜色
           primaryIconTheme: IconThemeData(
-            color: Colors.black,
+            color: Color(model.theme.secondColor),
           ),
-          accentColor: Colors.grey,
-          accentColorBrightness: Brightness.light,
-          primaryColor: Colors.redAccent, // appbar背景
-          scaffoldBackgroundColor: Colors.grey.shade50, // 整体的scaffold背景颜色
+          accentColor: Colors.grey, // 选中颜色
+          primaryColor: Color(model.theme.mainColor), // appbar背景
+          scaffoldBackgroundColor: Color(model.theme.thirdColor), // 整体的scaffold背景颜色
         ),
         onGenerateRoute: FluroRouter.router.generator,
       ),

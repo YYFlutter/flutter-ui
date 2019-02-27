@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:efox_flutter/lang/application.dart';
 import 'package:efox_flutter/lang/app_translations.dart';
 //
-import 'package:efox_flutter/store/STORE.dart';
+import 'package:efox_flutter/store/store.dart' show STORE, MainStateModel;
 
+import 'package:efox_flutter/components/header.dart' as Header;
 import 'component/index.dart' as TabIndex;
 import 'mine/index.dart' as MyIndex;
 
@@ -24,7 +25,7 @@ class _IndexState extends State<Index> with SingleTickerProviderStateMixin {
         border: Border(
           top: BorderSide(
             width: .1,
-            color: Color(model.theme.mainColor),
+            color: Color(model.theme.greyColor),
           ),
         ),
       ),
@@ -38,7 +39,7 @@ class _IndexState extends State<Index> with SingleTickerProviderStateMixin {
           ),
         ),
         labelColor: Color(model.theme.mainColor),
-        unselectedLabelColor: Color(model.theme.thirdColor),
+        unselectedLabelColor: Color(model.theme.greyColor),
         indicatorSize: TabBarIndicatorSize.tab,
         indicatorColor: Color(model.theme.secondColor),
         labelStyle: TextStyle(
@@ -110,7 +111,7 @@ class _IndexState extends State<Index> with SingleTickerProviderStateMixin {
           length: 2,
           child: Scaffold(
             appBar: AppBar(
-              title: Text(lang.t('title')),
+              title: Header.Index(lang.t('title')),
               actions: appBarActions(model),
             ),
             bottomNavigationBar: menu(model),

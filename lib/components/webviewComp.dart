@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'header.dart' as Header;
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
 class Index extends StatelessWidget {
@@ -12,12 +13,13 @@ class Index extends StatelessWidget {
       print('url ${url}');
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return WebviewScaffold(
       url: this.url,
       appBar: new AppBar(
-        title: new Text("Webview"),
+        title: Header.Index(this.title),
       ),
       withZoom: true,
       withLocalStorage: true,

@@ -1,15 +1,15 @@
 import 'package:flutter/widgets.dart';
 class ItemInfo extends Object {
   int code;
-  String name;
+  String title;
   Widget widget;
   String webviewTitle;
 
-  ItemInfo({this.code, this.name, this.widget, this.webviewTitle});
+  ItemInfo({this.code, this.title, this.widget, this.webviewTitle});
 
   ItemInfo.fromJson(Map<String, dynamic> json) {
     code = json['code'];
-    name = json['name'];
+    title = json['title'];
     widget = json['widget'];
     webviewTitle = json['webviewTitle'];
   }

@@ -7,7 +7,7 @@ import 'config_state_model.dart' show ConfigModel;
  * get state: model.modelName.state.xxx
  * dispatch method: model.dispatch('modelName', 'methodsName', payload)
  * 
- * import 'package:efox_flutter/store/STORE.dart' as Store;
+ * import 'package:efox_flutter/store/store.dart' as Store;
  * Store.model.config.state.isPro
  */
 

@@ -26,7 +26,7 @@ class FluroRouter {
       print('widgetsItem $widgetsItem');
       widgetsItem.widgetList.forEach((itemInfo) {
         router.define(
-          widgetsItem.nameSpaces + itemInfo.name,
+          widgetsItem.nameSpaces + itemInfo.title,
           handler: Handler(
               handlerFunc: (BuildContext context, Map<String, List> params) {
             return itemInfo.widget;

@@ -3,7 +3,7 @@ import 'package:efox_flutter/components/widgetComp.dart' as WidgetComp;
 import 'demo.dart' as Demo;
 
 class Index extends StatefulWidget {
-  static String name = 'FittedBox';
+  static String title = 'FittedBox';
   static String originCodeUrl = '';
   static String codeUrl = 'docs/widget/regular/fittedbox/code.md';
   static String mdUrl = 'docs/widget/regular/fittedbox/index.md';
@@ -15,7 +15,7 @@ class _IndexState extends State<Index> {
   @override
   Widget build(BuildContext context) {
     return WidgetComp.Index(
-      name: Index.name,
+      title: Index.title,
       codeUrl: Index.codeUrl,
       originCodeUrl: Index.originCodeUrl,
       mdUrl: Index.mdUrl,

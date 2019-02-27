@@ -6,7 +6,7 @@ import 'demo_custom.dart' as DemoCustom;
 import 'demo_builder.dart' as DemoBuilder;
 
 class Index extends StatefulWidget {
-  static String name = 'GridView';
+  static String title = 'GridView';
   static String mdUrl = 'docs/widget/scrollview/gridview/index.md';
   static String codeUrl = 'docs/widget/scrollview/gridview/code.md';
   static String originCodeUrl = 'https://flutter.io/docs/cookbook/lists/grid-lists';
@@ -19,7 +19,7 @@ class _IndexState extends State<Index> {
   @override
   Widget build(BuildContext context) {
     return WidgetComp.Index(
-      name: Index.name,
+      title: Index.title,
       codeUrl: Index.codeUrl,
       originCodeUrl: Index.originCodeUrl,
       mdUrl: Index.mdUrl,

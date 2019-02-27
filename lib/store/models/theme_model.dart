@@ -1,11 +1,11 @@
 import 'package:scoped_model/scoped_model.dart';
 
 class AppTheme {
-  int mainColor = 0xFF000000;
-  int secondColor = 0xFF1565C0;
-  int thirdColor = 0x8A000000;
-  int textColor = 0xFF00C853;
-  // int textColor = 0x8A000000;
+  int mainColor = 0xFFD32F2F;
+  int secondColor = 0xFFFFFFFF;
+  int thirdColor = 0xFFFAFAFA;
+  int greyColor = 0x8A000000;
+  int blackColor = 0xFF000000;
 }
 
 mixin AppThemeModel on Model {

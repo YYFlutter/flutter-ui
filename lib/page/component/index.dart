@@ -14,7 +14,9 @@ class Index extends StatefulWidget {
 class _IndexState extends State<Index> {
   final MainStateModel model;
   List mapList = [];
+  int index;
   _IndexState({Key key, this.model});
+
   @override
   initState() {
     super.initState();
@@ -41,7 +43,7 @@ class _IndexState extends State<Index> {
           fontFamily: 'MaterialIcons',
           matchTextDirection: true,
         ),
-        color: Color(model.theme.mainColor),
+        // color: Color(model.theme.mainColor),
       ),
       backgroundColor: Colors.white,
       children: [
@@ -56,9 +58,10 @@ class _IndexState extends State<Index> {
               return Container(
                 decoration: BoxDecoration(
                   border: Border(
-                      bottom: BorderSide(
-                    width: .1,
-                  )),
+                    bottom: BorderSide(
+                      width: .1,
+                    ),
+                  ),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -71,16 +74,17 @@ class _IndexState extends State<Index> {
                           fontFamily: 'MaterialIcons',
                           matchTextDirection: true,
                         ),
+                        color: Color(model.theme.mainColor),
                       ),
                       onPressed: () {
                         FluroRouter.router.navigateTo(
                           context,
-                          nameSpaces + _tmpWidgetList[index].name,
+                          nameSpaces + _tmpWidgetList[index].title,
                         );
                       },
                     ),
                     Text(
-                      _tmpWidgetList[index].name,
+                      _tmpWidgetList[index].title,
                     ),
                   ],
                 ),
@@ -89,7 +93,6 @@ class _IndexState extends State<Index> {
           ),
         ),
       ],
-      initiallyExpanded: false,
     );
   }
 
@@ -98,11 +101,9 @@ class _IndexState extends State<Index> {
       physics: BouncingScrollPhysics(),
       padding: EdgeInsets.all(10),
       child: Column(
-        children: mapList.map(
-          (widgetsItem) {
-            return renderExpanel(model, widgetsItem);
-          },
-        ).toList(),
+        children: List.generate(mapList.length, (_index) {
+          return renderExpanel(model, mapList[_index]);
+        }),
       ),
     );
   }

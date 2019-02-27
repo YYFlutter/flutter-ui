@@ -3,7 +3,7 @@ import 'package:efox_flutter/components/widgetComp.dart' as WidgetComp;
 import 'demo.dart' as Demo;
 
 class Index extends StatefulWidget {
-  static String name = 'Center';
+  static String title = 'Center';
   static String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/Center-class.html';
   static String codeUrl = 'docs/widget/regular/center/code.md';
   static String mdUrl = 'docs/widget/regular/center/index.md';
@@ -15,7 +15,7 @@ class _IndexState extends State<Index> {
   @override
   Widget build(BuildContext context) {
     return WidgetComp.Index(
-      name: Index.name,
+      title: Index.title,
       codeUrl: Index.codeUrl,
       originCodeUrl: Index.originCodeUrl,
       mdUrl: Index.mdUrl,

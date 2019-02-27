@@ -13,37 +13,37 @@ List widgets = [
   ItemInfo(
     widget: Row.Index(),
     code: 59702, // calendar_view_day
-    name: Row.Index.name,
+    title: Row.Index.title,
   ),
   ItemInfo(
     widget: Column.Index(),
     code: 59692, // accessibility_new
-    name: Column.Index.name
+    title: Column.Index.title
   ),
   ItemInfo(
     widget: Container.Index(),
     code: 60219, // ac_unit 
-    name: Container.Index.name
+    title: Container.Index.title
   ),
   ItemInfo(
     widget: Padding.Index(),
     code: 59483, // aspect_ratio
-    name: Padding.Index.name
+    title: Padding.Index.title
   ),
   ItemInfo(
     widget: Align.Index(),
     code: 57917, // format_indent_decrease
-    name: Align.Index.name
+    title: Align.Index.title
   ),
   ItemInfo(
     widget: Center.Index(),
     code: 57932, // format_indent_decrease
-    name: Center.Index.name
+    title: Center.Index.title
   ),
   ItemInfo(
     widget: FittedBox.Index(),
     code: 60231, // format_indent_decrease
-    name: FittedBox.Index.name
+    title: FittedBox.Index.title
   )
 ];
 
