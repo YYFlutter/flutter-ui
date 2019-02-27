@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/components/widgetComp.dart' as WidgetComp;
+import 'demo.dart' as Demo;
 
 class Index extends StatefulWidget {
-  static String title = 'GridView';
-  static String mdUrl = 'docs/widget/scrollview/gridview/index.md';
-  static String codeUrl = 'docs/widget/scrollview/gridview/code.md';
-  static String originCodeUrl = 'https://flutter.io/docs/cookbook/lists/grid-lists';
+  static String title = 'ListView';
+  static String mdUrl = 'docs/widget/scrollview/listview/index.md';
+  static String codeUrl = 'docs/widget/scrollview/listview/code.md';
+  static String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/ListView-class.html';
 
   @override
   _IndexState createState() => new _IndexState();
@@ -20,6 +21,7 @@ class _IndexState extends State<Index> {
       originCodeUrl: Index.originCodeUrl,
       mdUrl: Index.mdUrl,
       demoChild: [
+        Demo.Index(),
       ]
     );
   }

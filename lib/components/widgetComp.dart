@@ -166,7 +166,7 @@ class IndexState extends State<Index> {
               child: Row(children: [
                 Icon(
                   Icons.home,
-                  color: Color(model.theme.blackColor),
+                  color: Color(model.theme.greyColor),
                 ),
                 Text("  "),
                 Text('官网'),
@@ -177,7 +177,7 @@ class IndexState extends State<Index> {
               child: Row(children: [
                 Icon(
                   Icons.all_inclusive,
-                  color: Color(model.theme.blackColor),
+                  color: Color(model.theme.greyColor),
                 ),
                 Text("  "),
                 Text("Markdown"),
@@ -188,7 +188,7 @@ class IndexState extends State<Index> {
               child: Row(children: [
                 Icon(
                   Icons.code,
-                  color: Color(model.theme.blackColor),
+                  color: Color(model.theme.greyColor),
                 ),
                 Text("  "),
                 Text(this.title),
