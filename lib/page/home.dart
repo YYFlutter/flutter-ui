@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/lang/application.dart';
 import 'package:efox_flutter/lang/app_translations.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 //
 import 'package:efox_flutter/store/store.dart' show Store, MainStateModel;
 
@@ -102,6 +103,7 @@ class _IndexState extends State<Index> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
     // 实例化语言包
     AppTranslations lang = AppTranslations.of(context);
     return Store.connect(
