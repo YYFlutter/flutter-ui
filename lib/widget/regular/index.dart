@@ -7,6 +7,7 @@ import 'align/index.dart' as Align;
 import 'center/index.dart' as Center;
 import 'fittedbox/index.dart' as FittedBox;
 import 'aspectratio/index.dart' as AspectRatio;
+import 'constrainedbox/index.dart' as ConstrainedBox;
 
 const nameSpaces = '/regular_';
 
@@ -50,6 +51,11 @@ List widgets = [
     widget: AspectRatio.Index(),
     code: 58688, // local_bar
     title: AspectRatio.Index.title
+  ),
+  ItemInfo(
+    widget: ConstrainedBox.Index(),
+    code: 57709, // low_priority 
+    title: ConstrainedBox.Index.title
   )
 ];
 

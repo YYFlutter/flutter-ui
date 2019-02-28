@@ -64,6 +64,7 @@ flutter:
       - docs/widget/regular/center/
       - docs/widget/regular/fittedbox/
       - docs/widget/regular/aspectratio/
+      - docs/widget/regular/constrainedbox/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
 
