@@ -6,6 +6,7 @@ import 'padding/index.dart' as Padding;
 import 'align/index.dart' as Align;
 import 'center/index.dart' as Center;
 import 'fittedbox/index.dart' as FittedBox;
+import 'aspectratio/index.dart' as AspectRatio;
 
 const nameSpaces = '/regular_';
 
@@ -44,6 +45,11 @@ List widgets = [
     widget: FittedBox.Index(),
     code: 60231, // format_indent_decrease
     title: FittedBox.Index.title
+  ),
+  ItemInfo(
+    widget: AspectRatio.Index(),
+    code: 58688, // local_bar
+    title: AspectRatio.Index.title
   )
 ];
 
