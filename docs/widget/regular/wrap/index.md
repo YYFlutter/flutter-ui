@@ -29,3 +29,4 @@ Wrap({
 * crossAxisAlignment：交叉轴（crossAxis）方向上的对齐方式,值: WrapCrossAlignment.start/center/end
 * textDirection：文本方向, 值：TextDirection.ltr/rtl
 * verticalDirection：定义了children摆放顺序，默认是down,值： VerticalDirection.down/up
+* children: Table的中的内容widget

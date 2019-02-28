@@ -9,6 +9,7 @@ import 'fittedbox/index.dart' as FittedBox;
 import 'aspectratio/index.dart' as AspectRatio;
 import 'constrainedbox/index.dart' as ConstrainedBox;
 import 'wrap/index.dart' as Wrap;
+import 'table/index.dart' as Table;
 
 const nameSpaces = '/regular_';
 
@@ -62,6 +63,11 @@ List widgets = [
     widget: Wrap.Index(),
     code: 59385, // pages 
     title: Wrap.Index.title
+  ),
+  ItemInfo(
+    widget: Table.Index(),
+    code: 59568, // receipt 
+    title: Table.Index.title
   )
 ];
 
