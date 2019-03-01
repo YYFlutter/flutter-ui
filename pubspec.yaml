@@ -32,6 +32,7 @@ dependencies:
   flutter_markdown: ^0.2.0
   flutter_webview_plugin: ^0.3.0+2
   fluro: ^1.4.0
+  flutter_screenutil: ^0.5.1
 
 dev_dependencies:
   flutter_test:
@@ -63,6 +64,12 @@ flutter:
       - docs/widget/regular/align/
       - docs/widget/regular/center/
       - docs/widget/regular/fittedbox/
+      - docs/widget/regular/aspectratio/
+      - docs/widget/regular/constrainedbox/
+      - docs/widget/regular/wrap/
+      - docs/widget/regular/table/
+      - docs/widget/regular/flow/
+      - docs/widget/regular/stack/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
 

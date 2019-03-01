@@ -3,9 +3,9 @@ import 'package:efox_flutter/components/widgetComp.dart' as WidgetComp;
 import 'demo.dart' as Demo;
 
 class Index extends StatefulWidget {
-  static String title = 'FittedBox';
-  static String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/FittedBox-class.html';
-  static String mdUrl = 'docs/widget/regular/fittedbox/index.md';
+  static String title = 'Table';
+  static String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/Table-class.html';
+  static String mdUrl = 'docs/widget/regular/table/index.md';
   @override
   _IndexState createState() => _IndexState();
 }

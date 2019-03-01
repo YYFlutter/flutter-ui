@@ -8,6 +8,7 @@ import 'package:efox_flutter/components/exampleComp.dart' as ExampleComp;
 import 'package:efox_flutter/utils/file.dart' as FileUtils;
 import 'package:efox_flutter/utils/loadAsset.dart' as LoadAssetUtils;
 import 'package:efox_flutter/router/index.dart' show FluroRouter;
+import 'package:efox_flutter/config/theme.dart' show AppTheme;
 
 class Index extends StatefulWidget {
   final List<Widget> demoChild;
@@ -149,7 +150,7 @@ class IndexState extends State<Index> {
               child: Row(children: [
                 Icon(
                   Icons.home,
-                  color: Color(model.theme.greyColor),
+                  color: Color(AppTheme.greyColor),
                 ),
                 Text("  "),
                 Text('Flutter-UI'),
@@ -160,7 +161,7 @@ class IndexState extends State<Index> {
               child: Row(children: [
                 Icon(
                   Icons.code,
-                  color: Color(model.theme.greyColor),
+                  color: Color(AppTheme.greyColor),
                 ),
                 Text("  "),
                 Text(this.title),
@@ -205,8 +206,7 @@ class IndexState extends State<Index> {
                     child: Text(
                       AppTranslations.of(context).t('loading'),
                       style: TextStyle(
-                          color: Color(this.model.theme.secondColor),
-                          fontSize: 20.0),
+                          color: Color(AppTheme.secondColor), fontSize: 20.0),
                     ),
                   )
                 ],

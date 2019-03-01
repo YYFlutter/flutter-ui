@@ -6,6 +6,12 @@ import 'padding/index.dart' as Padding;
 import 'align/index.dart' as Align;
 import 'center/index.dart' as Center;
 import 'fittedbox/index.dart' as FittedBox;
+import 'aspectratio/index.dart' as AspectRatio;
+import 'constrainedbox/index.dart' as ConstrainedBox;
+import 'wrap/index.dart' as Wrap;
+import 'table/index.dart' as Table;
+import 'flow/index.dart' as Flow;
+import 'stack/index.dart' as Stack;
 
 const nameSpaces = '/regular_';
 
@@ -44,6 +50,36 @@ List widgets = [
     widget: FittedBox.Index(),
     code: 60231, // format_indent_decrease
     title: FittedBox.Index.title
+  ),
+  ItemInfo(
+    widget: AspectRatio.Index(),
+    code: 58688, // local_bar
+    title: AspectRatio.Index.title
+  ),
+  ItemInfo(
+    widget: ConstrainedBox.Index(),
+    code: 57709, // low_priority 
+    title: ConstrainedBox.Index.title
+  ),
+  ItemInfo(
+    widget: Wrap.Index(),
+    code: 59385, // pages 
+    title: Wrap.Index.title
+  ),
+  ItemInfo(
+    widget: Table.Index(),
+    code: 59568, // receipt 
+    title: Table.Index.title
+  ),
+  ItemInfo(
+    widget: Flow.Index(),
+    code: 58915, // sd_card 
+    title: Flow.Index.title
+  ),
+  ItemInfo(
+    widget: Stack.Index(),
+    code: 57795, // settings_system_daydream
+    title: Stack.Index.title
   )
 ];
 
