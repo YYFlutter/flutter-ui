@@ -68,6 +68,7 @@ flutter:
       - docs/widget/regular/constrainedbox/
       - docs/widget/regular/wrap/
       - docs/widget/regular/table/
+      - docs/widget/regular/flow/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
 

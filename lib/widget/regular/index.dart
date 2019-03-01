@@ -10,6 +10,7 @@ import 'aspectratio/index.dart' as AspectRatio;
 import 'constrainedbox/index.dart' as ConstrainedBox;
 import 'wrap/index.dart' as Wrap;
 import 'table/index.dart' as Table;
+import 'flow/index.dart' as Flow;
 
 const nameSpaces = '/regular_';
 
@@ -68,6 +69,11 @@ List widgets = [
     widget: Table.Index(),
     code: 59568, // receipt 
     title: Table.Index.title
+  ),
+  ItemInfo(
+    widget: Flow.Index(),
+    code: 58915, // sd_card 
+    title: Flow.Index.title
   )
 ];
 
