@@ -16,11 +16,22 @@ class Index extends StatefulWidget {
 }
 
 class _IndexState extends State<Index> with SingleTickerProviderStateMixin {
+  int _currentIndex = 0;
+  PageController _pageController;
+
   @override
   void initState() {
     super.initState();
+    _pageController = PageController();
   }
 
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  //::TODO 保留到下个版本 考虑去掉
   Widget menu(MainStateModel model) {
     return Container(
       decoration: BoxDecoration(
@@ -69,6 +80,24 @@ class _IndexState extends State<Index> with SingleTickerProviderStateMixin {
     );
   }
 
+  Widget _bottomNavigationBar(model) {
+    AppTranslations lang = AppTranslations.of(context);
+    return BottomNavigationBar(
+      items: <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+            title: Text(lang.t('title_component')),
+            icon: Icon(Icons.dashboard)),
+        BottomNavigationBarItem(
+            title: Text(lang.t('title_my')), icon: Icon(Icons.person_outline)),
+      ],
+      type: BottomNavigationBarType.fixed,
+      currentIndex: _currentIndex,
+      onTap: (int index) {
+        _pageController.jumpToPage(index);
+      },
+    );
+  }
+
   List<Widget> appBarActions(model) {
     return [
       PopupMenuButton(
@@ -109,7 +138,7 @@ class _IndexState extends State<Index> with SingleTickerProviderStateMixin {
     AppTranslations lang = AppTranslations.of(context);
     return Store.connect(
       builder: (context, child, model) {
-        return DefaultTabController(
+        /* return DefaultTabController(
           initialIndex: 0,
           length: 2,
           child: Scaffold(
@@ -124,6 +153,26 @@ class _IndexState extends State<Index> with SingleTickerProviderStateMixin {
                 MyIndex.Index(model: model),
               ],
             ),
+          ),
+        ); */
+        return Scaffold(
+          appBar: AppBar(
+            title: Header.Index(lang.t('title')),
+            actions: appBarActions(model),
+          ),
+          bottomNavigationBar: _bottomNavigationBar(model),
+          body: PageView(
+            controller: _pageController,
+            physics: NeverScrollableScrollPhysics(),
+            onPageChanged: (int index) {
+              setState(() {
+                _currentIndex = index;
+              });
+            },
+            children: <Widget>[
+              TabIndex.Index(model: model),
+              MyIndex.Index(model: model),
+            ],
           ),
         );
       },
