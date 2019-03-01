@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/components/widgetComp.dart' as WidgetComp;
-import 'demo.dart' as Demo;
+import 'demo_single_child_scrollview.dart' as DemoSingleChildScrollview;
+import 'demo_custom_scrollview.dart' as DemoCustomScrollview;
 
 class Index extends StatefulWidget {
   static String title = 'Scrollable';
@@ -19,7 +20,8 @@ class _IndexState extends State<Index> {
       originCodeUrl: Index.originCodeUrl,
       mdUrl: Index.mdUrl,
       demoChild: [
-        Demo.Index(),
+        DemoSingleChildScrollview.Index(),
+        DemoCustomScrollview.Index(),
       ]
     );
   }

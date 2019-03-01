@@ -14,6 +14,9 @@ class _IndexState extends State<Index> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('SingleChildScrollView'),
+      ),
       body: Scrollable(
         viewportBuilder: (context, offset) {
           return Scrollable(

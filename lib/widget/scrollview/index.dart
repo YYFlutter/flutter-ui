@@ -8,7 +8,7 @@ const nameSpaces = '/scrollview_';
 List widgets = [
   ItemInfo(
     widget: gridview.Index(),
-    code: 59632, // view_module
+    code: 58348, // grid_on
     title: gridview.Index.title,
   ),
   ItemInfo(
@@ -18,7 +18,7 @@ List widgets = [
   ),
   ItemInfo(
     widget: scrollable.Index(),
-    code: 59631, // view_list
+    code: 57920, // format_line_spacing
     title: scrollable.Index.title,
   )
 ];
