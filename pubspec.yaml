@@ -70,6 +70,7 @@ flutter:
       - docs/widget/regular/table/
       - docs/widget/regular/flow/
       - docs/widget/regular/stack/
+      - docs/widget/regular/listview/
       - docs/widget/navigator/appbar/
       - docs/widget/navigator/scaffold/
   # An image asset can refer to one or more resolution-specific "variants", see

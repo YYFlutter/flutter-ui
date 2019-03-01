@@ -12,6 +12,7 @@ import 'wrap/index.dart' as Wrap;
 import 'table/index.dart' as Table;
 import 'flow/index.dart' as Flow;
 import 'stack/index.dart' as Stack;
+import 'listview/index.dart' as ListView;
 
 const nameSpaces = '/regular_';
 
@@ -80,6 +81,11 @@ List widgets = [
     widget: Stack.Index(),
     code: 57795, // settings_system_daydream
     title: Stack.Index.title
+  ),
+  ItemInfo(
+    widget: ListView.Index(),
+    code: 60236, // spa
+    title: ListView.Index.title
   )
 ];
 
