@@ -1,4 +1,4 @@
-package com.example.efoxflutter;
+package com.flutter.beer;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;

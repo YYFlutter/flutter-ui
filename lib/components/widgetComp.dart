@@ -9,6 +9,7 @@ import 'package:efox_flutter/utils/file.dart' as FileUtils;
 import 'package:efox_flutter/utils/loadAsset.dart' as LoadAssetUtils;
 import 'package:efox_flutter/router/index.dart' show FluroRouter;
 import 'package:efox_flutter/config/theme.dart' show AppTheme;
+import 'package:efox_flutter/utils/share.dart' as AppShare;
 
 class Index extends StatefulWidget {
   final List<Widget> demoChild;
@@ -124,6 +125,15 @@ class IndexState extends State<Index> {
         ),
         onPressed: () async {
           this.openPage(context, model, this.mdUrl);
+        },
+      ),
+      IconButton(
+        icon: Icon(Icons.share),
+        onPressed: () {
+          final String msg = Uri.encodeComponent(
+              model.config.state.env.GithubAssetOrigin +
+                  this.mdUrl.replaceAll(RegExp('/index.md'), ''));
+          AppShare.shareText(msg);
         },
       ),
       PopupMenuButton(

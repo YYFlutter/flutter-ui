@@ -9,6 +9,8 @@ import 'package:efox_flutter/store/store.dart' show model, Store;
 import 'package:efox_flutter/router/index.dart';
 //主题
 import 'package:efox_flutter/config/theme.dart' show AppTheme;
+//统计
+import 'package:efox_flutter/utils/analytics.dart' as Analytics;
 
 void main() => runApp(MainApp());
 
@@ -61,6 +63,7 @@ class MainAppState extends State<MainApp> {
         title: 'Flutter Demo',
         theme: AppTheme.themData,
         onGenerateRoute: FluroRouter.router.generator,
+        navigatorObservers: <NavigatorObserver>[Analytics.observer],
       ),
     );
   }
