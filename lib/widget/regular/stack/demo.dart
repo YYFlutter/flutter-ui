@@ -74,7 +74,7 @@ class StackDemo extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                '欢聚时代',
+                'Flutter',
                 style: TextStyle(
                   fontSize: 20.0,
                   color: Colors.red,
