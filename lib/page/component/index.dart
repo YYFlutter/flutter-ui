@@ -30,70 +30,73 @@ class _IndexState extends State<Index> {
   Widget renderExpanel(MainStateModel model, widgetsItem) {
     String nameSpaces = widgetsItem.nameSpaces;
     List _tmpWidgetList = widgetsItem.widgetList;
-    return ExpansionTile(
-      title: Text(
-        widgetsItem.typeName,
-        style: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      leading: Icon(
-        IconData(
-          widgetsItem.code ?? 58353,
-          fontFamily: 'MaterialIcons',
-          matchTextDirection: true,
-        ),
-        // color: Color(AppTheme.mainColor),
-      ),
-      backgroundColor: Colors.white,
-      children: [
-        GridView.count(
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          childAspectRatio: 1,
-          crossAxisCount: 3,
-          children: List.generate(
-            _tmpWidgetList.length,
-            (index) {
-              return Container(
-                decoration: BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(
-                      width: .1,
-                    ),
-                  ),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    IconButton(
-                      iconSize: 48,
-                      icon: Icon(
-                        IconData(
-                          _tmpWidgetList[index].code ?? 59101,
-                          fontFamily: 'MaterialIcons',
-                          matchTextDirection: true,
-                        ),
-                        color: Color(AppTheme.mainColor),
-                      ),
-                      onPressed: () {
-                        FluroRouter.router.navigateTo(
-                          context,
-                          nameSpaces + _tmpWidgetList[index].title,
-                        );
-                      },
-                    ),
-                    Text(
-                      _tmpWidgetList[index].title,
-                    ),
-                  ],
-                ),
-              );
-            },
+    return Container(
+      margin: EdgeInsets.only(bottom: 10),
+      child: ExpansionTile(
+        title: Text(
+          widgetsItem.typeName,
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
           ),
         ),
-      ],
+        leading: Icon(
+          IconData(
+            widgetsItem.code ?? 58353,
+            fontFamily: 'MaterialIcons',
+            matchTextDirection: true,
+          ),
+          // color: Color(AppTheme.mainColor),
+        ),
+        backgroundColor: Colors.white,
+        children: [
+          GridView.count(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            childAspectRatio: 1,
+            crossAxisCount: 3,
+            children: List.generate(
+              _tmpWidgetList.length,
+              (index) {
+                return Container(
+                  decoration: BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(
+                        width: .1,
+                      ),
+                    ),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                        iconSize: 48,
+                        icon: Icon(
+                          IconData(
+                            _tmpWidgetList[index].code ?? 59101,
+                            fontFamily: 'MaterialIcons',
+                            matchTextDirection: true,
+                          ),
+                          color: Color(AppTheme.mainColor),
+                        ),
+                        onPressed: () {
+                          FluroRouter.router.navigateTo(
+                            context,
+                            nameSpaces + _tmpWidgetList[index].title,
+                          );
+                        },
+                      ),
+                      Text(
+                        _tmpWidgetList[index].title,
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 

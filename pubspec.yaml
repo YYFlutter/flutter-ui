@@ -22,7 +22,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   flutter_spinkit: ^3.0.0 #加载指示器合集
-  share: ^0.5.3 #社会化分享
+  share: ^0.6.0+1 #社会化分享
   pull_to_refresh: ^1.1.6 #加载更多
   shared_preferences: ^0.4.2 #简单数据存储
   scoped_model: ^1.0.1
@@ -33,6 +33,7 @@ dependencies:
   flutter_webview_plugin: ^0.3.0+2
   fluro: ^1.4.0
   flutter_screenutil: ^0.5.1
+  firebase_analytics: ^2.0.2+1
 
 dev_dependencies:
   flutter_test:
