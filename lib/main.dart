@@ -7,6 +7,9 @@ import 'package:efox_flutter/lang/app_translations_delegate.dart';
 import 'package:efox_flutter/store/store.dart' show model, Store;
 //路由
 import 'package:efox_flutter/router/index.dart';
+//主题
+import 'package:efox_flutter/config/theme.dart' show AppTheme;
+
 void main() => runApp(MainApp());
 
 class MainApp extends StatefulWidget {
@@ -56,27 +59,7 @@ class MainAppState extends State<MainApp> {
           const Locale('zh'),
         ],
         title: 'Flutter Demo',
-        theme: ThemeData(
-          textTheme: TextTheme(
-            body1: TextStyle(
-              // color: Colors.black,
-              // fontWeight: FontWeight.bold,
-            ),
-          ),
-          platform: TargetPlatform.iOS,
-          iconTheme: IconThemeData(
-            size: 32,
-            color: Color(model.theme.thirdColor),
-            opacity: 0.85,
-          ),
-          // primaryIconTheme 导航栏按钮颜色
-          primaryIconTheme: IconThemeData(
-            color: Color(model.theme.secondColor),
-          ),
-          accentColor: Colors.grey, // 选中颜色
-          primaryColor: Color(model.theme.mainColor), // appbar背景
-          scaffoldBackgroundColor: Color(model.theme.thirdColor), // 整体的scaffold背景颜色
-        ),
+        theme: AppTheme.themData,
         onGenerateRoute: FluroRouter.router.generator,
       ),
     );
