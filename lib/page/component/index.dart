@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:efox_flutter/router/index.dart';
 import 'package:efox_flutter/store/models/main_state_model.dart';
 import 'package:efox_flutter/widget/index.dart' as WidgetRoot;
+import 'package:efox_flutter/config/theme.dart' show AppTheme;
 
 class Index extends StatefulWidget {
   final MainStateModel model;
@@ -43,7 +44,7 @@ class _IndexState extends State<Index> {
           fontFamily: 'MaterialIcons',
           matchTextDirection: true,
         ),
-        // color: Color(model.theme.mainColor),
+        // color: Color(AppTheme.mainColor),
       ),
       backgroundColor: Colors.white,
       children: [
@@ -74,7 +75,7 @@ class _IndexState extends State<Index> {
                           fontFamily: 'MaterialIcons',
                           matchTextDirection: true,
                         ),
-                        color: Color(model.theme.mainColor),
+                        color: Color(AppTheme.mainColor),
                       ),
                       onPressed: () {
                         FluroRouter.router.navigateTo(
