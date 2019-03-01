@@ -11,6 +11,7 @@ import 'constrainedbox/index.dart' as ConstrainedBox;
 import 'wrap/index.dart' as Wrap;
 import 'table/index.dart' as Table;
 import 'flow/index.dart' as Flow;
+import 'stack/index.dart' as Stack;
 
 const nameSpaces = '/regular_';
 
@@ -74,6 +75,11 @@ List widgets = [
     widget: Flow.Index(),
     code: 58915, // sd_card 
     title: Flow.Index.title
+  ),
+  ItemInfo(
+    widget: Stack.Index(),
+    code: 57795, // settings_system_daydream
+    title: Stack.Index.title
   )
 ];
 
