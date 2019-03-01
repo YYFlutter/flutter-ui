@@ -57,6 +57,7 @@ flutter:
   assets:
       - locale/
       - docs/widget/scrollview/gridview/
+      - docs/widget/scrollview/scrollable/
       - docs/widget/regular/row/
       - docs/widget/regular/column/
       - docs/widget/regular/container/
