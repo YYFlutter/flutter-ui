@@ -4,7 +4,7 @@ import 'demo.dart' as Demo;
 
 class Index extends StatefulWidget {
   static String title = 'Flow';
-  static String originCodeUrl = '';
+  static String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/Flow-class.html';
   static String mdUrl = 'docs/widget/regular/flow/index.md';
   @override
   _IndexState createState() => _IndexState();
