@@ -12,10 +12,11 @@ class Index extends StatefulWidget {
   _IndexState createState() => _IndexState(model: this.model);
 }
 
-class _IndexState extends State<Index> {
+class _IndexState extends State<Index>{
   final MainStateModel model;
   List mapList = [];
   int index;
+
   _IndexState({Key key, this.model});
 
   @override
@@ -31,6 +32,9 @@ class _IndexState extends State<Index> {
     String nameSpaces = widgetsItem.nameSpaces;
     List _tmpWidgetList = widgetsItem.widgetList;
     return ExpansionTile(
+      onExpansionChanged: (isOpen) {
+        print(isOpen);
+      },
       title: Text(
         widgetsItem.typeName,
         style: TextStyle(
@@ -40,57 +44,66 @@ class _IndexState extends State<Index> {
       ),
       leading: Icon(
         IconData(
-          widgetsItem.code ?? 58353,
+          widgetsItem.code,
           fontFamily: 'MaterialIcons',
           matchTextDirection: true,
         ),
         // color: Color(AppTheme.mainColor),
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey.shade100.withOpacity(0.1),
       children: [
-        GridView.count(
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          childAspectRatio: 1,
-          crossAxisCount: 3,
-          children: List.generate(
-            _tmpWidgetList.length,
-            (index) {
-              return Container(
-                decoration: BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(
-                      width: .1,
+        Container(
+          decoration: BoxDecoration(
+            color: Colors.grey.shade100,
+            borderRadius: BorderRadius.all(
+              Radius.circular(20),
+            ),
+          ),
+          child: GridView.count(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            childAspectRatio: 1,
+            crossAxisCount: 3,
+            children: List.generate(
+              _tmpWidgetList.length,
+                  (index) {
+                return Container(
+                  decoration: BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(
+                        width: .1,
+                      ),
                     ),
                   ),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    IconButton(
-                      iconSize: 48,
-                      icon: Icon(
-                        IconData(
-                          _tmpWidgetList[index].code ?? 59101,
-                          fontFamily: 'MaterialIcons',
-                          matchTextDirection: true,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                        iconSize: 48,
+                        icon: Icon(
+                          IconData(
+                            _tmpWidgetList[index].code ?? 59101,
+                            fontFamily: 'MaterialIcons',
+                            matchTextDirection: true,
+                          ),
+                          color: Color(AppTheme.mainColor),
                         ),
-                        color: Color(AppTheme.mainColor),
+                        onPressed: () {
+                          FluroRouter.router.navigateTo(
+                            context,
+                            nameSpaces + _tmpWidgetList[index].title,
+                          );
+                        },
                       ),
-                      onPressed: () {
-                        FluroRouter.router.navigateTo(
-                          context,
-                          nameSpaces + _tmpWidgetList[index].title,
-                        );
-                      },
-                    ),
-                    Text(
-                      _tmpWidgetList[index].title,
-                    ),
-                  ],
-                ),
-              );
-            },
+                      Text(
+                        _tmpWidgetList[index].title,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
           ),
         ),
       ],
