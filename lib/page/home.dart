@@ -13,7 +13,7 @@ class Index extends StatefulWidget {
   _IndexState createState() => new _IndexState();
 }
 
-class _IndexState extends State<Index> with SingleTickerProviderStateMixin {
+class _IndexState extends State<Index> {
   int _currentIndex = 0;
   PageController _pageController;
 
