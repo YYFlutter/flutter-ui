@@ -91,7 +91,8 @@ class IndexState extends State<Index> {
     });
   }
 
-  openPage(context, model, String url) async {
+  openPage(context, model) async {
+    String url = this.mdUrl;
     // 加载页面
     if (model.config.state.isPro) {
       FluroRouter.router.navigateTo(context,
@@ -124,7 +125,7 @@ class IndexState extends State<Index> {
           Icons.code,
         ),
         onPressed: () async {
-          this.openPage(context, model, this.mdUrl);
+          this.openPage(context, model);
         },
       ),
       IconButton(

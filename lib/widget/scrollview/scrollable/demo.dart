@@ -14,25 +14,26 @@ class _IndexState extends State<Index> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Scrollable实现滚动'),
+      ),
       body: Scrollable(
+        axisDirection: AxisDirection.right,
         viewportBuilder: (context, offset) {
-          return Scrollable(
-            axisDirection: AxisDirection.right,
-            viewportBuilder: (context, offset) {
-              return SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: List.generate(20, (index) {
-                    return RaisedButton(
-                      child: Text('index $index'),
-                      onPressed: () {
-                        print('$offset');
-                      },
-                    );
-                  }),
-                ),
-              );
-            },
+          return SingleChildScrollView(
+            child: Column(
+              children: List.generate(
+                20,
+                (index) {
+                  return RaisedButton(
+                    child: Text('index $index'),
+                    onPressed: () {
+                      print('$offset');
+                    },
+                  );
+                },
+              ).toList(),
+            ),
           );
         },
       ),
