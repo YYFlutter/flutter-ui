@@ -2,20 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:efox_flutter/lang/application.dart';
 import 'package:efox_flutter/lang/app_translations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-//
-import 'package:efox_flutter/store/store.dart' show Store, MainStateModel;
+import 'package:efox_flutter/store/store.dart' show Store;
 
 import 'package:efox_flutter/components/header.dart' as Header;
 import 'component/index.dart' as TabIndex;
 import 'mine/index.dart' as MyIndex;
-import 'package:efox_flutter/config/theme.dart' show AppTheme;
 
 class Index extends StatefulWidget {
   @override
   _IndexState createState() => new _IndexState();
 }
 
-class _IndexState extends State<Index> with SingleTickerProviderStateMixin {
+class _IndexState extends State<Index> {
   int _currentIndex = 0;
   PageController _pageController;
 
@@ -29,55 +27,6 @@ class _IndexState extends State<Index> with SingleTickerProviderStateMixin {
   void dispose() {
     _pageController.dispose();
     super.dispose();
-  }
-
-  //::TODO 保留到下个版本 考虑去掉
-  Widget menu(MainStateModel model) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border(
-          top: BorderSide(
-            width: .1,
-            color: Color(AppTheme.greyColor),
-          ),
-        ),
-      ),
-      child: TabBar(
-        indicator: BoxDecoration(
-          border: Border(
-            bottom: BorderSide(
-              width: .2,
-              color: Color(AppTheme.mainColor),
-            ),
-          ),
-        ),
-        labelColor: Color(AppTheme.mainColor),
-        unselectedLabelColor: Color(AppTheme.greyColor),
-        indicatorSize: TabBarIndicatorSize.tab,
-        indicatorColor: Color(AppTheme.secondColor),
-        labelStyle: TextStyle(
-          color: Colors.green,
-          fontWeight: FontWeight.w700,
-          fontSize: 16,
-        ),
-        tabs: [
-          Tab(
-            text: AppTranslations.of(context).t('title_component'),
-            icon: Icon(
-              Icons.dashboard,
-              size: 28,
-            ),
-          ),
-          Tab(
-            text: AppTranslations.of(context).t('title_my'),
-            icon: Icon(
-              Icons.person_outline,
-              size: 28,
-            ),
-          ),
-        ],
-      ),
-    );
   }
 
   Widget _bottomNavigationBar(model) {
@@ -103,7 +52,6 @@ class _IndexState extends State<Index> with SingleTickerProviderStateMixin {
       PopupMenuButton(
         icon: Icon(
           Icons.more_vert,
-          // color: Color(AppTheme.textColor),
         ),
         onSelected: (local) {
           Application().onLocaleChanged(Locale(local));
@@ -138,23 +86,6 @@ class _IndexState extends State<Index> with SingleTickerProviderStateMixin {
     AppTranslations lang = AppTranslations.of(context);
     return Store.connect(
       builder: (context, child, model) {
-        /* return DefaultTabController(
-          initialIndex: 0,
-          length: 2,
-          child: Scaffold(
-            appBar: AppBar(
-              title: Header.Index(lang.t('title')),
-              actions: appBarActions(model),
-            ),
-            bottomNavigationBar: menu(model),
-            body: TabBarView(
-              children: <Widget>[
-                TabIndex.Index(model: model),
-                MyIndex.Index(model: model),
-              ],
-            ),
-          ),
-        ); */
         return Scaffold(
           appBar: AppBar(
             title: Header.Index(lang.t('title')),

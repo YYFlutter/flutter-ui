@@ -12,102 +12,105 @@ class Index extends StatefulWidget {
   _IndexState createState() => _IndexState(model: this.model);
 }
 
-class _IndexState extends State<Index> {
+class _IndexState extends State<Index>  {
   final MainStateModel model;
-  List mapList = [];
-  int index;
+  List _mapList = [];
+  int _isExpandedIndex = -1;
+
   _IndexState({Key key, this.model});
 
   @override
   initState() {
     super.initState();
-    this.mapList = WidgetRoot.getAllWidgets();
+    this._mapList = WidgetRoot.getAllWidgets();
   }
 
-  /**
-   * 渲染折叠板
-   */
-  Widget renderExpanel(MainStateModel model, widgetsItem) {
+  renderPanel(model, widgetsItem, index) {
     String nameSpaces = widgetsItem.nameSpaces;
     List _tmpWidgetList = widgetsItem.widgetList;
-    return Container(
-      margin: EdgeInsets.only(bottom: 10),
-      child: ExpansionTile(
-        title: Text(
-          widgetsItem.typeName,
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
+    return ExpansionPanel(
+      headerBuilder: (context, flag) {
+        return Container(
+          padding: EdgeInsets.all(10),
+          child: ListTile(
+            leading: Icon(
+              IconData(
+                widgetsItem.code,
+                fontFamily: 'MaterialIcons',
+                matchTextDirection: true,
+              ),
+            ),
+            title: Text('${widgetsItem.typeName}'),
           ),
+        );
+      },
+      body: Container(
+        decoration: BoxDecoration(
+          color: Color(AppTheme.thirdColor),
         ),
-        leading: Icon(
-          IconData(
-            widgetsItem.code ?? 58353,
-            fontFamily: 'MaterialIcons',
-            matchTextDirection: true,
-          ),
-          // color: Color(AppTheme.mainColor),
-        ),
-        backgroundColor: Colors.white,
-        children: [
-          GridView.count(
-            shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
-            childAspectRatio: 1,
-            crossAxisCount: 3,
-            children: List.generate(
-              _tmpWidgetList.length,
-              (index) {
-                return Container(
-                  decoration: BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(
-                        width: .1,
-                      ),
+        padding: EdgeInsets.all(10),
+        child: GridView.count(
+          shrinkWrap: true,
+          physics: ScrollPhysics(),
+          crossAxisCount: 3,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          children: List.generate(_tmpWidgetList.length, (index) {
+            return RaisedButton(
+              color: Color(AppTheme.secondColor),
+              splashColor: Color(AppTheme.mainColor),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Icon(
+                    IconData(
+                      _tmpWidgetList[index].code,
+                      fontFamily: 'MaterialIcons',
+                      matchTextDirection: true,
                     ),
+                    color: Color(AppTheme.mainColor),
+                    size: 48,
                   ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      IconButton(
-                        iconSize: 48,
-                        icon: Icon(
-                          IconData(
-                            _tmpWidgetList[index].code ?? 59101,
-                            fontFamily: 'MaterialIcons',
-                            matchTextDirection: true,
-                          ),
-                          color: Color(AppTheme.mainColor),
-                        ),
-                        onPressed: () {
-                          FluroRouter.router.navigateTo(
-                            context,
-                            nameSpaces + _tmpWidgetList[index].title,
-                          );
-                        },
-                      ),
-                      Text(
-                        _tmpWidgetList[index].title,
-                      ),
-                    ],
-                  ),
+                  Text(
+                    '${_tmpWidgetList[index].title}',
+                    overflow: TextOverflow.ellipsis,
+                  )
+                ],
+              ),
+              onPressed: () {
+                FluroRouter.router.navigateTo(
+                  context,
+                  nameSpaces + _tmpWidgetList[index].title,
                 );
               },
-            ),
-          ),
-        ],
+            );
+          }),
+        ),
       ),
+      isExpanded: _isExpandedIndex == index,
     );
   }
 
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       physics: BouncingScrollPhysics(),
-      padding: EdgeInsets.all(10),
-      child: Column(
-        children: List.generate(mapList.length, (_index) {
-          return renderExpanel(model, mapList[_index]);
-        }),
+//      padding: EdgeInsets.all(10),
+      child: ExpansionPanelList(
+        children: List.generate(
+          _mapList.length,
+          (_index) {
+            return renderPanel(model, _mapList[_index], _index);
+          },
+        ),
+        expansionCallback: (index, flag) {
+          if (flag) {
+            index = -1;
+          }
+          setState(() {
+            this._isExpandedIndex = index;
+          });
+        },
       ),
     );
   }

@@ -2,13 +2,15 @@ import 'package:efox_flutter/store/objects/widget_info.dart';
 import 'gridview/index.dart' as gridview;
 import 'listview/index.dart' as listview;
 import 'scrollable/index.dart' as scrollable;
+import 'customscrollview/index.dart' as customscrollview;
+import 'singlechildscrollview/index.dart' as singlechildscrollview;
 
 const nameSpaces = '/scrollview_';
 
 List widgets = [
   ItemInfo(
     widget: gridview.Index(),
-    code: 59632, // view_module
+    code: 58348, // grid_on
     title: gridview.Index.title,
   ),
   ItemInfo(
@@ -18,8 +20,18 @@ List widgets = [
   ),
   ItemInfo(
     widget: scrollable.Index(),
-    code: 59631, // view_list
+    code: 57920, // format_line_spacing
     title: scrollable.Index.title,
+  ),
+  ItemInfo(
+    widget: customscrollview.Index(),
+    code: 57908, // format_align_center
+    title: customscrollview.Index.title,
+  ),
+  ItemInfo(
+    widget: singlechildscrollview.Index(),
+    code: 57909, // format_align_justify
+    title: singlechildscrollview.Index.title,
   )
 ];
 

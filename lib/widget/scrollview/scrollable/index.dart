@@ -15,12 +15,12 @@ class _IndexState extends State<Index> {
   @override
   Widget build(BuildContext context) {
     return WidgetComp.Index(
-      title: Index.title,
-      originCodeUrl: Index.originCodeUrl,
-      mdUrl: Index.mdUrl,
-      demoChild: [
-        Demo.Index(),
-      ]
+        title: Index.title,
+        originCodeUrl: Index.originCodeUrl,
+        mdUrl: Index.mdUrl,
+        demoChild: [
+          Demo.Index(),
+        ]
     );
   }
 }

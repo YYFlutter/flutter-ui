@@ -58,7 +58,10 @@ flutter:
   assets:
       - locale/
       - docs/widget/scrollview/gridview/
+      - docs/widget/scrollview/listview/
       - docs/widget/scrollview/scrollable/
+      - docs/widget/scrollview/customscrollview/
+      - docs/widget/scrollview/singlechildscrollview/
       - docs/widget/regular/row/
       - docs/widget/regular/column/
       - docs/widget/regular/container/
@@ -72,6 +75,7 @@ flutter:
       - docs/widget/regular/table/
       - docs/widget/regular/flow/
       - docs/widget/regular/stack/
+      - docs/widget/regular/listview/
       - docs/widget/navigator/appbar/
       - docs/widget/navigator/scaffold/
   # An image asset can refer to one or more resolution-specific "variants", see
