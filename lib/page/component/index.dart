@@ -45,47 +45,49 @@ class _IndexState extends State<Index> {
         );
       },
       body: Container(
-        decoration: BoxDecoration(
-          color: Color(AppTheme.thirdColor),
-        ),
-        // padding: EdgeInsets.all(10),
         child: GridView.count(
+          childAspectRatio: 1.3,
+          padding: EdgeInsets.fromLTRB(4, 0, 4, 0),
           shrinkWrap: true,
           physics: ScrollPhysics(),
           crossAxisCount: 3,
-          // crossAxisSpacing: 10,
-          // mainAxisSpacing: 10,
-          children: List.generate(_tmpWidgetList.length, (index) {
-            return FlatButton(
-              color: Color(AppTheme.secondColor),
-              splashColor: Color(AppTheme.mainColor),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Icon(
-                    IconData(
-                      _tmpWidgetList[index].code,
-                      fontFamily: 'MaterialIcons',
-                      matchTextDirection: true,
+          children: List.generate(
+            _tmpWidgetList.length,
+            (index) {
+              return FlatButton(
+                color: Color(AppTheme.secondColor),
+                splashColor: Color(AppTheme.mainColor),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Icon(
+                      IconData(
+                        _tmpWidgetList[index].code,
+                        fontFamily: 'MaterialIcons',
+                        matchTextDirection: true,
+                      ),
+                      color: Color(AppTheme.mainColor),
+                      size: 32,
                     ),
-                    color: Color(AppTheme.mainColor),
-                    size: 48,
-                  ),
-                  Text(
-                    '${_tmpWidgetList[index].title}',
-                    overflow: TextOverflow.ellipsis,
-                  )
-                ],
-              ),
-              onPressed: () {
-                FluroRouter.router.navigateTo(
-                  context,
-                  nameSpaces + _tmpWidgetList[index].title,
-                );
-              },
-            );
-          }),
+                    Text(
+                      '${_tmpWidgetList[index].title}',
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                    )
+                  ],
+                ),
+                onPressed: () {
+                  FluroRouter.router.navigateTo(
+                    context,
+                    nameSpaces + _tmpWidgetList[index].title,
+                  );
+                },
+              );
+            },
+          ),
         ),
       ),
       isExpanded: _isExpandedIndex == index,

@@ -4,6 +4,8 @@ import 'listview/index.dart' as listview;
 import 'scrollable/index.dart' as scrollable;
 import 'customscrollview/index.dart' as customscrollview;
 import 'singlechildscrollview/index.dart' as singlechildscrollview;
+import 'scrollbar/index.dart' as scrollbar;
+import 'scrollcontroller/index.dart' as scrollcontroller;
 
 const nameSpaces = '/scrollview_';
 
@@ -32,7 +34,17 @@ List widgets = [
     widget: singlechildscrollview.Index(),
     code: 57909, // format_align_justify
     title: singlechildscrollview.Index.title,
-  )
+  ),
+  ItemInfo(
+    widget: scrollbar.Index(),
+    code: 59614, // toc
+    title: scrollbar.Index.title,
+  ),
+  ItemInfo(
+    widget: scrollcontroller.Index(),
+    code: 57945, // vertical_align_center
+    title: scrollcontroller.Index.title,
+  ),
 ];
 
 List widgetMap = [

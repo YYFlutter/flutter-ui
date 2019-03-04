@@ -88,7 +88,7 @@ class _IndexState extends State<Index> {
       builder: (context, child, model) {
         return Scaffold(
           appBar: AppBar(
-            title: Header.Index(lang.t('title')),
+            title: Header.Index(lang.t('title'),),
             actions: appBarActions(model),
           ),
           bottomNavigationBar: _bottomNavigationBar(model),
