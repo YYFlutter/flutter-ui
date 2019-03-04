@@ -3,9 +3,9 @@ import 'package:efox_flutter/components/widgetComp.dart' as WidgetComp;
 import 'demo.dart' as Demo;
 
 class Index extends StatefulWidget {
-  static String title = 'BottomSheet';
-  static String originCodeUrl = 'https://docs.flutter.io/flutter/material/BottomSheet-class.html';
-  static String mdUrl = 'docs/widget/bulletbox/bottomsheet/index.md';
+  static String title = 'SnackBar';
+  static String originCodeUrl = '';
+  static String mdUrl = 'docs/widget/bulletbox/snackbar/index.md';
   @override
   _IndexState createState() => _IndexState();
 }

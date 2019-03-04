@@ -2,6 +2,7 @@ import 'package:efox_flutter/store/objects/widget_info.dart';
 import 'simpledialog/index.dart' as SimpleDialog;
 import 'alertdialog/index.dart' as AlertDialog;
 import 'bottomsheet/index.dart' as BottomSheet;
+import 'snackbar/index.dart' as SnackBar;
 
 const nameSpaces = '/bulletbox_';
 
@@ -20,6 +21,11 @@ List widgets = [
     widget: BottomSheet.Index(),
     code: 59639, // card_membership 
     title: BottomSheet.Index.title
+  ),
+  ItemInfo(
+    widget: SnackBar.Index(),
+    code: 59670, // date_range 
+    title: SnackBar.Index.title
   )
 ];
 
