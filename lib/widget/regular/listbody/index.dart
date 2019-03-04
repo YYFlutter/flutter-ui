@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/components/widgetComp.dart' as WidgetComp;
 import 'demo.dart' as Demo;
-import 'demo_builder.dart' as DemoBuilder;
-import 'demo_separated.dart' as DemoSeparated;
-import 'demo_custom.dart' as DemoCustom;
 
 class Index extends StatefulWidget {
-  static String title = 'ListView';
-  static String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/ListView-class.html';
-  static String mdUrl = 'docs/widget/regular/listview/index.md';
+  static String title = 'ListBody';
+  static String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/ListBody-class.html';
+  static String mdUrl = 'docs/widget/regular/listbody/index.md';
+
   @override
   _IndexState createState() => _IndexState();
 }
@@ -21,10 +19,7 @@ class _IndexState extends State<Index> {
       originCodeUrl: Index.originCodeUrl,
       mdUrl: Index.mdUrl,
       demoChild: <Widget>[
-        Demo.Index(),
-        DemoBuilder.Index(),
-        DemoSeparated.Index(),
-        DemoCustom.Index()
+        Demo.Index()
       ],
     );
   }
