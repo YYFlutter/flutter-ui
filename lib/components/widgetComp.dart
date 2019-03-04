@@ -83,8 +83,13 @@ class IndexState extends State<Index> {
       this.model = model;
       return Scaffold(
         appBar: AppBar(
-          title: Header.Index(this.title),
-          actions: this.getActions(context, model),
+          title: Header.Index(
+            this.title,
+          ),
+          actions: this.getActions(
+            context,
+            model,
+          ),
         ),
         body: this.loading ? this.renderLoading() : this.renderWidget(),
       );
@@ -131,7 +136,7 @@ class IndexState extends State<Index> {
       IconButton(
         icon: Icon(Icons.share),
         onPressed: () {
-          final String msg = 
+          final String msg =
               model.config.state.env.GithubAssetOrigin + this.mdUrl;
           AppShare.shareText(msg);
         },

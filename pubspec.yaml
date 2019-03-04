@@ -62,6 +62,8 @@ flutter:
       - docs/widget/scrollview/scrollable/
       - docs/widget/scrollview/customscrollview/
       - docs/widget/scrollview/singlechildscrollview/
+      - docs/widget/scrollview/scrollbar/
+      - docs/widget/scrollview/scrollcontroller/
       - docs/widget/regular/row/
       - docs/widget/regular/column/
       - docs/widget/regular/container/
