@@ -14,6 +14,7 @@ import 'flow/index.dart' as Flow;
 import 'stack/index.dart' as Stack;
 import 'listview/index.dart' as ListView;
 import 'listbody/index.dart' as ListBody;
+import 'layoutbuilder/index.dart' as LayoutBuilder;
 
 const nameSpaces = '/regular_';
 
@@ -92,6 +93,11 @@ List widgets = [
     widget: ListBody.Index(),
     code: 57440, // art_track
     title: ListBody.Index.title
+  ),
+  ItemInfo(
+    widget: LayoutBuilder.Index(),
+    code: 59484, // assessment
+    title: LayoutBuilder.Index.title
   )
 ];
 
