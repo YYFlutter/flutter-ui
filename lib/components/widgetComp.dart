@@ -131,9 +131,8 @@ class IndexState extends State<Index> {
       IconButton(
         icon: Icon(Icons.share),
         onPressed: () {
-          final String msg = Uri.encodeComponent(
-              model.config.state.env.GithubAssetOrigin +
-                  this.mdUrl.replaceAll(RegExp('/index.md'), ''));
+          final String msg = 
+              model.config.state.env.GithubAssetOrigin + this.mdUrl;
           AppShare.shareText(msg);
         },
       ),

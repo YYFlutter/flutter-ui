@@ -12,7 +12,7 @@ class Index extends StatefulWidget {
   _IndexState createState() => _IndexState(model: this.model);
 }
 
-class _IndexState extends State<Index>  {
+class _IndexState extends State<Index> {
   final MainStateModel model;
   List _mapList = [];
   int _isExpandedIndex = -1;
@@ -31,7 +31,7 @@ class _IndexState extends State<Index>  {
     return ExpansionPanel(
       headerBuilder: (context, flag) {
         return Container(
-          padding: EdgeInsets.all(10),
+          // padding: EdgeInsets.all(10),
           child: ListTile(
             leading: Icon(
               IconData(
@@ -48,15 +48,15 @@ class _IndexState extends State<Index>  {
         decoration: BoxDecoration(
           color: Color(AppTheme.thirdColor),
         ),
-        padding: EdgeInsets.all(10),
+        // padding: EdgeInsets.all(10),
         child: GridView.count(
           shrinkWrap: true,
           physics: ScrollPhysics(),
           crossAxisCount: 3,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
+          // crossAxisSpacing: 10,
+          // mainAxisSpacing: 10,
           children: List.generate(_tmpWidgetList.length, (index) {
-            return RaisedButton(
+            return FlatButton(
               color: Color(AppTheme.secondColor),
               splashColor: Color(AppTheme.mainColor),
               child: Column(
@@ -95,8 +95,9 @@ class _IndexState extends State<Index>  {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       physics: BouncingScrollPhysics(),
-//      padding: EdgeInsets.all(10),
+      // padding: EdgeInsets.all(10),
       child: ExpansionPanelList(
+        animationDuration: Duration(milliseconds: 800),
         children: List.generate(
           _mapList.length,
           (_index) {
