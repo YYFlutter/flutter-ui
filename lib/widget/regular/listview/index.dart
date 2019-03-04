@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:efox_flutter/components/widgetComp.dart' as WidgetComp;
 import 'demo.dart' as Demo;
 import 'demo_builder.dart' as DemoBuilder;
+import 'demo_separated.dart' as DemoSeparated;
+import 'demo_custom.dart' as DemoCustom;
 
 class Index extends StatefulWidget {
   static String title = 'ListView';
@@ -20,7 +22,9 @@ class _IndexState extends State<Index> {
       mdUrl: Index.mdUrl,
       demoChild: <Widget>[
         Demo.Index(),
-        DemoBuilder.Index()
+        DemoBuilder.Index(),
+        DemoSeparated.Index(),
+        DemoCustom.Index()
       ],
     );
   }
