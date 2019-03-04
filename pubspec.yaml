@@ -79,6 +79,7 @@ flutter:
       - docs/widget/regular/listbody/
       - docs/widget/regular/layoutbuilder/
       - docs/widget/bulletbox/simpledialog/
+      - docs/widget/bulletbox/alertdialog/
       - docs/widget/navigator/appbar/
       - docs/widget/navigator/scaffold/
   # An image asset can refer to one or more resolution-specific "variants", see
