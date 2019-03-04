@@ -1,8 +1,15 @@
 import 'package:efox_flutter/store/objects/widget_info.dart';
+import 'simpledialog/index.dart' as SimpleDialog;
 
 const nameSpaces = '/bulletbox_';
 
-List widgets = [];
+List widgets = [
+  ItemInfo(
+    widget: SimpleDialog.Index(),
+    code: 57451, // branding_watermark
+    title: SimpleDialog.Index.title
+  )
+];
 
 List widgetMap = [
   ItemListInfo(
