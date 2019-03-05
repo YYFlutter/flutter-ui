@@ -86,6 +86,7 @@ flutter:
       - docs/widget/bulletbox/bottomsheet/
       - docs/widget/bulletbox/snackbar/
       - docs/widget/bulletbox/expansionpanel/
+      - docs/widget/form/checkbox/
       - docs/widget/navigator/appbar/
       - docs/widget/navigator/scaffold/
   # An image asset can refer to one or more resolution-specific "variants", see
