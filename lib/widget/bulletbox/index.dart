@@ -3,6 +3,7 @@ import 'simpledialog/index.dart' as SimpleDialog;
 import 'alertdialog/index.dart' as AlertDialog;
 import 'bottomsheet/index.dart' as BottomSheet;
 import 'snackbar/index.dart' as SnackBar;
+import 'expansionPanel/index.dart' as ExpansionPanel;
 
 const nameSpaces = '/bulletbox_';
 
@@ -26,6 +27,11 @@ List widgets = [
     widget: SnackBar.Index(),
     code: 59670, // date_range 
     title: SnackBar.Index.title
+  ),
+  ItemInfo(
+    widget: ExpansionPanel.Index(),
+    code: 59651, // event_seat 
+    title: ExpansionPanel.Index.title
   )
 ];
 
