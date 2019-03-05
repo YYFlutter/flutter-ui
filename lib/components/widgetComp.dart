@@ -127,6 +127,17 @@ class IndexState extends State<Index> {
     return [
       IconButton(
         icon: Icon(
+          Icons.insert_link,
+        ),
+        onPressed: () async {
+          FluroRouter.router.navigateTo(
+            context,
+            '/webview?url=${Uri.encodeComponent(this.originCodeUrl)}',
+          );
+        },
+      ),
+      IconButton(
+        icon: Icon(
           Icons.code,
         ),
         onPressed: () async {
@@ -141,51 +152,51 @@ class IndexState extends State<Index> {
           AppShare.shareText(msg);
         },
       ),
-      PopupMenuButton(
-        offset: Offset(0, 80),
-        onSelected: (index) {
-          switch (index) {
-            case 0:
-              FluroRouter.router.navigateTo(
-                context,
-                '/webview?url=${Uri.encodeComponent('https://github.com/efoxTeam/flutter-ui')}',
-              );
-              break;
-            case 1:
-              FluroRouter.router.navigateTo(
-                context,
-                '/webview?url=${Uri.encodeComponent(this.originCodeUrl)}',
-              );
-              break;
-          }
-        },
-        itemBuilder: (context) {
-          return [
-            PopupMenuItem(
-              child: Row(children: [
-                Icon(
-                  Icons.home,
-                  color: Color(AppTheme.greyColor),
-                ),
-                Text("  "),
-                Text('Flutter-UI'),
-              ]),
-              value: 0,
-            ),
-            PopupMenuItem(
-              child: Row(children: [
-                Icon(
-                  Icons.code,
-                  color: Color(AppTheme.greyColor),
-                ),
-                Text("  "),
-                Text(this.title),
-              ]),
-              value: 1,
-            ),
-          ];
-        },
-      ),
+      // PopupMenuButton(
+      //   offset: Offset(0, 80),
+      //   onSelected: (index) {
+      //     switch (index) {
+      //       case 0:
+      //         FluroRouter.router.navigateTo(
+      //           context,
+      //           '/webview?url=${Uri.encodeComponent('https://github.com/efoxTeam/flutter-ui')}',
+      //         );
+      //         break;
+      //       case 1:
+      //         FluroRouter.router.navigateTo(
+      //           context,
+      //           '/webview?url=${Uri.encodeComponent(this.originCodeUrl)}',
+      //         );
+      //         break;
+      //     }
+      //   },
+      //   itemBuilder: (context) {
+      //     return [
+      //       PopupMenuItem(
+      //         child: Row(children: [
+      //           Icon(
+      //             Icons.home,
+      //             color: Color(AppTheme.greyColor),
+      //           ),
+      //           Text("  "),
+      //           Text('Flutter-UI'),
+      //         ]),
+      //         value: 0,
+      //       ),
+      //       PopupMenuItem(
+      //         child: Row(children: [
+      //           Icon(
+      //             Icons.code,
+      //             color: Color(AppTheme.greyColor),
+      //           ),
+      //           Text("  "),
+      //           Text(this.title),
+      //         ]),
+      //         value: 1,
+      //       ),
+      //     ];
+      //   },
+      // ),
     ];
   }
 
