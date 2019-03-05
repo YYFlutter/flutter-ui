@@ -99,7 +99,7 @@ class _IndexState extends State<Index> {
       physics: BouncingScrollPhysics(),
       // padding: EdgeInsets.all(10),
       child: ExpansionPanelList(
-        animationDuration: Duration(milliseconds: 800),
+        animationDuration: Duration(milliseconds: 500),
         children: List.generate(
           _mapList.length,
           (_index) {

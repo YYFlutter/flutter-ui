@@ -6,6 +6,7 @@ import 'customscrollview/index.dart' as customscrollview;
 import 'singlechildscrollview/index.dart' as singlechildscrollview;
 import 'scrollbar/index.dart' as scrollbar;
 import 'scrollcontroller/index.dart' as scrollcontroller;
+import 'nestedscrollview/index.dart' as nestedscrollview;
 
 const nameSpaces = '/scrollview_';
 
@@ -42,8 +43,13 @@ List widgets = [
   ),
   ItemInfo(
     widget: scrollcontroller.Index(),
-    code: 57945, // vertical_align_center
+    code: 57539, // import_export 
     title: scrollcontroller.Index.title,
+  ),
+  ItemInfo(
+    widget: nestedscrollview.Index(),
+    code: 57945, // vertical_align_center
+    title: nestedscrollview.Index.title,
   ),
 ];
 

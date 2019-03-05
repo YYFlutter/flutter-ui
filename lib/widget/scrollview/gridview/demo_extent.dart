@@ -23,7 +23,7 @@ class Index extends StatelessWidget {
                   width: 0.1,
                 )
               ),
-              child: Image.network('https://dianhu-1253537286.cos.eu-moscow.myqcloud.com/efoxfile/Moschat/ojbk.png'),
+              child: Image.network('https://static.moschat.com/efoxfile/Moschat/ojbk.png'),
             );
           },
         ),

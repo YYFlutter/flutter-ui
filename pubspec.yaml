@@ -57,13 +57,14 @@ flutter:
   #  - images/a_dot_ham.jpeg
   assets:
       - locale/
+      - docs/widget/scrollview/customscrollview/
       - docs/widget/scrollview/gridview/
       - docs/widget/scrollview/listview/
+      - docs/widget/scrollview/nestedscrollview/
       - docs/widget/scrollview/scrollable/
-      - docs/widget/scrollview/customscrollview/
-      - docs/widget/scrollview/singlechildscrollview/
       - docs/widget/scrollview/scrollbar/
       - docs/widget/scrollview/scrollcontroller/
+      - docs/widget/scrollview/singlechildscrollview/
       - docs/widget/regular/row/
       - docs/widget/regular/column/
       - docs/widget/regular/container/

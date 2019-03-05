@@ -20,12 +20,13 @@ class _IndexState extends State<Index> {
           return CustomScrollView(
             slivers: [
               SliverAppBar(
+                forceElevated: false, // appbar下方阴影
                 snap: false,
                 // 当floating为true,当前才能为true，向下拉时，会自动显示flexibleSpace的内容
                 pinned: false,
                 // 当pinned为true时，一直显示标题，但不显示flexibleSpace的内容
                 expandedHeight: 250.0,
-                title: Text('this title'),
+                title: Text('ScrollView'),
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     '这里的标题会随着滚动向上移),',
