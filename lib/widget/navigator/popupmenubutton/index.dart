@@ -3,9 +3,9 @@ import 'package:efox_flutter/components/widgetComp.dart' as WidgetComp;
 // import 'demo.dart' as Demo;
 
 class Index extends StatefulWidget {
-  static String title = 'BackdropFilter';
-  static String mdUrl = 'docs/widget/vision/backdropfilter/index.md';
-  static String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/BackdropFilter-class.html';
+  static String title = 'PopupMenuButton';
+  static String mdUrl = 'docs/widget/navigator/popupmenubutton/index.md';
+  static String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/PopupMenuButton-class.html';
 
   @override
   _IndexState createState() => new _IndexState();

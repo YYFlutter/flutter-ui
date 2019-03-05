@@ -15,7 +15,7 @@ class _IndexState extends State<Index> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('SingleChildScrollView'),
+        title: Text('IgnorePointer'),
       ),
       body: Center(
         child: Text('更新中'),
