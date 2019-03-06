@@ -4,7 +4,7 @@ import 'demo.dart' as Demo;
 
 class Index extends StatefulWidget {
   static String title = 'CheckBox';
-  static String originCodeUrl = '';
+  static String originCodeUrl = 'https://docs.flutter.io/flutter/material/Checkbox-class.html';
   static String mdUrl = 'docs/widget/form/checkbox/index.md';
   @override
   _IndexState createState() => _IndexState();
