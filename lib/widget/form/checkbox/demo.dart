@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 class Index extends StatefulWidget {
   @override
@@ -6,45 +7,35 @@ class Index extends StatefulWidget {
 }
 
 class _IndexState extends State<Index> {
-  bool _checkBoxValue = false;
-
+  List<bool> checkBoxValue = [false, true, true, false, true];
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: <Widget>[
-        Center(
-          child: Checkbox(
-            value: _checkBoxValue,
-            onChanged: (value) {
-              setState(() {
-                _checkBoxValue = value;
-              });
-            },
-          ),
-        )
-      ],
+    return Scaffold(
+      appBar: AppBar(title: Text('Checkbox'),),
+      body: Center(
+        child: Wrap(
+          children: List.generate(5, (index) {
+            Color color = _randomColor();
+            return Checkbox(
+              value: checkBoxValue[index],
+              activeColor: color,
+              tristate: false,
+              onChanged: (value) {
+                setState(() {
+                  checkBoxValue[index] = value;
+                });
+              },
+            );
+          }),
+        ),
+      ),
     );
   }
 }
 
-
-// class CheckBoxDemo extends StatefulWidget {
-//   @override
-//   _CheckBoxDemoState createState() => _CheckBoxDemoState();
-// }
-
-// class _CheckBoxDemoState extends State<CheckBoxDemo> {
-//   bool _checkBoxValue;
-//   // _CheckBoxDemoState({Key key, this._checkBoxValue}):super(key: key);
-//   @override
-//   Widget build(BuildContext context) {
-//     return Checkbox(
-//       value: _checkBoxValue,
-//       onChanged: (value) {
-//         setState(() {
-//           _checkBoxValue = value;
-//         });
-//       },
-//     );
-//   }
-// }
+Color _randomColor () {
+  var red = Random.secure().nextInt(255);
+  var green = Random.secure().nextInt(255);
+  var blue = Random.secure().nextInt(255);
+  return Color.fromARGB(255, red, green, blue);
+}
