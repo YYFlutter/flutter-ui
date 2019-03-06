@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/lang/application.dart';
 import 'package:efox_flutter/lang/app_translations.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart' show ScreenUtil;
 import 'package:efox_flutter/store/store.dart' show Store;
 
 import 'package:efox_flutter/components/header.dart' as Header;
