@@ -87,6 +87,7 @@ flutter:
       - docs/widget/bulletbox/snackbar/
       - docs/widget/bulletbox/expansionpanel/
       - docs/widget/form/checkbox/
+      - docs/widget/form/checkboxlisttile/
       - docs/widget/navigator/appbar/
       - docs/widget/navigator/bottomnavigationbar/
       - docs/widget/navigator/drawer/
