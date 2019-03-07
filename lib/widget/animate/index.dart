@@ -130,6 +130,6 @@ List widgetMap = [
     nameSpaces: nameSpaces,
     widgetList: widgets,
     typeName: 'Animate',
-    code: 58353,
+    code: 58162, // toys
   )
 ];

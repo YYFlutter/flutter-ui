@@ -46,6 +46,6 @@ List widgetMap = [
     nameSpaces: nameSpaces,
     widgetList: widgets,
     typeName: 'Gestures',
-    code: 58353,
+    code: 59667, // touch_app
   )
 ];
