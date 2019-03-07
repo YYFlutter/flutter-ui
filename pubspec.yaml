@@ -57,10 +57,13 @@ flutter:
   #  - images/a_dot_ham.jpeg
   assets:
       - locale/
+      - docs/widget/scrollview/customscrollview/
       - docs/widget/scrollview/gridview/
       - docs/widget/scrollview/listview/
+      - docs/widget/scrollview/nestedscrollview/
       - docs/widget/scrollview/scrollable/
-      - docs/widget/scrollview/customscrollview/
+      - docs/widget/scrollview/scrollbar/
+      - docs/widget/scrollview/scrollcontroller/
       - docs/widget/scrollview/singlechildscrollview/
       - docs/widget/regular/row/
       - docs/widget/regular/column/
@@ -76,8 +79,78 @@ flutter:
       - docs/widget/regular/flow/
       - docs/widget/regular/stack/
       - docs/widget/regular/listview/
+      - docs/widget/regular/listbody/
+      - docs/widget/regular/layoutbuilder/
+      - docs/widget/bulletbox/simpledialog/
+      - docs/widget/bulletbox/alertdialog/
+      - docs/widget/bulletbox/bottomsheet/
+      - docs/widget/bulletbox/snackbar/
+      - docs/widget/bulletbox/expansionpanel/
+      - docs/widget/form/checkbox/
       - docs/widget/navigator/appbar/
-      - docs/widget/navigator/scaffold/
+      - docs/widget/navigator/bottomnavigationbar/
+      - docs/widget/navigator/drawer/
+      - docs/widget/navigator/floatingactionbutton/
+      - docs/widget/navigator/materialapp/
+      - docs/widget/navigator/navigator/
+      - docs/widget/navigator/popupmenubutton/
+      - docs/widget/navigator/tabbar/
+      - docs/widget/navigator/tabbarview/
+      - docs/widget/navigator/widgetsapp/
+      - docs/widget/gestures/absorbpointer/
+      - docs/widget/gestures/dismissible/
+      - docs/widget/gestures/dragtarget/
+      - docs/widget/gestures/gesturedetector/
+      - docs/widget/gestures/ignorepointer/
+      - docs/widget/gestures/longpressdraggable/
+      - docs/widget/animate/animatedbuilder/
+      - docs/widget/animate/animatedcontainer/
+      - docs/widget/animate/animatedcrossfade/
+      - docs/widget/animate/animateddefaulttextstyle/
+      - docs/widget/animate/animatedliststate/
+      - docs/widget/animate/animatedmodalbarrier/
+      - docs/widget/animate/animatedopacity/
+      - docs/widget/animate/animatedphysicalmodel/
+      - docs/widget/animate/animatedpositioned/
+      - docs/widget/animate/animatedsize/
+      - docs/widget/animate/animatedwidget/
+      - docs/widget/animate/animatedwidgetbasestate/
+      - docs/widget/animate/decoratedboxtransition/
+      - docs/widget/animate/fadetransition/
+      - docs/widget/animate/hero/
+      - docs/widget/animate/positionedtransition/
+      - docs/widget/animate/rotationtransition/
+      - docs/widget/animate/scaletransition/
+      - docs/widget/animate/sizetransition/
+      - docs/widget/animate/slidetransition/
+      - docs/widget/common/assetbundle/
+      - docs/widget/common/buttonbar/
+      - docs/widget/common/chip/
+      - docs/widget/common/container/
+      - docs/widget/common/divider/
+      - docs/widget/common/flatbutton/
+      - docs/widget/common/icon/
+      - docs/widget/common/iconbutton/
+      - docs/widget/common/image/
+      - docs/widget/common/listtile/
+      - docs/widget/common/placeholder/
+      - docs/widget/common/raisedbutton/
+      - docs/widget/common/rawimage/
+      - docs/widget/common/stepper/
+      - docs/widget/common/text/
+      - docs/widget/common/tooltip/
+      - docs/widget/vision/backdropfilter/
+      - docs/widget/vision/clipoval/
+      - docs/widget/vision/clippath/
+      - docs/widget/vision/cliprect/
+      - docs/widget/vision/custompaint/
+      - docs/widget/vision/decoratedbox/
+      - docs/widget/vision/fractionaltranslation/
+      - docs/widget/vision/mediaquery/
+      - docs/widget/vision/opacity/
+      - docs/widget/vision/rotatedbox/
+      - docs/widget/vision/theme/
+      - docs/widget/vision/transform/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
 

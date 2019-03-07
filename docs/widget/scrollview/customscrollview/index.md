@@ -26,10 +26,14 @@ CustomScrollView({
 - CustomScrollView: 实现随滚动条，appbar向上移动效果
 - SingleChildScrollView：参考SingleChildScrollView
 
-### CustomScrollView
-> CustomScrollView：结合slivers使用,常用小组件为SliverAppBar, SliverGrid,SliverFixedExtentList
+> Sliver：视图内的小片，细片。通常带有特定滚动效果的滚动块。常用小组件
+- SliverAppBar
+- SliverGrid
+- SliverFixedExtentList
+- ...
+
 > SliverAppBar: 滚动标题头小组件
-    ```dart
+    ```
     SliverAppBar({
         Key key,
         this.leading,
@@ -57,3 +61,6 @@ CustomScrollView({
 - pinned: 默认为false, 非滚动至顶部时，标题头始终处于隐藏，当true时，标题头始终显示，但不会显示flexibleSpace内容 
 - floating: 默认为false，当为true时，下拉会显示appbar，但不会自动展开flexibleSpace的内容
 - snap: 默认为false，当floating为true, 当前才能为true，向下拉时，会自动显示flexibleSpace的内容
+- expandedHeight: 展开的最大高度
+- forceElevated：bool appbar下方阴影
+- flexibleSpace: expandedHeight展开后的内容

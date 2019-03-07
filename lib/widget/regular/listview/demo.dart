@@ -19,21 +19,42 @@ class _IndexState extends State<Index> {
     'http://pic1.win4000.com/wallpaper/2019-02-14/5c65108043791.jpg',
     'http://pic1.win4000.com/wallpaper/2019-02-14/5c651084373de.jpg'
   ];
+  var scrollDirections = Axis.vertical;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('ListView'),),
       body: ListView(
-        scrollDirection: Axis.vertical,
+        scrollDirection: scrollDirections,
+        reverse: false,
+        controller: ScrollController(
+          initialScrollOffset: ScreenUtil().setWidth(420),
+          keepScrollOffset: true
+        ),
+        primary: false,
+        physics: ScrollPhysics(),
+        shrinkWrap: false,
+        padding: EdgeInsets.all(20.0),
+        // itemExtent: ScreenUtil().setWidth(420),
         children: List.generate(10, (index) {
-          return ListTile(
-            title: Text('title $index'),
-            subtitle: Text('subtitle $index'),
-            leading: CircleAvatar(
-              backgroundImage: NetworkImage(listview[index]),
+          return InkWell(
+            onTap: () {
+              this.setState(() {
+                scrollDirections == Axis.vertical ? scrollDirections = Axis.horizontal : scrollDirections = Axis.vertical;
+              });
+            },
+            child: Container(
+              width: ScreenUtil().setWidth(420),
+              height: ScreenUtil().setWidth(220),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage(listview[index]),
+                  fit: BoxFit.cover
+                ),
+              ),
             ),
-            trailing: Icon(Icons.arrow_right),
-          );  
+          ); 
         }),
       ),
     );
