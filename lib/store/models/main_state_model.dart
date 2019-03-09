@@ -5,7 +5,7 @@ import 'config_state_model.dart' show ConfigModel;
 /**
  * get state: model.modelName.state.xxx
  * dispatch method: model.dispatch('modelName', 'methodsName', payload)
- * 
+ *
  * import 'package:efox_flutter/store/index.dart' as Store
  * Store.model.config.state.isPro
  */
@@ -22,12 +22,14 @@ class MainStateModel extends Model with UserModel {
       'config': config,
     };
   }
+
   /**
    * dispatch method: model.dispatch('modelName', 'methodsName', payload)
    */
-  dispatch(nameSpace, method, [payload]) async {
-    this.state[nameSpace].methods(method, payload);
+  Future dispatch(nameSpace, method, [payload]) async {
+    await this.state[nameSpace].methods(method, payload);
     notifyListeners();
+    return Future.value(this.state);
   }
 }
 

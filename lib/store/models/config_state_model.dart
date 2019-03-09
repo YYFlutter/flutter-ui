@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:efox_flutter/config/index.dart' as Config;
 import 'package:efox_flutter/store/index.dart' show model;
 import 'package:efox_flutter/utils/loadAsset.dart' show loadAssets;
@@ -15,10 +16,12 @@ class ConfigModel {
 
   dynamic getVersion () async {
     print('version ${model.config.state.env.versionUrl}');
-    String _version = await loadAssets(model.config.state.env.versionUrl).then((res) {
-      return res['version'] ?? '1.0';
+    String _version = await loadAssets(model.config.state.env.versionUrl).then((resp) {
+      Map<String, dynamic> res = json.decode(resp);
+      return res['version'].toString() ?? '0.1';
     }).catchError((err) {
-      return '1.0';
+      print('err $err');
+      return '0.0';
     });
     print('_version ${_version}');
     return _version;

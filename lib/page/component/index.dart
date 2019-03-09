@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:efox_flutter/router/index.dart';
+import 'package:efox_flutter/router/index.dart' show FluroRouter;
 import 'package:efox_flutter/store/models/main_state_model.dart'
     show MainStateModel;
-import 'package:efox_flutter/lang/application.dart' show Application;
-import 'package:efox_flutter/lang/app_translations.dart' show AppTranslations;
+import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
 import 'package:efox_flutter/components/header.dart' as Header;
 import 'package:efox_flutter/widget/index.dart' as WidgetRoot;
 import 'package:efox_flutter/config/theme.dart' show AppTheme;
@@ -13,15 +12,12 @@ class Index extends StatefulWidget {
 
   Index({Key key, this.model}) : super(key: key);
 
-  _IndexState createState() => _IndexState(model: this.model);
+  _IndexState createState() => _IndexState();
 }
 
 class _IndexState extends State<Index> {
-  final MainStateModel model;
   List _mapList = [];
   int _isExpandedIndex = -1;
-
-  _IndexState({Key key, this.model});
 
   @override
   initState() {
@@ -29,14 +25,14 @@ class _IndexState extends State<Index> {
     this._mapList = WidgetRoot.getAllWidgets();
   }
 
-  List<Widget> appBarActions(model) {
+  List<Widget> appBarActions() {
     return [
       PopupMenuButton(
         icon: Icon(
           Icons.more_vert,
         ),
         onSelected: (local) {
-          Application().onLocaleChanged(Locale(local));
+          AppLocalizations.changeLanguage(Locale(local));
           print('local=$local');
         },
         itemBuilder: (context) => [
@@ -61,7 +57,7 @@ class _IndexState extends State<Index> {
     ];
   }
 
-  renderPanel(model, widgetsItem, index) {
+  renderPanel(widgetsItem, index) {
     String nameSpaces = widgetsItem.nameSpaces;
     List _tmpWidgetList = widgetsItem.widgetList;
     return ExpansionPanel(
@@ -132,13 +128,12 @@ class _IndexState extends State<Index> {
 
   Widget build(BuildContext context) {
     // 实例化语言包
-    AppTranslations lang = AppTranslations.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Header.Index(
-          lang.t('nav_title_0'),
+          AppLocalizations.$t('nav_title_0'),
         ),
-        actions: appBarActions(model),
+        actions: appBarActions(),
       ),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
@@ -148,7 +143,7 @@ class _IndexState extends State<Index> {
           children: List.generate(
             _mapList.length,
             (_index) {
-              return renderPanel(model, _mapList[_index], _index);
+              return renderPanel(_mapList[_index], _index);
             },
           ),
           expansionCallback: (index, flag) {

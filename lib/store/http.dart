@@ -7,8 +7,7 @@ Dio getDio([Options options]) {
     receiveTimeout: 5000,
   )); // with default Options
   dio.interceptors.add(LogInterceptor(responseBody: true));
-  return
-  dio;
+  return dio;
 }
 
 Future<dynamic> get(url, [data = const {}]) async {

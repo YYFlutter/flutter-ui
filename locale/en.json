@@ -6,5 +6,10 @@
     "widgetType": {
         "regularLayout": "common layout"
     },
+    "common" : {
+        "changeLanguage": "changeLanguage",
+        "changeVersion": "changeVersion",
+        "changeEnvironment": "changeEnvironment"
+    },
     "loading": "Loading"
 }
