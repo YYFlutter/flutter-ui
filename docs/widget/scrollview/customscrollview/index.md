@@ -22,7 +22,7 @@ CustomScrollView({
 ```
 
 ### 属性介绍
-> viewportBuilder：显示滚动组件的属性，实例CustomScrollView/SingleChildScrollView实现不同的滚动效果。
+> viewportBuilder：显示滚动组件的属性，实例CustomScrollView/SingleChildScrollView实现不同的滚动效果。  
 - CustomScrollView: 实现随滚动条，appbar向上移动效果
 - SingleChildScrollView：参考SingleChildScrollView
 
@@ -32,7 +32,8 @@ CustomScrollView({
 - SliverFixedExtentList
 - ...
 
-> SliverAppBar: 滚动标题头小组件
+> SliverAppBar: 滚动标题头小组件 
+ 
     ```
     SliverAppBar({
         Key key,

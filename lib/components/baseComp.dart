@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:efox_flutter/store/store.dart' show Store;
+import 'package:efox_flutter/store/index.dart' show Store;
 import 'header.dart' as Header;
 
 class Index extends StatelessWidget {

@@ -6,7 +6,7 @@ import 'config_state_model.dart' show ConfigModel;
  * get state: model.modelName.state.xxx
  * dispatch method: model.dispatch('modelName', 'methodsName', payload)
  * 
- * import 'package:efox_flutter/store/store.dart' as Store
+ * import 'package:efox_flutter/store/index.dart' as Store
  * Store.model.config.state.isPro
  */
 
@@ -31,4 +31,4 @@ class MainStateModel extends Model with UserModel {
   }
 }
 
-MainStateModel model = MainStateModel();
+//MainStateModel model = MainStateModel();

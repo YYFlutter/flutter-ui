@@ -18,7 +18,35 @@ class _IndexState extends State<Index> {
         title: Text('FlatButton'),
       ),
       body: Center(
-        child: Text('更新中'),
+        child: Wrap(
+          alignment: WrapAlignment.spaceEvenly,
+          children: <Widget>[
+            FlatButton(
+              child: Text('默认按钮'),
+              onPressed: (){},
+              textColor: Theme.of(context).primaryColor,
+              color: Colors.blueGrey,
+              highlightColor: Colors.blueAccent,
+            ),
+            FlatButton(
+              child: Text('默认按钮'),
+              textColor: Theme.of(context).primaryColor,
+              disabledColor: Colors.grey,
+              disabledTextColor: Colors.brown,
+            ),
+            FlatButton.icon(
+              icon: Icon(Icons.android,size: 26.0,color: Colors.blueAccent),
+              label: Text('默认按钮'),
+              onPressed: (){},
+            ),
+            FlatButton.icon(
+              icon: Icon(Icons.account_balance,size: 26.0,color: Colors.greenAccent),
+              label: Text('默认按钮'),
+              disabledColor: Colors.grey,
+              disabledTextColor: Colors.brown,
+            )
+          ],
+        ),
       ),
     );
   }

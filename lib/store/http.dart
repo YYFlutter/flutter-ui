@@ -1,24 +1,26 @@
-import 'package:dio/dio.dart';
+import 'package:dio/dio.dart'
+    show Dio, Options, LogInterceptor, DioError, BaseOptions;
+
+Dio getDio([Options options]) {
+  Dio dio = new Dio(BaseOptions(
+    connectTimeout: 5000,
+    receiveTimeout: 5000,
+  )); // with default Options
+  dio.interceptors.add(LogInterceptor(responseBody: true));
+  return
+  dio;
+}
 
 Future<dynamic> get(url, [data = const {}]) async {
-  Dio dio = new Dio(); // with default Options
-  // dio.interceptors
-  //     .add(InterceptorsWrapper(onRequest: (RequestOptions requestOptions) {
-  //   return dio.resolve('sfs');
-  // }));
-  dio.interceptors.add(LogInterceptor(responseBody: true));
   try {
-    return await dio.get(url).then((res) => res.data);
-  } on DioError catch(e) {
+    return await getDio().get(url).then((res) {
+      return res.data;
+    });
+  } on DioError catch (e) {
     return e.response;
   }
 }
 
 Future post(url, [data = const {}, params = const {}]) async {
-  Dio dio = new Dio(); // with default Options
-  // dio.interceptors
-  //     .add(InterceptorsWrapper(onRequest: (RequestOptions requestOptions) {
-  //   return dio.resolve('sfs');
-  // }));
-  return dio.post(url, data: data, queryParameters: params);
+  return getDio().post(url, data: data, queryParameters: params);
 }
