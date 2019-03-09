@@ -104,6 +104,7 @@ flutter:
       - docs/widget/gestures/gesturedetector/
       - docs/widget/gestures/ignorepointer/
       - docs/widget/gestures/longpressdraggable/
+      - docs/widget/animate/animationcontroller/
       - docs/widget/animate/animatedbuilder/
       - docs/widget/animate/animatedcontainer/
       - docs/widget/animate/animatedcrossfade/

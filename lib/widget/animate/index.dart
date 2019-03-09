@@ -1,4 +1,5 @@
 import 'package:efox_flutter/store/objects/widget_info.dart';
+import 'animationcontroller/index.dart' as AnimationController;
 import 'animatedopacity/index.dart' as animatedopacity;
 import 'animatedphysicalmodel/index.dart' as animatedphysicalmodel;
 import 'animatedpositioned/index.dart' as animatedpositioned;
@@ -23,6 +24,11 @@ import 'animatedbuilder/index.dart' as animatedbuilder;
 const nameSpaces = '/animate_';
 
 List widgets = [
+  ItemInfo(
+    widget: AnimationController.Index(),
+    code: 57685, // gesture
+    title: AnimationController.Index.title,
+  ),
   ItemInfo(
     widget: animatedbuilder.Index(),
     code: 58295, // color_lens
