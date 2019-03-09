@@ -1,33 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
 
-class Index extends StatelessWidget {
-  final dynamic model;
-  Index({Key key, this.model}) : super(key: key);
+class _IndexState extends State<Index> {
+  static String _version = '';
 
-  final List<dynamic> _list = [
-    {
-      'name': '切换语言',
-      'icon': 59540, // language
-    },
-    {
-      'name': '更新版本',
-      'icon': 58919, // sync
-    },
-    {
-      'name': '切换环境',
-      'icon': 57539, // import_export
-    }
-  ];
+  @override
+  void initState() {
+    super.initState();
+    print('-------init');
+    _version = widget.model.config.state.version;
+  }
 
+  List<dynamic> _getList () {
+    return [
+      {
+        'name': AppLocalizations.$t('common.changeLanguage'),
+        'icon': 59540, // language
+      },
+      {
+        'name': AppLocalizations.$t('common.changeVersion') + '  ' + _version,
+        'icon': 58919, // sync
+      },
+      {
+        'name': AppLocalizations.$t('common.changeEnvironment'),
+        'icon': 57539, // import_export
+      }
+    ];
+  }
   actionsEvent(int index) {
-    print('index $index');
     switch (index) {
-      case 0: break;
+      case 0:
+        AppLocalizations.changeLanguage();
+        break;
       case 1:
-        this.model.dispatch('config', 'setVersion');
-        break;break;
+        widget.model.dispatch('config', 'setVersion').then((resp) {
+          _version = widget.model.config.state.version;
+        });
+        break;
       case 2:
-        this.model.dispatch('config', 'setEnv');
+        widget.model.dispatch('config', 'setEnv');
         break;
     }
   }
@@ -76,15 +87,15 @@ class Index extends StatelessWidget {
                         },
                         leading: Icon(
                           IconData(
-                            _list[index]['icon'],
+                            this._getList()[index]['icon'],
                             fontFamily: 'MaterialIcons',
                             matchTextDirection: true,
                           ),
                         ),
-                        title: Text('${_list[index]['name']}'),
+                        title: Text('${this._getList()[index]['name']}'),
                       );
                     },
-                    childCount: _list.length,
+                    childCount: this._getList().length,
                   ),
                 ),
               ],
@@ -96,10 +107,11 @@ class Index extends StatelessWidget {
   }
 }
 
-// RaisedButton(
-//   child:
-//       Text('当前为${model.config.state.isPro ? '线上' : '线下'}环境，点击进行切换'),
-//   onPressed: () {
-//     model.dispatch('config', 'setEnv');
-//   },
-// )
+class Index extends StatefulWidget {
+  final dynamic model;
+
+  Index({Key key, this.model}) : super(key: key);
+
+  @override
+  _IndexState createState() => _IndexState();
+}

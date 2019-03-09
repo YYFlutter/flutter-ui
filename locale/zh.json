@@ -6,5 +6,10 @@
     "widgetType": {
         "regularLayout": "常规布局"
     },
+    "common" : {
+        "changeLanguage": "切换语言",
+        "changeVersion": "更新版本",
+        "changeEnvironment": "切换环境"
+    },
     "loading": "加载中"
 }
