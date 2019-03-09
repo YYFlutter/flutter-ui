@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:efox_flutter/store/index.dart' show Store;
 import 'header.dart' as Header;
 import 'package:efox_flutter/components/markdownComp.dart' as MarkDownComp;
-import 'package:efox_flutter/lang/app_translations.dart' show AppTranslations;
+import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
 import 'package:efox_flutter/components/baseComp.dart' as BaseComp;
 import 'package:efox_flutter/components/exampleComp.dart' as ExampleComp;
 import 'package:efox_flutter/utils/file.dart' as FileUtils;
@@ -184,7 +184,7 @@ class IndexState extends State<Index> {
                   Container(
                     padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
                     child: Text(
-                      AppTranslations.of(context).t('loading'),
+                      AppLocalizations.$t('loading'),
                       style: TextStyle(
                           color: Color(AppTheme.secondColor), fontSize: 20.0),
                     ),

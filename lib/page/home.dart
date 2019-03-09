@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:efox_flutter/lang/app_translations.dart' show AppTranslations;
+import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
 import 'package:efox_flutter/store/index.dart' show Store;
-
 import 'package:efox_flutter/controller/index.dart' as Controller;
 
 import 'component/index.dart' as TabIndex;
@@ -20,7 +19,6 @@ class _IndexState extends State<Index> {
   void initState() {
     super.initState();
     _pageController = PageController();
-    print('init===');
     Controller.initState();
   }
 
@@ -31,14 +29,13 @@ class _IndexState extends State<Index> {
   }
 
   Widget _bottomNavigationBar(model) {
-    AppTranslations lang = AppTranslations.of(context);
     return BottomNavigationBar(
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-            title: Text(lang.t('title_component')),
+            title: Text(AppLocalizations.$t('title_component')),
             icon: Icon(Icons.dashboard)),
         BottomNavigationBarItem(
-            title: Text(lang.t('title_my')), icon: Icon(Icons.person_outline)),
+            title: Text(AppLocalizations.$t('title_my')), icon: Icon(Icons.person_outline)),
       ],
       type: BottomNavigationBarType.fixed,
       currentIndex: _currentIndex,
