@@ -26,47 +26,47 @@ List widgets = [
   ),
   ItemInfo(
     widget: materialapp.Index(),
-    code: 58729, // near_me
+    code: 58894, // adb
     title: materialapp.Index.title,
   ),
   ItemInfo(
     widget: floatingactionbutton.Index(),
-    code: 58729, // near_me
+    code: 58430, // add_photo_alternate
     title: floatingactionbutton.Index.title,
   ),
   ItemInfo(
     widget: drawer.Index(),
-    code: 58729, // near_me
+    code: 58928, // airline_seat_flat 
     title: drawer.Index.title,
   ),
   ItemInfo(
     widget: bottomnavigationbar.Index(),
-    code: 58729, // near_me
+    code: 60220, // airport_shuttle
     title: bottomnavigationbar.Index.title,
   ),
   ItemInfo(
     widget: widgetsapp.Index(),
-    code: 57439, // playlist_play
+    code: 60221, // all_inclusive
     title: widgetsapp.Index.title,
   ),
   ItemInfo(
     widget: tabbarview.Index(),
-    code: 57439, // playlist_play
+    code: 57574, // alternate_email
     title: tabbarview.Index.title,
   ),
   ItemInfo(
     widget: tabbar.Index(),
-    code: 57439, // playlist_play
+    code: 57673, // archive
     title: tabbar.Index.title,
   ),
   ItemInfo(
     widget: popupmenubutton.Index(),
-    code: 57439, // playlist_play
+    code: 57440, // art_track 
     title: popupmenubutton.Index.title,
   ),
   ItemInfo(
     widget: navigator.Index(),
-    code: 57439, // playlist_play
+    code: 59484, // assessment
     title: navigator.Index.title,
   ),
 ];
