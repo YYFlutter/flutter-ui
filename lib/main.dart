@@ -4,9 +4,9 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:efox_flutter/lang/application.dart';
 import 'package:efox_flutter/lang/app_translations_delegate.dart';
 //引用Store 层
-import 'package:efox_flutter/store/store.dart' show model, Store;
+import 'package:efox_flutter/store/index.dart' show model, Store;
 //路由
-import 'package:efox_flutter/router/index.dart';
+import 'package:efox_flutter/router/index.dart' show FluroRouter;
 //主题
 import 'package:efox_flutter/config/theme.dart' show AppTheme;
 //统计

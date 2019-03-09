@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/store/models/main_state_model.dart'
     show MainStateModel;
-import 'package:efox_flutter/store/store.dart' show Store;
+import 'package:efox_flutter/store/index.dart' show Store;
 import 'package:efox_flutter/config/theme.dart' show AppTheme;
 
 class Index extends StatelessWidget {

@@ -1,9 +1,9 @@
-import 'package:scoped_model/scoped_model.dart';
-import './models/main_state_model.dart';
-export './models/main_state_model.dart';
+import 'package:scoped_model/scoped_model.dart' show ScopedModel, ScopedModelDescendant;
+import './models/main_state_model.dart' show MainStateModel;
+//export './models/main_state_model.dart';
 
 /**
- * import 'package:efox_flutter/store/store.dart' as Store
+ * import 'package:efox_flutter/store/index.dart' as Store
  * Store.model.config.state.isPro
  */
 class Store {
@@ -23,3 +23,6 @@ class Store {
         builder: builder, child: child, rebuildOnChange: rebuildOnChange);
   }
 }
+
+MainStateModel model = MainStateModel();
+

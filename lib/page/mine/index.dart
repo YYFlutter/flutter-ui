@@ -12,11 +12,24 @@ class Index extends StatelessWidget {
     {
       'name': '更新版本',
       'icon': 58919, // sync
+    },
+    {
+      'name': '切换环境',
+      'icon': 57539, // import_export
     }
   ];
 
   actionsEvent(int index) {
     print('index $index');
+    switch (index) {
+      case 0: break;
+      case 1:
+        this.model.dispatch('config', 'setVersion');
+        break;break;
+      case 2:
+        this.model.dispatch('config', 'setEnv');
+        break;
+    }
   }
 
   @override

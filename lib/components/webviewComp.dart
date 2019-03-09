@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'header.dart' as Header;
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:flutter_webview_plugin/flutter_webview_plugin.dart' show FlutterWebviewPlugin, WebviewScaffold;
 
 class Index extends StatelessWidget {
   final String url;

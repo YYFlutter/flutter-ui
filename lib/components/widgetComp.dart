@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:efox_flutter/store/store.dart' show Store;
+import 'package:efox_flutter/store/index.dart' show Store;
 import 'header.dart' as Header;
 import 'package:efox_flutter/components/markdownComp.dart' as MarkDownComp;
 import 'package:efox_flutter/lang/app_translations.dart' show AppTranslations;
@@ -88,7 +88,6 @@ class IndexState extends State<Index> {
           ),
           actions: this.getActions(
             context,
-            model,
           ),
         ),
         body: this.loading ? this.renderLoading() : this.renderWidget(),
@@ -96,12 +95,12 @@ class IndexState extends State<Index> {
     });
   }
 
-  openPage(context, model) async {
+  openPage(context) async {
     String url = this.mdUrl;
     // 加载页面
-    if (model.config.state.isPro) {
+    if (this.model.config.state.isPro) {
       FluroRouter.router.navigateTo(context,
-          '/webview?url=${Uri.encodeComponent(model.config.state.env.GithubAssetOrigin + url.replaceAll(RegExp('/index.md'), ''))}');
+          '/webview?url=${Uri.encodeComponent(this.model.config.state.env.GithubAssetOrigin + url.replaceAll(RegExp('/index.md'), ''))}');
     } else {
       // 加载本地
       String mdStr = await FileUtils.readLocaleFile(url);
@@ -123,7 +122,7 @@ class IndexState extends State<Index> {
     return mdStr;
   }
 
-  getActions(context, model) {
+  getActions(context) {
     return [
       IconButton(
         icon: Icon(
@@ -141,62 +140,17 @@ class IndexState extends State<Index> {
           Icons.code,
         ),
         onPressed: () async {
-          this.openPage(context, model);
+          this.openPage(context);
         },
       ),
       IconButton(
         icon: Icon(Icons.share),
         onPressed: () {
           final String msg =
-              model.config.state.env.GithubAssetOrigin + this.mdUrl;
+              this.model.config.state.env.GithubAssetOrigin + this.mdUrl;
           AppShare.shareText(msg);
         },
       ),
-      // PopupMenuButton(
-      //   offset: Offset(0, 80),
-      //   onSelected: (index) {
-      //     switch (index) {
-      //       case 0:
-      //         FluroRouter.router.navigateTo(
-      //           context,
-      //           '/webview?url=${Uri.encodeComponent('https://github.com/efoxTeam/flutter-ui')}',
-      //         );
-      //         break;
-      //       case 1:
-      //         FluroRouter.router.navigateTo(
-      //           context,
-      //           '/webview?url=${Uri.encodeComponent(this.originCodeUrl)}',
-      //         );
-      //         break;
-      //     }
-      //   },
-      //   itemBuilder: (context) {
-      //     return [
-      //       PopupMenuItem(
-      //         child: Row(children: [
-      //           Icon(
-      //             Icons.home,
-      //             color: Color(AppTheme.greyColor),
-      //           ),
-      //           Text("  "),
-      //           Text('Flutter-UI'),
-      //         ]),
-      //         value: 0,
-      //       ),
-      //       PopupMenuItem(
-      //         child: Row(children: [
-      //           Icon(
-      //             Icons.code,
-      //             color: Color(AppTheme.greyColor),
-      //           ),
-      //           Text("  "),
-      //           Text(this.title),
-      //         ]),
-      //         value: 1,
-      //       ),
-      //     ];
-      //   },
-      // ),
     ];
   }
 

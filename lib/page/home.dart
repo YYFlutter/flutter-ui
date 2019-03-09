@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/lang/app_translations.dart' show AppTranslations;
-import 'package:efox_flutter/store/store.dart' show Store;
+import 'package:efox_flutter/store/index.dart' show Store;
+
+import 'package:efox_flutter/controller/index.dart' as Controller;
 
 import 'component/index.dart' as TabIndex;
 import 'mine/index.dart' as MyIndex;
@@ -18,6 +20,8 @@ class _IndexState extends State<Index> {
   void initState() {
     super.initState();
     _pageController = PageController();
+    print('init===');
+    Controller.initState();
   }
 
   @override
