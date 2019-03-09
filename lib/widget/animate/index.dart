@@ -25,102 +25,102 @@ const nameSpaces = '/animate_';
 List widgets = [
   ItemInfo(
     widget: animatedbuilder.Index(),
-    code: 58348, // grid_on
+    code: 58295, // color_lens
     title: animatedbuilder.Index.title,
   ),
   ItemInfo(
     widget: animatedcontainer.Index(),
-    code: 58348, // grid_on
+    code: 58297, // compare
     title: animatedcontainer.Index.title,
   ),
   ItemInfo(
     widget: animatedcrossfade.Index(),
-    code: 58348, // grid_on
+    code: 58936, // confirmation_number
     title: animatedcrossfade.Index.title,
   ),
   ItemInfo(
     widget: animateddefaulttextstyle.Index(),
-    code: 58348, // grid_on
+    code: 57678, // content_cut
     title: animateddefaulttextstyle.Index.title,
   ),
   ItemInfo(
     widget: animatedliststate.Index(),
-    code: 58348, // grid_on
+    code: 59660, // copyright 
     title: animatedliststate.Index.title,
   ),
   ItemInfo(
     widget: animatedmodalbarrier.Index(),
-    code: 58348, // grid_on
+    code: 58060, // create_new_folder
     title: animatedmodalbarrier.Index.title,
   ),
   ItemInfo(
     widget: slidetransition.Index(),
-    code: 58348, // grid_on
+    code: 59505, // dashboard
     title: slidetransition.Index.title,
   ),
   ItemInfo(
     widget: sizetransition.Index(),
-    code: 58348, // grid_on
+    code: 58742, // departure_board
     title: sizetransition.Index.title,
   ),
   ItemInfo(
     widget: scaletransition.Index(),
-    code: 58348, // grid_on
+    code: 58125, // developer_board
     title: scaletransition.Index.title,
   ),
   ItemInfo(
     widget: rotationtransition.Index(),
-    code: 58348, // grid_on
+    code: 57776, // developer_mode
     title: rotationtransition.Index.title,
   ),
   ItemInfo(
     widget: positionedtransition.Index(),
-    code: 58348, // grid_on
+    code: 58165, // device_hub
     title: positionedtransition.Index.title,
   ),
   ItemInfo(
     widget: hero.Index(),
-    code: 58348, // grid_on
+    code: 58167, // devices_other
     title: hero.Index.title,
   ),
   ItemInfo(
     widget: fadetransition.Index(),
-    code: 58348, // grid_on
+    code: 58674, // directions_boat
     title: fadetransition.Index.title,
   ),
   ItemInfo(
     widget: decoratedboxtransition.Index(),
-    code: 58348, // grid_on
+    code: 58896, // disc_full 
     title: decoratedboxtransition.Index.title,
   ),
   ItemInfo(
     widget: animatedwidgetbasestate.Index(),
-    code: 58348, // grid_on
+    code: 59509, // dns
     title: animatedwidgetbasestate.Index.title,
   ),
   ItemInfo(
     widget: animatedwidget.Index(),
-    code: 58348, // grid_on
+    code: 59672, // donut_small 
     title: animatedwidget.Index.title,
   ),
   ItemInfo(
     widget: animatedsize.Index(),
-    code: 58348, // grid_on
+    code: 57778, // dvr
     title: animatedsize.Index.title,
   ),
   ItemInfo(
     widget: animatedpositioned.Index(),
-    code: 58348, // grid_on
+    code: 57373, // equalizer
     title: animatedpositioned.Index.title,
   ),
   ItemInfo(
     widget: animatedphysicalmodel.Index(),
-    code: 58348, // grid_on
+    code: 59686, // euro_symbol
     title: animatedphysicalmodel.Index.title,
   ),
   ItemInfo(
     widget: animatedopacity.Index(),
-    code: 58348, // grid_on
+    code: 58733, // ev_station
     title: animatedopacity.Index.title,
   ),
 ];
