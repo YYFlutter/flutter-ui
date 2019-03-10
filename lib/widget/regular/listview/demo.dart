@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Index extends StatefulWidget {
   @override
@@ -29,24 +28,21 @@ class _IndexState extends State<Index> {
         scrollDirection: scrollDirections,
         reverse: false,
         controller: ScrollController(
-          initialScrollOffset: ScreenUtil().setWidth(420),
           keepScrollOffset: true
         ),
         primary: false,
         physics: ScrollPhysics(),
         shrinkWrap: false,
         padding: EdgeInsets.all(20.0),
-        // itemExtent: ScreenUtil().setWidth(420),
+        itemExtent: 200,
         children: List.generate(10, (index) {
           return InkWell(
             onTap: () {
               this.setState(() {
-                scrollDirections == Axis.vertical ? scrollDirections = Axis.horizontal : scrollDirections = Axis.vertical;
+                scrollDirections = Axis.vertical == scrollDirections ? Axis.horizontal : Axis.vertical;
               });
             },
             child: Container(
-              width: ScreenUtil().setWidth(420),
-              height: ScreenUtil().setWidth(220),
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage(listview[index]),

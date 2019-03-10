@@ -8,7 +8,7 @@
     },
     "common" : {
         "changeLanguage": "changeLanguage",
-        "changeVersion": "changeVersion",
+        "changeVersion": "checkVersion",
         "changeEnvironment": "changeEnvironment"
     },
     "loading": "Loading"

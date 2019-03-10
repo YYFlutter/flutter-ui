@@ -89,6 +89,7 @@ flutter:
       - docs/widget/form/checkbox/
       - docs/widget/form/checkboxlisttile/
       - docs/widget/navigator/appbar/
+      - docs/widget/navigator/scaffold/
       - docs/widget/navigator/bottomnavigationbar/
       - docs/widget/navigator/drawer/
       - docs/widget/navigator/floatingactionbutton/
