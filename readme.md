@@ -3,6 +3,23 @@
 
 > flutter ui 开发者社区 提供各种flutter相关开发教程
 
+## 项目背景
+Google推出Flutter跨平台解决方案，渐渐地受到了开发者们的关注，结合dart使用，能够用一套代码实现开发iOS与Android两套应用，未来还将可以直接编译成桌面应用。
+Flutter拥有丰富的组件库，多样化的主题与UI风格，让开发者更简单的上手完成界面交互，从而提高了开发效率。
+随着大厂纷纷着手研究与实践后，本团队利用工作之余，也迈进对Flutter了认知的旅程中，并对组件进行归类与逐步细化，着手于技术要点分析与总结。
+此套组件库在几次没有硝烟的研讨中，命名为"Flutter UI"，使命为"知识千万点，学习第一条。代码快点敲，bug无数行"。
+希与各位技术大大，有兴趣的小伙伴们一起交流，一起进步。
+
+## 环境
+- 自行完成flutter环境配置
+- 通过git clone本项目master分支代码，进入项目
+- 切换flutter到master分支，步骤如下（若已切换可跳过）
+> 
+1. flutter channel master // 选择master分支
+2. flutter upgrade // 更新代码  
+- 运行模拟器或真机
+- flutter run运行程序
+
 ## app预览
 
 ![Alt 预览](readme/flutter_ui2.gif)
