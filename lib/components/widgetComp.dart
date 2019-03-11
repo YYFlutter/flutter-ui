@@ -131,7 +131,7 @@ class IndexState extends State<Index> {
         onPressed: () async {
           FluroRouter.router.navigateTo(
             context,
-            '/webview?url=${Uri.encodeComponent(this.originCodeUrl)}',
+            '/webview?title=${this.title}&url=${Uri.encodeComponent(this.originCodeUrl)}',
           );
         },
       ),
