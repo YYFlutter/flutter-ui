@@ -1,6 +1,6 @@
 # Flutter UI
 
-> flutter ui 中文社区 提供各种flutter相关开发教程
+> flutter ui 开发者社区 提供各种flutter相关开发教程
 
 ## app预览
 
