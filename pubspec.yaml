@@ -95,6 +95,7 @@ flutter:
       - docs/widget/form/radio/
       - docs/widget/form/rawkeyboard/
       - docs/widget/form/switch/
+      - docs/widget/form/switchlisttile/
       - docs/widget/form/textfield/
       - docs/widget/form/textinput/
       - docs/widget/navigator/appbar/
