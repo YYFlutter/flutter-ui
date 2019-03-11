@@ -6,6 +6,7 @@ class Index extends StatefulWidget {
 }
 
 class _IndexState extends State<Index> {
+  bool _switchValue = false;
   @override
   void initState() {
     super.initState();
@@ -18,7 +19,20 @@ class _IndexState extends State<Index> {
         title: Text('Switch'),
       ),
       body: Center(
-        child: Text('更新中'),
+        child: Switch(
+          value: _switchValue,
+          onChanged: (value){
+            setState(() {
+              _switchValue = value;
+            });
+          },
+          activeColor: Theme.of(context).primaryColor,
+          activeTrackColor: Theme.of(context).primaryColor.withOpacity(0.3),
+          inactiveThumbColor: Colors.black87,
+          inactiveTrackColor: Colors.black12,
+          activeThumbImage: NetworkImage('http://pic1.win4000.com/wallpaper/2019-02-15/5c664c4b4dc2f.jpg'),
+          inactiveThumbImage: NetworkImage('http://pic1.win4000.com/wallpaper/2019-02-14/5c651084373de.jpg',),
+        ),
       ),
     );
   }
