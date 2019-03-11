@@ -65,6 +65,9 @@ class _IndexState extends State<Index> {
         return Container(
           // padding: EdgeInsets.all(10),
           child: ListTile(
+            onTap: () {
+              this.tabClick(index);
+            },
             leading: Icon(
               IconData(
                 widgetsItem.code,
@@ -125,6 +128,15 @@ class _IndexState extends State<Index> {
     );
   }
 
+  tabClick (index) {
+    if (index == this._isExpandedIndex) {
+      index = -1;
+    }
+    setState(() {
+      this._isExpandedIndex = index;
+    });
+  }
+
   Widget build(BuildContext context) {
     // 实例化语言包
     return Scaffold(
@@ -146,12 +158,7 @@ class _IndexState extends State<Index> {
             },
           ),
           expansionCallback: (index, flag) {
-            if (flag) {
-              index = -1;
-            }
-            setState(() {
-              this._isExpandedIndex = index;
-            });
+            this.tabClick(index);
           },
         ),
       ),
