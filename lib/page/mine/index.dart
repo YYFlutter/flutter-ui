@@ -48,7 +48,7 @@ class _IndexState extends State<Index> {
       case 3:
         FluroRouter.router.navigateTo(
           context,
-          '/webview?url=${Uri.encodeComponent(widget.model.config.state.env.githubWeb)}&title=${AppLocalizations.$t('common.compProgress')}',
+          '/webview?title=${Uri.encodeComponent(AppLocalizations.$t('common.compProgress'))}&url=${Uri.encodeComponent(widget.model.config.state.env.githubWeb)}',
         );
         break;
     }
