@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
+import 'package:efox_flutter/router/index.dart' show FluroRouter;
 
 class _IndexState extends State<Index> {
   static String _version = '';
@@ -7,11 +8,10 @@ class _IndexState extends State<Index> {
   @override
   void initState() {
     super.initState();
-    print('-------init');
     _version = widget.model.config.state.version;
   }
 
-  List<dynamic> _getList () {
+  List<dynamic> _getList() {
     return [
       {
         'name': AppLocalizations.$t('common.changeLanguage'),
@@ -24,9 +24,14 @@ class _IndexState extends State<Index> {
       {
         'name': AppLocalizations.$t('common.changeEnvironment'),
         'icon': 57539, // import_export
+      },
+      {
+        'name': AppLocalizations.$t('common.compProgress'),
+        'icon': 57709, // low_priority
       }
     ];
   }
+
   actionsEvent(int index) {
     switch (index) {
       case 0:
@@ -39,6 +44,12 @@ class _IndexState extends State<Index> {
         break;
       case 2:
         widget.model.dispatch('config', 'setEnv');
+        break;
+      case 3:
+        FluroRouter.router.navigateTo(
+          context,
+          '/webview?url=${Uri.encodeComponent(widget.model.config.state.env.githubWeb)}',
+        );
         break;
     }
   }

@@ -8,8 +8,9 @@
     },
     "common" : {
         "changeLanguage": "changeLanguage",
-        "changeVersion": "changeVersion",
-        "changeEnvironment": "changeEnvironment"
+        "changeVersion": "checkVersion",
+        "changeEnvironment": "changeEnvironment",
+        "compProgress": "Components Progress"
     },
     "loading": "Loading"
 }

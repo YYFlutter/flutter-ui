@@ -9,7 +9,8 @@
     "common" : {
         "changeLanguage": "切换语言",
         "changeVersion": "更新版本",
-        "changeEnvironment": "切换环境"
+        "changeEnvironment": "切换环境",
+        "compProgress": "组件进度"
     },
     "loading": "加载中"
 }

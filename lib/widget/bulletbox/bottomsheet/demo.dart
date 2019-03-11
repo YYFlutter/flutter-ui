@@ -37,7 +37,7 @@ class _IndexState extends State<Index> {
   }
 
   Future _openShowBottomSheet () async {
-    final optionBs = await showBottomSheet(
+    await showBottomSheet(
       context: context,
       builder: (BuildContext context) {
         return new Container(

@@ -100,7 +100,7 @@ class IndexState extends State<Index> {
     // 加载页面
     if (this.model.config.state.isPro) {
       FluroRouter.router.navigateTo(context,
-          '/webview?url=${Uri.encodeComponent(this.model.config.state.env.GithubAssetOrigin + url.replaceAll(RegExp('/index.md'), ''))}');
+          '/webview?url=${Uri.encodeComponent(this.model.config.state.env.githubAssetOrigin + url.replaceAll(RegExp('/index.md'), ''))}');
     } else {
       // 加载本地
       String mdStr = await FileUtils.readLocaleFile(url);
@@ -147,7 +147,7 @@ class IndexState extends State<Index> {
         icon: Icon(Icons.share),
         onPressed: () {
           final String msg =
-              this.model.config.state.env.GithubAssetOrigin + this.mdUrl;
+              this.model.config.state.env.githubAssetOrigin + this.mdUrl;
           AppShare.shareText(msg);
         },
       ),

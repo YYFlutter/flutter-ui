@@ -50,13 +50,13 @@ class MainAppState extends State<MainApp> {
               'deviceLocale=$deviceLocale supportedLocales=$supportedLocales');
           Locale _locale = supportedLocales.contains(deviceLocale)
               ? deviceLocale
-              : Locale('en');
+              : Locale('zh');
           return _locale;
         },
         onGenerateTitle: (context) {
           // 设置多语言代理
           AppLocalizations.setProxy(setState, _delegate);
-          return '-';
+          return 'flutter';
         },
         localizationsDelegates: [
           GlobalMaterialLocalizations.delegate,

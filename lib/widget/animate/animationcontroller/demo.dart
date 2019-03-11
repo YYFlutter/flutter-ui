@@ -27,7 +27,6 @@ class _AnimationDemoState extends State<AnimationDemo>
 
   @override
     void initState() {
-      // TODO: implement initState
       super.initState();
       animationDemoController = AnimationController(
         // value: 32,
@@ -54,7 +53,6 @@ class _AnimationDemoState extends State<AnimationDemo>
 
     @override
       void dispose() {
-        // TODO: implement dispose
         super.dispose();
         animationDemoController.dispose();
       }
