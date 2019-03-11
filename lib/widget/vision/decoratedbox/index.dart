@@ -4,7 +4,7 @@ import 'package:efox_flutter/components/widgetComp.dart' as WidgetComp;
 
 class Index extends StatefulWidget {
   static String title = 'DecoratedBox';
-  static String mdUrl = 'docs/widget/vision/cecoratedbox/index.md';
+  static String mdUrl = 'docs/widget/vision/decoratedbox/index.md';
   static String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/DecoratedBox-class.html';
 
   @override
