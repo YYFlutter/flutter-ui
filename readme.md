@@ -1,33 +1,84 @@
-# Flutter UI v1.0
+# Flutter UI
 
-# app预览
+> flutter ui 中文社区 提供各种flutter相关开发教程
+
+## app预览
 
 ![Alt 预览](readme/flutter_ui2.gif)
 ![Alt 预览](readme/flutter_ui3.gif)
 
 
-# 目录
+
+## 目录
 ```
-——assets                                      静态资源
-——docs                                        教程文件
-  ——widget
-    ——regular
-    ——scrollview
-    ...
-——lib                                        代码文件
-  ——components
-  ——config
-  ——controller
-  ——lang
-  ——page
-  ——router
-  ——store
-  ——utils
-  ——widget
-    ——regular
-    ——scrollview
-    ...
-——locale                                    语言包
+Flutter UI
+  ├─assets      静态资源
+  ├─docs      教程文件
+      ├─widget
+      ├─regular
+      ├─scrollview
+      ...
+  ├─lib     dart执行代码
+      ├─components
+      ├─config
+      ├─controller
+      ├─lang
+      ├─page
+      │  ├─component
+      │  └─mine
+      ├─router
+      ├─store
+      │  ├─models
+      │  └─objects
+      ├─utils
+      └─widget
+          ├─animate
+          │  ├─animatedbuilder
+          │  ├─animatedcontainer
+          ......
+          │  └─slidetransition
+          ├─bulletbox
+          │  ├─alertdialog
+          │  ├─bottomsheet
+          ......
+          │  └─snackbar
+          ├─common
+          │  ├─assetbundle
+          │  ├─buttonbar
+          ......
+          │  └─tooltip
+          ├─form
+          │  ├─checkbox
+          │  ├─checkboxlisttile
+          ......
+          │  └─textinput
+          ├─gestures
+          │  ├─absorbpointer
+          │  ├─dismissible
+          ......
+          │  └─longpressdraggable
+          ├─navigator
+          │  ├─appbar
+          │  ├─bottomnavigationbar
+          ......
+          │  └─widgetsapp
+          ├─regular
+          │  ├─align
+          │  ├─aspectratio
+          ......
+          │  └─wrap
+          ├─scrollview
+          │  ├─customscrollview
+          │  ├─gridview
+          ......
+          │  └─singlechildscrollview
+          └─vision
+              ├─backdropfilter
+              ├─clipoval
+              ......
+              └─transform
+
+  ├─locale      语言包
 ```
 
 ## 组件进度列表
