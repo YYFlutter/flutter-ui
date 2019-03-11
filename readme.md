@@ -30,34 +30,33 @@
 ——locale
 ```
 
-# 组件进度列表
-### animate  
-```
-1.  animatedbuilder【】
-2.  animatedcontainer【】
-3.  animatedcrossfade【】
-4.  animateddefaulttextstyle【】
-5.  animatedliststate【】
-6.  animatedmodalbarrier【】
-7.  animatedopacity【】
-8.  animatedphysicalmodel【】
-9.  animatedpositioned【】
-10. animatedsize【】
-11. animatedwidget【】
-12. animatedwidgetbasestate【】
-13. animationcontroller【】
-14. decoratedboxtransition【】
-15. fadetransition【】
-16. hero【】
-17. positionedtransition【】
-18. rotationtransition【】
-19. scaletransition【】
-20. sizetransition【】
-20. slidetransition【】
-```
+## 组件进度列表
+- animate  
+1.  animationController【✔️ v1.0】
+2.  animatedbuilder【】
+3.  animatedcontainer【】
+4.  animatedcrossfade【】
+5.  animateddefaulttextstyle【】
+6.  animatedliststate【】
+7.  animatedmodalbarrier【】
+8.  animatedopacity【】
+9.  animatedphysicalmodel【】
+10.  animatedpositioned【】
+11. animatedsize【】
+12. animatedwidget【】
+13. animatedwidgetbasestate【】
+14. animationcontroller【】
+15. decoratedboxtransition【】
+16. fadetransition【】
+17. hero【】
+18. positionedtransition【】
+19. rotationtransition【】
+20. scaletransition【】
+21. sizetransition【】
+22. slidetransition【】
 
-### bulletbox
-```
+
+- bulletbox
 1.  alertdialog【✔️ v1.0】
 2.  bottomsheet【✔️ v1.0】
 3.  expansionPanel【✔️ v1.0】
@@ -71,8 +70,8 @@
 2.  buttonbar【】
 3.  chip【】
 4.  container【✔️ v1.0】
-5.  divider【】
-6.  flatbutton【】
+5.  divider【✔️ v1.0】
+6.  flatbutton【✔️ v1.0】
 7.  icon【】
 8.  iconbutton【】
 9.  image【】
@@ -81,7 +80,7 @@
 12. raisedbutton【】
 13. rawimage【】
 14. stepper【】
-15. text【】
+15. text【✔️ v1.0】
 16. tooltip【】
 ```
 
@@ -89,16 +88,17 @@
 ```
 1.  checkbox【✔️ v1.0】
 2.  checkboxlisttile【✔️ v1.0】
-3.【daypicker】
-4.【form】
-5.【formfield】
-6.【radio】
-7.【rawkeyboard】
-8.【switch】
-9.【textfield】
-10.【textinput】
-11.【】
-12.【】
+3.  slider【✔️ v1.0】
+3.  daypicker【】
+4.  form【】
+5.  formfield【】
+6.  radio【】
+7.  rawkeyboard【】
+8.  switch【】
+9.  textfield【】
+10. textinput【】
+11. 【】
+12. 【】
 ```
 
 ### gestures

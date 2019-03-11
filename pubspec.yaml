@@ -96,6 +96,7 @@ flutter:
       - docs/widget/form/switch/
       - docs/widget/form/textfield/
       - docs/widget/form/textinput/
+      - docs/widget/form/slider/
       - docs/widget/navigator/appbar/
       - docs/widget/navigator/scaffold/
       - docs/widget/navigator/bottomnavigationbar/

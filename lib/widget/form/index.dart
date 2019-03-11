@@ -9,6 +9,7 @@ import 'radio/index.dart' as radio;
 import 'formfield/index.dart' as formfield;
 import 'form/index.dart' as form;
 import 'daypicker/index.dart' as daypicker;
+import 'slider/index.dart' as Slider;
 
 const nameSpaces = '/form_';
 
@@ -22,6 +23,11 @@ List widgets = [
     widget: CheckboxListTile.Index(),
     code: 59662, // gavel
     title: CheckboxListTile.Index.title
+  ),
+  ItemInfo(
+    widget: Slider.Index(),
+    code: 59662, // gavel
+    title: Slider.Index.title
   ),
   ItemInfo(
     widget: daypicker.Index(),
