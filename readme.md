@@ -32,27 +32,28 @@
 
 ## 组件进度列表
 - animate  
-1.  animatedbuilder【】
-2.  animatedcontainer【】
-3.  animatedcrossfade【】
-4.  animateddefaulttextstyle【】
-5.  animatedliststate【】
-6.  animatedmodalbarrier【】
-7.  animatedopacity【】
-8.  animatedphysicalmodel【】
-9.  animatedpositioned【】
-10. animatedsize【】
-11. animatedwidget【】
-12. animatedwidgetbasestate【】
-13. animationcontroller【】
-14. decoratedboxtransition【】
-15. fadetransition【】
-16. hero【】
-17. positionedtransition【】
-18. rotationtransition【】
-19. scaletransition【】
-20. sizetransition【】
-20. slidetransition【】
+1.  animationController【✔️ v1.0】
+2.  animatedbuilder【】
+3.  animatedcontainer【】
+4.  animatedcrossfade【】
+5.  animateddefaulttextstyle【】
+6.  animatedliststate【】
+7.  animatedmodalbarrier【】
+8.  animatedopacity【】
+9.  animatedphysicalmodel【】
+10.  animatedpositioned【】
+11. animatedsize【】
+12. animatedwidget【】
+13. animatedwidgetbasestate【】
+14. animationcontroller【】
+15. decoratedboxtransition【】
+16. fadetransition【】
+17. hero【】
+18. positionedtransition【】
+19. rotationtransition【】
+20. scaletransition【】
+21. sizetransition【】
+22. slidetransition【】
 - bulletbox
 1.  alertdialog【✔️ v1.0】
 2.  bottomsheet【✔️ v1.0】
@@ -79,7 +80,7 @@
 - form
 1.  checkbox【✔️ v1.0】
 2.  checkboxlisttile【✔️ v1.0】
-3.【】
+3.  silder【✔️ v1.0】
 4.【】
 5.【】
 6.【】
