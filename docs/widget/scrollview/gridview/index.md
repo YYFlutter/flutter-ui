@@ -1,7 +1,5 @@
 ## **GridView**
-
-> 
-GridView是自带滚动的二维列表组件。
+> GridView是自带滚动的二维列表组件。
 
 ### 构造方法
 ```
@@ -23,6 +21,7 @@ GridView({
   int semanticChildCount
 })
 ```
+
 ### 高级用法
 ```
 GridView.builder // 动态加载，用于分页较多
@@ -102,52 +101,48 @@ GridView.extent
 			},
 		),
 	),
-	);
 	```
 
 > GridView.custom
 动态创建子组件
 - SliverGridDelegate gridDelegate : 布局相关
 - SliverChildDelegate childrenDelegate：动态创建子组件
-
 	```
-	gridDelegate: SliverGridDelegateWithFixedCrossAxisCount 单行最大数量布局
-	gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-		crossAxisCount: 10, // 单行最大10个元素布局
-	),
-	gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent 单列最大宽度布局
-	gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-		maxCrossAxisExtent: 100, // 单列最大宽度100
-    ),
-    // 创建无限滚动
-	childrenDelegate: SliverChildBuilderDelegate(
-      (context, index) {
-        return Container(
-          child: Text('$index'),
-        );
-      },
-	  // 滚动时回调函数
-      semanticIndexCallback: (widget, index) {
-        print('index $index');
-      },
-    ),
-    // 创建有数量的滚动
-    childrenDelegate: SliverChildListDelegate(
-      List.generate(30, (index) {
-        return Container(
-          child: Text('index $index'),
-        );
-      }),
-    ),
+		gridDelegate: SliverGridDelegateWithFixedCrossAxisCount // 单行最大数量布局
+		gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+			crossAxisCount: 10, // 单行最大10个元素布局
+		),
+		gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent // 单列最大宽度布局
+		gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+			maxCrossAxisExtent: 100, // 单列最大宽度100
+		),
+		childrenDelegate: SliverChildBuilderDelegate(	// 创建无限滚动
+			(context, index) {
+				return Container(
+					child: Text('$index'),
+				);
+			},
+			semanticIndexCallback: (widget, index) {	// 滚动时回调函数
+				print('index $index');
+			},
+		),
+		childrenDelegate: SliverChildListDelegate(	// 创建有数量的滚动
+			List.generate(30, (index) {
+				return Container(
+					child: Text('index $index'),
+				);
+			}),
+		),
 	```
+	
 	```
 	GridView.custom(
 	//          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
 	//            crossAxisCount: 10, // 单行最大10个元素布局
 	//          ),
-	        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-	          maxCrossAxisExtent: 100, // 单列最大宽度100
-	        ),
+					gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+						maxCrossAxisExtent: 100, // 单列最大宽度100
+					),
 	//        childrenDelegate: SliverChildBuilderDelegate(
 	//          (context, index) {
 	//            return Container(
@@ -159,15 +154,15 @@ GridView.extent
 	//            print('index $index');
 	//          },
 	//        ),
-	        // 数量滚滚动限制，类似GridView.count
-	        childrenDelegate: SliverChildListDelegate(
-	          List.generate(30, (index) {
-	            return Container(
-	              child: Text('index $index'),
-	            );
-	          }),
-	        ),
-	      )
+					// 数量滚滚动限制，类似GridView.count
+					childrenDelegate: SliverChildListDelegate(
+						List.generate(30, (index) {
+							return Container(
+								child: Text('index $index'),
+							);
+						}),
+					),
+				)
 	```
 
 > GridView.builder
@@ -175,20 +170,19 @@ GridView.extent
 - itemCount： 子组件最大数量，默认没有限制。效果跟GridView.custom一致
 - gridDelegate：设置布局，单行最大布局数量或单列单项最大长度，参考GridView.custom
 - itemBuilder：子组件动态加载回调方法，长度受itemCount值影响，itemCount不为0且存在时，数量需小于itemCount值
-
 	```
 	GridView.builder(
-      itemCount: 31,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3, // 单行最大数量值
-      ),
-      itemBuilder: (context, index) {
-        print('index $index');
-        return Center(
-          child: Text('index $index'),
-        );
-      },
-    ),
+			itemCount: 31,
+			gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+				crossAxisCount: 3, // 单行最大数量值
+			),
+			itemBuilder: (context, index) {
+				print('index $index');
+				return Center(
+					child: Text('index $index'),
+				);
+			},
+		),
 	```
 	
 ### 其它补充
