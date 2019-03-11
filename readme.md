@@ -31,7 +31,8 @@
 ```
 
 ## 组件进度列表
-- animate  
+### animate
+```
 1.  animationController【✔️ v1.0】
 2.  animatedbuilder【】
 3.  animatedcontainer【】
@@ -41,7 +42,7 @@
 7.  animatedmodalbarrier【】
 8.  animatedopacity【】
 9.  animatedphysicalmodel【】
-10.  animatedpositioned【】
+10. animatedpositioned【】
 11. animatedsize【】
 12. animatedwidget【】
 13. animatedwidgetbasestate【】
@@ -54,9 +55,10 @@
 20. scaletransition【】
 21. sizetransition【】
 22. slidetransition【】
+```
 
-
-- bulletbox
+### bulletbox
+```
 1.  alertdialog【✔️ v1.0】
 2.  bottomsheet【✔️ v1.0】
 3.  expansionPanel【✔️ v1.0】
