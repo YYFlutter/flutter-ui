@@ -88,6 +88,14 @@ flutter:
       - docs/widget/bulletbox/expansionpanel/
       - docs/widget/form/checkbox/
       - docs/widget/form/checkboxlisttile/
+      - docs/widget/form/daypicker/
+      - docs/widget/form/form/
+      - docs/widget/form/formfield/
+      - docs/widget/form/radio/
+      - docs/widget/form/rawkeyboard/
+      - docs/widget/form/switch/
+      - docs/widget/form/textfield/
+      - docs/widget/form/textinput/
       - docs/widget/navigator/appbar/
       - docs/widget/navigator/scaffold/
       - docs/widget/navigator/bottomnavigationbar/
