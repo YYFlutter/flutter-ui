@@ -104,10 +104,9 @@ class _IndexState extends State<Index> {
                     ),
                     Text(
                       '${_tmpWidgetList[index].title}',
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        fontSize: 16,
-                      ),
+                      //overflow: TextOverflow.ellipsis,
+                      style:
+                          TextStyle(fontSize: 14, fontWeight: FontWeight.w300),
                     )
                   ],
                 ),

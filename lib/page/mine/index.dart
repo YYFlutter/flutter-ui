@@ -48,7 +48,7 @@ class _IndexState extends State<Index> {
       case 3:
         FluroRouter.router.navigateTo(
           context,
-          '/webview?url=${Uri.encodeComponent(widget.model.config.state.env.githubWeb)}',
+          '/webview?url=${Uri.encodeComponent(widget.model.config.state.env.githubWeb)}&title=${AppLocalizations.$t('common.compProgress')}',
         );
         break;
     }
@@ -71,7 +71,7 @@ class _IndexState extends State<Index> {
                   flexibleSpace: FlexibleSpaceBar(
                     collapseMode: CollapseMode.pin,
                     title: Text(
-                      'Welcome to Flutter',
+                      'Flutter UI',
                     ),
                   ),
                 ),
