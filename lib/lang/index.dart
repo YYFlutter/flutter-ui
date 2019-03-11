@@ -24,6 +24,7 @@ class AppLocalizations {
   static void setProxy(Function setState, AppLocalizationsDelegate delegate) async {
     _setState = setState;
     _delegate = delegate;
+    print("_delegate = $_delegate");
   }
 
   static get languageCode => _inst._locale.languageCode;

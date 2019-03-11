@@ -9,7 +9,8 @@
     "common" : {
         "changeLanguage": "changeLanguage",
         "changeVersion": "checkVersion",
-        "changeEnvironment": "changeEnvironment"
+        "changeEnvironment": "changeEnvironment",
+        "compProgress": "Components Progress"
     },
     "loading": "Loading"
 }

@@ -30,8 +30,9 @@
 ——locale
 ```
 
-## 组件进度列表
-- animate  
+# 组件进度列表
+### animate  
+```
 1.  animatedbuilder【】
 2.  animatedcontainer【】
 3.  animatedcrossfade【】
@@ -53,13 +54,19 @@
 19. scaletransition【】
 20. sizetransition【】
 20. slidetransition【】
-- bulletbox
+```
+
+### bulletbox
+```
 1.  alertdialog【✔️ v1.0】
 2.  bottomsheet【✔️ v1.0】
 3.  expansionPanel【✔️ v1.0】
 4.  simpledialog【✔️ v1.0】
 5.  snackbar【✔️ v1.0】
-- common
+```
+
+### common
+```
 1.  assetbundle【】
 2.  buttonbar【】
 3.  chip【】
@@ -76,7 +83,10 @@
 14. stepper【】
 15. text【】
 16. tooltip【】
-- form
+```
+
+### form
+```
 1.  checkbox【✔️ v1.0】
 2.  checkboxlisttile【✔️ v1.0】
 3.【】
@@ -89,14 +99,20 @@
 10.【】
 11.【】
 12.【】
-- gestures
+```
+
+### gestures
+```
 1.  absorbpointer【】
 2.  dismissible【】
 3.  dragtarget【】
 4.  gesturedetector【】
 5.  ignorepointer【】
 6.  longpressdraggable【✔️ v1.0】
-- navigator
+```
+
+### navigator
+```
 1.  appbar【】
 2.  bottomnavigationbar【】
 3.  drawer【】
@@ -108,7 +124,10 @@
 9.  tabbar【】
 10. tabbarview【】
 11. widgetsapp【】
-- regular
+```
+
+### regular
+```
 1.  align【✔️ v1.0】
 2.  aspectratio【✔️ v1.0】
 3.  center【✔️ v1.0】
@@ -125,7 +144,10 @@
 14. stack【✔️ v1.0】
 15. table【✔️ v1.0】
 16. wrap【✔️ v1.0】
-- scrollview
+```
+
+### scrollview
+```
 1.  customscrollview【✔️ v1.0】
 2.  gridview【✔️ v1.0】
 3.  listview【✔️ v1.0】
@@ -138,7 +160,10 @@
 10. 【】
 11. 【】
 12. 【】
-- vision
+```
+
+### vision
+```
 1.  backdropfilter【】
 2.  clipoval【】
 3.  clippath【】
@@ -151,3 +176,4 @@
 10. rotatedbox【】
 11. theme【】
 12. transform【】
+```

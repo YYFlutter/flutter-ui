@@ -49,7 +49,7 @@ class _IndexState extends State<Index> {
 }
 
 class StackDemo extends StatelessWidget {
-  var alignmentValue;
+  final Alignment alignmentValue;
   StackDemo({Key key, @required this.alignmentValue}):super(key: key);
 
   @override

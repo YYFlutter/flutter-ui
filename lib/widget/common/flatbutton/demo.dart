@@ -33,6 +33,7 @@ class _IndexState extends State<Index> {
               textColor: Theme.of(context).primaryColor,
               disabledColor: Colors.grey,
               disabledTextColor: Colors.brown,
+              onPressed: (){},
             ),
             FlatButton.icon(
               icon: Icon(Icons.android,size: 26.0,color: Colors.blueAccent),
@@ -44,6 +45,7 @@ class _IndexState extends State<Index> {
               label: Text('默认按钮'),
               disabledColor: Colors.grey,
               disabledTextColor: Colors.brown,
+              onPressed: (){},
             )
           ],
         ),

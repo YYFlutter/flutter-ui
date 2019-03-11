@@ -20,7 +20,6 @@ class _IndexState extends State<Index> {
   List<ExpansionPanelItem> _expansionPanelItems;
   @override
     void initState() {
-      // TODO: implement initState
       super.initState();
       _expansionPanelItems = <ExpansionPanelItem>[
         ExpansionPanelItem(
