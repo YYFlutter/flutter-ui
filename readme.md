@@ -8,13 +8,13 @@
 
 # 目录
 ```
-——assets
-——docs
+——assets                                      静态资源
+——docs                                        教程文件
   ——widget
     ——regular
     ——scrollview
     ...
-——lib
+——lib                                        代码文件
   ——components
   ——config
   ——controller
@@ -27,7 +27,7 @@
     ——regular
     ——scrollview
     ...
-——locale
+——locale                                    语言包
 ```
 
 ## 组件进度列表
