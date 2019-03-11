@@ -92,7 +92,7 @@ Flutter UI
 7.  animatedmodalbarrier【】
 8.  animatedopacity【】
 9.  animatedphysicalmodel【】
-10.  animatedpositioned【】
+10. animatedpositioned【】
 11. animatedsize【】
 12. animatedwidget【】
 13. animatedwidgetbasestate【】
@@ -105,6 +105,7 @@ Flutter UI
 20. scaletransition【】
 21. sizetransition【】
 22. slidetransition【】
+```
 
 
 ### bulletbox
