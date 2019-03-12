@@ -79,12 +79,13 @@ Flutter UI
           │  ├─checkbox 【✔️ v1.0】
           │  ├─checkboxlisttile 【✔️ v1.0】
           │  ├─daypicker  【✔️ v1.0】
+          │  ├─switch   【✔️ v1.0】
+          │  ├─switchListTile   【✔️ v1.0】
           │  ├─form
           │  ├─formfield
           │  ├─radio
           │  ├─rawkeyboard
           │  ├─slider
-          │  ├─switch
           │  ├─textfield
           │  └─textinput
           ├─gestures
