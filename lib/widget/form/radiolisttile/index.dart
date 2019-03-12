@@ -3,9 +3,9 @@ import 'package:efox_flutter/components/widgetComp.dart' as WidgetComp;
 import 'demo.dart' as Demo;
 
 class Index extends StatefulWidget {
-  static String title = 'Radio';
-  static String mdUrl = 'docs/widget/form/radio/index.md';
-  static String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/Radio-class.html';
+  static String title = 'RadioListTile';
+  static String mdUrl = 'docs/widget/form/radiolisttile/index.md';
+  static String originCodeUrl = 'https://docs.flutter.io/flutter/material/RadioListTile-class.html';
 
   @override
   _IndexState createState() => new _IndexState();

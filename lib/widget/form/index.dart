@@ -4,13 +4,15 @@ import 'checkboxlisttile/index.dart' as CheckboxListTile;
 import 'slider/index.dart' as Slider;
 import 'switch/index.dart' as switchExample;
 import 'switchlisttile/index.dart' as switchListTile;
+import 'daypicker/index.dart' as daypicker;
+import 'radio/index.dart' as radio;
+import 'radiolisttile/index.dart' as radioListTile;
 import 'textinput/index.dart' as textinput;
 import 'textfield/index.dart' as textfield;
 import 'rawkeyboard/index.dart' as rawkeyboard;
-import 'radio/index.dart' as radio;
 import 'formfield/index.dart' as formfield;
 import 'form/index.dart' as form;
-import 'daypicker/index.dart' as daypicker;
+
 
 const nameSpaces = '/form_';
 
@@ -46,6 +48,16 @@ List widgets = [
     title: daypicker.Index.title
   ),
   ItemInfo(
+    widget: radio.Index(),
+    code: 58693, // local_florist 
+    title: radio.Index.title
+  ),
+  ItemInfo(
+    widget: radioListTile.Index(),
+    code: 58371, // monochrome_photos 
+    title: radioListTile.Index.title
+  ),
+  ItemInfo(
     widget: form.Index(),
     code: 59526, // group_work
     title: form.Index.title
@@ -54,11 +66,6 @@ List widgets = [
     widget: formfield.Index(),
     code: 60230, // hot_tub
     title: formfield.Index.title
-  ),
-  ItemInfo(
-    widget: radio.Index(),
-    code: 58693, // local_florist 
-    title: radio.Index.title
   ),
   ItemInfo(
     widget: rawkeyboard.Index(),
