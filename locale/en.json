@@ -7,7 +7,7 @@
         "regularLayout": "common layout"
     },
     "common" : {
-        "changeLanguage": "changeLanguage",
+        "changeLanguage": "显示中文",
         "changeVersion": "checkVersion",
         "changeEnvironment": "changeEnvironment",
         "compProgress": "Components Progress"

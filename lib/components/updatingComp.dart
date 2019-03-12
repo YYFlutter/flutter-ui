@@ -10,15 +10,6 @@ class Index extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Container(
-            width: 200.0,
-            height: 200.0,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/nothing.png')
-              )
-            ),
-          ),
           Text(
             '等待更新',
             style: TextStyle(

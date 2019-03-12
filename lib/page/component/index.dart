@@ -3,7 +3,7 @@ import 'package:efox_flutter/router/index.dart' show FluroRouter;
 import 'package:efox_flutter/store/models/main_state_model.dart'
     show MainStateModel;
 import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
-import 'package:efox_flutter/components/header.dart' as Header;
+import 'package:efox_flutter/components/headerComp.dart' as Header;
 import 'package:efox_flutter/widget/index.dart' as WidgetRoot;
 import 'package:efox_flutter/config/theme.dart' show AppTheme;
 

@@ -21,7 +21,8 @@ class _IndexState extends State<Index> {
       {
         'name': AppLocalizations.$t('common.changeVersion') + '  ' + _version,
         'icon': 58919, // sync
-        'index': 1
+        'index': 1,
+        'show': !widget.model.config.state.isPro
       },
       {
         'name': AppLocalizations.$t('common.changeEnvironment'),
