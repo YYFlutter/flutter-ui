@@ -58,6 +58,7 @@ flutter:
   assets:
       - locale/
       - assets/
+      - assets/imgs/
       - docs/widget/scrollview/customscrollview/
       - docs/widget/scrollview/gridview/
       - docs/widget/scrollview/listview/
