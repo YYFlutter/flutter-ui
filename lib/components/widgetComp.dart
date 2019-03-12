@@ -5,6 +5,7 @@ import 'package:efox_flutter/components/markdownComp.dart' as MarkDownComp;
 import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
 import 'package:efox_flutter/components/baseComp.dart' as BaseComp;
 import 'package:efox_flutter/components/exampleComp.dart' as ExampleComp;
+import 'package:efox_flutter/components/nodemo.dart' as NoDemo;
 import 'package:efox_flutter/utils/file.dart' as FileUtils;
 import 'package:efox_flutter/utils/loadAsset.dart' as LoadAssetUtils;
 import 'package:efox_flutter/router/index.dart' show FluroRouter;
@@ -61,15 +62,19 @@ class IndexState extends State<Index> {
 
   void init() async {
     this._bodyList.length = 0;
-    this
+    if (this.demoChild.length != 0) {
+      this
         ._bodyList
         .add(await MarkDownComp.Index(await this.getMdFile(this.mdUrl)));
 
-    // 增加
-    if (this.demoChild != null) {
-      this.demoChild.forEach((Widget item) {
-        this._bodyList.add(ExampleComp.Index(child: item));
-      });
+      // 增加
+      if (this.demoChild != null) {
+        this.demoChild.forEach((Widget item) {
+          this._bodyList.add(ExampleComp.Index(child: item));
+        });
+      }
+    } else {
+      this._bodyList.add(NoDemo.Index());
     }
 
     setState(() {
