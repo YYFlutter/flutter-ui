@@ -78,9 +78,9 @@ Flutter UI
           ├─form
           │  ├─checkbox 【✔️ v1.0】
           │  ├─checkboxlisttile 【✔️ v1.0】
-          │  ├─daypicker  【✔️ v1.0】
           │  ├─switch   【✔️ v1.0】
           │  ├─switchListTile   【✔️ v1.0】
+          │  ├─daypicker  【✔️ v1.0】
           │  ├─form
           │  ├─formfield
           │  ├─radio
