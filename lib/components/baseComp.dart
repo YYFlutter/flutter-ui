@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/store/index.dart' show Store;
-import 'header.dart' as Header;
+import 'headerComp.dart' as Header;
 
 class Index extends StatelessWidget {
   final dynamic child;

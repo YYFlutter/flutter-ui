@@ -57,6 +57,8 @@ flutter:
   #  - images/a_dot_ham.jpeg
   assets:
       - locale/
+      - assets/
+      - assets/imgs/
       - docs/widget/scrollview/customscrollview/
       - docs/widget/scrollview/gridview/
       - docs/widget/scrollview/listview/
@@ -89,12 +91,14 @@ flutter:
       - docs/widget/form/checkbox/
       - docs/widget/form/checkboxlisttile/
       - docs/widget/form/slider/
+      - docs/widget/form/switch/
+      - docs/widget/form/switchlisttile/
       - docs/widget/form/daypicker/
+      - docs/widget/form/radio/
+      - docs/widget/form/radiolisttile/
       - docs/widget/form/form/
       - docs/widget/form/formfield/
-      - docs/widget/form/radio/
       - docs/widget/form/rawkeyboard/
-      - docs/widget/form/switch/
       - docs/widget/form/textfield/
       - docs/widget/form/textinput/
       - docs/widget/navigator/appbar/

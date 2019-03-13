@@ -7,7 +7,7 @@
         "regularLayout": "常规布局"
     },
     "common" : {
-        "changeLanguage": "切换语言",
+        "changeLanguage": "Switch to English",
         "changeVersion": "更新版本",
         "changeEnvironment": "切换环境",
         "compProgress": "组件进度"

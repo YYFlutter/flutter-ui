@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/store/index.dart' show Store;
-import 'header.dart' as Header;
+import 'headerComp.dart' as Header;
 import 'package:efox_flutter/components/markdownComp.dart' as MarkDownComp;
 import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
 import 'package:efox_flutter/components/baseComp.dart' as BaseComp;
 import 'package:efox_flutter/components/exampleComp.dart' as ExampleComp;
+import 'package:efox_flutter/components/updatingComp.dart' as UpdatingComp;
 import 'package:efox_flutter/utils/file.dart' as FileUtils;
 import 'package:efox_flutter/utils/loadAsset.dart' as LoadAssetUtils;
 import 'package:efox_flutter/router/index.dart' show FluroRouter;
@@ -61,17 +62,19 @@ class IndexState extends State<Index> {
 
   void init() async {
     this._bodyList.length = 0;
-    this
+    String mdText = await this.getMdFile(this.mdUrl);
+    print('mdText.length ======================================== ${mdText.length}');
+    if (mdText.length > 30) {
+      this
         ._bodyList
-        .add(await MarkDownComp.Index(await this.getMdFile(this.mdUrl)));
-
-    // 增加
-    if (this.demoChild != null) {
+        .add(await MarkDownComp.Index(mdText));
+      // demo
       this.demoChild.forEach((Widget item) {
         this._bodyList.add(ExampleComp.Index(child: item));
       });
+    } else {
+      this._bodyList.add(UpdatingComp.Index());
     }
-
     setState(() {
       this.loading = false;
     });
@@ -131,7 +134,7 @@ class IndexState extends State<Index> {
         onPressed: () async {
           FluroRouter.router.navigateTo(
             context,
-            '/webview?url=${Uri.encodeComponent(this.originCodeUrl)}',
+            '/webview?title=${this.title}&url=${Uri.encodeComponent(this.originCodeUrl)}',
           );
         },
       ),

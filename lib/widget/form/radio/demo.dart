@@ -6,9 +6,17 @@ class Index extends StatefulWidget {
 }
 
 class _IndexState extends State<Index> {
+  int _radioValue = 0;
+
   @override
   void initState() {
     super.initState();
+  }
+
+  void _handleRadioValueChanged (int value) {
+    setState(() {
+      _radioValue = value;
+    });
   }
 
   @override
@@ -17,8 +25,27 @@ class _IndexState extends State<Index> {
       appBar: AppBar(
         title: Text('Radio'),
       ),
-      body: Center(
-        child: Text('更新中'),
+      body: Column(
+        children: <Widget>[
+          Radio(
+            value: 0,
+            groupValue: _radioValue,
+            onChanged: _handleRadioValueChanged,
+            activeColor: Theme.of(context).primaryColor,
+          ),
+          Radio(
+            value: 1,
+            groupValue: _radioValue,
+            onChanged: _handleRadioValueChanged,
+            activeColor: Theme.of(context).primaryColor,
+          ),
+          Radio(
+            value: 2,
+            groupValue: _radioValue,
+            onChanged: _handleRadioValueChanged,
+            activeColor: Theme.of(context).primaryColor,
+          ),
+        ],
       ),
     );
   }
