@@ -3,7 +3,7 @@ import 'package:efox_flutter/router/index.dart' show FluroRouter;
 import 'package:efox_flutter/store/models/main_state_model.dart'
     show MainStateModel;
 import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
-import 'package:efox_flutter/components/header.dart' as Header;
+import 'package:efox_flutter/components/headerComp.dart' as Header;
 import 'package:efox_flutter/widget/index.dart' as WidgetRoot;
 import 'package:efox_flutter/config/theme.dart' show AppTheme;
 
@@ -65,6 +65,9 @@ class _IndexState extends State<Index> {
         return Container(
           // padding: EdgeInsets.all(10),
           child: ListTile(
+            onTap: () {
+              this.tabClick(index);
+            },
             leading: Icon(
               IconData(
                 widgetsItem.code,
@@ -125,6 +128,15 @@ class _IndexState extends State<Index> {
     );
   }
 
+  tabClick (index) {
+    if (index == this._isExpandedIndex) {
+      index = -1;
+    }
+    setState(() {
+      this._isExpandedIndex = index;
+    });
+  }
+
   Widget build(BuildContext context) {
     // 实例化语言包
     return Scaffold(
@@ -146,12 +158,7 @@ class _IndexState extends State<Index> {
             },
           ),
           expansionCallback: (index, flag) {
-            if (flag) {
-              index = -1;
-            }
-            setState(() {
-              this._isExpandedIndex = index;
-            });
+            this.tabClick(index);
           },
         ),
       ),

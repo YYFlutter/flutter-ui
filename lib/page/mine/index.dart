@@ -16,18 +16,24 @@ class _IndexState extends State<Index> {
       {
         'name': AppLocalizations.$t('common.changeLanguage'),
         'icon': 59540, // language
+        'index': 0
       },
       {
         'name': AppLocalizations.$t('common.changeVersion') + '  ' + _version,
         'icon': 58919, // sync
+        'index': 1,
+        'show': !widget.model.config.state.isPro
       },
       {
         'name': AppLocalizations.$t('common.changeEnvironment'),
         'icon': 57539, // import_export
+        'index': 2,
+        'show': !widget.model.config.state.isPro
       },
       {
         'name': AppLocalizations.$t('common.compProgress'),
         'icon': 57709, // low_priority
+        'index': 3
       }
     ];
   }
@@ -48,7 +54,7 @@ class _IndexState extends State<Index> {
       case 3:
         FluroRouter.router.navigateTo(
           context,
-          '/webview?title=${Uri.encodeComponent(AppLocalizations.$t('common.compProgress'))}&url=${Uri.encodeComponent(widget.model.config.state.env.githubWeb)}',
+          '/webview?url=${Uri.encodeComponent(widget.model.config.state.env.githubWeb)}&title=${Uri.encodeComponent(AppLocalizations.$t('common.compProgress'))}',
         );
         break;
     }
@@ -79,6 +85,7 @@ class _IndexState extends State<Index> {
             ];
           },
           body: Builder(builder: (context) {
+            List list = this._getList();
             return CustomScrollView(
               slivers: <Widget>[
                 // SliverOverlapInjector与SliverOverlapAbsorber是相对成立的，
@@ -92,19 +99,24 @@ class _IndexState extends State<Index> {
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
                     (context, index) {
-                      return ListTile(
-                        onTap: () {
-                          this.actionsEvent(index);
-                        },
-                        leading: Icon(
-                          IconData(
-                            this._getList()[index]['icon'],
-                            fontFamily: 'MaterialIcons',
-                            matchTextDirection: true,
+                      dynamic item = list[index];
+                      if (item['show'] ?? true) {
+                        return ListTile(
+                          onTap: () {
+                            this.actionsEvent(item['index']);
+                          },
+                          leading: Icon(
+                            IconData(
+                              item['icon'],
+                              fontFamily: 'MaterialIcons',
+                              matchTextDirection: true,
+                            ),
                           ),
-                        ),
-                        title: Text('${this._getList()[index]['name']}'),
-                      );
+                          title: Text('${item['name']}'),
+                        );
+                      } else {
+                        return Container();
+                      }
                     },
                     childCount: this._getList().length,
                   ),

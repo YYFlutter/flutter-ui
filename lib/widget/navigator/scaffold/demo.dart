@@ -19,7 +19,7 @@ class _IndexState extends State<Index> {
       bottomNavigationBar: BottomAppBar(
         child: Container(height: 50.0,),
       ),
-      bottomSheet: Text( 'bottomSheet123123'),
+      bottomSheet: Text( 'bottomSheet'),
       floatingActionButton: FloatingActionButton(
         onPressed: () => setState(() {
           _count++;

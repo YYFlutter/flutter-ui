@@ -16,12 +16,12 @@ class _IndexState extends State<Index> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Switch'),
+        title: Text('SwitchListTile'),
       ),
       body: Center(
-        child: Switch(
+        child: SwitchListTile(
           value: _switchValue,
-          onChanged: (value){
+          onChanged: (value) {
             setState(() {
               _switchValue = value;
             });
@@ -32,7 +32,12 @@ class _IndexState extends State<Index> {
           inactiveTrackColor: Colors.black12,
           activeThumbImage: NetworkImage('http://pic1.win4000.com/wallpaper/2019-02-15/5c664c4b4dc2f.jpg'),
           inactiveThumbImage: NetworkImage('http://pic1.win4000.com/wallpaper/2019-02-14/5c651084373de.jpg',),
-        ),
+          title: Text('Switch Item A'),
+          subtitle: Text('SubTitle'),
+          isThreeLine: false,
+          secondary: _switchValue ? Icon(Icons.visibility) : Icon(Icons.visibility_off),
+          selected: _switchValue,
+        )
       ),
     );
   }

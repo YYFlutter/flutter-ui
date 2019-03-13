@@ -23,27 +23,39 @@ class _IndexState extends State<Index> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Radio'),
+        title: Text('RadioListTile'),
       ),
       body: Column(
         children: <Widget>[
-          Radio(
+          RadioListTile(
             value: 0,
             groupValue: _radioValue,
             onChanged: _handleRadioValueChanged,
             activeColor: Theme.of(context).primaryColor,
+            title: Text('RadioListTile A'),
+            subtitle: Text('Description'),
+            secondary: Icon(Icons.filter_1),
+            selected: _radioValue == 0,
           ),
-          Radio(
+          RadioListTile(
             value: 1,
             groupValue: _radioValue,
             onChanged: _handleRadioValueChanged,
             activeColor: Theme.of(context).primaryColor,
+            title: Text('RadioListTile B'),
+            subtitle: Text('Description'),
+            secondary: Icon(Icons.filter_2),
+            selected: _radioValue == 1,
           ),
-          Radio(
+          RadioListTile(
             value: 2,
             groupValue: _radioValue,
             onChanged: _handleRadioValueChanged,
             activeColor: Theme.of(context).primaryColor,
+            title: Text('RadioListTile C'),
+            subtitle: Text('Description'),
+            secondary: Icon(Icons.filter_3),
+            selected: _radioValue == 2,
           ),
         ],
       ),

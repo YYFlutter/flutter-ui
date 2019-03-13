@@ -19,7 +19,7 @@ class _IndexState extends State<Index> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My Fancy Dress'),
+        title: Text('AppBar'),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.playlist_play),
@@ -37,7 +37,10 @@ class _IndexState extends State<Index> {
             onPressed: _repairDress,
           ),
         ],
-      )
+      ),
+      body: Center(
+        child: Image.network('https://flutter.github.io/assets-for-api-docs/assets/material/app_bar.png', fit: BoxFit.contain,),
+      ),
     );
   }
 }
