@@ -62,11 +62,12 @@ class IndexState extends State<Index> {
 
   void init() async {
     this._bodyList.length = 0;
-    if (this.demoChild != null && this.demoChild.length != 0) {
-      // markdown text
+    String mdText = await this.getMdFile(this.mdUrl);
+    print('mdText.length ======================================== ${mdText.length}');
+    if (mdText.length > 30) {
       this
         ._bodyList
-        .add(await MarkDownComp.Index(await this.getMdFile(this.mdUrl)));
+        .add(await MarkDownComp.Index(mdText));
       // demo
       this.demoChild.forEach((Widget item) {
         this._bodyList.add(ExampleComp.Index(child: item));
@@ -74,7 +75,6 @@ class IndexState extends State<Index> {
     } else {
       this._bodyList.add(UpdatingComp.Index());
     }
-
     setState(() {
       this.loading = false;
     });
@@ -138,14 +138,14 @@ class IndexState extends State<Index> {
           );
         },
       ),
-      // IconButton(
-      //   icon: Icon(
-      //     Icons.code,
-      //   ),
-      //   onPressed: () async {
-      //     this.openPage(context);
-      //   },
-      // ),
+      IconButton(
+        icon: Icon(
+          Icons.code,
+        ),
+        onPressed: () async {
+          this.openPage(context);
+        },
+      ),
       IconButton(
         icon: Icon(Icons.share),
         onPressed: () {
