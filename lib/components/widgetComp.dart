@@ -63,15 +63,16 @@ class IndexState extends State<Index> {
   void init() async {
     this._bodyList.length = 0;
     String mdText = await this.getMdFile(this.mdUrl);
-    print('mdText.length ======================================== ${mdText.length}');
     if (mdText.length > 30) {
       this
         ._bodyList
         .add(await MarkDownComp.Index(mdText));
       // demo
-      this.demoChild.forEach((Widget item) {
-        this._bodyList.add(ExampleComp.Index(child: item));
-      });
+      if (this.demoChild != null && this.demoChild.length > 0) {
+        this.demoChild.forEach((Widget item) {
+          this._bodyList.add(ExampleComp.Index(child: item));
+        });
+      }
     } else {
       this._bodyList.add(UpdatingComp.Index());
     }
