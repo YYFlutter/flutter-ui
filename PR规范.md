@@ -1,11 +1,11 @@
 ## 开发者如何参与完善控件
 > 开发者可以选择只完善控件Demo示例，或者喜欢翻译的可以只完善控件文档，也可选择两者
 
-* 1. git clone https://github.com/efoxTeam/flutter-ui 拉取项目到本地
-* 2. 打开项目 flutter-ui/lib/config/index.dart，修改里面isPro变量为false，（目的加载本地文件）
-* 3. 完善控件的，如要完善Animate下的AnimationController控件，打开项目 flutter-ui/lib/widget/animate/animationcontroller/demo.dart，在此文件下构建您的demo运行即可看到效果
-* 4. 完善控件文档的，您可打开flutter-ui/docs/widget/animate/animationcontroller/index.md，构建AnimationController控件的说明文档，该文档包括但不限于（控件介绍，控件构造方法，控件属性介绍）
-* 5. 最后将您的代码提Pull request到test分支，我们会定期merge发版
+* git clone https://github.com/efoxTeam/flutter-ui 拉取项目到本地
+* 打开项目 flutter-ui/lib/config/index.dart，修改里面isPro变量为false，（目的加载本地文件）
+* 完善控件的，如要完善Animate下的AnimationController控件，打开项目 flutter-ui/lib/widget/animate/animationcontroller/demo.dart，在此文件下构建您的demo运行即可看到效果
+* 完善控件文档的，您可打开flutter-ui/docs/widget/animate/animationcontroller/index.md，构建AnimationController控件的说明文档，该文档包括但不限于（控件介绍，控件构造方法，控件属性介绍）
+* 最后将您的代码提Pull request到test分支，我们会定期merge发版
 
 ## PR规范
 1. 确保一个PR只做一个issues或一个组件分享，或一个特殊的主题分享等，即命题唯一
@@ -41,18 +41,18 @@
 * fork项目到自己仓库
 * git clone （您的仓库地址）到本地
 * 建立上游连接
-    git remote add upstream https://github.com/efoxTeam/flutter-ui
+    * git remote add upstream https://github.com/efoxTeam/flutter-ui
 * 创建开发分支（非必须）
-    git checkout -b test
+    * git checkout -b test
 * 修改提交代码
-    git status
-    git add .
-    git commit -m 'feat: 增加了什么什么什么'
-    git push origin test
+    * git status
+    * git add .
+    * git commit -m 'feat: 增加了什么什么什么'
+    * git push origin test
 * 同步代码
-    git fetch upstream
-    git merge upstream/test
-    git push origin test
+    * git fetch upstream
+    * git merge upstream/test
+    * git push origin test
 * 提交PR
-    到自己github仓库对应fork的项目下new pull request
+    * 到自己github仓库对应fork的项目下new pull request
 
