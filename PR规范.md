@@ -51,7 +51,6 @@
     git push origin test
 * 同步代码
     git fetch upstream
-    git checkout test
     git merge upstream/test
     git push origin test
 * 提交PR
