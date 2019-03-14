@@ -1,14 +1,13 @@
 # Flutter UI
 ![https://raw.githubusercontent.com/efoxTeam/flutter-ui/dev-ken/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png](https://raw.githubusercontent.com/efoxTeam/flutter-ui/dev-ken/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
 
-> flutter ui 开发者社区 提供各种flutter相关开发教程
+> flutter ui 开发者社区 提供各种flutter相关开发教程 与 demo
 
 ## 项目背景
 * Google推出Flutter跨平台解决方案，渐渐地受到了开发者们的关注，结合dart使用，能够用一套代码实现开发iOS与Android两套应用，未来还将可以直接编译成桌面应用。
 * Flutter拥有丰富的组件库，多样化的主题与UI风格，让开发者更简单的上手完成界面交互，从而提高了开发效率。
-* 随着大厂纷纷着手研究与实践后，本团队利用工作之余，也迈进对Flutter了认知的旅程中，并对组件进行归类与逐步细化，着手于技术要点分析与总结。
 * 此套组件库在几次没有硝烟的研讨中，命名为"Flutter UI"，使命为"知识千万点，学习第一条。代码快点敲，bug无数行"。没错，就是这么不押韵。
-* 希与各位技术大大，有兴趣的小伙伴们一起交流，一起进步。
+
 
 ## 开发者如何参与完善控件
 <img src="https://raw.githubusercontent.com/efoxTeam/flutter-ui/test/readme/qq-qrcode.png" width="300" />
