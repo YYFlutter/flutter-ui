@@ -28,6 +28,9 @@
 ![Alt 预览](readme/flutter_ui2.gif)
 ![Alt 预览](readme/flutter_ui3.gif)
 
+## QQ交流群
+![https://raw.githubusercontent.com/efoxTeam/flutter-ui/test/readme/qq-qrcode.png](https://raw.githubusercontent.com/efoxTeam/flutter-ui/test/readme/qq-qrcode.png)
+
 
 ## 目录
 ```
