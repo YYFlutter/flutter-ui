@@ -11,10 +11,10 @@
 * 希与各位技术大大，有兴趣的小伙伴们一起交流，一起进步。
 
 ## 开发者如何参与完善控件
-<img src="https://raw.githubusercontent.com/efoxTeam/flutter-ui/test/readme/qq-qrcode.png" width="200" />
-<p>QQ交流群</p>
-* 欢迎有兴趣的小伙伴参与进来，一同完善组件，同是也可以把相关问题通过issues方式与我们联系
+<img src="https://raw.githubusercontent.com/efoxTeam/flutter-ui/test/readme/qq-qrcode.png" width="200" />欢迎有兴趣的小伙伴参与进来，一同完善组件，同是也可以把相关问题通过issues方式与我们联系
 [开发者如何参与完善控件](PR规范.md)
+<p>QQ交流群</p>
+
 
 ## 环境
 * 自行完成flutter环境配置
