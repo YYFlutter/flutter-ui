@@ -18,7 +18,11 @@ class _IndexState extends State<Index> {
         title: Text('Icon'),
       ),
       body: Center(
-        child: Text('更新中'),
+        child: Icon(
+          Icons.android,
+          size: 100.0,
+          color: Theme.of(context).primaryColor,
+        ),
       ),
     );
   }

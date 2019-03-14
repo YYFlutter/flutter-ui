@@ -92,7 +92,7 @@ Flutter UI
           │  ├─container  【✔️ v1.0】
           │  ├─divider  【✔️ v1.0】
           │  ├─flatbutton 【✔️ v1.0】
-          │  ├─icon
+          │  ├─icon 【✔️ v1.0】
           │  ├─iconbutton
           │  ├─image
           │  ├─listtile
