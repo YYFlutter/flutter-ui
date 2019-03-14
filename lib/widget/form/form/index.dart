@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/components/widgetComp.dart' as WidgetComp;
-// import 'demo.dart' as Demo;
+import 'demo.dart' as Demo;
 
 class Index extends StatefulWidget {
   static String title = 'Form';
@@ -19,7 +19,7 @@ class _IndexState extends State<Index> {
       originCodeUrl: Index.originCodeUrl,
       mdUrl: Index.mdUrl,
       demoChild: [
-        // Demo.Index(),
+        Demo.Index(),
       ],
     );
   }
