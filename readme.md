@@ -8,12 +8,16 @@
 * Flutter拥有丰富的组件库，多样化的主题与UI风格，让开发者更简单的上手完成界面交互，从而提高了开发效率。
 * 此套组件库在几次没有硝烟的研讨中，命名为"Flutter UI"，使命为"知识千万点，学习第一条。代码快点敲，bug无数行"。没错，就是这么不押韵。
 
+## Release Apk 安装包   
+![apk download](readme/apk.png)     
+[历史版本](https://github.com/efoxTeam/flutter-ui/releases)
 
 ## 开发者如何参与完善控件
 <img src="https://raw.githubusercontent.com/efoxTeam/flutter-ui/test/readme/qq-qrcode.png" width="300" />
 
-欢迎有兴趣的小伙伴QQ扫描以上二维码参与进来，一同完善组件，
-同时也可以把相关问题通过[issues](https://github.com/efoxTeam/flutter-ui/issues)方式与我们联系 [开发者如何参与完善控件](readme/pr.md)
+欢迎有兴趣的小伙伴QQ扫描以上二维码参与进来，一同完善组件    
+同时也可以把相关问题通过[issues](https://github.com/efoxTeam/flutter-ui/issues)方式与我们联系   
+[开发者如何参与完善控件](readme/pr.md)
 
 
 
@@ -21,8 +25,8 @@
 * 自行完成flutter环境配置
 * 通过 fork 项目master分支代码，进入项目
 * 切换flutter到master分支，步骤如下（若已切换可跳过）
-1. flutter channel master // 选择master分支
-2. flutter upgrade // 更新代码  
+  1. flutter channel master // 选择master分支
+  2. flutter upgrade // 更新代码  
 * 运行模拟器或真机 
 * flutter run //运行程序
 * flutter build apk //生成apk 
