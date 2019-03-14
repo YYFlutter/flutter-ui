@@ -19,7 +19,7 @@
 
 ## 环境与构建
 * 自行完成flutter环境配置
-* 通过git clone本项目master分支代码，进入项目
+* 通过 fork 项目master分支代码，进入项目
 * 切换flutter到master分支，步骤如下（若已切换可跳过）
 1. flutter channel master // 选择master分支
 2. flutter upgrade // 更新代码  
