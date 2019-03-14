@@ -4,25 +4,28 @@
 > flutter ui 开发者社区 提供各种flutter相关开发教程 与 demo
 
 ## 项目背景
-* Google推出Flutter跨平台解决方案，渐渐地受到了开发者们的关注，结合dart使用，能够用一套代码实现开发iOS与Android两套应用，未来还将可以直接编译成桌面应用。
+* Google推出Flutter跨平台解决方案，渐渐地受到了开发者们的关注，结合dart使用，能够用一套代码实现开发iOS与Android两套应用，同时也是谷歌的下一代操作系统 Fuchsia 的开发框架，未来还将可以直接编译成桌面应用。
 * Flutter拥有丰富的组件库，多样化的主题与UI风格，让开发者更简单的上手完成界面交互，从而提高了开发效率。
 * 此套组件库在几次没有硝烟的研讨中，命名为"Flutter UI"，使命为"知识千万点，学习第一条。代码快点敲，bug无数行"。没错，就是这么不押韵。
 
 
 ## 开发者如何参与完善控件
 <img src="https://raw.githubusercontent.com/efoxTeam/flutter-ui/test/readme/qq-qrcode.png" width="300" />
-<p>QQ交流群</p>
-* 欢迎有兴趣的小伙伴参与进来，一同完善组件，同是也可以把相关问题通过issues方式与我们联系 [开发者如何参与完善控件](PR规范.md)
+
+欢迎有兴趣的小伙伴QQ扫描以上二维码参与进来，一同完善组件，
+同时也可以把相关问题通过[issues](https://github.com/efoxTeam/flutter-ui/issues)方式与我们联系 [开发者如何参与完善控件](readme/pr.md)
 
 
-## 环境
+
+## 环境与构建
 * 自行完成flutter环境配置
 * 通过git clone本项目master分支代码，进入项目
 * 切换flutter到master分支，步骤如下（若已切换可跳过）
 1. flutter channel master // 选择master分支
 2. flutter upgrade // 更新代码  
-* 运行模拟器或真机
-* flutter run运行程序
+* 运行模拟器或真机 
+* flutter run //运行程序
+* flutter build apk //生成apk 
 
 ## app预览
 
