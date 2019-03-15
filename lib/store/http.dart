@@ -3,8 +3,8 @@ import 'package:dio/dio.dart'
 
 Dio getDio([Options options]) {
   Dio dio = new Dio(BaseOptions(
-    connectTimeout: 5000,
-    receiveTimeout: 5000,
+    connectTimeout: 30 * 1000,
+    receiveTimeout: 30 * 1000,
   )); // with default Options
   dio.interceptors.add(LogInterceptor(responseBody: true));
   return dio;

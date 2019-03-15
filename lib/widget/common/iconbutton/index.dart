@@ -5,7 +5,7 @@ import 'demo.dart' as Demo;
 class Index extends StatefulWidget {
   static String title = 'IconButton';
   static String mdUrl = 'docs/widget/common/iconbutton/index.md';
-  static String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/IconButton-class.html';
+  static String originCodeUrl = 'https://docs.flutter.io/flutter/material/IconButton-class.html';
 
   @override
   _IndexState createState() => new _IndexState();

@@ -1,11 +1,11 @@
 ## 开发者如何参与完善控件
 > 开发者可以选择完善喜欢翻译的控件文档，或者增加控件Demo示例
 
-* fork 一份自己的仓库
-* git clone https://github.com/efoxTeam/flutter-ui 拉取项目到本地
+* fork 一份到自己的仓库
+* git clone （您的仓库地址） 拉取项目到本地
 * 打开项目 flutter-ui/lib/config/index.dart，修改里面isPro变量为false，（目的加载本地文件）
 ### 完善文档
-* 完善控件文档的，您可打开flutter-ui/docs/widget/animate/animationcontroller/index.md，构建AnimationController控件的说明文档，该文档包括但不限于（控件介绍，控件构造方法，控件属性介绍）
+* 完善控件文档的，如要完善Animate下的AnimationController控件的文档，您可打开flutter-ui/docs/widget/animate/animationcontroller/index.md，构建AnimationController控件的说明文档，该文档包括但不限于（控件介绍，控件构造方法，控件属性介绍）
 
 ### 增加控件demo  
 * 完善控件的，如要完善Animate下的AnimationController控件，打开项目 flutter-ui/lib/widget/animate/animationcontroller/demo.dart，在此文件下构建您的demo运行即可看到效果
