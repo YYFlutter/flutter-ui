@@ -124,14 +124,14 @@ Flutter UI
           │  ├─ignorepointer
           │  └─longpressdraggable 【✔️ v1.0】
           ├─navigator
-          │  ├─appbar
+          │  ├─appbar 【✔️ v1.0】
           │  ├─bottomnavigationbar
-          │  ├─drawer
+          │  ├─drawer 【✔️ v1.0】
           │  ├─floatingactionbutton
           │  ├─materialapp
           │  ├─navigator
           │  ├─popupmenubutton
-          │  ├─scaffold
+          │  ├─scaffold 【✔️ v1.0】
           │  ├─tabbar
           │  ├─tabbarview
           │  └─widgetsapp
