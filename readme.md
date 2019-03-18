@@ -1,5 +1,5 @@
 # Flutter UI
-![https://raw.githubusercontent.com/efoxTeam/flutter-ui/dev-ken/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png](https://raw.githubusercontent.com/efoxTeam/flutter-ui/dev-ken/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
+![https://raw.githubusercontent.com/efoxTeam/flutter-ui/master/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png](https://raw.githubusercontent.com/efoxTeam/flutter-ui/master/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
 
 > flutter ui 开发者社区 提供各种flutter相关开发教程 与 demo
 
