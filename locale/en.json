@@ -9,8 +9,11 @@
     "common" : {
         "changeLanguage": "显示中文",
         "changeVersion": "checkVersion",
-        "changeEnvironment": "changeEnvironment",
         "compProgress": "Components Progress"
+    },
+    "mine": {
+        "loadNetwork": "Load Network Document Resources",
+        "loadLocal": "Load Local Document Resources"
     },
     "loading": "Loading"
 }

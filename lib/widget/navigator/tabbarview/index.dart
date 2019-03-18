@@ -5,7 +5,7 @@ import 'demo.dart' as Demo;
 class Index extends StatefulWidget {
   static String title = 'TabBarView';
   static String mdUrl = 'docs/widget/navigator/tabbarview/index.md';
-  static String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/TabBarView-class.html';
+  static String originCodeUrl = 'https://docs.flutter.io/flutter/material/TabBarView-class.html';
 
   @override
   _IndexState createState() => new _IndexState();

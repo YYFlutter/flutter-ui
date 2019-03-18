@@ -5,7 +5,7 @@ import 'demo.dart' as Demo;
 class Index extends StatefulWidget {
   static String title = 'PopupMenuButton';
   static String mdUrl = 'docs/widget/navigator/popupmenubutton/index.md';
-  static String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/PopupMenuButton-class.html';
+  static String originCodeUrl = 'https://docs.flutter.io/flutter/material/PopupMenuButton-class.html';
 
   @override
   _IndexState createState() => new _IndexState();

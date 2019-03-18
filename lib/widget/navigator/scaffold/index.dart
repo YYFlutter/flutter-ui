@@ -4,8 +4,8 @@ import 'demo.dart' as Demo;
 
 class Index extends StatefulWidget {
   static String title = 'Scaffold';
-  static String originCodeUrl = 'https://docs.flutter.io/flutter/material/Scaffold-class.html';
   static String mdUrl = 'docs/widget/navigator/scaffold/index.md';
+  static String originCodeUrl = 'https://docs.flutter.io/flutter/material/Scaffold-class.html';
 
   @override
   _IndexState createState() => _IndexState();
