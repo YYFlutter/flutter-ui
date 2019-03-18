@@ -3,12 +3,9 @@ import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
 import 'package:efox_flutter/router/index.dart' show FluroRouter;
 
 class _IndexState extends State<Index> {
-  static String _version = '';
-
   @override
   void initState() {
     super.initState();
-    _version = widget.model.config.state.version;
   }
 
   List<dynamic> _getList() {
@@ -19,16 +16,9 @@ class _IndexState extends State<Index> {
         'index': 0
       },
       {
-        'name': AppLocalizations.$t('common.changeVersion') + '  ' + _version,
-        'icon': 58919, // sync
-        'index': 1,
-        'show': !widget.model.config.state.isPro
-      },
-      {
-        'name': AppLocalizations.$t('common.changeEnvironment'),
+        'name': widget.model.config.state.isPro ? AppLocalizations.$t('mine.loadLocal') : AppLocalizations.$t('mine.loadNetwork'),
         'icon': 57539, // import_export
         'index': 2,
-        'show': !widget.model.config.state.isPro
       },
       {
         'name': AppLocalizations.$t('common.compProgress'),
@@ -42,11 +32,6 @@ class _IndexState extends State<Index> {
     switch (index) {
       case 0:
         AppLocalizations.changeLanguage();
-        break;
-      case 1:
-        widget.model.dispatch('config', 'setVersion').then((resp) {
-          _version = widget.model.config.state.version;
-        });
         break;
       case 2:
         widget.model.dispatch('config', 'setEnv');

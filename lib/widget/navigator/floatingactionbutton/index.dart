@@ -5,7 +5,7 @@ import 'demo.dart' as Demo;
 class Index extends StatefulWidget {
   static String title = 'FloatingActionButton';
   static String mdUrl = 'docs/widget/navigator/floatingactionbutton/index.md';
-  static String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/FloatingActionButton-class.html';
+  static String originCodeUrl = 'https://docs.flutter.io/flutter/material/FloatingActionButton-class.html';
 
   @override
   _IndexState createState() => new _IndexState();

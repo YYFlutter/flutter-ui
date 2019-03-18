@@ -5,7 +5,7 @@ import 'demo.dart' as Demo;
 class Index extends StatefulWidget {
   static String title = 'MaterialApp';
   static String mdUrl = 'docs/widget/navigator/materialapp/index.md';
-  static String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/MaterialApp-class.html';
+  static String originCodeUrl = 'https://docs.flutter.io/flutter/material/MaterialApp-class.html';
 
   @override
   _IndexState createState() => new _IndexState();
