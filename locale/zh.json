@@ -9,8 +9,11 @@
     "common" : {
         "changeLanguage": "Switch to English",
         "changeVersion": "更新版本",
-        "changeEnvironment": "切换环境",
         "compProgress": "组件进度"
+    },
+    "mine": {
+        "loadNetwork": "加载网络文档资源",
+        "loadLocal": "加载本地文档资源"
     },
     "loading": "加载中"
 }

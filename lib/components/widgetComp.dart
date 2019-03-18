@@ -63,7 +63,7 @@ class IndexState extends State<Index> {
   void init() async {
     this._bodyList.length = 0;
     String mdText = await this.getMdFile(this.mdUrl);
-    if (mdText.length > 30) {
+    if (mdText.length > 30 || !this.model.config.state.isPro) {
       this
         ._bodyList
         .add(await MarkDownComp.Index(mdText));

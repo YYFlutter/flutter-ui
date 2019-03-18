@@ -58,7 +58,7 @@ Flutter UI
       ├─utils 项目工具类
       └─widget  项目组件库
           ├─animate
-          │  ├─animatedbuilder  【✔️ v1.0】
+          │  ├─animatedbuilder 【✔️ v1.0】
           │  ├─animatedcontainer
           │  ├─animatedcrossfade
           │  ├─animateddefaulttextstyle
@@ -89,8 +89,8 @@ Flutter UI
           │  ├─assetbundle
           │  ├─buttonbar
           │  ├─chip
-          │  ├─container  【✔️ v1.0】
-          │  ├─divider  【✔️ v1.0】
+          │  ├─container 【✔️ v1.0】
+          │  ├─divider 【✔️ v1.0】
           │  ├─flatbutton 【✔️ v1.0】
           │  ├─icon 【✔️ v1.0】
           │  ├─iconbutton
@@ -105,16 +105,16 @@ Flutter UI
           ├─form
           │  ├─checkbox 【✔️ v1.0】
           │  ├─checkboxlisttile 【✔️ v1.0】
-          │  ├─slider   【✔️ v1.0】
-          │  ├─switch   【✔️ v1.0】
-          │  ├─switchListTile   【✔️ v1.0】
-          │  ├─daypicker  【✔️ v1.0】
-          │  ├─radio    【✔️ v1.0】
-          │  ├─radioListTile    【✔️ v1.0】
+          │  ├─slider  【✔️ v1.0】
+          │  ├─switch  【✔️ v1.0】
+          │  ├─switchListTile  【✔️ v1.0】
+          │  ├─daypicker 【✔️ v1.0】
+          │  ├─radio   【✔️ v1.0】
+          │  ├─radioListTile   【✔️ v1.0】
           │  ├─form
           │  ├─formfield
           │  ├─rawkeyboard
-          │  ├─textfield    【✔️ v1.0】
+          │  ├─textfield   【✔️ v1.0】
           │  └─textinput
           ├─gestures
           │  ├─absorbpointer
@@ -125,9 +125,9 @@ Flutter UI
           │  └─longpressdraggable 【✔️ v1.0】
           ├─navigator
           │  ├─appbar 【✔️ v1.0】
-          │  ├─bottomnavigationbar
+          │  ├─bottomnavigationbar 【✔️ v1.0】
           │  ├─drawer 【✔️ v1.0】
-          │  ├─floatingactionbutton
+          │  ├─floatingactionbutton 【✔️ v1.0】
           │  ├─materialapp
           │  ├─navigator
           │  ├─popupmenubutton
@@ -136,21 +136,21 @@ Flutter UI
           │  ├─tabbarview
           │  └─widgetsapp
           ├─regular
-          │  ├─align  【✔️ v1.0】
-          │  ├─aspectratio  【✔️ v1.0】
+          │  ├─align 【✔️ v1.0】
+          │  ├─aspectratio 【✔️ v1.0】
           │  ├─center 【✔️ v1.0】
           │  ├─column 【✔️ v1.0】
           │  ├─constrainedbox 【✔️ v1.0】
-          │  ├─container  【✔️ v1.0】
-          │  ├─fittedbox  【✔️ v1.0】
+          │  ├─container 【✔️ v1.0】
+          │  ├─fittedbox 【✔️ v1.0】
           │  ├─flow 【✔️ v1.0】
-          │  ├─layoutbuilder  【✔️ v1.0】
+          │  ├─layoutbuilder 【✔️ v1.0】
           │  ├─listbody 【✔️ v1.0】
           │  ├─listview 【✔️ v1.0】
-          │  ├─padding  【✔️ v1.0】
-          │  ├─row  【✔️ v1.0】
-          │  ├─stack  【✔️ v1.0】
-          │  ├─table  【✔️ v1.0】
+          │  ├─padding 【✔️ v1.0】
+          │  ├─row 【✔️ v1.0】
+          │  ├─stack 【✔️ v1.0】
+          │  ├─table 【✔️ v1.0】
           │  └─wrap 【✔️ v1.0】
           ├─scrollview
           │  ├─customscrollview 【✔️ v1.0】
@@ -158,9 +158,9 @@ Flutter UI
           │  ├─listview 【✔️ v1.0】
           │  ├─nestedscrollview 【✔️ v1.0】
           │  ├─scrollable 【✔️ v1.0】
-          │  ├─scrollbar  【✔️ v1.0】
+          │  ├─scrollbar 【✔️ v1.0】
           │  ├─scrollcontroller 【✔️ v1.0】
-          │  └─singlechildscrollview  【✔️ v1.0】
+          │  └─singlechildscrollview 【✔️ v1.0】
           └─vision
               ├─backdropfilter
               ├─clipoval
