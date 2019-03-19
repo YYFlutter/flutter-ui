@@ -6,7 +6,7 @@
     "widgetType": {
         "regularLayout": "常规布局"
     },
-    "common" : {
+    "common": {
         "changeLanguage": "Switch to English",
         "changeVersion": "更新版本",
         "compProgress": "组件进度"
@@ -15,5 +15,14 @@
         "loadNetwork": "加载网络文档资源",
         "loadLocal": "加载本地文档资源"
     },
-    "loading": "加载中"
+    "loading": "加载中",
+    "ScrollComponents": "滚动",
+    "Common": "通用",
+    "Form": "表单",
+    "Regular": "布局",
+    "Navigator": "导航",
+    "BulletBox": "窗口",
+    "Animate": "动画",
+    "Gestures": "手势",
+    "Vision": "视觉"
 }
