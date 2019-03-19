@@ -5,6 +5,7 @@ import 'package:efox_flutter/config/theme.dart' show AppTheme;
 import 'package:efox_flutter/widget/index.dart' as WidgetRoot;
 import 'package:efox_flutter/router/index.dart' show FluroRouter;
 import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
+import 'package:efox_flutter/components/headerComp.dart' as Header;
 
 class Index extends StatefulWidget {
   final MainStateModel model;
@@ -69,11 +70,12 @@ class _IndexState extends State<Index>
 
   Widget _TabBar() {
     return TabBar(
+        indicatorColor: Color(AppTheme.secondColor),
         controller: _tabController,
         isScrollable: true,
         tabs: _mapList.map((v) {
           return new Tab(
-            text: v.typeName,
+            text: AppLocalizations.$t(v.typeName),
             /* icon: Icon(
               IconData(
                 v.code,

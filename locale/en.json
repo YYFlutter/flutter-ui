@@ -6,7 +6,7 @@
     "widgetType": {
         "regularLayout": "common layout"
     },
-    "common" : {
+    "common": {
         "changeLanguage": "显示中文",
         "changeVersion": "checkVersion",
         "compProgress": "Components Progress"
@@ -23,5 +23,14 @@
         "loadNetwork": "Load Network Document Resources",
         "loadLocal": "Load Local Document Resources"
     },
-    "loading": "Loading"
+    "loading": "Loading",
+    "ScrollComponents": "ScrollComponents",
+    "Common": "Common",
+    "Form": "Form",
+    "Regular": "Regular",
+    "Navigator": "Navigator",
+    "BulletBox": "BulletBox",
+    "Animate": "Animate",
+    "Gestures": "Gestures",
+    "Vision": "Vision"
 }
