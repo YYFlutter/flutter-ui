@@ -6,6 +6,7 @@ class AppTheme {
   static int thirdColor = 0xFFFAFAFA;
   static int greyColor = 0x8A000000;
   static int blackColor = 0xFF000000;
+  static int lineColor = 0xFFEEEEEE;
   static ThemeData themData = ThemeData(
     textTheme: TextTheme(
       body1: TextStyle(
@@ -13,7 +14,7 @@ class AppTheme {
           // fontWeight: FontWeight.bold,
           ),
     ),
-    platform: TargetPlatform.iOS,
+    //platform: TargetPlatform.iOS,
     iconTheme: IconThemeData(
       size: 32,
       color: Color(thirdColor),
@@ -25,6 +26,6 @@ class AppTheme {
     ),
     accentColor: Colors.grey, // 选中颜色
     primaryColor: Color(mainColor), // appbar背景
-    scaffoldBackgroundColor: Color(thirdColor), // 整体的scaffold背景颜色
+    scaffoldBackgroundColor: Color(secondColor), // 整体的scaffold背景颜色
   );
 }

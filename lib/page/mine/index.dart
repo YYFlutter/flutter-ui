@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
 import 'package:efox_flutter/router/index.dart' show FluroRouter;
+import 'package:efox_flutter/config/theme.dart' show AppTheme;
 
 class _IndexState extends State<Index> {
   @override
@@ -16,7 +17,9 @@ class _IndexState extends State<Index> {
         'index': 0
       },
       {
-        'name': widget.model.config.state.isPro ? AppLocalizations.$t('mine.loadLocal') : AppLocalizations.$t('mine.loadNetwork'),
+        'name': widget.model.config.state.isPro
+            ? AppLocalizations.$t('mine.loadLocal')
+            : AppLocalizations.$t('mine.loadNetwork'),
         'icon': 57539, // import_export
         'index': 2,
       },
@@ -86,18 +89,25 @@ class _IndexState extends State<Index> {
                     (context, index) {
                       dynamic item = list[index];
                       if (item['show'] ?? true) {
-                        return ListTile(
-                          onTap: () {
-                            this.actionsEvent(item['index']);
-                          },
-                          leading: Icon(
-                            IconData(
-                              item['icon'],
-                              fontFamily: 'MaterialIcons',
-                              matchTextDirection: true,
+                        return Column(
+                          children: <Widget>[
+                            ListTile(
+                              onTap: () {
+                                this.actionsEvent(item['index']);
+                              },
+                              leading: Icon(
+                                IconData(
+                                  item['icon'],
+                                  fontFamily: 'MaterialIcons',
+                                  matchTextDirection: true,
+                                ),
+                              ),
+                              title: Text('${item['name']}'),
                             ),
-                          ),
-                          title: Text('${item['name']}'),
+                            Divider(
+                              color: Color(AppTheme.lineColor),
+                            )
+                          ],
                         );
                       } else {
                         return Container();
