@@ -70,6 +70,7 @@ class _IndexState extends State<Index>
 
   Widget _TabBar() {
     return TabBar(
+        indicatorColor: Color(AppTheme.secondColor),
         controller: _tabController,
         isScrollable: true,
         tabs: _mapList.map((v) {
