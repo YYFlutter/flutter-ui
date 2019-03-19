@@ -108,6 +108,7 @@ flutter:
       - docs/widget/navigator/floatingactionbutton/
       - docs/widget/navigator/materialapp/
       - docs/widget/navigator/navigator/
+      - docs/widget/navigator/pageview/
       - docs/widget/navigator/popupmenubutton/
       - docs/widget/navigator/tabbar/
       - docs/widget/navigator/tabbarview/
