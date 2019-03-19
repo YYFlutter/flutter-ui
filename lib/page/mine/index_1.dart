@@ -133,32 +133,41 @@ class _IndexState extends State<Index> {
         children: <Widget>[
           Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(10),
-                bottomRight: Radius.circular(10)
-              ),
-              color: Colors.red,
-            ),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(10),
+                  bottomRight: Radius.circular(10),
+                ),
+                color: Colors.red,
+                gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: [Colors.red, Colors.blue])),
             height: 240,
             child: Stack(
               alignment: const FractionalOffset(0.8, 0.8),
               children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    Image.network(
-                      'https://raw.githubusercontent.com/efoxTeam/flutter-ui/master/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png',
-                      width: 80.0,
-                      height: 80.0,
-                      fit: BoxFit.cover,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      'Hello Guest',
-                      style: TextStyle(color: Colors.white),
-                    )
-                  ],
+                Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Opacity(
+                        child: Image.network(
+                          'https://raw.githubusercontent.com/efoxTeam/flutter-ui/master/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png',
+                          width: 80.0,
+                          height: 80.0,
+                          fit: BoxFit.cover,
+                        ),
+                        opacity: 1,
+                      ),
+                      SizedBox(height: 10,),
+                      Text("Flutter-UI", 
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 26,
+                        fontWeight: FontWeight.bold
+                      ),)
+                    ],
+                  ),
                 )
               ],
             ),
