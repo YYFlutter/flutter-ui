@@ -128,7 +128,41 @@ class _IndexState extends State<Index> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(AppLocalizations.$t('nav_title_1')),
+        elevation: 0,
+        centerTitle: true,
+      ),
+      body: ListView.builder(
+        shrinkWrap: true,
+        itemCount: _getList().length * 2,
+        itemBuilder: (context, index) {
+          double _index = index / 2;
+          if (index % 2 == 0) {
+            dynamic item = _getList()[_index.toInt()];
+            return ListTile(
+              onTap: () {
+                actionsEvent(item['index']);
+              },
+              leading: Icon(
+                IconData(
+                  item['icon'],
+                  fontFamily: 'MaterialIcons',
+                  matchTextDirection: true,
+                ),
+              ),
+              title: Text(item['name']),
+            );
+          } else {
+            return Divider(
+              color: Color(AppTheme.lineColor),
+            );
+          }
+        },
+      ),
+    );
+    /* return SingleChildScrollView(
       child: Column(
         children: <Widget>[
           Container(
@@ -201,7 +235,7 @@ class _IndexState extends State<Index> {
           ),
         ],
       ),
-    );
+    ); */
   }
 }
 
