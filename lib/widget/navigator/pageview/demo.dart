@@ -7,6 +7,9 @@ class Index extends StatefulWidget {
 
 class _IndexState extends State<Index> {
   int _index = 0;
+  bool _scrollDirection = true;
+  bool _pageSnapping = true;
+
   PageController _pageController;
   @override
   void initState() {
@@ -14,13 +17,24 @@ class _IndexState extends State<Index> {
     _pageController = PageController();
   }
 
+  String getScrollDirectionText () {
+    return _scrollDirection ? '左右' : '上下';
+  }
+
+  Axis getScrollDirection () {
+    return _scrollDirection ? Axis.horizontal : Axis.vertical;
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BottomNavigationBar'),
+        title: Text('PageView'),
       ),
       body: PageView(
+        pageSnapping: _pageSnapping, // 与滚动行为相关
+        reverse: false, // 滚动反方向 
+        scrollDirection: getScrollDirection(),
         controller: _pageController,
         onPageChanged: (index) {
           setState(() {
@@ -32,7 +46,15 @@ class _IndexState extends State<Index> {
             child: Column(
               children: [
                 Text('页面一'),
-                Text('左右滑动切换页面哦~~~'),
+                Text('${getScrollDirectionText()}滑动切换页面哦~~~'),
+                RaisedButton(
+                  child: Text('当前为${getScrollDirectionText()}滑动，可点击切换'),
+                  onPressed: () {
+                    setState(() {
+                      _scrollDirection = !_scrollDirection;
+                    });
+                  },
+                ),
               ],
             ),
           ),
@@ -41,7 +63,15 @@ class _IndexState extends State<Index> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text('页面二'),
-                Text('左右滑动切换页面哦~~~'),
+                Text('${getScrollDirectionText()}滑动切换页面哦~~~'),
+                RaisedButton(
+                  child: Text('当前为属性值pageSnapping为${_pageSnapping}，${_pageSnapping ? '滚动时，默认被捕获' : '由用户自行滚动'}，可点击切换'),
+                  onPressed: () {
+                    setState(() {
+                      _pageSnapping = !_pageSnapping;
+                    });
+                  },
+                ),
               ],
             ),
           ),
@@ -50,7 +80,7 @@ class _IndexState extends State<Index> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text('页面三'),
-                Text('左右滑动切换页面哦~~~'),
+                Text('${getScrollDirectionText()}滑动切换页面哦~~~'),
               ],
             ),
           ),

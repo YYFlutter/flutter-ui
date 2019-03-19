@@ -6,6 +6,7 @@ import 'drawer/index.dart' as drawer;
 import 'floatingactionbutton/index.dart' as floatingactionbutton;
 import 'materialapp/index.dart' as materialapp;
 import 'navigator/index.dart' as navigator;
+import 'pageview/index.dart' as pageview;
 import 'popupmenubutton/index.dart' as popupmenubutton;
 import 'tabbar/index.dart' as tabbar;
 import 'tabbarview/index.dart' as tabbarview;
@@ -68,6 +69,11 @@ List widgets = [
     widget: navigator.Index(),
     code: 59484, // assessment
     title: navigator.Index.title,
+  ),
+  ItemInfo(
+    widget: pageview.Index(),
+    code: 59488, // assessment
+    title: pageview.Index.title,
   ),
 ];
 
