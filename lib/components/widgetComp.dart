@@ -64,9 +64,7 @@ class IndexState extends State<Index> {
     this._bodyList.length = 0;
     String mdText = await this.getMdFile(this.mdUrl);
     if (mdText.length > 30 || !this.model.config.state.isPro) {
-      this
-        ._bodyList
-        .add(await MarkDownComp.Index(mdText));
+      this._bodyList.add(await MarkDownComp.Index(mdText));
       // demo
       if (this.demoChild != null && this.demoChild.length > 0) {
         this.demoChild.forEach((Widget item) {
@@ -87,9 +85,9 @@ class IndexState extends State<Index> {
       this.model = model;
       return Scaffold(
         appBar: AppBar(
-          title: Header.Index(
+          /* title: Header.Index(
             this.title,
-          ),
+          ), */
           actions: this.getActions(
             context,
           ),

@@ -3,8 +3,10 @@ import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
 import 'package:efox_flutter/store/index.dart' show Store;
 import 'package:efox_flutter/controller/index.dart' as Controller;
 
-import 'component/index.dart' as TabIndex;
-import 'mine/index.dart' as MyIndex;
+//import 'component/index.dart' as TabIndex;
+// import 'mine/index.dart' as MyIndex;
+import 'component/tabs.dart' as TabIndex;
+import 'mine/index_1.dart' as MyIndex;
 
 class Index extends StatefulWidget {
   @override
@@ -35,7 +37,8 @@ class _IndexState extends State<Index> {
             title: Text(AppLocalizations.$t('title_component')),
             icon: Icon(Icons.dashboard)),
         BottomNavigationBarItem(
-            title: Text(AppLocalizations.$t('title_my')), icon: Icon(Icons.person_outline)),
+            title: Text(AppLocalizations.$t('title_my')),
+            icon: Icon(Icons.person_outline)),
       ],
       type: BottomNavigationBarType.fixed,
       currentIndex: _currentIndex,

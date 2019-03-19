@@ -32,7 +32,7 @@ class ConfigModel {
 
     switch (name) {
       case 'setEnv':
-        _appConfigInfo.isPro = !_appConfigInfo.isPro;
+        _appConfigInfo.isPro = payload;
         break;
       case 'setVersion':
         _appConfigInfo.version = await this.getVersion();

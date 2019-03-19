@@ -6,6 +6,7 @@ import 'drawer/index.dart' as drawer;
 import 'floatingactionbutton/index.dart' as floatingactionbutton;
 import 'materialapp/index.dart' as materialapp;
 import 'navigator/index.dart' as navigator;
+import 'pageview/index.dart' as pageview;
 import 'popupmenubutton/index.dart' as popupmenubutton;
 import 'tabbar/index.dart' as tabbar;
 import 'tabbarview/index.dart' as tabbarview;
@@ -36,7 +37,7 @@ List widgets = [
   ),
   ItemInfo(
     widget: drawer.Index(),
-    code: 58928, // airline_seat_flat 
+    code: 58928, // airline_seat_flat
     title: drawer.Index.title,
   ),
   ItemInfo(
@@ -61,7 +62,7 @@ List widgets = [
   ),
   ItemInfo(
     widget: popupmenubutton.Index(),
-    code: 57440, // art_track 
+    code: 57440, // art_track
     title: popupmenubutton.Index.title,
   ),
   ItemInfo(
@@ -69,13 +70,18 @@ List widgets = [
     code: 59484, // assessment
     title: navigator.Index.title,
   ),
+  ItemInfo(
+    widget: pageview.Index(),
+    code: 59488, // assessment
+    title: pageview.Index.title,
+  ),
 ];
 
 List widgetMap = [
   ItemListInfo(
     nameSpaces: nameSpaces,
     widgetList: widgets,
-    typeName: 'navigator',
+    typeName: 'Navigator',
     code: 58717,
   )
 ];
