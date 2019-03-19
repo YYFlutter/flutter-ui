@@ -11,9 +11,17 @@
         "changeVersion": "更新版本",
         "compProgress": "组件进度"
     },
+    "common_mine_1" : {
+        "cn": "CN",
+        "en": "EN",
+        "language": "选择语言",
+        "environment": "选择环境",
+        "compProgress": "组件进度",
+        "success": "切换成功"
+    },
     "mine": {
-        "loadNetwork": "加载网络文档资源",
-        "loadLocal": "加载本地文档资源"
+        "loadNetwork": "网络优良,可选择加载线上文档资源",
+        "loadLocal": "网络较差时,可选择加载本地文档资源"
     },
     "loading": "加载中"
 }
