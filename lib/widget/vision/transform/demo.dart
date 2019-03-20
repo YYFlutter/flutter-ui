@@ -15,10 +15,16 @@ class _IndexState extends State<Index> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('SingleChildScrollView'),
+        title: Text('Transform'),
       ),
-      body: Center(
-        child: Text('更新中'),
+      body: Transform(
+        alignment: Alignment.center,
+        transform: Matrix4.skewY(0.1),
+        child: Container(
+          padding: const EdgeInsets.all(8.0),
+          color: const Color(0xFFE8581C),
+          child: const Text('Apartment for rent!'),
+        ),
       ),
     );
   }
