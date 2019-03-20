@@ -5,7 +5,6 @@ import 'package:efox_flutter/config/theme.dart' show AppTheme;
 import 'package:efox_flutter/widget/index.dart' as WidgetRoot;
 import 'package:efox_flutter/router/index.dart' show FluroRouter;
 import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
-import 'package:efox_flutter/components/headerComp.dart' as Header;
 
 class Index extends StatefulWidget {
   final MainStateModel model;
@@ -45,12 +44,6 @@ class _IndexState extends State<Index>
   Widget build(BuildContext context) {
     return Scaffold(
         key: _scaffoldKey,
-        /* appBar: AppBar(
-          title: Header.Index(
-            AppLocalizations.$t('nav_title_0'),
-          ),
-          actions: appBarActions(),
-        ), */
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(kToolbarHeight),
           child: Container(
@@ -76,13 +69,6 @@ class _IndexState extends State<Index>
         tabs: _mapList.map((v) {
           return new Tab(
             text: AppLocalizations.$t(v.typeName),
-            /* icon: Icon(
-              IconData(
-                v.code,
-                fontFamily: 'MaterialIcons',
-                matchTextDirection: true,
-              ),
-            ), */
           );
         }).toList());
   }
@@ -153,35 +139,4 @@ class _IndexState extends State<Index>
     );
   }
 
-  List<Widget> appBarActions() {
-    return [
-      PopupMenuButton(
-        icon: Icon(
-          Icons.more_vert,
-        ),
-        onSelected: (local) {
-          AppLocalizations.changeLanguage(Locale(local));
-          print('local=$local');
-        },
-        itemBuilder: (context) => [
-              PopupMenuItem(
-                child: Row(
-                  children: <Widget>[
-                    Text('中文'),
-                  ],
-                ),
-                value: 'zh',
-              ),
-              PopupMenuItem(
-                child: Row(
-                  children: <Widget>[
-                    Text('english'),
-                  ],
-                ),
-                value: 'en',
-              ),
-            ],
-      ),
-    ];
-  }
 }

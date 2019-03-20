@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.flutter.beer">
+    package="com.flutter.beer"
+    android:installLocation="preferExternal">
 
     <!-- The INTERNET permission is required for development. Specifically,
          flutter needs it to communicate with the running application
@@ -37,3 +38,4 @@
         </activity>
     </application>
 </manifest>
+
