@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/components/widgetComp.dart' as WidgetComp;
 import 'demo.dart' as Demo;
+import 'demo_drag.dart' as DemoDrag;
 
 class Index extends StatefulWidget {
   static String title = 'GestureDetector';
@@ -20,6 +21,7 @@ class _IndexState extends State<Index> {
       mdUrl: Index.mdUrl,
       demoChild: [
         Demo.Index(),
+        DemoDrag.Index(),
       ],
     );
   }
