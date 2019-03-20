@@ -4,8 +4,9 @@ import 'package:efox_flutter/store/index.dart' show Store;
 import 'package:efox_flutter/controller/index.dart' as Controller;
 
 //import 'component/index.dart' as TabIndex;
+// import 'mine/index.dart' as MyIndex;
 import 'component/tabs.dart' as TabIndex;
-import 'mine/index.dart' as MyIndex;
+import 'mine/index_1.dart' as MyIndex;
 
 class Index extends StatefulWidget {
   @override
