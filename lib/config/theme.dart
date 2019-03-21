@@ -1,7 +1,23 @@
 import 'package:flutter/material.dart';
 
+/**
+ * yello #FFEB3B
+ * red #F44336
+ * blue #2196F3
+ */
+
 class AppTheme {
-  static int mainColor = 0xFFD32F2F;
+  static int yellow = 0xFFFFEB3B;
+  static int orange = 0xFFFF9800;
+  static int amber = 0xFFFFC107;
+  static int lime = 0xFFCDDC39;
+  static int lightGreen = 0xFF8BC34A;
+  static int red = 0xFFF44336;
+  static int deepOrange = 0xFFFF5722;
+  static int blue = 0xFF2196F3;
+  static int pink = 0xFFE91E63;
+  //static int mainColor = 0xFFD32F2F;
+  static int mainColor = red;
   static int secondColor = 0xFFFFFFFF;
   static int thirdColor = 0xFFFAFAFA;
   static int greyColor = 0x8A000000;

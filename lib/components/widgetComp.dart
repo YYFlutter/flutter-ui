@@ -88,8 +88,15 @@ class IndexState extends State<Index> {
           /* title: Header.Index(
             this.title,
           ), */
+          elevation: 0,
+          backgroundColor: Color(AppTheme.secondColor),
           actions: this.getActions(
             context,
+          ),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            color: Color(AppTheme.blackColor),
+            onPressed: () => Navigator.pop(context),
           ),
         ),
         body: this.loading ? this.renderLoading() : this.renderWidget(),
@@ -127,6 +134,7 @@ class IndexState extends State<Index> {
   getActions(context) {
     return [
       IconButton(
+        color: Color(AppTheme.blackColor),
         icon: Icon(
           Icons.insert_link,
         ),
@@ -137,16 +145,17 @@ class IndexState extends State<Index> {
           );
         },
       ),
-      IconButton(
+      /* IconButton(
         icon: Icon(
           Icons.code,
         ),
         onPressed: () async {
           this.openPage(context);
         },
-      ),
+      ), */
       IconButton(
         icon: Icon(Icons.share),
+        color: Color(AppTheme.blackColor),
         onPressed: () {
           final String msg =
               this.model.config.state.env.githubAssetOrigin + this.mdUrl;
