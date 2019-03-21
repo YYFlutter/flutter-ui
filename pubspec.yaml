@@ -34,6 +34,7 @@ dependencies:
   fluro: ^1.4.0
   flutter_screenutil: ^0.5.1
   firebase_analytics: ^2.0.2+1
+  random_pk: ^0.0.3
 
 dev_dependencies:
   flutter_test:
