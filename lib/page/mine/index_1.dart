@@ -67,7 +67,7 @@ class _IndexState extends State<Index> {
           child: Wrap(
             children: <Widget>[
               ListTile(
-                leading: Icon(Icons.label_outline),
+                //leading: Icon(Icons.label_outline),
                 title: Text(
                   AppLocalizations.$t('common_mine_1.cn'),
                 ),
@@ -77,7 +77,7 @@ class _IndexState extends State<Index> {
                 },
               ),
               ListTile(
-                leading: Icon(Icons.label_outline),
+                //leading: Icon(Icons.label_outline),
                 title: Text(AppLocalizations.$t('common_mine_1.en')),
                 onTap: () {
                   AppLocalizations.changeLanguage(Locale('en'));
@@ -102,7 +102,7 @@ class _IndexState extends State<Index> {
           child: Wrap(
             children: <Widget>[
               ListTile(
-                leading: Icon(Icons.label_outline),
+                //leading: Icon(Icons.label_outline),
                 title: Text(
                   AppLocalizations.$t('mine.loadNetwork'),
                 ),
@@ -112,7 +112,7 @@ class _IndexState extends State<Index> {
                 },
               ),
               ListTile(
-                leading: Icon(Icons.label_outline),
+                //leading: Icon(Icons.label_outline),
                 title: Text(AppLocalizations.$t('mine.loadLocal')),
                 onTap: () {
                   widget.model.dispatch('config', 'setEnv', false);
@@ -159,13 +159,16 @@ class _IndexState extends State<Index> {
                         ),
                         opacity: 1,
                       ),
-                      SizedBox(height: 10,),
-                      Text("Flutter-UI", 
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 26,
-                        fontWeight: FontWeight.bold
-                      ),)
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "Flutter-UI",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 26,
+                            fontWeight: FontWeight.bold),
+                      )
                     ],
                   ),
                 )
