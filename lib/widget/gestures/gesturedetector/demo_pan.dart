@@ -42,12 +42,11 @@ class _IndexState extends State<Index> {
                 child: CircleAvatar(
                   child: Text("Drag"),
                 ),
-                onPanStart: (ev) {
-                  setPanEvent('onPanStart', ev);
+                onPanStart: (DragStartDetails ev) {
+                  print('onPanStart $ev');
                 },
                 // DragEndDetails结束时用户滑动的瞬间速度
                 onPanEnd: (DragEndDetails ev) {
-                  // setPanEvent('onPanEnd', ev);
                   print('end $ev');
                 },
                 onPanCancel: () {
@@ -55,7 +54,6 @@ class _IndexState extends State<Index> {
                 },
                 // DragDownDetails返回相对屏幕的位置
                 onPanDown: (DragDownDetails ev) {
-                  // setPanEvent('onPanDown', ev);
                   print('DragDownDetails ${ev.globalPosition}');
                 },
                 onPanUpdate: (DragUpdateDetails ev) {

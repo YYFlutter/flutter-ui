@@ -12,18 +12,18 @@ class Index extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    double _dp = 1.5;
     return Store.connect(
       builder: (context, child, MainStateModel model) {
         return Center(
           child: Container(
-            width: size.width,
-            height: size.height / _dp,
-            margin: EdgeInsets.all(30 / _dp),
+            margin: EdgeInsets.all(10),
             decoration: BoxDecoration(
               border: Border.all(color: Color(AppTheme.mainColor), width: 1.0),
             ),
-            child: this.child,
+            child: SizedBox.fromSize(
+              size: size / 1.3,
+              child: this.child,
+            ),
           ),
         );
       },
