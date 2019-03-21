@@ -38,6 +38,7 @@ class MainAppState extends State<MainApp> {
     //实例化多语言
     super.initState();
     _delegate = AppLocalizationsDelegate();
+    model.dispatch('config', 'getTheme');
   }
 
   @override

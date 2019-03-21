@@ -49,7 +49,10 @@ class ConfigModel {
         break;
       case 'setTheme':
         _appConfigInfo.theme = payload;
-        LocalStorage.set('theme',payload);
+        LocalStorage.set('theme', payload);
+        break;
+      case 'getTheme':
+        await this.getTheme();
         break;
     }
   }

@@ -22,7 +22,6 @@ class MainStateModel extends Model with UserModel {
       'config': config,
     };
     //
-    config.getTheme();
   }
 
   /**
