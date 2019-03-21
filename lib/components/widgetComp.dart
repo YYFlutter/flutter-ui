@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/store/index.dart' show Store;
-import 'headerComp.dart' as Header;
 import 'package:efox_flutter/components/markdownComp.dart' as MarkDownComp;
 import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
 import 'package:efox_flutter/components/baseComp.dart' as BaseComp;

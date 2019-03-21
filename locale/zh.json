@@ -12,8 +12,8 @@
         "compProgress": "组件进度"
     },
     "common_mine_1" : {
-        "cn": "CN",
-        "en": "EN",
+        "cn": "中文",
+        "en": "英文",
         "language": "选择语言",
         "environment": "选择环境",
         "compProgress": "组件进度",
