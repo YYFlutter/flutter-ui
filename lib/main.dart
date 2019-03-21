@@ -44,7 +44,8 @@ class MainAppState extends State<MainApp> {
   Widget build(BuildContext context) {
     return Store.init(
       model: model,
-      child: MaterialApp(
+      child: Store.connect(builder: (context, child, model) {
+        return MaterialApp(
         localeResolutionCallback: (deviceLocale, supportedLocales) {
           print(
               'deviceLocale=$deviceLocale supportedLocales=$supportedLocales');
@@ -65,10 +66,11 @@ class MainAppState extends State<MainApp> {
         ],
         supportedLocales: ConfigLanguage.supportedLocales,
 //        title: 'Flutter Demo',
-        theme: AppTheme.themData,
+        theme: AppTheme.getThemeData(model.config.state.theme),
         onGenerateRoute: FluroRouter.router.generator,
         navigatorObservers: <NavigatorObserver>[Analytics.observer],
-      ),
+      );
+      }),
     );
   }
 }

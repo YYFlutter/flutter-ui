@@ -3,6 +3,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:efox_flutter/lang/config.dart' as I18NConfig;
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:efox_flutter/utils/localstage.dart' show LocalStorage;
 
 class AppLocalizations {
   Locale _locale; // language
@@ -21,7 +22,8 @@ class AppLocalizations {
   }
 
   // 设置语言切换代理
-  static void setProxy(Function setState, AppLocalizationsDelegate delegate) async {
+  static void setProxy(
+      Function setState, AppLocalizationsDelegate delegate) async {
     _setState = setState;
     _delegate = delegate;
     print("_delegate = $_delegate");
@@ -29,17 +31,17 @@ class AppLocalizations {
 
   static get languageCode => _inst._locale.languageCode;
 
-  static void getLanguageJson([Locale locale]) async {
+  static Future getLanguageJson([Locale locale]) async {
     Locale _tmpLocale = _inst._locale;
     print(_tmpLocale.languageCode);
     String jsonLang;
     try {
-      jsonLang = await rootBundle
-          .loadString('locale/${_tmpLocale.languageCode}.json');
+      jsonLang =
+          await rootBundle.loadString('locale/${_tmpLocale.languageCode}.json');
     } catch (e) {
       _inst._locale = Locale(I18NConfig.ConfigLanguage.defualtLanguage.code);
-      jsonLang = await rootBundle
-          .loadString('locale/${I18NConfig.ConfigLanguage.defualtLanguage.code}.json');
+      jsonLang = await rootBundle.loadString(
+          'locale/${I18NConfig.ConfigLanguage.defualtLanguage.code}.json');
     }
     json.decode(jsonLang);
     jsonLanguage = json.decode(jsonLang);
@@ -54,10 +56,12 @@ class AppLocalizations {
           : Locale("zh", "CH");
     }
     _inst._locale = locale;
-    getLanguageJson(); // 根据语言获取对应的国际化文件
-    _setState(() {
-      _delegate = AppLocalizationsDelegate(locale);
-    });
+    LocalStorage.set('lang', locale.languageCode);
+    getLanguageJson().then((v) {
+      _setState(() {
+        _delegate = AppLocalizationsDelegate(locale);
+      });
+    }); // 根据语言获取对应的国际化文件
   }
 
   // get local language
@@ -95,17 +99,23 @@ class AppLocalizations {
 class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
   final Locale locale;
 
-  AppLocalizationsDelegate ([this.locale]);
+  AppLocalizationsDelegate([this.locale]);
 
   @override
   bool isSupported(Locale locale) {
-    return I18NConfig.ConfigLanguage.sopportLanguage.keys.toList().contains(locale.languageCode);
+    return I18NConfig.ConfigLanguage.sopportLanguage.keys
+        .toList()
+        .contains(locale.languageCode);
   }
 
   @override
   Future<AppLocalizations> load(Locale _locale) async {
-    Locale _tmpLocale = locale ?? _locale;
-    return await AppLocalizations.init(_tmpLocale);
+    String lang = await LocalStorage.get('lang');
+    Locale __locale = locale ?? _locale;
+    if (lang != null) {
+      __locale = Locale(lang);
+    }
+    return await AppLocalizations.init(__locale);
   }
 
   @override

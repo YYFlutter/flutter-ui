@@ -21,6 +21,8 @@ class MainStateModel extends Model with UserModel {
     this.state = {
       'config': config,
     };
+    //
+    config.getTheme();
   }
 
   /**

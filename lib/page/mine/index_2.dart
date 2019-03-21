@@ -1,21 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
-import 'package:efox_flutter/router/index.dart' show FluroRouter;
+//import 'package:efox_flutter/router/index.dart' show FluroRouter;
 import 'package:efox_flutter/config/theme.dart' show AppTheme;
+import 'package:efox_flutter/store/index.dart' show model;
+import 'package:efox_flutter/config/color.dart' show materialColor;
 
 class _IndexState extends State<Index> {
   @override
   void initState() {
     super.initState();
-  }
-
-  void pop([message]) {
-    Navigator.pop(context);
-    if (message != null) {
-      Scaffold.of(context).showSnackBar(new SnackBar(
-        content: new Text(message),
-      ));
-    }
   }
 
   /**
@@ -29,21 +22,19 @@ class _IndexState extends State<Index> {
           child: Wrap(
             children: <Widget>[
               ListTile(
-                //leading: Icon(Icons.label_outline),
                 title: Text(
-                  AppLocalizations.$t('common_mine_1.cn'),
+                  '中文',
                 ),
                 onTap: () {
                   AppLocalizations.changeLanguage(Locale('zh'));
-                  this.pop(AppLocalizations.$t('common_mine_1.success'));
+                  Navigator.pop(context);
                 },
               ),
               ListTile(
-                //leading: Icon(Icons.label_outline),
-                title: Text(AppLocalizations.$t('common_mine_1.en')),
+                title: Text('English'),
                 onTap: () {
                   AppLocalizations.changeLanguage(Locale('en'));
-                  this.pop(AppLocalizations.$t('common_mine_1.success'));
+                  Navigator.pop(context);
                 },
               ),
             ],
@@ -55,6 +46,10 @@ class _IndexState extends State<Index> {
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> _EdageList = [];
+    materialColor.forEach((k,v){
+      _EdageList.add(this.Edage(k,v));
+    });
     return Scaffold(
         appBar: AppBar(
             elevation: 0,
@@ -79,29 +74,28 @@ class _IndexState extends State<Index> {
               color: Color(AppTheme.lineColor),
             ),
             ExpansionTile(
+              leading: Icon(Icons.color_lens),
               title: Text(AppLocalizations.$t('common_mine_1.theme')),
               children: <Widget>[
                 Wrap(
-                  //crossAxisAlignment: WrapCrossAlignment.start,
-                  alignment: WrapAlignment.spaceEvenly,
-                  runAlignment: WrapAlignment.spaceEvenly,
-                  children: <Widget>[
-                    this.Edage(AppTheme.yellow),
-                    this.Edage(AppTheme.blue),
-                    this.Edage(AppTheme.orange),
-                    this.Edage(AppTheme.lightGreen),
-                    this.Edage(AppTheme.red),
-                  ],
+                  spacing: 10,
+                  runSpacing: 5,
+                  children: _EdageList,
                 )
               ],
-            )
+            ),
+            Divider(
+              color: Color(AppTheme.lineColor),
+            ),
           ],
         ));
   }
 
-  Widget Edage(color) {
+  Widget Edage(name,color) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        model.dispatch('config', 'setTheme', name);
+      },
       child: Container(
         color: Color(color),
         height: 30,

@@ -6,7 +6,7 @@ Dio getDio([Options options]) {
     connectTimeout: 30 * 1000,
     receiveTimeout: 30 * 1000,
   )); // with default Options
-  dio.interceptors.add(LogInterceptor(responseBody: true));
+  // dio.interceptors.add(LogInterceptor(responseBody: true));
   return dio;
 }
 
