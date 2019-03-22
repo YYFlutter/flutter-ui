@@ -3,18 +3,25 @@ import 'package:efox_flutter/config/index.dart' as Config;
 import 'package:efox_flutter/store/index.dart' show model;
 import 'package:efox_flutter/utils/loadAsset.dart' show loadAssets;
 import 'package:efox_flutter/utils/localstage.dart' show LocalStorage;
+import 'package:package_info/package_info.dart' show PackageInfo;
 
 class ConfigInfo {
   bool isPro = Config.isPro;
   String version = '1.0';
   dynamic env = Config.env;
   String theme = 'red';
+  String appVersion = '-';
 }
 
 ConfigInfo _appConfigInfo = new ConfigInfo();
 
 class ConfigModel {
   get state => _appConfigInfo;
+
+  Future getAppVersion() async {
+    PackageInfo packageInfo = await PackageInfo.fromPlatform();
+    _appConfigInfo.appVersion = await packageInfo.version;
+  }
 
   Future getTheme() async {
     String theme = await LocalStorage.get('theme');

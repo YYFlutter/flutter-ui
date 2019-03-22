@@ -8,8 +8,8 @@ class Index extends StatelessWidget {
     return Text(
       this.text,
       style: TextStyle(
-        color: Theme.of(context).primaryTextTheme.title.color
-      ),
+          //color: Theme.of(context).primaryTextTheme.title.color
+          ),
     );
   }
 }

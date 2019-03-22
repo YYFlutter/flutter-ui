@@ -84,14 +84,16 @@ class IndexState extends State<Index> {
       this.model = model;
       return Scaffold(
         appBar: AppBar(
-          title: Text(this.title),
+          //title: Text(this.title),
           elevation: 0,
+          backgroundColor: Color(AppTheme.secondColor),
           actions: this.getActions(
             context,
           ),
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
-            color: Theme.of(context).primaryTextTheme.title.color,
+            //color: Theme.of(context).primaryTextTheme.title.color,
+            color: Color(AppTheme.blackColor),
             onPressed: () => Navigator.pop(context),
           ),
         ),
@@ -130,7 +132,8 @@ class IndexState extends State<Index> {
   getActions(context) {
     return [
       IconButton(
-        color: Theme.of(context).primaryTextTheme.title.color,
+        //color: Theme.of(context).primaryTextTheme.title.color,
+        color: Color(AppTheme.blackColor),
         icon: Icon(
           Icons.insert_link,
         ),
@@ -151,7 +154,8 @@ class IndexState extends State<Index> {
       ), */
       IconButton(
         icon: Icon(Icons.share),
-        color: Theme.of(context).primaryTextTheme.title.color,
+        //color: Theme.of(context).primaryTextTheme.title.color,
+        color: Color(AppTheme.blackColor),
         onPressed: () {
           final String msg =
               this.model.config.state.env.githubAssetOrigin + this.mdUrl;
