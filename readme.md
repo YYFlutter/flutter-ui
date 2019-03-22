@@ -1,7 +1,7 @@
-# Flutter UI <sup>v1.0.2</sup>
-![android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png](android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
+#  Flutter UI <img src="android/app/src/main/res/mipmap-ldpi/ic_launcher.png" height="20"> <sup>v1.0.2</sup>
 
-> flutter ui 开发者社区
+
+> flutter 开发者社区
 ## 功能清单  
 + widget 组件教程
 + 多语言切换
