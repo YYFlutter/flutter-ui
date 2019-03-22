@@ -21,6 +21,7 @@ class Index extends StatelessWidget {
       url: this.url,
       enableAppScheme: false,
       appBar: AppBar(
+        elevation: 0,
         title: Text(
           this.title,
         ),

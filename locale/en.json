@@ -18,7 +18,8 @@
         "environment": "Select Environment",
         "compProgress": "Components Progress",
         "success": "Success To Change ",
-        "theme": "Select Theme"
+        "theme": "Select Theme",
+        "version": "Version"
     },
     "mine": {
         "loadNetwork": "Load Network Document Resources",

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'dart:io' show Platform;
 import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
 //import 'package:efox_flutter/router/index.dart' show FluroRouter;
 import 'package:efox_flutter/config/theme.dart' show AppTheme;
 import 'package:efox_flutter/store/index.dart' show model;
 import 'package:efox_flutter/config/color.dart' show materialColor;
+import 'package:efox_flutter/utils/appVersion.dart' show AppVersion;
 
 class _IndexState extends State<Index> {
   @override
@@ -47,8 +49,8 @@ class _IndexState extends State<Index> {
   @override
   Widget build(BuildContext context) {
     List<Widget> _EdageList = [];
-    materialColor.forEach((k,v){
-      _EdageList.add(this.Edage(k,v));
+    materialColor.forEach((k, v) {
+      _EdageList.add(this.Edage(k, v));
     });
     return Scaffold(
         appBar: AppBar(
@@ -75,15 +77,48 @@ class _IndexState extends State<Index> {
             ),
             ExpansionTile(
               leading: Icon(Icons.color_lens),
-              title: Text(AppLocalizations.$t('common_mine_1.theme')),
+              title: Row(
+                children: <Widget>[
+                  Text(AppLocalizations.$t('common_mine_1.theme')),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(5, 5, 0, 0),
+                    child: Container(
+                      color: Color(materialColor[model.config.state.theme]),
+                      height: 15,
+                      width: 15,
+                    ),
+                  )
+                ],
+              ),
               children: <Widget>[
-                Wrap(
-                  spacing: 10,
-                  runSpacing: 5,
-                  children: _EdageList,
+                Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Wrap(
+                    spacing: 10,
+                    runSpacing: 5,
+                    children: _EdageList,
+                  ),
                 )
               ],
             ),
+            Divider(
+              color: Color(AppTheme.lineColor),
+            ),
+            ListTile(
+                onTap: () {
+                  AppVersion().check(context, showTips: true);
+                },
+                leading: Icon(Icons.history),
+                title: Text(AppLocalizations.$t('common_mine_1.version')),
+                trailing: Container(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Text(model.config.state.appVersion),
+                      Icon(Icons.navigate_next)
+                    ],
+                  ),
+                )),
             Divider(
               color: Color(AppTheme.lineColor),
             ),
@@ -91,7 +126,7 @@ class _IndexState extends State<Index> {
         ));
   }
 
-  Widget Edage(name,color) {
+  Widget Edage(name, color) {
     return GestureDetector(
       onTap: () {
         model.dispatch('config', 'setTheme', name);
