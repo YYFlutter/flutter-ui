@@ -104,24 +104,28 @@ class _IndexState extends State<Index> {
             Divider(
               color: Color(AppTheme.lineColor),
             ),
-            ListTile(
-                onTap: () {
-                  AppVersion().check(context, showTips: true);
-                },
-                leading: Icon(Icons.history),
-                title: Text(AppLocalizations.$t('common_mine_1.version')),
-                trailing: Container(
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Text(model.config.state.appVersion),
-                      Icon(Icons.navigate_next)
-                    ],
-                  ),
-                )),
-            Divider(
-              color: Color(AppTheme.lineColor),
-            ),
+            (Platform.isAndroid)
+                ? ListTile(
+                    onTap: () {
+                      AppVersion().check(context, showTips: true);
+                    },
+                    leading: Icon(Icons.history),
+                    title: Text(AppLocalizations.$t('common_mine_1.version')),
+                    trailing: Container(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Text(model.config.state.appVersion),
+                          Icon(Icons.navigate_next)
+                        ],
+                      ),
+                    ))
+                : Container(),
+            (Platform.isAndroid)
+                ? Divider(
+                    color: Color(AppTheme.lineColor),
+                  )
+                : Container(),
           ],
         ));
   }
