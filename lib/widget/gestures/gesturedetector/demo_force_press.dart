@@ -36,6 +36,7 @@ class _IndexState extends State<Index> {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text("使用ForcePress相关属性将不会触发Tap属性"),
             GestureDetector(
@@ -63,14 +64,21 @@ class _IndexState extends State<Index> {
                 ),
               ),
             ),
+            Divider(
+              height: 10,
+            ),
             Text(_value1),
             Divider(
               height: 20,
             ),
-            Text("也可以监听水平或垂直滚动, 以下是水平滚动，垂直不变化为0"),
+            Text("监听水平或垂直滚动"),
+            Text('以下是水平滚动，垂直不变化为0'),
+            Divider(
+              height: 20,
+            ),
             SizedBox(
               height: 100,
-              width: 100,
+              width: 200,
               child: GestureDetector(
                 onHorizontalDragDown: (DragDownDetails e) {
                   updateText2('onHorizontalDragDown $e ${e.globalPosition}');

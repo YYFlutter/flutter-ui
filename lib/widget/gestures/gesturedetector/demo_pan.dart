@@ -27,43 +27,47 @@ class _IndexState extends State<Index> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('GestureDetectorDrag'),
-      ),
-      body: Center(
-        child: Stack(
-          children: <Widget>[
-            Positioned(
-              width:40,
-              height: 40,
-              top: _top,
-              left: _left,
-              child: GestureDetector(
-                child: CircleAvatar(
-                  child: Text("Drag"),
-                ),
-                onPanStart: (DragStartDetails ev) {
-                  print('onPanStart $ev');
-                },
-                // DragEndDetails结束时用户滑动的瞬间速度
-                onPanEnd: (DragEndDetails ev) {
-                  print('end $ev');
-                },
-                onPanCancel: () {
-                  setPanEvent('onPanCancel');
-                },
-                // DragDownDetails返回相对屏幕的位置
-                onPanDown: (DragDownDetails ev) {
-                  print('DragDownDetails ${ev.globalPosition}');
-                },
-                onPanUpdate: (DragUpdateDetails ev) {
-                  setPanEvent('onPanUpdate', ev);
-                },
-              ),
-            ),
-          ],
+        appBar: AppBar(
+          title: Text('GestureDetectorDrag'),
+          automaticallyImplyLeading: false,
         ),
-      ),
-    );
+        body: ConstrainedBox(
+          // 占位撑开全屏
+          constraints: BoxConstraints.expand(),
+          child: Stack(
+            alignment: Alignment.center,
+            children: <Widget>[
+              Text('Top: $_top,  Left: $_left'),
+              Positioned(
+                width: 80,
+                height: 80,
+                top: _top,
+                left: _left,
+                child: GestureDetector(
+                  child: CircleAvatar(
+                    child: Text("Drag"),
+                  ),
+                  onPanStart: (DragStartDetails ev) {
+                    print('onPanStart $ev');
+                  },
+                  // DragEndDetails结束时用户滑动的瞬间速度
+                  onPanEnd: (DragEndDetails ev) {
+                    print('end $ev');
+                  },
+                  onPanCancel: () {
+                    setPanEvent('onPanCancel');
+                  },
+                  // DragDownDetails返回相对屏幕的位置
+                  onPanDown: (DragDownDetails ev) {
+                    print('DragDownDetails ${ev.globalPosition}');
+                  },
+                  onPanUpdate: (DragUpdateDetails ev) {
+                    setPanEvent('onPanUpdate', ev);
+                  },
+                ),
+              ),
+            ],
+          ),
+        ));
   }
 }
