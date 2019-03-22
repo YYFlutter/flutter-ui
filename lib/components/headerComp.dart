@@ -8,7 +8,7 @@ class Index extends StatelessWidget {
     return Text(
       this.text,
       style: TextStyle(
-        // fontStyle: FontStyle.normal,
+        color: Theme.of(context).primaryTextTheme.title.color
       ),
     );
   }
