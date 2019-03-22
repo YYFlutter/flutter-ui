@@ -15,7 +15,7 @@ class AppTheme {
   static int blackColor = 0xFF000000;
   static int lineColor = 0xFFEEEEEE;
   static getThemeData(String theme) {
-    print('==================================getThemeData=$theme');
+    //print('==================================getThemeData=$theme');
     mainColor = materialColor[theme];
     ThemeData themData = ThemeData(
       textTheme: TextTheme(
@@ -36,14 +36,11 @@ class AppTheme {
       ),
       accentColor: Colors.grey, // 选中颜色
       primaryColor: Color(mainColor), // appbar背景
-      primaryTextTheme:TextTheme(
-        title:TextStyle(
-          // color: Colors.red
-        ),
-        button: TextStyle(
-          color: Colors.red
-        )
-      ),
+      primaryTextTheme: TextTheme(
+          title: TextStyle(
+              // color: Colors.red
+              ),
+          button: TextStyle(color: Colors.red)),
       scaffoldBackgroundColor: Color(secondColor), // 整体的scaffold背景颜色
     );
     return themData;

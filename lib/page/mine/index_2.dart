@@ -6,6 +6,7 @@ import 'package:efox_flutter/config/theme.dart' show AppTheme;
 import 'package:efox_flutter/store/index.dart' show model;
 import 'package:efox_flutter/config/color.dart' show materialColor;
 import 'package:efox_flutter/utils/appVersion.dart' show AppVersion;
+import 'package:efox_flutter/components/expansionTile.dart' as Comp;
 
 class _IndexState extends State<Index> {
   @override
@@ -75,8 +76,9 @@ class _IndexState extends State<Index> {
             Divider(
               color: Color(AppTheme.lineColor),
             ),
-            ExpansionTile(
+            Comp.ExpansionTile(
               leading: Icon(Icons.color_lens),
+              headerBackgroundColor: Colors.transparent,
               title: Row(
                 children: <Widget>[
                   Text(AppLocalizations.$t('common_mine_1.theme')),
