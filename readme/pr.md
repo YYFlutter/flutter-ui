@@ -4,6 +4,7 @@
 * fork 一份到自己的仓库
 * git clone （您的仓库地址） 拉取项目到本地
 * 打开项目 flutter-ui/lib/config/index.dart，修改里面isPro变量为false，（目的加载本地文件）
+* 
 ### 完善文档
 * 完善控件文档的，如要完善Animate下的AnimationController控件的文档，您可打开flutter-ui/docs/widget/animate/animationcontroller/index.md，构建AnimationController控件的说明文档，该文档包括但不限于（控件介绍，控件构造方法，控件属性介绍）
 
@@ -40,4 +41,14 @@
 + refactor：重构（即不是新增功能，也不是修改bug的代码变动）
 + test：增加测试
 + chore：构建过程或辅助工具的变动
+
+## 环境与构建
+* 自行完成flutter环境配置
+* 通过 fork 项目master分支代码，进入项目
+* 切换flutter到master分支，步骤如下（若已切换可跳过）
+  1. flutter channel master // 选择master分支
+  2. flutter upgrade // 更新代码  
+* 运行模拟器或真机 
+* flutter run //运行程序
+* flutter build apk //生成apk 
 
