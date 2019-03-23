@@ -14,12 +14,8 @@
 [安卓包下载](https://github.com/efoxTeam/flutter-ui/releases/download/v1.0.2/app-release.apk)
 
 ## Demo 预览 
-<img src="readme/1.0.2/1.jpg" width="200" />
-<img src="readme/1.0.2/2.jpg" width="200" />
-<img src="readme/1.0.2/3.jpg" width="200" />
-<img src="readme/1.0.2/4.jpg" width="200" />
-<img src="readme/1.0.2/5.jpg" width="200" />
-<img src="readme/1.0.2/6.jpg" width="200" />
+<img src="readme/1.0.2/1.jpg" width="200" /> <img src="readme/1.0.2/2.jpg" width="200" /> <img src="readme/1.0.2/3.jpg" width="200" />  
+<img src="readme/1.0.2/4.jpg" width="200" /> <img src="readme/1.0.2/5.jpg" width="200" /> <img src="readme/1.0.2/6.jpg" width="200" />
 
 ## 项目相关
 + [apk包历史版本](https://github.com/efoxTeam/flutter-ui/releases)
