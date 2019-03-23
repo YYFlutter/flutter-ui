@@ -11,13 +11,15 @@
         "changeVersion": "更新版本",
         "compProgress": "组件进度"
     },
-    "common_mine_1" : {
-        "cn": "CN",
-        "en": "EN",
+    "common_mine_1": {
+        "cn": "中文",
+        "en": "英文",
         "language": "选择语言",
         "environment": "选择环境",
         "compProgress": "组件进度",
-        "success": "切换成功"
+        "success": "切换成功",
+        "theme": "选择主题",
+        "version": "版本"
     },
     "mine": {
         "loadNetwork": "网络优良,可选择加载线上文档资源",

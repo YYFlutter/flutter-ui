@@ -21,6 +21,9 @@ class MainStateModel extends Model with UserModel {
     this.state = {
       'config': config,
     };
+    //init model data
+    config.getAppVersion();
+    //
   }
 
   /**

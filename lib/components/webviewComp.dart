@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'headerComp.dart' as Header;
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart' show FlutterWebviewPlugin, WebviewScaffold;
+import 'package:flutter_webview_plugin/flutter_webview_plugin.dart'
+    show FlutterWebviewPlugin, WebviewScaffold;
 
 class Index extends StatelessWidget {
   final String url;
@@ -18,17 +18,21 @@ class Index extends StatelessWidget {
   Widget build(BuildContext context) {
     return WebviewScaffold(
       url: this.url,
-      appBar: new AppBar(
-        title: Header.Index(this.title),
+      enableAppScheme: false,
+      appBar: AppBar(
+        elevation: 0,
+        title: Text(
+          this.title,
+        ),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          color: Theme.of(context).primaryTextTheme.title.color,
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
       withZoom: true,
       withLocalStorage: true,
       hidden: true,
-      // initialChild: Container(
-      //   child: const Center(
-      //     child: CircularProgressIndicator(),
-      //   ),
-      // ),
     );
   }
 }

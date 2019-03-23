@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/store/index.dart' show Store;
-import 'headerComp.dart' as Header;
 import 'package:efox_flutter/components/markdownComp.dart' as MarkDownComp;
 import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
 import 'package:efox_flutter/components/baseComp.dart' as BaseComp;
@@ -85,11 +84,17 @@ class IndexState extends State<Index> {
       this.model = model;
       return Scaffold(
         appBar: AppBar(
-          /* title: Header.Index(
-            this.title,
-          ), */
+          //title: Text(this.title),
+          elevation: 0,
+          backgroundColor: Color(AppTheme.secondColor),
           actions: this.getActions(
             context,
+          ),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            //color: Theme.of(context).primaryTextTheme.title.color,
+            color: Color(AppTheme.blackColor),
+            onPressed: () => Navigator.pop(context),
           ),
         ),
         body: this.loading ? this.renderLoading() : this.renderWidget(),
@@ -127,6 +132,8 @@ class IndexState extends State<Index> {
   getActions(context) {
     return [
       IconButton(
+        //color: Theme.of(context).primaryTextTheme.title.color,
+        color: Color(AppTheme.blackColor),
         icon: Icon(
           Icons.insert_link,
         ),
@@ -137,16 +144,18 @@ class IndexState extends State<Index> {
           );
         },
       ),
-      IconButton(
+      /* IconButton(
         icon: Icon(
           Icons.code,
         ),
         onPressed: () async {
           this.openPage(context);
         },
-      ),
+      ), */
       IconButton(
         icon: Icon(Icons.share),
+        //color: Theme.of(context).primaryTextTheme.title.color,
+        color: Color(AppTheme.blackColor),
         onPressed: () {
           final String msg =
               this.model.config.state.env.githubAssetOrigin + this.mdUrl;

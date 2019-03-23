@@ -11,13 +11,15 @@
         "changeVersion": "checkVersion",
         "compProgress": "Components Progress"
     },
-    "common_mine_1" : {
+    "common_mine_1": {
         "cn": "CN",
         "en": "EN",
         "language": "Select Language",
         "environment": "Select Environment",
         "compProgress": "Components Progress",
-        "success": "Success To Change "
+        "success": "Success To Change ",
+        "theme": "Select Theme",
+        "version": "Version"
     },
     "mine": {
         "loadNetwork": "Load Network Document Resources",

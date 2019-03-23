@@ -67,7 +67,7 @@ class _IndexState extends State<Index> {
           child: Wrap(
             children: <Widget>[
               ListTile(
-                leading: Icon(Icons.label_outline),
+                //leading: Icon(Icons.label_outline),
                 title: Text(
                   AppLocalizations.$t('common_mine_1.cn'),
                 ),
@@ -77,7 +77,7 @@ class _IndexState extends State<Index> {
                 },
               ),
               ListTile(
-                leading: Icon(Icons.label_outline),
+                //leading: Icon(Icons.label_outline),
                 title: Text(AppLocalizations.$t('common_mine_1.en')),
                 onTap: () {
                   AppLocalizations.changeLanguage(Locale('en'));
@@ -102,7 +102,7 @@ class _IndexState extends State<Index> {
           child: Wrap(
             children: <Widget>[
               ListTile(
-                leading: Icon(Icons.label_outline),
+                //leading: Icon(Icons.label_outline),
                 title: Text(
                   AppLocalizations.$t('mine.loadNetwork'),
                 ),
@@ -112,7 +112,7 @@ class _IndexState extends State<Index> {
                 },
               ),
               ListTile(
-                leading: Icon(Icons.label_outline),
+                //leading: Icon(Icons.label_outline),
                 title: Text(AppLocalizations.$t('mine.loadLocal')),
                 onTap: () {
                   widget.model.dispatch('config', 'setEnv', false);
@@ -128,71 +128,49 @@ class _IndexState extends State<Index> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(AppLocalizations.$t('nav_title_1')),
-        elevation: 0,
-        centerTitle: true,
-      ),
-      body: ListView.builder(
-        shrinkWrap: true,
-        itemCount: _getList().length * 2,
-        itemBuilder: (context, index) {
-          double _index = index / 2;
-          if (index % 2 == 0) {
-            dynamic item = _getList()[_index.toInt()];
-            return ListTile(
-              onTap: () {
-                actionsEvent(item['index']);
-              },
-              leading: Icon(
-                IconData(
-                  item['icon'],
-                  fontFamily: 'MaterialIcons',
-                  matchTextDirection: true,
-                ),
-              ),
-              title: Text(item['name']),
-            );
-          } else {
-            return Divider(
-              color: Color(AppTheme.lineColor),
-            );
-          }
-        },
-      ),
-    );
-    /* return SingleChildScrollView(
+    return SingleChildScrollView(
       child: Column(
         children: <Widget>[
           Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(10),
-                bottomRight: Radius.circular(10)
-              ),
-              color: Colors.red,
-            ),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(10),
+                  bottomRight: Radius.circular(10),
+                ),
+                color: Colors.red,
+                gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: [Colors.red, Colors.blue])),
             height: 240,
             child: Stack(
               alignment: const FractionalOffset(0.8, 0.8),
               children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    Image.network(
-                      'https://raw.githubusercontent.com/efoxTeam/flutter-ui/master/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png',
-                      width: 80.0,
-                      height: 80.0,
-                      fit: BoxFit.cover,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      'Hello Guest',
-                      style: TextStyle(color: Colors.white),
-                    )
-                  ],
+                Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Opacity(
+                        child: Image.network(
+                          'https://raw.githubusercontent.com/efoxTeam/flutter-ui/master/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png',
+                          width: 80.0,
+                          height: 80.0,
+                          fit: BoxFit.cover,
+                        ),
+                        opacity: 1,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "Flutter-UI",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 26,
+                            fontWeight: FontWeight.bold),
+                      )
+                    ],
+                  ),
                 )
               ],
             ),
@@ -226,7 +204,7 @@ class _IndexState extends State<Index> {
           ),
         ],
       ),
-    ); */
+    );
   }
 }
 

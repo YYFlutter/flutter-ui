@@ -6,7 +6,9 @@ import 'package:efox_flutter/controller/index.dart' as Controller;
 //import 'component/index.dart' as TabIndex;
 // import 'mine/index.dart' as MyIndex;
 import 'component/tabs.dart' as TabIndex;
-import 'mine/index_1.dart' as MyIndex;
+import 'mine/index_2.dart' as MyIndex;
+
+import 'package:efox_flutter/utils/appVersion.dart' show AppVersion;
 
 class Index extends StatefulWidget {
   @override
@@ -22,6 +24,7 @@ class _IndexState extends State<Index> {
     super.initState();
     _pageController = PageController();
     Controller.initState();
+    AppVersion().check(context);
   }
 
   @override
