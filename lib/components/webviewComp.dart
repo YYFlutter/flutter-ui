@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'headerComp.dart' as Header;
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart'
     show FlutterWebviewPlugin, WebviewScaffold;
 

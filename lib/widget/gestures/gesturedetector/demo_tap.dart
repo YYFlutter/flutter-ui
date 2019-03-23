@@ -27,6 +27,7 @@ class _IndexState extends State<Index> {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment:MainAxisAlignment.center,
           children: <Widget>[
             Text("点击时，会先触发Tap事件，再触发Pan事件"),
             Text("触发外层滚动时，会触发onPanCancel事件"),
@@ -59,15 +60,14 @@ class _IndexState extends State<Index> {
                 });
               },
               child: Container(
+                margin: EdgeInsets.all(10),
+                color: Colors.red,
                 alignment: Alignment.center,
-                height: 100,
-                width: 200,
-                color: Colors.blue,
+                height: 50,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text('TURN LIGHTS ON'),
-                    Divider(),
                     Icon(
                       Icons.lightbulb_outline,
                       color: isOn ? Colors.yellow : Colors.grey,

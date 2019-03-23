@@ -4,6 +4,7 @@ import 'demo.dart' as Demo;
 import 'demo_tap.dart' as DemoTap;
 import 'demo_pan.dart' as DemoPanDrag;
 import 'demo_force_press.dart' as DemoForcePress;
+import 'demo_scale.dart' as DemoScale;
 
 class Index extends StatefulWidget {
   static String title = 'GestureDetector';
@@ -26,6 +27,7 @@ class _IndexState extends State<Index> {
         DemoTap.Index(),
         DemoPanDrag.Index(),
         DemoForcePress.Index(),
+        DemoScale.Index(),
       ],
     );
   }
