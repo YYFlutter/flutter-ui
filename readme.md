@@ -6,7 +6,7 @@
 ## google play 下载
 
 <a href="https://play.google.com/store/apps/details?id=com.flutter.beer">
-    <img alt="git it on google play" src="readme/google_play.png" />
+    <img alt="git it on google play" src="readme/google_play.png" width="200" />
 </a>
 
 ## 功能清单  
