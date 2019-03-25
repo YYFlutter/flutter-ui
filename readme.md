@@ -3,6 +3,12 @@
 
 <img src="readme/1.0.2.png" />
 
+## google play 下载
+
+<a href="https://play.google.com/store/apps/details?id=com.flutter.beer">
+    <img alt="git it on google play" src="readme/google_play.png" />
+</a>
+
 ## 功能清单  
 + widget 组件教程
 + 多语言切换
