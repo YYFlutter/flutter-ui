@@ -1,4 +1,4 @@
-class UserInfo extends Object{
+class UserInfo extends Object {
   String fbid;
   String uid;
   String name;

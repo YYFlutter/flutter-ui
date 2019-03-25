@@ -5,6 +5,7 @@ import 'package:efox_flutter/controller/index.dart' as Controller;
 import 'package:efox_flutter/config/theme.dart' show AppTheme;
 import 'component/tabs.dart' as TabIndex;
 import 'mine/index.dart' as MyIndex;
+import 'app-login/index.dart' as LoginIndex;
 
 import 'package:efox_flutter/utils/appVersion.dart' show AppVersion;
 
@@ -16,6 +17,7 @@ class Index extends StatefulWidget {
 class _IndexState extends State<Index> {
   int _currentIndex = 0;
   PageController _pageController;
+  dynamic model;
 
   @override
   void initState() {
@@ -55,14 +57,14 @@ class _IndexState extends State<Index> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
+            height: 200,
             decoration: BoxDecoration(
               color: Color(AppTheme.mainColor),
             ),
-            padding: const EdgeInsets.only(top: 38.0, bottom: 30),
             child: Row(
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
                   child: ClipOval(
                     child: Image.asset(
                       "assets/imgs/avatar.png",
@@ -71,7 +73,7 @@ class _IndexState extends State<Index> {
                   ),
                 ),
                 Text(
-                  "Guest",
+                  this.model.user.state.name ?? 'Guest',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 )
               ],
@@ -83,6 +85,13 @@ class _IndexState extends State<Index> {
                 ListTile(
                   leading: Icon(Icons.account_circle),
                   title: Text(AppLocalizations.$t('common.login')),
+                  onTap: () {
+                    this.model.dispatch('user', 'setUser', {'name': 'Guest'});
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (BuildContext context) {
+                      return LoginIndex.Index(model: this.model,);
+                    }));
+                  },
                 ),
               ],
             ),
@@ -96,6 +105,7 @@ class _IndexState extends State<Index> {
   Widget build(BuildContext context) {
     return Store.connect(
       builder: (context, child, model) {
+        this.model = model;
         return Scaffold(
           drawer: renderDrawer(),
           bottomNavigationBar: _bottomNavigationBar(model),

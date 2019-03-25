@@ -7,19 +7,19 @@ class Index extends StatefulWidget {
 }
 
 class _IndexState extends State<Index> {
-  String _value1 = '';
+  // String _value1 = '';
   String _value2 = '';
   @override
   void initState() {
     super.initState();
   }
 
-  updateText(txt) {
-    print(txt);
-    setState(() {
-      _value1 = txt;
-    });
-  }
+  // updateText(txt) {
+  //   print(txt);
+  //   setState(() {
+  //     _value1 = txt;
+  //   });
+  // }
 
   updateText2(txt) {
     print(txt);

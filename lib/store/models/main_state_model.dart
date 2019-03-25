@@ -12,17 +12,19 @@ import 'author_state_model.dart' show AuthorModel;
  */
 
 ///主数据模型，需要全局使用的数据在这里添加模型
-class MainStateModel extends Model with UserModel {
+class MainStateModel extends Model {
   Map<String, dynamic> state = {};
   ConfigModel config = ConfigModel();
   AuthorModel author = AuthorModel();
+  UserModel user = UserModel();
 
   MainStateModel() {
     // 初始化实例数据
     // order for dispatch to get destination model's methods
     this.state = {
       'config': config,
-      'author': author
+      'author': author,
+      'user': user
     };
     //init model data
     config.getAppVersion();
