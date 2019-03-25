@@ -16,18 +16,13 @@ class _IndexState extends State<Index> {
         automaticallyImplyLeading: false,
       ),
       body: Center(
-        child: RandomContainer(
-          changeOnRedraw: true,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              // Image.asset('assets/imgs/avatar.png'),
               Text("手势操作图片放大或缩小"),
-              Divider(
-                height: 10,
-              ),
               GestureDetector(
-                child: Image.network(
-                  'https://avatars3.githubusercontent.com/u/15372930?s=460&v=4',
+                child: Image.asset('assets/imgs/avatar.png',
                   fit: BoxFit.contain,
                   width: _width,
                 ),
@@ -46,7 +41,6 @@ class _IndexState extends State<Index> {
               )
             ],
           ),
-        ),
       ),
     );
   }

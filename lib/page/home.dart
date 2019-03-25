@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
 import 'package:efox_flutter/store/index.dart' show Store;
 import 'package:efox_flutter/controller/index.dart' as Controller;
-
-//import 'component/index.dart' as TabIndex;
-// import 'mine/index.dart' as MyIndex;
+import 'package:efox_flutter/config/theme.dart' show AppTheme;
 import 'component/tabs.dart' as TabIndex;
-import 'mine/index_2.dart' as MyIndex;
+import 'mine/index.dart' as MyIndex;
 
 import 'package:efox_flutter/utils/appVersion.dart' show AppVersion;
 
@@ -51,11 +49,55 @@ class _IndexState extends State<Index> {
     );
   }
 
+  renderDrawer() {
+    return Drawer(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Container(
+            decoration: BoxDecoration(
+              color: Color(AppTheme.mainColor),
+            ),
+            padding: const EdgeInsets.only(top: 38.0, bottom: 30),
+            child: Row(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: ClipOval(
+                    child: Image.asset(
+                      "assets/imgs/avatar.png",
+                      width: 80,
+                    ),
+                  ),
+                ),
+                Text(
+                  "Guest",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                )
+              ],
+            ),
+          ),
+          Expanded(
+            child: ListView(
+              children: <Widget>[
+                ListTile(
+                  leading: Icon(Icons.account_circle),
+                  title: Text(AppLocalizations.$t('common.login')),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Store.connect(
       builder: (context, child, model) {
         return Scaffold(
+          drawer: renderDrawer(),
           bottomNavigationBar: _bottomNavigationBar(model),
           body: PageView(
             controller: _pageController,

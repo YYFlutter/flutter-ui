@@ -38,36 +38,36 @@ class _IndexState extends State<Index> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text("使用ForcePress相关属性将不会触发Tap属性"),
-            GestureDetector(
-              onForcePressEnd: (ForcePressDetails ev) {
-                updateText('onForcePressEnd ${ev} ${ev.globalPosition}');
-              },
-              onForcePressStart: (ForcePressDetails ev) {
-                updateText('onForcePressStart ${ev} ${ev.globalPosition}');
-              },
-              onForcePressUpdate: (ForcePressDetails ev) {
-                updateText('onForcePressUpdate ${ev} ${ev.globalPosition}');
-              },
-              onForcePressPeak: (ForcePressDetails ev) {
-                updateText('onForcePressPeak ${ev} ${ev.globalPosition}');
-              },
-              child: RandomContainer(
-                height: 100,
-                width: 200,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                        'Use onForcePressXX properties and Tap or DoubleTap are not useful'),
-                  ],
-                ),
-              ),
-            ),
-            Divider(
-              height: 10,
-            ),
-            Text(_value1),
+            // Text("使用ForcePress相关属性将不会触发Tap属性"),
+            // GestureDetector(
+            //   onForcePressEnd: (ForcePressDetails ev) {
+            //     updateText('onForcePressEnd ${ev} ${ev.globalPosition}');
+            //   },
+            //   onForcePressStart: (ForcePressDetails ev) {
+            //     updateText('onForcePressStart ${ev} ${ev.globalPosition}');
+            //   },
+            //   onForcePressUpdate: (ForcePressDetails ev) {
+            //     updateText('onForcePressUpdate ${ev} ${ev.globalPosition}');
+            //   },
+            //   onForcePressPeak: (ForcePressDetails ev) {
+            //     updateText('onForcePressPeak ${ev} ${ev.globalPosition}');
+            //   },
+            //   child: RandomContainer(
+            //     height: 100,
+            //     width: 200,
+            //     child: Column(
+            //       mainAxisAlignment: MainAxisAlignment.center,
+            //       children: <Widget>[
+            //         Text(
+            //             'Use onForcePressXX properties and Tap or DoubleTap are not useful'),
+            //       ],
+            //     ),
+            //   ),
+            // ),
+            // Divider(
+            //   height: 10,
+            // ),
+            // Text(_value1),
             Divider(
               height: 20,
             ),

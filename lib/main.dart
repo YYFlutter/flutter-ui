@@ -22,7 +22,6 @@ class MainApp extends StatefulWidget {
 class MainAppState extends State<MainApp> {
   // 定义全局 语言代理
   AppLocalizationsDelegate _delegate;
-
   @override
   void initState() {
     //实例化多语言

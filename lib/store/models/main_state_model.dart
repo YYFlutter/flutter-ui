@@ -1,6 +1,7 @@
 import 'package:scoped_model/scoped_model.dart';
 import 'user_model.dart' show UserModel;
 import 'config_state_model.dart' show ConfigModel;
+import 'author_state_model.dart' show AuthorModel;
 
 /**
  * get state: model.modelName.state.xxx
@@ -14,12 +15,14 @@ import 'config_state_model.dart' show ConfigModel;
 class MainStateModel extends Model with UserModel {
   Map<String, dynamic> state = {};
   ConfigModel config = ConfigModel();
+  AuthorModel author = AuthorModel();
 
   MainStateModel() {
     // 初始化实例数据
     // order for dispatch to get destination model's methods
     this.state = {
       'config': config,
+      'author': author
     };
     //init model data
     config.getAppVersion();
