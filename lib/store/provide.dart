@@ -1,6 +1,5 @@
 import './provide_model/user_model.dart' show UserModel;
 import './provide_model/config_model.dart' show ConfigModel;
-
 import 'package:provide/provide.dart'
     show
         Provider,
@@ -10,6 +9,10 @@ import 'package:provide/provide.dart'
         ProvideMulti,
         ProviderScope;
 import 'package:flutter/material.dart' show StreamBuilder;
+
+//导出类型 以便全局调用
+export './provide_model/user_model.dart';
+export './provide_model/config_model.dart';
 
 /**
  * import 'package:efox_flutter/store/provide.dart' as Store
