@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:efox_flutter/config/index.dart' as Config;
-import 'package:efox_flutter/store/index.dart' show model;
-import 'package:efox_flutter/utils/loadAsset.dart' show loadAssets;
+import 'package:efox_flutter/utils/loadAsset.dart' show readRemoteFile;
 import 'package:efox_flutter/utils/localstage.dart' show LocalStorage;
 import 'package:package_info/package_info.dart' show PackageInfo;
 import 'package:flutter/material.dart' show ChangeNotifier;
@@ -32,9 +31,9 @@ class ConfigModel extends ChangeNotifier {
   }
 
   dynamic getVersion() async {
-    print('version ${model.config.state.env.versionUrl}');
+    print('version ${_appConfigInfo.env.versionUrl}');
     String _version =
-        await loadAssets(model.config.state.env.versionUrl).then((resp) {
+        await readRemoteFile(_appConfigInfo.env.versionUrl).then((resp) {
       Map<String, dynamic> res = json.decode(resp);
       return res['version'].toString() ?? '0.1';
     }).catchError((err) {
