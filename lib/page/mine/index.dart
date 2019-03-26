@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'dart:io' show Platform;
 import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
-import 'package:efox_flutter/router/index.dart' show FluroRouter;
+//import 'package:efox_flutter/router/index.dart' show FluroRouter;
 import 'package:efox_flutter/config/theme.dart' show AppTheme;
+import 'package:efox_flutter/store/index.dart' show model;
+import 'package:efox_flutter/config/color.dart' show materialColor;
+import 'package:efox_flutter/utils/appVersion.dart' show AppVersion;
+import 'package:efox_flutter/components/expansionTile.dart' as Comp;
 
 class _IndexState extends State<Index> {
   @override
@@ -9,118 +14,134 @@ class _IndexState extends State<Index> {
     super.initState();
   }
 
-  List<dynamic> _getList() {
-    return [
-      {
-        'name': AppLocalizations.$t('common.changeLanguage'),
-        'icon': 59540, // language
-        'index': 0
-      },
-      {
-        'name': widget.model.config.state.isPro
-            ? AppLocalizations.$t('mine.loadLocal')
-            : AppLocalizations.$t('mine.loadNetwork'),
-        'icon': 57539, // import_export
-        'index': 2,
-      },
-      {
-        'name': AppLocalizations.$t('common.compProgress'),
-        'icon': 57709, // low_priority
-        'index': 3
-      }
-    ];
-  }
-
-  actionsEvent(int index) {
-    switch (index) {
-      case 0:
-        AppLocalizations.changeLanguage();
-        break;
-      case 2:
-        widget.model.dispatch('config', 'setEnv');
-        break;
-      case 3:
-        FluroRouter.router.navigateTo(
-          context,
-          '/webview?url=${Uri.encodeComponent(widget.model.config.state.env.githubWeb)}&title=${Uri.encodeComponent(AppLocalizations.$t('common.compProgress'))}',
+  /**
+   * 国际化
+   */
+  void openLanguageSelectMenu() async {
+    await showModalBottomSheet(
+      context: context,
+      builder: (BuildContext bc) {
+        return Container(
+          child: Wrap(
+            children: <Widget>[
+              ListTile(
+                title: Text(
+                  '中文',
+                ),
+                onTap: () {
+                  AppLocalizations.changeLanguage(Locale('zh'));
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: Text('English'),
+                onTap: () {
+                  AppLocalizations.changeLanguage(Locale('en'));
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          ),
         );
-        break;
-    }
+      },
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        return NestedScrollView(
-          headerSliverBuilder: (context, flag) {
-            return [
-              SliverOverlapAbsorber(
-                handle:
-                    NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-                child: SliverAppBar(
-                  pinned: true,
-                  expandedHeight: 150,
-                  centerTitle: true,
-                  flexibleSpace: FlexibleSpaceBar(
-                    collapseMode: CollapseMode.pin,
-                    title: Text(
-                      'Flutter UI',
+    List<Widget> _EdageList = [];
+    materialColor.forEach((k, v) {
+      _EdageList.add(this.Edage(k, v));
+    });
+    return Scaffold(
+        appBar: AppBar(
+            elevation: 0,
+            centerTitle: true,
+            title: Text(AppLocalizations.$t('title_my'))),
+        body: ListView(
+          children: <Widget>[
+            ListTile(
+                onTap: () => this.openLanguageSelectMenu(),
+                leading: Icon(Icons.language),
+                title: Text(AppLocalizations.$t('common_mine_1.language')),
+                trailing: Container(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Text(AppLocalizations.languageCode),
+                      Icon(Icons.navigate_next)
+                    ],
+                  ),
+                )),
+            Divider(
+              color: Color(AppTheme.lineColor),
+            ),
+            Comp.ExpansionTile(
+              leading: Icon(Icons.color_lens),
+              headerBackgroundColor: Colors.transparent,
+              title: Row(
+                children: <Widget>[
+                  Text(AppLocalizations.$t('common_mine_1.theme')),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(5, 5, 0, 0),
+                    child: Container(
+                      color: Color(materialColor[model.config.state.theme]),
+                      height: 15,
+                      width: 15,
                     ),
-                  ),
-                ),
+                  )
+                ],
               ),
-            ];
-          },
-          body: Builder(builder: (context) {
-            List list = this._getList();
-            return CustomScrollView(
-              slivers: <Widget>[
-                // SliverOverlapInjector与SliverOverlapAbsorber是相对成立的，
-                // 若不增加SliverOverlapInjector，则下方的list顶部会被上方headerSliverBuilder所创建的组件遮住，
-                // 增加后，类似clear:both效果，使得布局能顺畅衔接
-                SliverOverlapInjector(
-                  // This is the flip side of the SliverOverlapAbsorber above.
-                  handle:
-                      NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-                ),
-                SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                    (context, index) {
-                      dynamic item = list[index];
-                      if (item['show'] ?? true) {
-                        return Column(
-                          children: <Widget>[
-                            ListTile(
-                              onTap: () {
-                                this.actionsEvent(item['index']);
-                              },
-                              leading: Icon(
-                                IconData(
-                                  item['icon'],
-                                  fontFamily: 'MaterialIcons',
-                                  matchTextDirection: true,
-                                ),
-                              ),
-                              title: Text('${item['name']}'),
-                            ),
-                            Divider(
-                              color: Color(AppTheme.lineColor),
-                            )
-                          ],
-                        );
-                      } else {
-                        return Container();
-                      }
-                    },
-                    childCount: this._getList().length,
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Wrap(
+                    spacing: 10,
+                    runSpacing: 5,
+                    children: _EdageList,
                   ),
-                ),
+                )
               ],
-            );
-          }),
-        );
+            ),
+            Divider(
+              color: Color(AppTheme.lineColor),
+            ),
+            (Platform.isAndroid)
+                ? ListTile(
+                    onTap: () {
+                      AppVersion().check(context, showTips: true);
+                    },
+                    leading: Icon(Icons.history),
+                    title: Text(AppLocalizations.$t('common_mine_1.version')),
+                    trailing: Container(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Text(model.config.state.appVersion),
+                          Icon(Icons.navigate_next)
+                        ],
+                      ),
+                    ))
+                : Container(),
+            (Platform.isAndroid)
+                ? Divider(
+                    color: Color(AppTheme.lineColor),
+                  )
+                : Container(),
+          ],
+        ));
+  }
+
+  Widget Edage(name, color) {
+    return GestureDetector(
+      onTap: () {
+        model.dispatch('config', 'setTheme', name);
       },
+      child: Container(
+        color: Color(color),
+        height: 30,
+        width: 30,
+      ),
     );
   }
 }

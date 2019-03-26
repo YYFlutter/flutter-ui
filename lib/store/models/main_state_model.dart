@@ -1,6 +1,7 @@
 import 'package:scoped_model/scoped_model.dart';
 import 'user_model.dart' show UserModel;
 import 'config_state_model.dart' show ConfigModel;
+import 'author_state_model.dart' show AuthorModel;
 
 /**
  * get state: model.modelName.state.xxx
@@ -11,15 +12,19 @@ import 'config_state_model.dart' show ConfigModel;
  */
 
 ///主数据模型，需要全局使用的数据在这里添加模型
-class MainStateModel extends Model with UserModel {
+class MainStateModel extends Model {
   Map<String, dynamic> state = {};
   ConfigModel config = ConfigModel();
+  AuthorModel author = AuthorModel();
+  UserModel user = UserModel();
 
   MainStateModel() {
     // 初始化实例数据
     // order for dispatch to get destination model's methods
     this.state = {
       'config': config,
+      'author': author,
+      'user': user
     };
     //init model data
     config.getAppVersion();

@@ -1,15 +1,9 @@
 {
-    "nav_title_0": "组件",
-    "nav_title_1": "我的",
     "title_component": "组件",
     "title_my": "我的",
-    "widgetType": {
-        "regularLayout": "常规布局"
-    },
     "common": {
-        "changeLanguage": "Switch to English",
-        "changeVersion": "更新版本",
-        "compProgress": "组件进度"
+        "login": "登录",
+        "logout": "退出"
     },
     "common_mine_1": {
         "cn": "中文",

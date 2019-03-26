@@ -81,7 +81,7 @@ Flutter UI
           │  ├─absorbpointer
           │  ├─dismissible
           │  ├─dragtarget
-          │  ├─gesturedetector
+          │  ├─gesturedetector 【✔️ v1.0】
           │  ├─ignorepointer
           │  └─longpressdraggable 【✔️ v1.0】
           ├─navigator

@@ -1,15 +1,9 @@
 {
-    "nav_title_0": "Components",
-    "nav_title_1": "My",
     "title_component": "Components",
     "title_my": "My",
-    "widgetType": {
-        "regularLayout": "common layout"
-    },
     "common": {
-        "changeLanguage": "显示中文",
-        "changeVersion": "checkVersion",
-        "compProgress": "Components Progress"
+        "login": "登录",
+        "logout": "退出"
     },
     "common_mine_1": {
         "cn": "CN",

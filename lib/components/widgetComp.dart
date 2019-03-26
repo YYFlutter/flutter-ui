@@ -10,6 +10,8 @@ import 'package:efox_flutter/utils/loadAsset.dart' as LoadAssetUtils;
 import 'package:efox_flutter/router/index.dart' show FluroRouter;
 import 'package:efox_flutter/config/theme.dart' show AppTheme;
 import 'package:efox_flutter/utils/share.dart' as AppShare;
+import 'package:efox_flutter/widget/author_list.dart' as AuthorList;
+import 'package:efox_flutter/store/objects/author_info.dart' show AuthorInfo;
 
 class Index extends StatefulWidget {
   final List<Widget> demoChild;
@@ -25,33 +27,13 @@ class Index extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => IndexState(
-      title: title,
-      demoChild: demoChild,
-      originCodeUrl: originCodeUrl,
-      mdUrl: mdUrl);
+  State<StatefulWidget> createState() => IndexState();
 }
 
 class IndexState extends State<Index> {
   List<Widget> _bodyList = [];
-  final dynamic modelChild;
-  final List mdList;
-  final List<Widget> demoChild;
-  final String originCodeUrl;
-  final String mdUrl;
-  final String title;
   bool loading = true;
   dynamic model;
-
-  IndexState({
-    Key key,
-    this.title,
-    this.modelChild,
-    this.mdList,
-    this.demoChild,
-    this.originCodeUrl,
-    this.mdUrl,
-  });
 
   @override
   void initState() {
@@ -59,14 +41,53 @@ class IndexState extends State<Index> {
     this.init();
   }
 
+  authorTile(nameKey) {
+    AuthorInfo info = this.model.author.state[nameKey];
+    return Container(
+      child: ListTile(
+        onTap: () {
+          FluroRouter.router.navigateTo(context,
+              '/webview?title=${'GitHub-' + info.name}&url=${Uri.encodeComponent(info.url)}');
+        },
+        leading: CircleAvatar(
+          backgroundImage: NetworkImage(
+            info.avatarUrl,
+          ),
+          radius: 35,
+        ),
+        title: Text(
+          info.name,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+          ),
+        ),
+        subtitle: Text(
+          info.url,
+          style: TextStyle(color: Colors.grey),
+        ),
+        trailing: Icon(
+          Icons.keyboard_arrow_right,
+          color: Color(AppTheme.mainColor),
+        ),
+      ),
+    );
+  }
+
   void init() async {
     this._bodyList.length = 0;
-    String mdText = await this.getMdFile(this.mdUrl);
+    String mdText = await this.getMdFile(widget.mdUrl);
+    String nameKey = AuthorList.list[widget.title];
+    print('name $nameKey');
+    if (nameKey != null) {
+      this._bodyList.add(authorTile(nameKey));
+      this._bodyList.add(Divider());
+    }
     if (mdText.length > 30 || !this.model.config.state.isPro) {
       this._bodyList.add(await MarkDownComp.Index(mdText));
       // demo
-      if (this.demoChild != null && this.demoChild.length > 0) {
-        this.demoChild.forEach((Widget item) {
+      if (widget.demoChild != null && widget.demoChild.length > 0) {
+        widget.demoChild.forEach((Widget item) {
           this._bodyList.add(ExampleComp.Index(child: item));
         });
       }
@@ -103,18 +124,18 @@ class IndexState extends State<Index> {
   }
 
   openPage(context) async {
-    String url = this.mdUrl;
+    String url = widget.mdUrl;
     // 加载页面
     if (this.model.config.state.isPro) {
       FluroRouter.router.navigateTo(context,
-          '/webview?title=${this.title}&url=${Uri.encodeComponent(this.model.config.state.env.githubAssetOrigin + url.replaceAll(RegExp('/index.md'), '').replaceAll('docs', 'lib'))}');
+          '/webview?title=${widget.title}&url=${Uri.encodeComponent(this.model.config.state.env.githubAssetOrigin + url.replaceAll(RegExp('/index.md'), '').replaceAll('docs', 'lib'))}');
     } else {
       // 加载本地
       String mdStr = await FileUtils.readLocaleFile(url);
       Navigator.of(context).push(
         MaterialPageRoute(builder: (BuildContext context) {
           return BaseComp.Index(
-            title: this.title,
+            title: widget.title,
             child: (context, child, model) {
               return MarkDownComp.Index(mdStr);
             },
@@ -140,7 +161,7 @@ class IndexState extends State<Index> {
         onPressed: () async {
           FluroRouter.router.navigateTo(
             context,
-            '/webview?title=${this.title}&url=${Uri.encodeComponent(this.originCodeUrl)}',
+            '/webview?title=${widget.title}&url=${Uri.encodeComponent(widget.originCodeUrl)}',
           );
         },
       ),
@@ -158,7 +179,7 @@ class IndexState extends State<Index> {
         color: Color(AppTheme.blackColor),
         onPressed: () {
           final String msg =
-              this.model.config.state.env.githubAssetOrigin + this.mdUrl;
+              this.model.config.state.env.githubAssetOrigin + widget.mdUrl;
           AppShare.shareText(msg);
         },
       ),
