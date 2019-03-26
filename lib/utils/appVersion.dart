@@ -9,7 +9,6 @@ import 'package:efox_flutter/store/http.dart' as Http;
 import 'package:flutter/material.dart';
 
 class AppVersion {
-  var _context;
   Future<bool> _checkPermission() async {
     PermissionStatus permission = await PermissionHandler()
         .checkPermissionStatus(PermissionGroup.storage);
@@ -33,7 +32,6 @@ class AppVersion {
   }
 
   Future<Null> check(context, {showTips: false}) async {
-    _context = context;
     if (!Platform.isAndroid) return;
     // permission Status
     bool _permissisonReady = await this._checkPermission();

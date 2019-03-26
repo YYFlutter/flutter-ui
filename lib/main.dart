@@ -3,12 +3,12 @@ import 'package:flutter_localizations/flutter_localizations.dart'; //语言包�
 import 'package:efox_flutter/lang/index.dart'
     show AppLocalizationsDelegate, AppLocalizations;
 import 'package:efox_flutter/lang/config.dart' show ConfigLanguage;
-import 'package:efox_flutter/store/index.dart' show model, Store; //引用Store 层
+import 'package:efox_flutter/store/index.dart'
+    show Store, ConfigModel; //引用Store 层
+import 'package:provide/provide.dart' show Provide;
 import 'package:efox_flutter/router/index.dart' show FluroRouter; //路由
 import 'package:efox_flutter/config/theme.dart' show AppTheme; //主题
 import 'package:efox_flutter/utils/analytics.dart' as Analytics; //统计
-
-void main() => runApp(MainApp());
 
 class MainApp extends StatefulWidget {
   MainApp() {
@@ -27,14 +27,16 @@ class MainAppState extends State<MainApp> {
     //实例化多语言
     super.initState();
     _delegate = AppLocalizationsDelegate();
-    model.dispatch('config', 'getTheme');
+    print('===main ============ $context');
   }
 
   @override
   Widget build(BuildContext context) {
-    return Store.init(
-      model: model,
-      child: Store.connect(builder: (context, child, model) {
+    print('main view rebuild   $context');
+    Provide.value<ConfigModel>(context).getTheme();
+    return Store.connect<ConfigModel>(
+      builder: (context, child, model) {
+        print('model===========================${model.theme}');
         return MaterialApp(
           localeResolutionCallback: (deviceLocale, supportedLocales) {
             print(
@@ -55,12 +57,13 @@ class MainAppState extends State<MainApp> {
             _delegate,
           ],
           supportedLocales: ConfigLanguage.supportedLocales,
-//        title: 'Flutter Demo',
-          theme: AppTheme.getThemeData(model.config.state.theme),
+          theme: AppTheme.getThemeData(model.theme),
           onGenerateRoute: FluroRouter.router.generator,
           navigatorObservers: <NavigatorObserver>[Analytics.observer],
         );
-      }),
+      },
     );
   }
 }
+
+void main() => runApp(Store.init(child: MainApp()));

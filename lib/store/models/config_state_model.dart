@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:efox_flutter/config/index.dart' as Config;
-import 'package:efox_flutter/store/index.dart' show model;
-import 'package:efox_flutter/utils/loadAsset.dart' show loadAssets;
+import 'package:efox_flutter/utils/loadAsset.dart' show readRemoteFile;
 import 'package:efox_flutter/utils/localstage.dart' show LocalStorage;
 import 'package:package_info/package_info.dart' show PackageInfo;
+import 'package:flutter/foundation.dart' show ChangeNotifier;
 
 class ConfigInfo {
   bool isPro = Config.isPro;
@@ -13,27 +13,30 @@ class ConfigInfo {
   String appVersion = '-';
 }
 
-ConfigInfo _appConfigInfo = new ConfigInfo();
-
-class ConfigModel {
-  get state => _appConfigInfo;
-
+class ConfigModel extends ConfigInfo with ChangeNotifier {
   Future getAppVersion() async {
     PackageInfo packageInfo = await PackageInfo.fromPlatform();
-    _appConfigInfo.appVersion = await packageInfo.version;
+    appVersion = await packageInfo.version;
   }
 
   Future getTheme() async {
-    String theme = await LocalStorage.get('theme');
-    if (theme != null) {
-      _appConfigInfo.theme = theme;
+    String _theme = await LocalStorage.get('theme');
+    print('config get Theme ${_theme}');
+    if (_theme != null) {
+      setTheme(_theme);
     }
   }
 
+  Future setTheme(payload) async {
+    theme = payload;
+    LocalStorage.set('theme', payload);
+    notifyListeners();
+  }
+
   dynamic getVersion() async {
-    print('version ${model.config.state.env.versionUrl}');
+    print('==================get version ===== ${this.env.versionUrl}');
     String _version =
-        await loadAssets(model.config.state.env.versionUrl).then((resp) {
+        await readRemoteFile(this.env.versionUrl).then((resp) {
       Map<String, dynamic> res = json.decode(resp);
       return res['version'].toString() ?? '0.1';
     }).catchError((err) {
@@ -44,23 +47,8 @@ class ConfigModel {
     return _version;
   }
 
-  methods(name, payload) async {
-    print('payload= $payload');
-
-    switch (name) {
-      case 'setEnv':
-        _appConfigInfo.isPro = payload;
-        break;
-      case 'setVersion':
-        _appConfigInfo.version = await this.getVersion();
-        break;
-      case 'setTheme':
-        _appConfigInfo.theme = payload;
-        LocalStorage.set('theme', payload);
-        break;
-      case 'getTheme':
-        await this.getTheme();
-        break;
-    }
+  Future setVersion() async {
+    version = await this.getVersion();
+    notifyListeners();
   }
 }

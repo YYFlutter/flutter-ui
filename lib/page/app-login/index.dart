@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:efox_flutter/store/models/main_state_model.dart'
-    show MainStateModel;
 import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
 
 class Index extends StatefulWidget {
-  MainStateModel model;
 
-  Index({Key key, @required this.model}) : super(key: key);
+  Index({Key key}) : super(key: key);
 
   @override
   _IndexState createState() => _IndexState();
@@ -76,8 +73,8 @@ class _IndexState extends State<Index> {
                           onPressed: () {
                             if ((_formKey.currentState as FormState)
                                 .validate()) {
-                              widget.model.dispatch('user', 'login',
-                                  {'name': nameCtl.text, 'pwd': pwdCtl.text});
+                              // widget.model.dispatch('user', 'login',
+                              //     {'name': nameCtl.text, 'pwd': pwdCtl.text});
                             }
                           },
                         ),

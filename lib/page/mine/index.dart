@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:io' show Platform;
 import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
-//import 'package:efox_flutter/router/index.dart' show FluroRouter;
 import 'package:efox_flutter/config/theme.dart' show AppTheme;
-import 'package:efox_flutter/store/index.dart' show model;
+import 'package:efox_flutter/store/index.dart' show ConfigModel, Provide;
 import 'package:efox_flutter/config/color.dart' show materialColor;
 import 'package:efox_flutter/utils/appVersion.dart' show AppVersion;
 import 'package:efox_flutter/components/expansionTile.dart' as Comp;
@@ -51,7 +50,7 @@ class _IndexState extends State<Index> {
   Widget build(BuildContext context) {
     List<Widget> _EdageList = [];
     materialColor.forEach((k, v) {
-      _EdageList.add(this.Edage(k, v));
+      _EdageList.add(this.Edage(k, v, context));
     });
     return Scaffold(
         appBar: AppBar(
@@ -77,7 +76,9 @@ class _IndexState extends State<Index> {
               color: Color(AppTheme.lineColor),
             ),
             Comp.ExpansionTile(
-              leading: Icon(Icons.color_lens),
+              leading: Icon(
+                Icons.color_lens,
+              ),
               headerBackgroundColor: Colors.transparent,
               title: Row(
                 children: <Widget>[
@@ -85,7 +86,8 @@ class _IndexState extends State<Index> {
                   Container(
                     margin: EdgeInsets.fromLTRB(5, 5, 0, 0),
                     child: Container(
-                      color: Color(materialColor[model.config.state.theme]),
+                      color: Color(materialColor[
+                          Provide.value<ConfigModel>(context).theme]),
                       height: 15,
                       width: 15,
                     ),
@@ -117,7 +119,7 @@ class _IndexState extends State<Index> {
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
-                          Text(model.config.state.appVersion),
+                          Text(Provide.value<ConfigModel>(context).appVersion),
                           Icon(Icons.navigate_next)
                         ],
                       ),
@@ -132,10 +134,10 @@ class _IndexState extends State<Index> {
         ));
   }
 
-  Widget Edage(name, color) {
+  Widget Edage(name, color, context) {
     return GestureDetector(
       onTap: () {
-        model.dispatch('config', 'setTheme', name);
+        Provide.value<ConfigModel>(context).setTheme(name);
       },
       child: Container(
         color: Color(color),

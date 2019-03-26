@@ -10,6 +10,10 @@ import 'package:efox_flutter/utils/analytics.dart' show analytics;
 class FluroRouter {
   static Router router;
 
+  static webview({context, title, url}) {
+    router.navigateTo(context, '/webview?title=${title}&url=${url}');
+  }
+
   static Router initRouter() {
     FluroRouter.router = Router();
     router.define(

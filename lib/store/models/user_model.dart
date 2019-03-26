@@ -1,17 +1,15 @@
 import 'package:dio/dio.dart' show Options;
 import '../objects/user_info.dart' show UserInfo;
 import 'package:efox_flutter/store/http.dart' as Http;
-import 'package:dio/dio.dart' show Dio, BaseOptions, Options;
 import 'dart:convert';
+import 'package:flutter/foundation.dart' show ChangeNotifier;
 
 Map<String, String> Url = {'login': 'https://api.github.com/authorizations'};
 
-class UserModel extends Object {
-  UserInfo _userInfo = UserInfo();
-  get state => _userInfo;
-
+class UserModel extends UserInfo with ChangeNotifier  {
   setUser(payload) {
-    _userInfo = UserInfo(name: payload['name']);
+    name = payload['name'];
+    notifyListeners();
   }
 
   Future login(payload) async {
@@ -37,13 +35,4 @@ class UserModel extends Object {
     print(response);
   }
 
-  methods(name, payload) {
-    switch (name) {
-      case 'setUser':
-        setUser(payload);
-        break;
-      case 'login':
-        login(payload);
-    }
-  }
 }

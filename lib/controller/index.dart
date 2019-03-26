@@ -1,5 +1,6 @@
-import 'package:efox_flutter/store/index.dart' show model;
+// import 'package:efox_flutter/store/index.dart' show Store, ConfigModel, Provider;
 
 void initState() {
-  model.dispatch('config', 'setVersion');
+  // Store.valueNotContext<ConfigModel>().setVersion();
+// Provider,
 }

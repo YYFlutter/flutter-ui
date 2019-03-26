@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:efox_flutter/store/models/main_state_model.dart'
-    show MainStateModel;
-import 'package:efox_flutter/store/index.dart' show Store;
 import 'package:efox_flutter/config/theme.dart' show AppTheme;
 
 class Index extends StatelessWidget {
@@ -12,21 +9,17 @@ class Index extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Store.connect(
-      builder: (context, child, MainStateModel model) {
-        return Center(
-          child: Container(
-            margin: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              border: Border.all(color: Color(AppTheme.mainColor), width: 1.0),
-            ),
-            child: SizedBox.fromSize(
-              size: size / 1.3,
-              child: this.child,
-            ),
-          ),
-        );
-      },
+    return Center(
+      child: Container(
+        margin: EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          border: Border.all(color: Color(AppTheme.mainColor), width: 1.0),
+        ),
+        child: SizedBox.fromSize(
+          size: size / 1.3,
+          child: this.child,
+        ),
+      ),
     );
   }
 }

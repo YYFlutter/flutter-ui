@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
-import 'package:efox_flutter/store/index.dart' show Store;
 import 'package:efox_flutter/controller/index.dart' as Controller;
 import 'package:efox_flutter/config/theme.dart' show AppTheme;
 import 'component/tabs.dart' as TabIndex;
@@ -17,13 +16,11 @@ class Index extends StatefulWidget {
 class _IndexState extends State<Index> {
   int _currentIndex = 0;
   PageController _pageController;
-  dynamic model;
-
   @override
   void initState() {
     super.initState();
     _pageController = PageController();
-    Controller.initState();
+    print('==============home context $context');
     AppVersion().check(context);
   }
 
@@ -33,7 +30,7 @@ class _IndexState extends State<Index> {
     super.dispose();
   }
 
-  Widget _bottomNavigationBar(model) {
+  Widget _bottomNavigationBar() {
     return BottomNavigationBar(
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
@@ -46,6 +43,8 @@ class _IndexState extends State<Index> {
       type: BottomNavigationBarType.fixed,
       currentIndex: _currentIndex,
       onTap: (int index) {
+        // TODO
+        // Controller.initState();
         _pageController.jumpToPage(index);
       },
     );
@@ -73,7 +72,7 @@ class _IndexState extends State<Index> {
                   ),
                 ),
                 Text(
-                  this.model.user.state.name ?? 'Guest',
+                  'Guest',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 )
               ],
@@ -86,10 +85,9 @@ class _IndexState extends State<Index> {
                   leading: Icon(Icons.account_circle),
                   title: Text(AppLocalizations.$t('common.login')),
                   onTap: () {
-                    this.model.dispatch('user', 'setUser', {'name': 'Guest'});
                     Navigator.of(context).push(
                         MaterialPageRoute(builder: (BuildContext context) {
-                      return LoginIndex.Index(model: this.model,);
+                      return LoginIndex.Index();
                     }));
                   },
                 ),
@@ -103,27 +101,22 @@ class _IndexState extends State<Index> {
 
   @override
   Widget build(BuildContext context) {
-    return Store.connect(
-      builder: (context, child, model) {
-        this.model = model;
-        return Scaffold(
-          drawer: renderDrawer(),
-          bottomNavigationBar: _bottomNavigationBar(model),
-          body: PageView(
-            controller: _pageController,
-            physics: NeverScrollableScrollPhysics(),
-            onPageChanged: (int index) {
-              setState(() {
-                _currentIndex = index;
-              });
-            },
-            children: <Widget>[
-              TabIndex.Index(model: model),
-              MyIndex.Index(model: model),
-            ],
-          ),
-        );
-      },
+    return Scaffold(
+      drawer: renderDrawer(),
+      bottomNavigationBar: _bottomNavigationBar(),
+      body: PageView(
+        controller: _pageController,
+        physics: NeverScrollableScrollPhysics(),
+        onPageChanged: (int index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        children: <Widget>[
+          TabIndex.Index(),
+          MyIndex.Index(),
+        ],
+      ),
     );
   }
 }
