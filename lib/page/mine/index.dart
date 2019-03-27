@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:io' show Platform;
 import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
 import 'package:efox_flutter/config/theme.dart' show AppTheme;
-import 'package:efox_flutter/store/index.dart' show ConfigModel, Provide;
+import 'package:efox_flutter/store/index.dart' show ConfigModel, Store;
 import 'package:efox_flutter/config/color.dart' show materialColor;
 import 'package:efox_flutter/utils/appVersion.dart' show AppVersion;
 import 'package:efox_flutter/components/expansionTile.dart' as Comp;
@@ -87,7 +87,7 @@ class _IndexState extends State<Index> {
                     margin: EdgeInsets.fromLTRB(5, 5, 0, 0),
                     child: Container(
                       color: Color(materialColor[
-                          Provide.value<ConfigModel>(context).theme]),
+                          Store.value<ConfigModel>(context).theme]),
                       height: 15,
                       width: 15,
                     ),
@@ -119,7 +119,7 @@ class _IndexState extends State<Index> {
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
-                          Text(Provide.value<ConfigModel>(context).appVersion),
+                          Text(Store.value<ConfigModel>(context).appVersion),
                           Icon(Icons.navigate_next)
                         ],
                       ),
@@ -137,7 +137,7 @@ class _IndexState extends State<Index> {
   Widget Edage(name, color, context) {
     return GestureDetector(
       onTap: () {
-        Provide.value<ConfigModel>(context).setTheme(name);
+        Store.value<ConfigModel>(context).$setTheme(name);
       },
       child: Container(
         color: Color(color),

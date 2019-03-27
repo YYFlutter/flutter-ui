@@ -81,7 +81,9 @@ class AppVersion {
 
   Future checkVersion(String version, String platform) async {
     var res = await Http.get(
-        'https://raw.githubusercontent.com/efoxTeam/flutter-ui/master/version.json');
+      url:
+          'https://raw.githubusercontent.com/efoxTeam/flutter-ui/master/version.json',
+    );
     res = json.decode(res);
     print('res=${res['version']}');
     String newVersion = (res['version'] != null) ? res['version'] : version;

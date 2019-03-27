@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
-
+import 'package:efox_flutter/store/index.dart' show Store, UserModel;
 class Index extends StatefulWidget {
 
   Index({Key key}) : super(key: key);
@@ -73,8 +73,10 @@ class _IndexState extends State<Index> {
                           onPressed: () {
                             if ((_formKey.currentState as FormState)
                                 .validate()) {
-                              // widget.model.dispatch('user', 'login',
-                              //     {'name': nameCtl.text, 'pwd': pwdCtl.text});
+                              Store.value<UserModel>(context).$login({
+                                'name': nameCtl.text,
+                                'pwd':pwdCtl.text
+                              });
                             }
                           },
                         ),

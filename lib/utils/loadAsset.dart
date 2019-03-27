@@ -6,7 +6,5 @@ Future<String> readLocaleFile(path) async {
 }
 
 Future<String> readRemoteFile(path) async {
-  return await Http.get(path).then((res) {
-    return res;
-  });
+  return await Http.get(url: path);
 }

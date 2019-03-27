@@ -3,13 +3,13 @@ import 'package:efox_flutter/components/markdownComp.dart' as MarkDownComp;
 import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
 import 'package:efox_flutter/components/exampleComp.dart' as ExampleComp;
 import 'package:efox_flutter/components/updatingComp.dart' as UpdatingComp;
-import 'package:efox_flutter/utils/file.dart' as FileUtils;
+import 'package:efox_flutter/utils/loadAsset.dart' as AssetUtils;
 import 'package:efox_flutter/router/index.dart' show FluroRouter;
 import 'package:efox_flutter/config/theme.dart' show AppTheme;
 import 'package:efox_flutter/utils/share.dart' as AppShare;
 import 'package:efox_flutter/widget/author_list.dart' as AuthorList;
 import 'package:efox_flutter/store/objects/author_info.dart' show AuthorInfo;
-import 'package:efox_flutter/store/index.dart' show AuthorModel, ConfigModel, Provide;
+import 'package:efox_flutter/store/index.dart' show AuthorModel, ConfigModel, Store;
 
 class Index extends StatefulWidget {
   final List<Widget> demoChild;
@@ -40,7 +40,7 @@ class IndexState extends State<Index> {
   }
 
   authorTile(nameKey) {
-    AuthorInfo info = Provide.value<AuthorModel>(context).list[nameKey];
+    AuthorInfo info = Store.value<AuthorModel>(context).list[nameKey];
     return Container(
       child: ListTile(
         onTap: () {
@@ -97,6 +97,7 @@ class IndexState extends State<Index> {
 
   @override
   Widget build(BuildContext context) {
+        print('widgetcomp context  =$context');
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -115,12 +116,12 @@ class IndexState extends State<Index> {
   }
 
   Future getMdFile(url) async {
-    // bool productionEnv = Provide.value<ConfigModel>(context).isPro;
+    // bool productionEnv = Store.value<ConfigModel>(context).isPro;
     bool productionEnv = false;
     if (productionEnv) {
-      return await FileUtils.readRemoteFile(url);
+      return await AssetUtils.readRemoteFile(url);
     } else {
-      return await FileUtils.readLocaleFile(url);
+      return await AssetUtils.readLocaleFile(url);
     }
   }
 
@@ -143,7 +144,7 @@ class IndexState extends State<Index> {
         color: Color(AppTheme.blackColor),
         onPressed: () {
           dynamic origin =
-              Provide.value<ConfigModel>(context).env.githubAssetOrigin;
+              Store.value<ConfigModel>(context).env.githubAssetOrigin;
           AppShare.shareText(origin + widget.mdUrl);
         },
       ),

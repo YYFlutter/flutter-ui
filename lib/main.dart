@@ -5,7 +5,6 @@ import 'package:efox_flutter/lang/index.dart'
 import 'package:efox_flutter/lang/config.dart' show ConfigLanguage;
 import 'package:efox_flutter/store/index.dart'
     show Store, ConfigModel; //引用Store 层
-import 'package:provide/provide.dart' show Provide;
 import 'package:efox_flutter/router/index.dart' show FluroRouter; //路由
 import 'package:efox_flutter/config/theme.dart' show AppTheme; //主题
 import 'package:efox_flutter/utils/analytics.dart' as Analytics; //统计
@@ -27,16 +26,16 @@ class MainAppState extends State<MainApp> {
     //实例化多语言
     super.initState();
     _delegate = AppLocalizationsDelegate();
-    print('===main ============ $context');
   }
 
   @override
   Widget build(BuildContext context) {
     print('main view rebuild   $context');
-    Provide.value<ConfigModel>(context).getTheme();
+    Store.value<ConfigModel>(context).$getTheme();
+    Store.setContext(context);
     return Store.connect<ConfigModel>(
       builder: (context, child, model) {
-        print('model===========================${model.theme}');
+        print('store connect context  =$context');
         return MaterialApp(
           localeResolutionCallback: (deviceLocale, supportedLocales) {
             print(

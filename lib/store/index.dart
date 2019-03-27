@@ -16,6 +16,7 @@ export './models/user_model.dart' show UserModel;
 export './models/author_state_model.dart' show AuthorModel;
 
 class Store {
+  static dynamic ctx;
   static init({model, child, dispose = true}) {
     final providers = Providers()
       ..provide(Provider.value(ConfigModel()))
@@ -29,17 +30,24 @@ class Store {
     );
   }
 
+  static setContext(context) {
+    print('setContext $ctx');
+    ctx = context;
+    print('context $ctx');
+  }
+
   /**
    * 获取
    */
-  static valueNotContext<T>(value) {
-    return Providers().provideValue<T>(value);
+  static T valueNotCtx<T>() {
+    print('============valueNotCtx $ctx ');
+    return Provide.value<T>(ctx);
   }
 
   /**
    * 根据 Context 获取
    */
-  static value<T>(context, {scope}) {
+  static T value<T>(context, {scope}) {
     return Provide.value<T>(context, scope: scope);
   }
 
@@ -78,19 +86,4 @@ class Store {
         requestedValues: requestedValues,
         requestedScopedValues: requestedScopedValues);
   }
-  // static connect({context, builder, child}) {
-  // final currentCounter = Provide.value<Counter>(context);
-  // print('currentCounter ${currentCounter} ');
-  // return StreamBuilder<Counter>(
-  //   initialData: currentCounter,
-  //   stream: Provide.stream<Counter>(context).where((count) {
-  //     return true;
-  //   }),
-  //   // .where((counter){
-  //   // 当返回true时，刷新页面
-  //   //   return counter.value % 2 == 0;
-  //   // }),
-  //   builder: builder,
-  // );
-  // }
 }

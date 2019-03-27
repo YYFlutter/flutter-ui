@@ -7,6 +7,7 @@ import 'mine/index.dart' as MyIndex;
 import 'app-login/index.dart' as LoginIndex;
 
 import 'package:efox_flutter/utils/appVersion.dart' show AppVersion;
+import 'package:efox_flutter/store/index.dart' show Store, UserModel;
 
 class Index extends StatefulWidget {
   @override
@@ -21,6 +22,7 @@ class _IndexState extends State<Index> {
     super.initState();
     _pageController = PageController();
     print('==============home context $context');
+    Controller.initState();
     AppVersion().check(context);
   }
 
@@ -43,14 +45,16 @@ class _IndexState extends State<Index> {
       type: BottomNavigationBarType.fixed,
       currentIndex: _currentIndex,
       onTap: (int index) {
-        // TODO
-        // Controller.initState();
         _pageController.jumpToPage(index);
       },
     );
   }
 
+  /**
+   * 抽屉面板
+   */
   renderDrawer() {
+    print('renderDrawer $context');
     return Drawer(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,10 +75,14 @@ class _IndexState extends State<Index> {
                     ),
                   ),
                 ),
-                Text(
-                  'Guest',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                )
+                Store.connect<UserModel>(
+                  builder: (context, child, model) {
+                    return Text(
+                      model.user.name ?? 'Guest',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    );
+                  },
+                ),
               ],
             ),
           ),
@@ -89,6 +97,20 @@ class _IndexState extends State<Index> {
                         MaterialPageRoute(builder: (BuildContext context) {
                       return LoginIndex.Index();
                     }));
+                  },
+                ),
+                ListTile(
+                  leading: Icon(Icons.account_circle),
+                  title: Text(AppLocalizations.$t('common.login')),
+                  onTap: () {
+                    Store.value<UserModel>(context).$getUserInfo();
+                  },
+                ),
+                ListTile(
+                  leading: Icon(Icons.account_circle),
+                  title: Text(AppLocalizations.$t('common.login')),
+                  onTap: () {
+                    Store.value<UserModel>(context).$checkAuthentication();
                   },
                 ),
               ],

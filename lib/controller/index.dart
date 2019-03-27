@@ -1,6 +1,8 @@
-// import 'package:efox_flutter/store/index.dart' show Store, ConfigModel, Provider;
+import 'package:efox_flutter/store/index.dart' show Store, ConfigModel, UserModel;
 
 void initState() {
-  // Store.valueNotContext<ConfigModel>().setVersion();
-// Provider,
+  // 获取版本号
+  Store.valueNotCtx<ConfigModel>().$getAppVersion();
+  // 登录
+  Store.valueNotCtx<UserModel>().$getUserInfo();
 }

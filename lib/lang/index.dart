@@ -3,7 +3,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:efox_flutter/lang/config.dart' as I18NConfig;
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:efox_flutter/utils/localstage.dart' show LocalStorage;
+import 'package:efox_flutter/utils/localStorage.dart' show LocalStorage;
 
 class AppLocalizations {
   Locale _locale; // language
