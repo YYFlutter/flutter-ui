@@ -5,7 +5,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:open_file/open_file.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:efox_flutter/store/http.dart' as Http;
+import 'package:efox_flutter/http/index.dart' as Http;
 import 'package:flutter/material.dart';
 
 class AppVersion {
@@ -80,22 +80,25 @@ class AppVersion {
   }
 
   Future checkVersion(String version, String platform) async {
+    Map<String, dynamic> d = {
+      'version': version,
+      'isNew': false,
+      'platform': platform
+    };
     var res = await Http.get(
       url:
           'https://raw.githubusercontent.com/efoxTeam/flutter-ui/master/version.json',
     );
-    res = json.decode(res);
-    print('res=${res['version']}');
-    String newVersion = (res['version'] != null) ? res['version'] : version;
-    //newVersion = '1.0.1'; //debug code
-    print('$newVersion $res $version');
-    bool isNewestVersion = (newVersion == version) ? false : true;
-    Map<String, dynamic> d = {
-      'version': newVersion,
-      'isNew': isNewestVersion,
-      'platform': platform
-    };
-    return Future.value(d);
+    if (res['data'] != null) {
+      res = json.decode(res['data']);
+      print('res=${res['version']}');
+      String newVersion = (res['version'] != null) ? res['version'] : version;
+      //newVersion = '1.0.1'; //debug code
+      print('$newVersion $res $version');
+      d['isNew'] = (newVersion == version) ? false : true;
+      d['version'] = newVersion;
+      return Future.value(d);
+    }
   }
 
   Future _downAndInstall(String version) async {

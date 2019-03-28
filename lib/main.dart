@@ -26,16 +26,15 @@ class MainAppState extends State<MainApp> {
     //实例化多语言
     super.initState();
     _delegate = AppLocalizationsDelegate();
+    Store.setStoreCtx(context); // 初始化数据层
   }
 
   @override
   Widget build(BuildContext context) {
-    print('main view rebuild   $context');
     Store.value<ConfigModel>(context).$getTheme();
-    Store.setContext(context);
+
     return Store.connect<ConfigModel>(
       builder: (context, child, model) {
-        print('store connect context  =$context');
         return MaterialApp(
           localeResolutionCallback: (deviceLocale, supportedLocales) {
             print(
@@ -45,7 +44,7 @@ class MainAppState extends State<MainApp> {
                 : Locale('zh');
             return _locale;
           },
-          onGenerateTitle: (context) {
+          onGenerateTitle: (ctx) {
             // 设置多语言代理
             AppLocalizations.setProxy(setState, _delegate);
             return 'flutter';

@@ -22,6 +22,7 @@ class _IndexState extends State<Index> {
     super.initState();
     _pageController = PageController();
     print('==============home context $context');
+    // Store.setContext(context);
     Controller.initState();
     AppVersion().check(context);
   }
@@ -64,26 +65,26 @@ class _IndexState extends State<Index> {
             decoration: BoxDecoration(
               color: Color(AppTheme.mainColor),
             ),
-            child: Row(
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.0),
-                  child: ClipOval(
-                    child: Image.asset(
-                      "assets/imgs/avatar.png",
-                      width: 80,
+            child: Store.connect<UserModel>(
+              builder: (context, child, model) {
+                return Row(children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20.0),
+                    child: ClipOval(
+                      child: model.user.avatar_url != null
+                          ? Image.network(
+                              model.user.avatar_url,
+                              width: 80,
+                            )
+                          : Icon(Icons.account_box),
                     ),
                   ),
-                ),
-                Store.connect<UserModel>(
-                  builder: (context, child, model) {
-                    return Text(
-                      model.user.name ?? 'Guest',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    );
-                  },
-                ),
-              ],
+                  Text(
+                    Store.value<UserModel>(context).user.name ?? 'Guest',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  )
+                ]);
+              },
             ),
           ),
           Expanded(
@@ -99,18 +100,12 @@ class _IndexState extends State<Index> {
                     }));
                   },
                 ),
+                Divider(),
                 ListTile(
-                  leading: Icon(Icons.account_circle),
-                  title: Text(AppLocalizations.$t('common.login')),
+                  leading: Icon(Icons.exit_to_app),
+                  title: Text(AppLocalizations.$t('common.logout')),
                   onTap: () {
-                    Store.value<UserModel>(context).$getUserInfo();
-                  },
-                ),
-                ListTile(
-                  leading: Icon(Icons.account_circle),
-                  title: Text(AppLocalizations.$t('common.login')),
-                  onTap: () {
-                    Store.value<UserModel>(context).$checkAuthentication();
+                    Store.value<UserModel>(context).$clearUserInfo();
                   },
                 ),
               ],
@@ -123,6 +118,7 @@ class _IndexState extends State<Index> {
 
   @override
   Widget build(BuildContext context) {
+    Store.setWidgetCtx(context); // 初始化scaffold的上下文作为全局上下文，提供弹窗等使用。
     return Scaffold(
       drawer: renderDrawer(),
       bottomNavigationBar: _bottomNavigationBar(),

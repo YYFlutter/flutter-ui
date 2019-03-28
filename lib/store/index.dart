@@ -14,9 +14,11 @@ import './models/author_state_model.dart' show AuthorModel;
 export './models/config_state_model.dart' show ConfigModel;
 export './models/user_model.dart' show UserModel;
 export './models/author_state_model.dart' show AuthorModel;
+import 'package:flutter/material.dart';
 
 class Store {
-  static dynamic ctx;
+  static dynamic storeCtx = null;
+  static dynamic widgetCtx = null;
   static init({model, child, dispose = true}) {
     final providers = Providers()
       ..provide(Provider.value(ConfigModel()))
@@ -29,19 +31,30 @@ class Store {
       dispose: dispose,
     );
   }
+  /**
+   * 设置数据层上下文
+   */
+  static setStoreCtx(context) {
+    print('setStoreCtx ============== $storeCtx ');
+    storeCtx = context;
+    print('context====================== $storeCtx');
+  }
 
-  static setContext(context) {
-    print('setContext $ctx');
-    ctx = context;
-    print('context $ctx');
+  /**
+   * 设置Widget上下文
+   */
+  static setWidgetCtx(context) {
+    print('setWidgetCtx ============== $storeCtx ');
+    widgetCtx = context;
+    print('setWidgetCtx  ====================== $storeCtx');
   }
 
   /**
    * 获取
    */
   static T valueNotCtx<T>() {
-    print('============valueNotCtx $ctx ');
-    return Provide.value<T>(ctx);
+    print('============valueNotCtx $storeCtx ');
+    return Provide.value<T>(storeCtx);
   }
 
   /**

@@ -54,9 +54,12 @@ class _IndexState extends State<Index> {
     });
     return Scaffold(
         appBar: AppBar(
-            elevation: 0,
-            centerTitle: true,
-            title: Text(AppLocalizations.$t('title_my'))),
+          elevation: 0,
+          centerTitle: true,
+          title: Text(
+            AppLocalizations.$t('title_my'),
+          ),
+        ),
         body: ListView(
           children: <Widget>[
             ListTile(
