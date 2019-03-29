@@ -10,10 +10,9 @@ import 'package:dio/dio.dart'
 import 'package:efox_flutter/utils/localStorage.dart' show LocalStorage;
 import 'log.dart' show log;
 import 'package:efox_flutter/store/index.dart' show Store;
-import 'package:flutter/material.dart';
-import 'loadingDialog.dart' show showAppLoading;
+import 'loadingDialog.dart' as AppLoading;
 
-Dio getDio([Options options]) {
+Dio getDio({options, loading}) {
   if (options == null) {
     options = Options(
       headers: {
@@ -35,9 +34,7 @@ Dio getDio([Options options]) {
       if (options.headers['Authorization'] == null && token != null) {
         options.headers['Authorization'] = 'token $token';
       }
-      print(
-          ' Store.widgetCtx -------------------------------- ${Store.widgetCtx}');
-      showAppLoading();
+      await AppLoading.beforeRequest(options.uri, loading);
       log('【发送请求】 ${options.uri} ', '${options.headers}  ${options.data}');
       // Do something before request is sent
       return options; //continue
@@ -49,11 +46,13 @@ Dio getDio([Options options]) {
     onResponse: (Response response) async {
       log('【请求成功】 ${response.request.uri}，【状态码 ${response.statusCode}】',
           response);
-      showAppLoading();
-      return {'data': response.data}; // continue
+      return Future.delayed(Duration(seconds: 3), () async {
+        await AppLoading.afterResponse(response.request.uri, loading);
+        return {'data': response.data}; // continue
+      });
     },
     onError: (DioError e) async {
-      // showAppLoading();
+      await AppLoading.afterResponse(e.request.uri, loading);
       dynamic msg = e.message;
       dynamic code = 0; // 错误码
       dynamic status = e.type; // http请求状态
@@ -67,16 +66,20 @@ Dio getDio([Options options]) {
     },
   ));
   dio.interceptors.add(LogInterceptor(responseBody: false)); //开启请求日志
-
+  
   return dio;
 }
 
-Future<dynamic> get({url, data = const {}}) async {
-  return getDio().get(url).then((resp) => resp.data);
+Future<dynamic> get({url, data = const {}, options, loading}) async {
+  return getDio(options: options, loading: loading ?? Map())
+      .get(url)
+      .then((resp) => resp.data);
 }
 
-Future post({url, data = const {}, options}) async {
-  return getDio(options).post(url, data: data).then((resp) {
+Future post({url, data = const {}, options, loading}) async {
+  return getDio(options: options, loading: loading ?? Map())
+      .post(url, data: data)
+      .then((resp) {
     return resp.data;
   });
 }

@@ -123,14 +123,10 @@ class _IndexState extends State<Index>
                   ],
                 ),
                 onPressed: () {
-                  // FluroRouter.router.navigateTo(
-                  //   context,
-                  //   nameSpaces + _tmpWidgetList[index].title,
-                  // );
-                  
-        Scaffold.of(context).showSnackBar(SnackBar(
-          content: Text('haha'),
-        ));
+                  FluroRouter.router.navigateTo(
+                    context,
+                    nameSpaces + _tmpWidgetList[index].title,
+                  );
                 },
               ),
             );

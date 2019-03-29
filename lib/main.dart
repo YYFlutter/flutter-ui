@@ -17,7 +17,6 @@ class MainApp extends StatefulWidget {
   @override
   MainAppState createState() => MainAppState();
 }
-
 class MainAppState extends State<MainApp> {
   // 定义全局 语言代理
   AppLocalizationsDelegate _delegate;

@@ -35,25 +35,20 @@ class Store {
    * 设置数据层上下文
    */
   static setStoreCtx(context) {
-    print('setStoreCtx ============== $storeCtx ');
     storeCtx = context;
-    print('context====================== $storeCtx');
   }
 
   /**
    * 设置Widget上下文
    */
   static setWidgetCtx(context) {
-    print('setWidgetCtx ============== $storeCtx ');
     widgetCtx = context;
-    print('setWidgetCtx  ====================== $storeCtx');
   }
 
   /**
    * 获取
    */
   static T valueNotCtx<T>() {
-    print('============valueNotCtx $storeCtx ');
     return Provide.value<T>(storeCtx);
   }
 

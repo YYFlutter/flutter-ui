@@ -6,7 +6,6 @@ import 'component/tabs.dart' as TabIndex;
 import 'mine/index.dart' as MyIndex;
 import 'app-login/index.dart' as LoginIndex;
 
-import 'package:efox_flutter/utils/appVersion.dart' show AppVersion;
 import 'package:efox_flutter/store/index.dart' show Store, UserModel;
 
 class Index extends StatefulWidget {
@@ -21,10 +20,7 @@ class _IndexState extends State<Index> {
   void initState() {
     super.initState();
     _pageController = PageController();
-    print('==============home context $context');
-    // Store.setContext(context);
     Controller.initState();
-    AppVersion().check(context);
   }
 
   @override

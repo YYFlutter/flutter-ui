@@ -13,7 +13,7 @@ class UserModel with ChangeNotifier {
    * 登录控制
    */
   Future $loginController(context, payload) async {
-    dynamic result = $login(payload);
+    dynamic result = await $login(payload);
     if (result == true) {
       Scaffold.of(context).showSnackBar(new SnackBar(
         content: new Text('登录成功'),
