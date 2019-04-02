@@ -60,7 +60,7 @@ Flutter UI
           │  ├─placeholder
           │  ├─raisedbutton
           │  ├─rawimage
-          │  ├─stepper
+          │  ├─stepper  【✔️ v1.0】
           │  ├─text 【✔️ v1.0】
           │  └─tooltip
           ├─form
