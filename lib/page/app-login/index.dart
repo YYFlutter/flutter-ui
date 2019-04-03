@@ -86,6 +86,37 @@ class _IndexState extends State<Index> {
                         )
                       ],
                     ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      GestureDetector(
+                        child: Text(
+                          'Github账户登录说明',
+                          style: TextStyle(
+                            decoration: TextDecoration.underline,
+                            textBaseline: TextBaseline.ideographic,
+                            decorationColor: Color(0xff000000),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      GestureDetector(
+                        child: Text(
+                          '软件许可及服务协议',
+                          style: TextStyle(
+                            decoration: TextDecoration.underline,
+                            textBaseline: TextBaseline.ideographic,
+                            decorationColor: const Color(0xff000000),
+                          ),
+                        ),
+                      ),
+                    ],
                   )
                 ],
               ),

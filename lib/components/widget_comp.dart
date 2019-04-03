@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:efox_flutter/components/markdownComp.dart' as MarkDownComp;
+import 'package:efox_flutter/components/markdown_comp.dart' as markdown_comp;
 import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
-import 'package:efox_flutter/components/exampleComp.dart' as ExampleComp;
-import 'package:efox_flutter/components/updatingComp.dart' as UpdatingComp;
+import 'package:efox_flutter/components/example_comp.dart' as example_comp;
+import 'package:efox_flutter/components/updating_comp.dart' as updating_comp;
 import 'package:efox_flutter/utils/loadAsset.dart' as AssetUtils;
 import 'package:efox_flutter/router/index.dart' show FluroRouter;
 import 'package:efox_flutter/config/theme.dart' show AppTheme;
@@ -80,15 +80,15 @@ class IndexState extends State<Index> {
       this._bodyList.add(Divider());
     }
     if (mdText.length > 30) {
-      this._bodyList.add(await MarkDownComp.Index(mdText));
+      this._bodyList.add(await markdown_comp.Index(mdText));
       // demo
       if (widget.demoChild != null && widget.demoChild.length > 0) {
         widget.demoChild.forEach((Widget item) {
-          this._bodyList.add(ExampleComp.Index(child: item));
+          this._bodyList.add(example_comp.Index(child: item));
         });
       }
     } else {
-      this._bodyList.add(UpdatingComp.Index());
+      this._bodyList.add(updating_comp.Index());
     }
     setState(() {
       this.loading = false;
@@ -97,7 +97,7 @@ class IndexState extends State<Index> {
 
   @override
   Widget build(BuildContext context) {
-        print('widgetcomp context  =$context');
+        print('widget_comp context  =$context');
     return Scaffold(
       appBar: AppBar(
         elevation: 0,

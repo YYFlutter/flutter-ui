@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:efox_flutter/components/widgetComp.dart' as WidgetComp;
+import 'package:efox_flutter/components/widget_comp.dart' as widget_comp;
 import 'demo_custom_scrollview.dart' as DemoCustomScrollview;
 import 'demo_custom_scrollview_pinned.dart' as DemoCustomScrollviewPinned;
 import 'demo_custom_scrollview_floating.dart' as DemoCustomScrollviewFloating;
@@ -17,7 +17,7 @@ class Index extends StatefulWidget {
 class _IndexState extends State<Index> {
   @override
   Widget build(BuildContext context) {
-    return WidgetComp.Index(
+    return widget_comp.Index(
       title: Index.title,
       originCodeUrl: Index.originCodeUrl,
       mdUrl: Index.mdUrl,

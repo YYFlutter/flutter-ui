@@ -15,12 +15,8 @@ class UserModel with ChangeNotifier {
   Future $loginController(context, payload) async {
     dynamic result = await $login(payload);
     if (result == true) {
-      Scaffold.of(context).showSnackBar(new SnackBar(
-        content: new Text('登录成功'),
-      ));
       Navigator.of(context).pop();
     } else {
-      print('response $result');
       Scaffold.of(context).showSnackBar(new SnackBar(
         content: new Text('登录失败'),
       ));
@@ -34,45 +30,60 @@ class UserModel with ChangeNotifier {
     var credentials = base64.encode(bytes);
     const data = {
       "scopes": ["user", "repo", "gist", "notifications", "public_repo"],
-      "note": "admin_script2",
+      "note": "admin_script",
       "client_id": "d8eef6133f1a2be3a842",
       "client_secret": "2b005eed01c72aefd68fac5c5c7f2654f81c227a"
     };
     Options options = Options(headers: {'Authorization': 'Basic $credentials'});
-    var response = await Http.post(
+    var response = Http.post(
       url: 'https://api.github.com/authorizations',
       data: data,
       options: options,
     );
-    if (response['data'] != null) {
-      $setLoginRespInfo(response['data']);
+    return await response.then((resp) async {
+      await $setLoginRespInfo(resp.data);
       return true;
-    } else {
-      // $clearUserInfo();
-      return response;
-    }
+    }).catchError((error) {
+      $clearUserInfo();
+      return false;
+    });
   }
 
-  $setLoginRespInfo(payload) {
+  $setLoginRespInfo(payload) async {
     GitHubRespInfo user = GitHubRespInfo.fromJson(payload);
     LocalStorage.set('githubRespInfo', user.toString());
+    print('user.token.toString() ${user.token.toString()}');
     LocalStorage.set('githubRespLoginToken', user.token.toString());
-    $getUserInfo(); // 授权成功获取用户信息
+    await $getUserInfo(); // 授权成功获取用户信息
   }
 
   /**
    * 授权成功或打开app时获取用户信息
    */
   Future $getUserInfo() async {
-    var response = await Http.post(
+    var response = Http.post(
       url: 'https://api.github.com/user',
     );
-    if (response['data'] != null) {
-      UserInfo user = UserInfo.fromJson(response['data']);
+    await response.then((resp) {
+      UserInfo user = UserInfo.fromJson(resp.data);
       $setUserInfo(user);
-    } else {
-      $clearUserInfo();
+    }).catchError((error) {
+      print('ERROR $error');
+      // $clearUserInfo();
+    });
+  }
+
+  /**
+   * 获取本地数据，减少调用接口
+   */
+  $getLocalUserInfo() async {
+    String data = await LocalStorage.get('githubUserInfo');
+    if (data == null) {
+      $getUserInfo();
+      return;
     }
+    UserInfo user = UserInfo.fromJson(data);
+    $setUserInfo(user);
   }
 
   /**
@@ -80,6 +91,7 @@ class UserModel with ChangeNotifier {
    */
   $setUserInfo(payload) {
     user = payload;
+    LocalStorage.set('githubUserInfo', json.encode(payload));
     notifyListeners();
   }
 

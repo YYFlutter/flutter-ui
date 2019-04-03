@@ -1,43 +1,86 @@
 import 'package:flutter/material.dart';
+import 'package:efox_flutter/store/index.dart' show Store;
 
-// ignore: must_be_immutable
-class NetLoadingDialog extends StatefulWidget {
-  String loadingText;
-  bool outsideDismiss;
+bool loading = false;
+Set dict = Set();
 
-  Function dismissDialog;
-
-  NetLoadingDialog(
-      {Key key,
-      this.loadingText = "loading...",
-      this.outsideDismiss = true,
-      this.dismissDialog})
-      : super(key: key);
-
-  @override
-  State<NetLoadingDialog> createState() => _LoadingDialog();
+void beforeRequest(uri, Map<dynamic, dynamic> options) {
+  dict.add(uri);
+  if (loading == false) {
+    showAppLoading(options);
+    loading = true;
+  }
 }
 
-class _LoadingDialog extends State<NetLoadingDialog> {
-  _dismissDialog() {
-    Navigator.of(context).pop();
+void afterResponse(uri, Map<dynamic, dynamic> options) {
+  dict.remove(uri);
+  if (dict.length == 0 && loading == true) {
+    Navigator.of(Store.widgetCtx, rootNavigator: true).pop('close dialog');
+    loading = false;
   }
+}
+
+/**
+ * loading: 可配置参数
+ * requestOrComplete: 是否发送请求或已完成 true表示发送请求需要开启loading，false表示完成请求可关闭loading
+ */
+void showAppLoading(Map<dynamic, dynamic> options) {
+  options = {
+    'notLoading': options['notLoading'] ?? false,
+    'text': options['text'] ?? 'loading...'
+  };
+  showDialog(
+    context: Store.widgetCtx,
+    builder: (context) {
+      return LoadingDialog(text: options['text']);
+    },
+  );
+}
+
+class LoadingDialog extends StatefulWidget {
+  final String text;
+  LoadingDialog({Key key, @required this.text}) : super(key: key);
 
   @override
-  void initState() {
-    super.initState();
-    if (widget.dismissDialog != null) {
-      widget.dismissDialog(
+  LoadingDialogState createState() => LoadingDialogState();
+}
 
-          //将关闭 dialog的方法传递到调用的页面.
-          (){Navigator.of(context).pop();}
-
-      );
-    }
-  }
-
+class LoadingDialogState extends State<LoadingDialog> {
   @override
   Widget build(BuildContext context) {
-    return Text('haha');
-    }
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            SizedBox(
+              child: CircularProgressIndicator(
+                strokeWidth: 5,
+              ),
+              height: 50,
+              width: 50,
+            ),
+            Divider(
+              height: 10,
+            ),
+            widget.text != null
+                ? Text(
+                    widget.text,
+                    style: TextStyle(
+                        color: Theme.of(context).primaryTextTheme.title.color),
+                  )
+                : ''
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    loading = false;
+    dict.clear();
+  }
 }
