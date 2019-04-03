@@ -1,18 +1,18 @@
 # Flutter UI V1.0.0 代码规范
 
 ### 文件命名规范
-##### 文件夹小写“单”词，复合词建议用中划线隔开
+##### 文件夹小写“单”词，复合词建议用下划线隔开
 ```
 lib 
   |--components
   |--page
-    |--app-login
+    |--app_login
 ```
 
 *不建议以下写法 *
 ```
 lib 
-  |--common_component  【X】
+  |--common-component  【X】
   |--commonComponent  【X】
   |--homepage 【X】
 ```

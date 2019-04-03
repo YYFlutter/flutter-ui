@@ -4,7 +4,7 @@ import 'package:efox_flutter/controller/index.dart' as Controller;
 import 'package:efox_flutter/config/theme.dart' show AppTheme;
 import 'component/tabs.dart' as TabIndex;
 import 'mine/index.dart' as MyIndex;
-import 'app-login/index.dart' as LoginIndex;
+import 'app_login/index.dart' as LoginIndex;
 
 import 'package:efox_flutter/store/index.dart' show Store, UserModel;
 
