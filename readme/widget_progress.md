@@ -55,7 +55,7 @@ Flutter UI
           │  ├─flatbutton 【✔️ v1.0】
           │  ├─icon 【✔️ v1.0】
           │  ├─iconbutton
-          │  ├─image
+          │  ├─image 【✔️ v1.0】
           │  ├─listtile
           │  ├─placeholder
           │  ├─raisedbutton
