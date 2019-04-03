@@ -54,7 +54,7 @@ Flutter UI
           │  ├─divider 【✔️ v1.0】
           │  ├─flatbutton 【✔️ v1.0】
           │  ├─icon 【✔️ v1.0】
-          │  ├─iconbutton
+          │  ├─iconbutton 【✔️ v1.0】
           │  ├─image 【✔️ v1.0】
           │  ├─listtile 【✔️ v1.0】
           │  ├─placeholder
