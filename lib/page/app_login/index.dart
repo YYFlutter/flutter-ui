@@ -39,24 +39,24 @@ class _IndexState extends State<Index> {
                     controller: nameCtl,
                     autofocus: true,
                     decoration: InputDecoration(
-                      labelText: '账户名',
-                      hintText: '请输入Github账户名',
+                      labelText: AppLocalizations.$t('login.account'),
+                      hintText: AppLocalizations.$t('login.account_tips'),
                       icon: Icon(Icons.person),
                     ),
                     validator: (v) {
-                      return v.trim().length > 0 ? null : '用户名不能为空';
+                      return v.trim().length > 0 ? null : AppLocalizations.$t('login.account_error_tips');
                     },
                   ),
                   TextFormField(
                     controller: pwdCtl,
                     decoration: InputDecoration(
-                      labelText: '密码',
-                      hintText: '请输入登录密码',
+                      labelText: AppLocalizations.$t('login.password'),
+                      hintText: AppLocalizations.$t('login.password_tips'),
                       icon: Icon(Icons.lock),
                     ),
                     obscureText: true,
                     validator: (v) {
-                      return v.trim().length > 5 ? null : "密码不能少于6位";
+                      return v.trim().length > 0 ? null : AppLocalizations.$t('login.password_error_tips');
                     },
                   ),
                   Padding(

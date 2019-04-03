@@ -9,7 +9,7 @@ lib
     |--app_login
 ```
 
-*不建议以下写法 *
+不建议以下写法
 ```
 lib 
   |--common-component  【X】
@@ -24,7 +24,7 @@ lib
   |--page
 ```
 
-*不建议以下写法 *
+不建议以下写法
 ```
 lib 
   |--commonComponent.dart  【X】
@@ -88,7 +88,7 @@ var getName (int id) {
 }
 ```
 
-*不推荐如下写法 *
+不推荐如下写法
 
 ```
 constPI = 3.14;
@@ -102,7 +102,7 @@ class Animal {
 ```
 var name;
 ```
-*不建议写法 *
+不建议写法
 ```
 var name = null;
 ```

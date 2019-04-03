@@ -47,23 +47,52 @@ class _IndexState extends State<Index> {
     );
   }
 
+  List<Widget> renderTiles(id) {
+    if (id != null) {
+      return [
+        ListTile(
+          leading: Icon(Icons.exit_to_app),
+          title: Text(AppLocalizations.$t('common.logout')),
+          onTap: () {
+            Store.value<UserModel>(context).$clearUserInfo();
+          },
+        )
+      ];
+    }
+    return [
+      ListTile(
+        leading: Icon(Icons.account_circle),
+        title: Text(AppLocalizations.$t('common.login')),
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (BuildContext context) {
+                return LoginIndex.Index();
+              },
+            ),
+          );
+        },
+      )
+    ];
+  }
+
   /**
    * 抽屉面板
    */
   renderDrawer() {
     print('renderDrawer $context');
     return Drawer(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Container(
-            height: 200,
-            decoration: BoxDecoration(
-              color: Color(AppTheme.mainColor),
-            ),
-            child: Store.connect<UserModel>(
-              builder: (context, child, model) {
-                return Row(children: <Widget>[
+      child: Store.connect<UserModel>(builder: (context, child, model) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Container(
+              height: 200,
+              decoration: BoxDecoration(
+                color: Color(AppTheme.mainColor),
+              ),
+              child: Row(
+                children: <Widget>[
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20.0),
                     child: ClipOval(
@@ -76,40 +105,20 @@ class _IndexState extends State<Index> {
                     ),
                   ),
                   Text(
-                    Store.value<UserModel>(context).user.name ?? 'Guest',
+                    model.user.name ?? 'Guest',
                     style: TextStyle(fontWeight: FontWeight.bold),
                   )
-                ]);
-              },
+                ],
+              ),
             ),
-          ),
-          Expanded(
-            child: ListView(
-              children: <Widget>[
-                ListTile(
-                  leading: Icon(Icons.account_circle),
-                  title: Text(AppLocalizations.$t('common.login')),
-                  onTap: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (BuildContext context) {
-                      return LoginIndex.Index();
-                    }));
-                  },
-                ),
-                Divider(),
-                ListTile(
-                  leading: Icon(Icons.exit_to_app),
-                  title: Text(AppLocalizations.$t('common.logout')),
-                  onTap: () {
-                    Store.value<UserModel>(context).$clearUserInfo();
-                    // Store.value<UserModel>(context).$getUserInfo();
-                  },
-                ),
-              ],
+            Expanded(
+              child: ListView(
+                children: renderTiles(model.user.node_id),
+              ),
             ),
-          ),
-        ],
-      ),
+          ],
+        );
+      }),
     );
   }
 
