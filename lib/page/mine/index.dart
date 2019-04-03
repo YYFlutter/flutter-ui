@@ -5,7 +5,7 @@ import 'package:efox_flutter/config/theme.dart' show AppTheme;
 import 'package:efox_flutter/store/index.dart' show ConfigModel, Store;
 import 'package:efox_flutter/config/color.dart' show materialColor;
 import 'package:efox_flutter/utils/appVersion.dart' show AppVersion;
-import 'package:efox_flutter/components/expansionTile.dart' as Comp;
+import 'package:efox_flutter/components/expansion_tile.dart' as Comp;
 
 class _IndexState extends State<Index> {
   @override

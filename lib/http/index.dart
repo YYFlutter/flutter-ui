@@ -8,9 +8,7 @@ import 'package:dio/dio.dart'
         LogInterceptor,
         Response;
 import 'package:efox_flutter/utils/localStorage.dart' show LocalStorage;
-import 'log.dart' show log;
-import 'package:efox_flutter/store/index.dart' show Store;
-import 'loadingDialog.dart' as AppLoading;
+import 'loading.dart' as AppLoading;
 
 Dio getDio({options, loading}) {
   if (options == null) {
@@ -35,21 +33,21 @@ Dio getDio({options, loading}) {
         options.headers['Authorization'] = 'token $token';
       }
       await AppLoading.beforeRequest(options.uri, loading);
-      log('【发送请求】 ${options.uri} ', '${options.headers}  ${options.data}');
-      // Do something before request is sent
-      return options; //continue
-      // If you want to resolve the request with some custom data，
-      // you can return a `Response` object or return `dio.resolve(data)`.
-      // If you want to reject the request with a error message,
-      // you can return a `DioError` object or return `dio.reject(errMsg)`
+      print('=========【发送请求】Start============');
+      print("请求地址 ${options.uri}");
+      print("请求头 ${options.headers}");
+      print("请求参数 ${options.data}");
+      print('=========【发送请求】End============');
+      return options;
     },
     onResponse: (Response response) async {
-      log('【请求成功】 ${response.request.uri}，【状态码 ${response.statusCode}】',
-          response);
-      return Future.delayed(Duration(seconds: 3), () async {
-        await AppLoading.afterResponse(response.request.uri, loading);
-        return {'data': response.data}; // continue
-      });
+      print('=========【请求成功】Start============');
+      print("请求地址 ${response.request.uri}");
+      print("请求头 ${response.statusCode}");
+      print("请求参数 ${response.data}");
+      print('=========【请求成功】End============');
+      await AppLoading.afterResponse(response.request.uri, loading);
+      return response; 
     },
     onError: (DioError e) async {
       await AppLoading.afterResponse(e.request.uri, loading);
@@ -61,8 +59,12 @@ Dio getDio({options, loading}) {
         msg = e.response.data;
         status = e.response.statusCode;
       }
-      log('【请求失败】 ${e.request.uri}，【状态码 ${status}】【code】: ${code}', msg);
-      return {'msg': msg, 'code': code, 'status': status};
+      print('========【请求失败 Start】=============');
+      print("请求地址 ${e.request.uri}");
+      print("状态码 ${status}");
+      print("返回msg ${msg}");
+      print('=========【请求失败 End】============');
+      return dio.reject({'msg': msg, 'code': code, 'status': status});
     },
   ));
   dio.interceptors.add(LogInterceptor(responseBody: false)); //开启请求日志
@@ -72,14 +74,10 @@ Dio getDio({options, loading}) {
 
 Future<dynamic> get({url, data = const {}, options, loading}) async {
   return getDio(options: options, loading: loading ?? Map())
-      .get(url)
-      .then((resp) => resp.data);
+      .get(url);
 }
 
 Future post({url, data = const {}, options, loading}) async {
   return getDio(options: options, loading: loading ?? Map())
-      .post(url, data: data)
-      .then((resp) {
-    return resp.data;
-  });
+      .post(url, data: data);
 }
