@@ -55,12 +55,12 @@ Flutter UI
           │  ├─flatbutton 【✔️ v1.0】
           │  ├─icon 【✔️ v1.0】
           │  ├─iconbutton
-          │  ├─image
-          │  ├─listtile
+          │  ├─image 【✔️ v1.0】
+          │  ├─listtile 【✔️ v1.0】
           │  ├─placeholder
           │  ├─raisedbutton
           │  ├─rawimage
-          │  ├─stepper
+          │  ├─stepper  【✔️ v1.0】
           │  ├─text 【✔️ v1.0】
           │  └─tooltip
           ├─form

@@ -79,6 +79,7 @@ class IndexState extends State<Index> {
       this._bodyList.add(authorTile(nameKey));
       this._bodyList.add(Divider());
     }
+    print('文档完成长度：${mdText.length}');
     if (mdText.length > 30) {
       this._bodyList.add(await markdown_comp.Index(mdText));
       // demo
