@@ -4,34 +4,33 @@
 ##### 文件夹小写“单”词，复合词建议用中划线隔开
 ```
 lib 
-	|--components
-	|--page
-		|--app-login
+  |--components
+  |--page
+    |--app-login
 ```
 
 *不建议以下写法 *
 ```
 lib 
-	|--common_component  【X】
-	|--commonComponent  【X】
-	|--homepage 【X】
+  |--common_component  【X】
+  |--commonComponent  【X】
+  |--homepage 【X】
 ```
 ##### 文件名小写，多词建议用下划线
 ```
 lib 
-	|--components
-		|--webview_component.dart
-	|--page
+  |--components
+    |--webview_component.dart
+  |--page
 ```
 
 *不建议以下写法 *
 ```
 lib 
-	|--commonComponent.dart  【X】
-	|--home-page.dart 【X】
+  |--commonComponent.dart  【X】
+  |--home-page.dart 【X】
 ```
 
------------------------
 
 ### 引入库、类规范
 
@@ -63,7 +62,6 @@ import 'utils.dart' as Utils;
 import 'package:efox_flutter/utils/local_storage.dart' show LocalStorage;
 ```
 
------------------------
 
 ### 类命名规范
 
@@ -77,7 +75,6 @@ class DemoClass {
 class A { ... }
 ```
 
------------------------
 
 ### 变量命名规范
 ##### 常量建议使用小驼峰进行命名
@@ -110,7 +107,6 @@ var name;
 var name = null;
 ```
 
------------------------
 
 ### 流程控制
 ##### 减少else使用
@@ -128,7 +124,6 @@ print('user name is ${user.name}')
 print('their are $name and ${user.name})
 ```
 
------------------------
 
 ### 注释
 ##### 代码行内注释建议使用//
@@ -144,7 +139,6 @@ String getName (User user) {
 const pi = 3.14;
 ```
 
------------------------
 
 ### 类规范
 
@@ -181,7 +175,6 @@ Widget build(BuildContext context) {
 }
 ```
 
------------------------
 
 ### Future使用
 
@@ -194,7 +187,6 @@ Future request(String path) async {
 }
 ```
 
------------------------
 
 
 
