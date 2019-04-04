@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class UserInfo extends Object {
   String login;
   num id;
@@ -36,7 +38,7 @@ class UserInfo extends Object {
   num disk_usage;
   num collaborators;
   bool two_factor_authentication;
-  dynamic plan;
+  Plan plan;
 
   UserInfo({
     this.login,
@@ -79,86 +81,86 @@ class UserInfo extends Object {
     this.plan,
   });
 
-  UserInfo.fromJson(json) {
-    login = json['login'];
-    id = json['id'];
-    node_id = json['node_id'];
-    avatar_url = json['avatar_url'];
-    gravatar_id = json['gravatar_id'];
-    url = json['url'];
-    html_url = json['html_url'];
-    followers_url = json['followers_url'];
-    following_url = json['following_url'];
-    gists_url = json['gists_url'];
-    starred_url = json['starred_url'];
-    subscriptions_url = json['subscriptions_url'];
-    organizations_url = json['organizations_url'];
-    repos_url = json['repos_url'];
-    events_url = json['events_url'];
-    received_events_url = json['received_events_url'];
-    type = json['type'];
-    site_admin = json['site_admin'];
-    name = json['name'];
-    company = json['company'];
-    blog = json['blog'];
-    location = json['location'];
-    email = json['email'];
-    hireable = json['hireable'];
-    bio = json['bio'];
-    public_repos = json['public_repos'];
-    public_gists = json['public_gists'];
-    followers = json['followers'];
-    following = json['following'];
-    created_at = json['created_at'];
-    updated_at = json['updated_at'];
-    private_gists = json['private_gists'];
-    total_private_repos = json['total_private_repos'];
-    owned_private_repos = json['owned_private_repos'];
-    disk_usage = json['disk_usage'];
-    collaborators = json['collaborators'];
-    two_factor_authentication = json['two_factor_authentication'];
-    plan = Plan.fromJson(json['plan']);
+  UserInfo.fromJson(instance) {
+    login = instance['login'];
+    id = instance['id'];
+    node_id = instance['node_id'];
+    avatar_url = instance['avatar_url'];
+    gravatar_id = instance['gravatar_id'];
+    url = instance['url'];
+    html_url = instance['html_url'];
+    followers_url = instance['followers_url'];
+    following_url = instance['following_url'];
+    gists_url = instance['gists_url'];
+    starred_url = instance['starred_url'];
+    subscriptions_url = instance['subscriptions_url'];
+    organizations_url = instance['organizations_url'];
+    repos_url = instance['repos_url'];
+    events_url = instance['events_url'];
+    received_events_url = instance['received_events_url'];
+    type = instance['type'];
+    site_admin = instance['site_admin'];
+    name = instance['name'];
+    company = instance['company'];
+    blog = instance['blog'];
+    location = instance['location'];
+    email = instance['email'];
+    hireable = instance['hireable'];
+    bio = instance['bio'];
+    public_repos = instance['public_repos'];
+    public_gists = instance['public_gists'];
+    followers = instance['followers'];
+    following = instance['following'];
+    created_at = instance['created_at'];
+    updated_at = instance['updated_at'];
+    private_gists = instance['private_gists'];
+    total_private_repos = instance['total_private_repos'];
+    owned_private_repos = instance['owned_private_repos'];
+    disk_usage = instance['disk_usage'];
+    collaborators = instance['collaborators'];
+    two_factor_authentication = instance['two_factor_authentication'];
+    plan = Plan.fromJson(json.decode(instance['plan']));
   }
 
-  Map<String, dynamic> toJson(instance) => {
-        'login': instance.login,
-        'id': instance.id,
-        'node_id': instance.node_id,
-        'avatar_url': instance.avatar_url,
-        'gravatar_id': instance.gravatar_id,
-        'url': instance.url,
-        'html_url': instance.html_url,
-        'followers_url': instance.followers_url,
-        'following_url': instance.following_url,
-        'gists_url': instance.gists_url,
-        'starred_url': instance.starred_url,
-        'subscriptions_url': instance.subscriptions_url,
-        'organizations_url': instance.organizations_url,
-        'repos_url': instance.repos_url,
-        'events_url': instance.events_url,
-        'received_events_url': instance.received_events_url,
-        'type': instance.type,
-        'site_admin': instance.site_admin,
-        'name': instance.name,
-        'company': instance.company,
-        'blog': instance.blog,
-        'location': instance.location,
-        'email': instance.email,
-        'hireable': instance.hireable,
-        'bio': instance.bio,
-        'public_repos': instance.public_repos,
-        'public_gists': instance.public_gists,
-        'followers': instance.followers,
-        'following': instance.following,
-        'created_at': instance.created_at,
-        'updated_at': instance.updated_at,
-        'private_gists': instance.private_gists,
-        'total_private_repos': instance.total_private_repos,
-        'owned_private_repos': instance.owned_private_repos,
-        'disk_usage': instance.disk_usage,
-        'collaborators': instance.collaborators,
-        'two_factor_authentication': instance.two_factor_authentication,
-        'plan': instance.plan,
+  Map<String, dynamic> toJson() => {
+        'login': login,
+        'id': id,
+        'node_id': node_id,
+        'avatar_url': avatar_url,
+        'gravatar_id': gravatar_id,
+        'url': url,
+        'html_url': html_url,
+        'followers_url': followers_url,
+        'following_url': following_url,
+        'gists_url': gists_url,
+        'starred_url': starred_url,
+        'subscriptions_url': subscriptions_url,
+        'organizations_url': organizations_url,
+        'repos_url': repos_url,
+        'events_url': events_url,
+        'received_events_url': received_events_url,
+        'type': type,
+        'site_admin': site_admin,
+        'name': name,
+        'company': company,
+        'blog': blog,
+        'location': location,
+        'email': email,
+        'hireable': hireable,
+        'bio': bio,
+        'public_repos': public_repos,
+        'public_gists': public_gists,
+        'followers': followers,
+        'following': following,
+        'created_at': created_at,
+        'updated_at': updated_at,
+        'private_gists': private_gists,
+        'total_private_repos': total_private_repos,
+        'owned_private_repos': owned_private_repos,
+        'disk_usage': disk_usage,
+        'collaborators': collaborators,
+        'two_factor_authentication': two_factor_authentication,
+        'plan': json.encode(plan),
       };
 }
 
@@ -175,17 +177,19 @@ class Plan extends Object {
     this.private_repos,
   });
 
-  Plan.fromJson(Map<String, dynamic> json) {
-    name = json['name'];
-    space = json['space'];
-    collaborators = json['collaborators'];
-    private_repos = json['private_repos'];
+  Plan.fromJson(Map<String, dynamic> instance) {
+    if (instance != null) {
+      name = instance['name'];
+      space = instance['space'];
+      collaborators = instance['collaborators'];
+      private_repos = instance['private_repos'];
+    }
   }
 
-  Map<String, dynamic> toJson(instance) => {
-        'name': instance.name,
-        'space': instance.space,
-        'collaborators': instance.collaborators,
-        'private_repos': instance.private_repos,
+  Map<String, dynamic> toJson() => {
+        'name': name,
+        'space': space,
+        'collaborators': collaborators,
+        'private_repos': private_repos,
       };
 }

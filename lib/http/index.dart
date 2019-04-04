@@ -44,7 +44,7 @@ Dio getDio({options, loading}) {
       print('=========【请求成功】Start============');
       print("请求地址 ${response.request.uri}");
       print("请求头 ${response.statusCode}");
-      print("请求参数 ${response.data}");
+      print("返回值 ${response.data}");
       print('=========【请求成功】End============');
       await AppLoading.afterResponse(response.request.uri, loading);
       return response; 

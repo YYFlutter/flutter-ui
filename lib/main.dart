@@ -8,10 +8,11 @@ import 'package:efox_flutter/store/index.dart'
 import 'package:efox_flutter/router/index.dart' show FluroRouter; //路由
 import 'package:efox_flutter/config/theme.dart' show AppTheme; //主题
 import 'package:efox_flutter/utils/analytics.dart' as Analytics; //统计
-
+// import './mock/index.dart' as TestCase;
 class MainApp extends StatefulWidget {
   MainApp() {
     FluroRouter.initRouter();
+    // TestCase.runTestCase();
   }
 
   @override

@@ -56,7 +56,7 @@ class _IndexState extends State<Index> {
           onTap: () {
             Store.value<UserModel>(context).$clearUserInfo();
           },
-        )
+        ),
       ];
     }
     return [
@@ -113,7 +113,7 @@ class _IndexState extends State<Index> {
             ),
             Expanded(
               child: ListView(
-                children: renderTiles(model.user.node_id),
+                children: renderTiles(model.user.id),
               ),
             ),
           ],

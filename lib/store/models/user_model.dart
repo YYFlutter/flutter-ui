@@ -1,22 +1,35 @@
+import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'package:flutter/foundation.dart' show ChangeNotifier;
 import 'package:dio/dio.dart' show Options;
 import '../objects/user_info.dart' show UserInfo;
 import '../objects/github_resp_info.dart' show GitHubRespInfo;
 import 'package:efox_flutter/http/index.dart' as Http;
-import 'dart:convert';
-import 'package:flutter/foundation.dart' show ChangeNotifier;
 import 'package:efox_flutter/utils/localStorage.dart' show LocalStorage;
-import 'package:flutter/material.dart';
+import 'package:efox_flutter/http/loading.dart' as Loading;
 
 class UserModel with ChangeNotifier {
   UserInfo user = UserInfo();
+  Future testLogin() async {
+    await Loading.beforeRequest('aaa', {});
+    return Future.delayed(Duration(seconds: 3), () async {
+      await Loading.afterResponse('aaa', {});
+      print("返回中");
+      return true;
+    });
+  }
+
   /**
    * 登录控制
    */
   Future $loginController(context, payload) async {
     dynamic result = await $login(payload);
+    print('返回result $result');
     if (result == true) {
+      print('登录成功后退');
       Navigator.of(context).pop();
     } else {
+      print('登录失败');
       Scaffold.of(context).showSnackBar(new SnackBar(
         content: new Text('登录失败'),
       ));
@@ -78,11 +91,12 @@ class UserModel with ChangeNotifier {
    */
   $getLocalUserInfo() async {
     String data = await LocalStorage.get('githubUserInfo');
+    print("本地数据 $data");
     if (data == null) {
       $getUserInfo();
       return;
     }
-    UserInfo user = UserInfo.fromJson(data);
+    UserInfo user = UserInfo.fromJson(json.decode(data));
     $setUserInfo(user);
   }
 
@@ -91,7 +105,9 @@ class UserModel with ChangeNotifier {
    */
   $setUserInfo(payload) {
     user = payload;
-    LocalStorage.set('githubUserInfo', json.encode(payload));
+    if (user != null && user.id != null) {
+      LocalStorage.set('githubUserInfo', json.encode(user));
+    }
     notifyListeners();
   }
 
@@ -100,6 +116,7 @@ class UserModel with ChangeNotifier {
    */
   $clearUserInfo() {
     user = UserInfo();
+    LocalStorage.remove('githubUserInfo');
     LocalStorage.remove('githubRespInfo');
     LocalStorage.remove('githubRespLoginToken');
     notifyListeners();
