@@ -4,7 +4,7 @@
 class GitHubRespInfo extends Object {
   num id;
   String url;
-  Map app;
+  App app;
   String token;
   String hashed_token;
   String token_last_eight;
@@ -45,19 +45,19 @@ class GitHubRespInfo extends Object {
     fingerprint = json['fingerprint'];
   }
 
-  Map<String, dynamic> toJson(instance) => {
-        'id': instance.id,
-        'url': instance.url,
-        'app': App.fromJson(instance.app),
-        'token': instance.token,
-        'hashed_token': instance.hashed_token,
-        'token_last_eight': instance.token_last_eight,
-        'note': instance.note,
-        'note_url': instance.note_url,
-        'created_at': instance.created_at,
-        'updated_at': instance.updated_at,
-        'scopes': instance.scopes,
-        'fingerprint': instance.fingerprint,
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'url': url,
+        'app': App.fromJson(app),
+        'token': token,
+        'hashed_token': hashed_token,
+        'token_last_eight': token_last_eight,
+        'note': note,
+        'note_url': note_url,
+        'created_at': created_at,
+        'updated_at': updated_at,
+        'scopes': scopes,
+        'fingerprint': fingerprint,
       };
 }
 
@@ -84,11 +84,11 @@ class App extends Object {
     map = json['map'];
   }
 
-  Map<String, dynamic> toJson(instance) => {
-        'str': instance.str,
-        'number': instance.number,
-        'boolean': instance.boolean,
-        'array': instance.array,
-        'map': instance.map,
+  Map<String, dynamic> toJson() => {
+        'str': str,
+        'number': number,
+        'boolean': boolean,
+        'array': array,
+        'map': map,
       };
 }

@@ -134,8 +134,8 @@ class _IndexState extends State<Index> {
                                     .validate()) {
                                   await Store.value<UserModel>(context)
                                       .$loginController(context, {
-                                    'name': nameCtl.text,
-                                    'pwd': pwdCtl.text
+                                    'name': nameCtl.text.trim(),
+                                    'pwd': pwdCtl.text.trim()
                                   });
                                 }
                               },

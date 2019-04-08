@@ -119,7 +119,7 @@ class UserInfo extends Object {
     disk_usage = instance['disk_usage'];
     collaborators = instance['collaborators'];
     two_factor_authentication = instance['two_factor_authentication'];
-    plan = Plan.fromJson(json.decode(instance['plan']));
+    plan = Plan.fromJson(instance['plan']);
   }
 
   Map<String, dynamic> toJson() => {
@@ -160,7 +160,7 @@ class UserInfo extends Object {
         'disk_usage': disk_usage,
         'collaborators': collaborators,
         'two_factor_authentication': two_factor_authentication,
-        'plan': json.encode(plan),
+        'plan': plan,
       };
 }
 
@@ -177,8 +177,11 @@ class Plan extends Object {
     this.private_repos,
   });
 
-  Plan.fromJson(Map<String, dynamic> instance) {
+  Plan.fromJson(instance) {
     if (instance != null) {
+      if (instance.runtimeType == String) {
+        instance = json.decode(instance);
+      }
       name = instance['name'];
       space = instance['space'];
       collaborators = instance['collaborators'];
