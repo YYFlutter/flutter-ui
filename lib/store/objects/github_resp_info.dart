@@ -33,7 +33,7 @@ class GitHubRespInfo extends Object {
   GitHubRespInfo.fromJson(json) {
     id = json['id'];
     url = json['url'];
-    app = json['app'];
+    app = App.fromJson(json['app']);
     token = json['token'];
     hashed_token = json['hashed_token'];
     token_last_eight = json['token_last_eight'];
@@ -48,7 +48,7 @@ class GitHubRespInfo extends Object {
   Map<String, dynamic> toJson() => {
         'id': id,
         'url': url,
-        'app': App.fromJson(app),
+        'app': app,
         'token': token,
         'hashed_token': hashed_token,
         'token_last_eight': token_last_eight,

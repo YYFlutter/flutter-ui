@@ -6,24 +6,23 @@ import '../objects/user_info.dart' show UserInfo;
 import '../objects/github_resp_info.dart' show GitHubRespInfo;
 import 'package:efox_flutter/http/index.dart' as Http;
 import 'package:efox_flutter/utils/localStorage.dart' show LocalStorage;
-import 'package:efox_flutter/http/loading.dart' as Loading;
 
 class UserModel with ChangeNotifier {
   UserInfo user = UserInfo();
   Future testLogin() async {
-    await Loading.beforeRequest('aaa', {});
-    return Future.delayed(Duration(seconds: 3), () async {
-      await Loading.afterResponse('aaa', {});
-      print("返回中");
+    return await Http.post(url: 'http://www.baidu.com').then((res) {
       return true;
+    }).catchError((error) async {
+      return await getUserInfo();
     });
   }
 
   /**
    * 登录控制
    */
-  Future $loginController(context, payload) async {
-    dynamic result = await $login(payload);
+  Future loginController(context, payload) async {
+    dynamic result = await login(payload);
+    // dynamic result = await testLogin();
     print('返回result $result');
     if (result == true) {
       print('登录成功后退');
@@ -36,7 +35,7 @@ class UserModel with ChangeNotifier {
     }
   }
 
-  Future $login(payload) async {
+  Future login(payload) async {
     var name = payload['name'];
     var pwd = payload['pwd'];
     var bytes = utf8.encode("$name:$pwd");
@@ -54,56 +53,56 @@ class UserModel with ChangeNotifier {
       options: options,
     );
     return await response.then((resp) async {
-      await $setLoginRespInfo(resp.data);
-      return true;
+      return await setLoginRespInfo(resp.data);
     }).catchError((error) {
-      $clearUserInfo();
+      clearUserInfo();
       return false;
     });
   }
 
-  $setLoginRespInfo(payload) async {
+  setLoginRespInfo(payload) async {
     GitHubRespInfo user = GitHubRespInfo.fromJson(payload);
     LocalStorage.set('githubRespInfo', user.toString());
     print('user.token.toString() ${user.token.toString()}');
     LocalStorage.set('githubRespLoginToken', user.token.toString());
-    await $getUserInfo(); // 授权成功获取用户信息
+    return await getUserInfo(); // 授权成功获取用户信息
   }
 
   /**
    * 授权成功或打开app时获取用户信息
    */
-  Future $getUserInfo() async {
+  Future getUserInfo() async {
     var response = Http.post(
       url: 'https://api.github.com/user',
     );
-    await response.then((resp) {
+    return await response.then((resp) {
       UserInfo user = UserInfo.fromJson(resp.data);
-      $setUserInfo(user);
+      setUserInfo(user);
+      return true;
     }).catchError((error) {
       print('ERROR $error');
-      // $clearUserInfo();
+      return false;
     });
   }
 
   /**
    * 获取本地数据，减少调用接口
    */
-  $getLocalUserInfo() async {
+  getLocalUserInfo() async {
     String data = await LocalStorage.get('githubUserInfo');
     print("本地数据 $data");
     if (data == null) {
-      $getUserInfo();
+      getUserInfo();
       return;
     }
     UserInfo user = UserInfo.fromJson(json.decode(data));
-    $setUserInfo(user);
+    setUserInfo(user);
   }
 
   /**
    * 设置用户信息
    */
-  $setUserInfo(payload) {
+  setUserInfo(payload) {
     user = payload;
     if (user != null && user.id != null) {
       LocalStorage.set('githubUserInfo', json.encode(user));
@@ -114,7 +113,7 @@ class UserModel with ChangeNotifier {
   /**
    * 清空用户信息
    */
-  $clearUserInfo() {
+  clearUserInfo() {
     user = UserInfo();
     LocalStorage.remove('githubUserInfo');
     LocalStorage.remove('githubRespInfo');

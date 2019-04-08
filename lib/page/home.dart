@@ -54,7 +54,7 @@ class _IndexState extends State<Index> {
           leading: Icon(Icons.exit_to_app),
           title: Text(AppLocalizations.$t('common.logout')),
           onTap: () {
-            Store.value<UserModel>(context).$clearUserInfo();
+            Store.value<UserModel>(context).clearUserInfo();
           },
         ),
       ];

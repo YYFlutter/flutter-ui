@@ -179,9 +179,6 @@ class Plan extends Object {
 
   Plan.fromJson(instance) {
     if (instance != null) {
-      if (instance.runtimeType == String) {
-        instance = json.decode(instance);
-      }
       name = instance['name'];
       space = instance['space'];
       collaborators = instance['collaborators'];

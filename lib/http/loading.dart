@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/store/index.dart' show Store;
 
+
 bool loading = false;
 Set dict = Set();
 
@@ -46,6 +47,11 @@ class LoadingDialog extends StatefulWidget {
 }
 
 class LoadingDialogState extends State<LoadingDialog> {
+
+  @override
+  void initState() {
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,9 +84,9 @@ class LoadingDialogState extends State<LoadingDialog> {
   }
 
   @override
-  void dispose() {
-    super.dispose();
-    loading = false;
-    dict.clear();
+  void dispose() async {
+    await super.dispose();
+    // loading = false;
+    // await dict.clear();
   }
 }

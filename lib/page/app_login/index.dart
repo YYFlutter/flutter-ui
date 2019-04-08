@@ -133,7 +133,7 @@ class _IndexState extends State<Index> {
                                 if ((_formKey.currentState as FormState)
                                     .validate()) {
                                   await Store.value<UserModel>(context)
-                                      .$loginController(context, {
+                                      .loginController(context, {
                                     'name': nameCtl.text.trim(),
                                     'pwd': pwdCtl.text.trim()
                                   });
