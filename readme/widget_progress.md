@@ -58,7 +58,7 @@ Flutter UI
           │  ├─image 【✔️ v1.0】
           │  ├─listtile 【✔️ v1.0】
           │  ├─placeholder
-          │  ├─raisedbutton
+          │  ├─raisedbutton 【✔️ v1.0】
           │  ├─rawimage
           │  ├─stepper  【✔️ v1.0】
           │  ├─text 【✔️ v1.0】
