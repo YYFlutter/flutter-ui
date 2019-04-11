@@ -1,15 +1,9 @@
 {
-    "nav_title_0": "Components",
-    "nav_title_1": "My",
     "title_component": "Components",
     "title_my": "My",
-    "widgetType": {
-        "regularLayout": "common layout"
-    },
     "common": {
-        "changeLanguage": "显示中文",
-        "changeVersion": "checkVersion",
-        "compProgress": "Components Progress"
+        "login": "Sign In",
+        "logout": "Logout"
     },
     "common_mine_1": {
         "cn": "CN",
@@ -24,6 +18,14 @@
     "mine": {
         "loadNetwork": "Load Network Document Resources",
         "loadLocal": "Load Local Document Resources"
+    },
+    "login": {
+        "account": "Account",
+        "account_tips": "Please Input Account",
+        "account_error_tips": "Account Is Not Empty",
+        "password": "Password",
+        "password_tips": "Please Input Password",
+        "password_error_tips": "Password Is Not Empty"
     },
     "loading": "Loading",
     "ScrollComponents": "ScrollComponents",

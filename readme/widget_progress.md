@@ -54,13 +54,13 @@ Flutter UI
           │  ├─divider 【✔️ v1.0】
           │  ├─flatbutton 【✔️ v1.0】
           │  ├─icon 【✔️ v1.0】
-          │  ├─iconbutton
-          │  ├─image
-          │  ├─listtile
+          │  ├─iconbutton 【✔️ v1.0】
+          │  ├─image 【✔️ v1.0】
+          │  ├─listtile 【✔️ v1.0】
           │  ├─placeholder
-          │  ├─raisedbutton
+          │  ├─raisedbutton 【✔️ v1.0】
           │  ├─rawimage
-          │  ├─stepper
+          │  ├─stepper  【✔️ v1.0】
           │  ├─text 【✔️ v1.0】
           │  └─tooltip
           ├─form
@@ -81,7 +81,7 @@ Flutter UI
           │  ├─absorbpointer
           │  ├─dismissible
           │  ├─dragtarget
-          │  ├─gesturedetector
+          │  ├─gesturedetector 【✔️ v1.0】
           │  ├─ignorepointer
           │  └─longpressdraggable 【✔️ v1.0】
           ├─navigator

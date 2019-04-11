@@ -1,5 +1,14 @@
-import 'package:efox_flutter/store/index.dart' show model;
+import 'package:efox_flutter/store/index.dart'
+    show Store, ConfigModel, UserModel;
+
+import 'package:efox_flutter/utils/appVersion.dart' show AppVersion;
 
 void initState() {
-  model.dispatch('config', 'setVersion');
+  // 获取版本号
+  Store.valueNotCtx<ConfigModel>().$getAppVersion();
+  // 登录
+  Store.valueNotCtx<UserModel>().getLocalUserInfo();
+  Future.delayed(Duration(seconds: 3), () {
+    AppVersion().check(Store.widgetCtx);
+  });
 }

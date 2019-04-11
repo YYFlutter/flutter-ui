@@ -1,15 +1,9 @@
 {
-    "nav_title_0": "组件",
-    "nav_title_1": "我的",
     "title_component": "组件",
     "title_my": "我的",
-    "widgetType": {
-        "regularLayout": "常规布局"
-    },
     "common": {
-        "changeLanguage": "Switch to English",
-        "changeVersion": "更新版本",
-        "compProgress": "组件进度"
+        "login": "登录",
+        "logout": "退出"
     },
     "common_mine_1": {
         "cn": "中文",
@@ -24,6 +18,14 @@
     "mine": {
         "loadNetwork": "网络优良,可选择加载线上文档资源",
         "loadLocal": "网络较差时,可选择加载本地文档资源"
+    },
+    "login": {
+        "account": "账户名",
+        "account_tips": "请输入账户名",
+        "account_error_tips": "用户名不能为空",
+        "password": "密码",
+        "password_tips": "请输入登录密码",
+        "password_error_tips": "密码不能为空"
     },
     "loading": "加载中",
     "ScrollComponents": "滚动",
