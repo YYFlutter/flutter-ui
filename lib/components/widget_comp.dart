@@ -106,6 +106,7 @@ class IndexState extends State<Index> {
         actions: this.getActions(
           context,
         ),
+        brightness: Brightness.light,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           color: Color(AppTheme.blackColor),
