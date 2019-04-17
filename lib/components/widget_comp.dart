@@ -116,6 +116,29 @@ class IndexState extends State<Index> {
     );
   }
 
+  showCode(context) async {
+    if (Store.value<ConfigModel>(context).isPro) {
+      // 线上文档
+      FluroRouter.router.navigateTo(
+        context,
+        'webview?title=${widget.title}&url=${Uri.encodeComponent(Store.value<ConfigModel>(context).env.githubAssetOrigin+widget.mdUrl)}'
+        );
+    } else {
+      // 加载本地
+      String mdStr = await AssetUtils.readLocaleFile(widget.mdUrl);
+      Navigator.of(context).push(
+        MaterialPageRoute(builder: (BuildContext build) {
+          return Scaffold(
+            appBar: AppBar(title: Text(widget.title),),
+            body: ListView(
+              children: <Widget>[markdown_comp.Index(mdStr)],
+            ),
+          );
+        })
+      );
+    }
+  }
+
   Future getMdFile(url) async {
     // bool productionEnv = Store.value<ConfigModel>(context).isPro;
     bool productionEnv = false;
@@ -128,6 +151,15 @@ class IndexState extends State<Index> {
 
   getActions(context) {
     return [
+      IconButton(
+        color: Color(AppTheme.blackColor),
+        icon: Icon(
+          Icons.code
+        ),
+        onPressed: () async {
+          this.showCode(context);
+        },
+      ),
       IconButton(
         color: Color(AppTheme.blackColor),
         icon: Icon(

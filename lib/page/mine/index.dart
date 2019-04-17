@@ -111,6 +111,18 @@ class _IndexState extends State<Index> {
             Divider(
               color: Color(AppTheme.lineColor),
             ),
+            ListTile(
+              onTap: () {
+                Store.value<ConfigModel>(context).$setIsPro();
+              },
+              leading: Icon(Icons.verified_user),
+              title: Text(
+                Store.value<ConfigModel>(context).isPro ? '线上环境' : '本地环境'
+              ),
+            ),
+            Divider(
+              color: Color(AppTheme.lineColor),
+            ),
             (Platform.isAndroid)
                 ? ListTile(
                     onTap: () {
