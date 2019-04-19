@@ -7,7 +7,7 @@ void initState() {
   // 获取版本号
   Store.valueNotCtx<ConfigModel>().$getAppVersion();
   // 登录
-  Store.valueNotCtx<UserModel>().getLocalUserInfo();
+  //Store.valueNotCtx<UserModel>().getLocalUserInfo();
   Future.delayed(Duration(seconds: 3), () {
     AppVersion().check(Store.widgetCtx);
   });

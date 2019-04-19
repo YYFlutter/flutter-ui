@@ -116,9 +116,9 @@ class _IndexState extends State<Index> {
                 Store.value<ConfigModel>(context).$setIsPro();
               },
               leading: Icon(Icons.verified_user),
-              title: Text(
-                Store.value<ConfigModel>(context).isPro ? '线上环境' : '本地环境'
-              ),
+              title: Text(Store.value<ConfigModel>(context).isPro
+                  ? AppLocalizations.$t('common_mine_1.doc_online')
+                  : AppLocalizations.$t('common_mine_1.doc_offline')),
             ),
             Divider(
               color: Color(AppTheme.lineColor),

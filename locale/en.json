@@ -13,7 +13,9 @@
         "compProgress": "Components Progress",
         "success": "Success To Change ",
         "theme": "Select Theme",
-        "version": "Version"
+        "version": "Version",
+        "doc_online": "document online",
+        "doc_offline": "document offline"
     },
     "mine": {
         "loadNetwork": "Load Network Document Resources",

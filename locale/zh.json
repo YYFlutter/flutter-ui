@@ -13,7 +13,9 @@
         "compProgress": "组件进度",
         "success": "切换成功",
         "theme": "选择主题",
-        "version": "版本"
+        "version": "版本",
+        "doc_online": "线上文档",
+        "doc_offline": "离线文档"
     },
     "mine": {
         "loadNetwork": "网络优良,可选择加载线上文档资源",
