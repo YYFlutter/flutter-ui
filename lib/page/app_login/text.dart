@@ -1,0 +1,1 @@
+const loginText = 'a1sd56a1sd56as1d';

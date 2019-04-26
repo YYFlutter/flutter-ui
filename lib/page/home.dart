@@ -47,6 +47,9 @@ class _IndexState extends State<Index> {
     );
   }
 
+  /**
+   * 左侧列表
+   */
   List<Widget> renderTiles(id) {
     if (id != null) {
       return [
@@ -57,6 +60,19 @@ class _IndexState extends State<Index> {
             Store.value<UserModel>(context).clearUserInfo();
           },
         ),
+        ListTile(
+          leading: Icon(Icons.account_circle),
+          title: Text(AppLocalizations.$t('common.login')),
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (BuildContext context) {
+                  return LoginIndex.Index();
+                },
+              ),
+            );
+          },
+        )
       ];
     }
     return [
