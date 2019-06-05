@@ -1,6 +1,8 @@
 {
     "title_component": "Components",
     "title_my": "My",
+    "title_comment": "comment",
+    "title_library": "library",
     "common": {
         "login": "Sign In",
         "logout": "Logout"
