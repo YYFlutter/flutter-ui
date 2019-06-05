@@ -30,20 +30,24 @@ class _IndexState extends State<Index> {
   }
 
   Widget _bottomNavigationBar() {
-    return BottomNavigationBar(
-      items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-            title: Text(AppLocalizations.$t('title_component')),
-            icon: Icon(Icons.dashboard)),
-        BottomNavigationBarItem(
-            title: Text(AppLocalizations.$t('title_my')),
-            icon: Icon(Icons.person_outline)),
-      ],
-      type: BottomNavigationBarType.fixed,
-      currentIndex: _currentIndex,
-      onTap: (int index) {
-        _pageController.jumpToPage(index);
-      },
+    return BottomAppBar(
+      shape: CircularNotchedRectangle(),
+      clipBehavior: Clip.antiAlias,
+      child: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+              title: Text(AppLocalizations.$t('title_component')),
+              icon: Icon(Icons.dashboard)),
+          BottomNavigationBarItem(
+              title: Text(AppLocalizations.$t('title_my')),
+              icon: Icon(Icons.person_outline)),
+        ],
+        // type: BottomNavigationBarType.fixed,
+        currentIndex: _currentIndex,
+        onTap: (int index) {
+          _pageController.jumpToPage(index);
+        },
+      ),
     );
   }
 
@@ -55,6 +59,7 @@ class _IndexState extends State<Index> {
           title: Text(AppLocalizations.$t('common.logout')),
           onTap: () {
             Store.value<UserModel>(context).clearUserInfo();
+            Store.value<UserModel>(context).changeIsStar(false);
           },
         ),
       ];
@@ -122,12 +127,55 @@ class _IndexState extends State<Index> {
     );
   }
 
+  Widget _floatingActionButton() {
+    return Store.connect<UserModel>(
+      builder: (context, child, model) {
+        return FloatingActionButton(
+          backgroundColor: Theme.of(context).primaryColor,
+          onPressed: () {
+            if(!model.isStar&&model.user.id != null) {
+              print('进行star');
+              model.setStarFlutterUI();
+            } else {
+              print('不满足进行star条件');
+              if(model.user.id == null) {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return LoginIndex.Index();
+                    }
+                  )
+                );
+              }
+            }
+          },
+          child: Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                model.isStar
+                ?Icon(Icons.star,size: 20, color: Colors.white)
+                :Icon(Icons.star_border, size: 20, color: Colors.white),
+                Text(
+                  '${model.flutter_ui_info.stargazersCount.toString()}',
+                  style: TextStyle(color: Colors.white)
+                )
+              ],
+            ),
+          ),
+        );
+      }
+    );
+  } 
+
   @override
   Widget build(BuildContext context) {
     Store.setWidgetCtx(context); // 初始化scaffold的上下文作为全局上下文，提供弹窗等使用。
     return Scaffold(
       drawer: renderDrawer(),
       bottomNavigationBar: _bottomNavigationBar(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: _floatingActionButton(),
       body: PageView(
         controller: _pageController,
         physics: NeverScrollableScrollPhysics(),

@@ -137,6 +137,7 @@ class _IndexState extends State<Index> {
                                     'name': nameCtl.text.trim(),
                                     'pwd': pwdCtl.text.trim()
                                   });
+                                  await Store.value<UserModel>(context).getUserStar();
                                 }
                               },
                             ),

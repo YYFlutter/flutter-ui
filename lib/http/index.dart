@@ -82,3 +82,8 @@ Future post({url, data = const {}, options, loading}) async {
   return getDio(options: options, loading: loading ?? Map())
       .post(url, data: data);
 }
+
+Future put({url, data = const {}, options, loading}) async {
+  return getDio(options: options, loading: loading ?? Map())
+      .put(url, data: data);
+}
