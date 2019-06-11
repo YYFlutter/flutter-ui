@@ -54,6 +54,9 @@ class _IndexState extends State<Index> {
         // type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,
         onTap: (int index) {
+          if(index == 1&&_currentIndex!=index) {
+            Store.value<UserModel>(context).getIssueFlutterUI();
+          }
           _pageController.jumpToPage(index);
         },
       ),

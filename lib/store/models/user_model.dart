@@ -8,10 +8,12 @@ import 'package:efox_flutter/http/index.dart' as Http;
 import 'package:efox_flutter/utils/localStorage.dart' show LocalStorage;
 import 'package:efox_flutter/config/index.dart' show owner_repo;
 import '../objects/flutter_ui_info.dart' show FlutterUiInfo;
+import '../objects/flutter_ui_issues.dart' show FlutterUiIssues;
 
 class UserModelInfo {
   bool isStar = false;  // 用户是否star了flutter ui项目
   FlutterUiInfo flutter_ui_info = FlutterUiInfo(); // flutter ui项目信息
+  FlutterUiIssues flutter_ui_issues = FlutterUiIssues(); // flutter ui的issues内容
 }
 
 class UserModel extends UserModelInfo with ChangeNotifier {
@@ -201,6 +203,26 @@ class UserModel extends UserModelInfo with ChangeNotifier {
       }
     }).catchError((error) {
       print('用户star flutter ui项目错误: $error');
+    });
+  }
+
+  /**
+   * 获取flutter ui的issue内容
+   */
+  getIssueFlutterUI() {
+    var response = Http.get(
+      url: 'https://api.github.com/repos/efoxTeam/flutter-ui/issues'
+    );
+    response.then((resp) {
+      var data = {
+        "issues_content": resp.data
+      };
+      print('获取flutter ui的issue内容:${data}');
+      flutter_ui_issues = FlutterUiIssues.fromJson(data);
+      notifyListeners();
+      return flutter_ui_issues;
+    }).catchError((error) {
+      print('获取flutter ui的issue内容出错：$error');
     });
   }
 }
