@@ -9,11 +9,13 @@ import 'package:efox_flutter/utils/localStorage.dart' show LocalStorage;
 import 'package:efox_flutter/config/index.dart' show owner_repo;
 import '../objects/flutter_ui_info.dart' show FlutterUiInfo;
 import '../objects/flutter_ui_issues.dart' show FlutterUiIssues;
+import '../objects/issues_comment.dart' show IssuesComment;
 
 class UserModelInfo {
   bool isStar = false;  // 用户是否star了flutter ui项目
   FlutterUiInfo flutter_ui_info = FlutterUiInfo(); // flutter ui项目信息
   FlutterUiIssues flutter_ui_issues = FlutterUiIssues(); // flutter ui的issues内容
+  IssuesComment issues_comment = IssuesComment(); // issues comment内容
 }
 
 class UserModel extends UserModelInfo with ChangeNotifier {
@@ -211,7 +213,7 @@ class UserModel extends UserModelInfo with ChangeNotifier {
    */
   getIssueFlutterUI() {
     var response = Http.get(
-      url: 'https://api.github.com/repos/efoxTeam/flutter-ui/issues'
+      url: 'https://api.github.com/repos/$owner_repo/issues'
     );
     response.then((resp) {
       var data = {
@@ -224,5 +226,24 @@ class UserModel extends UserModelInfo with ChangeNotifier {
     }).catchError((error) {
       print('获取flutter ui的issue内容出错：$error');
     });
+  }
+
+  /**
+   * 获取对应issue下的回复内容
+   */
+  getIssueComment(int number) async {
+    var response = await Http.get(
+      url: 'https://api.github.com/repos/$owner_repo/issues/$number/comments'
+    );
+    try {
+      var data = {
+        "issues_details": response.data
+      };
+      print('获取对应issue下的回复内容:${response.data}');
+      issues_comment = IssuesComment.fromJson(data);
+      notifyListeners();
+    } catch(error) {
+      print('获取对应issue下的回复内容出错：$error');
+    }
   }
 }
