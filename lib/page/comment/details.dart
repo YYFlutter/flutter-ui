@@ -3,6 +3,7 @@ import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
 import 'package:efox_flutter/store/index.dart' show Store, UserModel;
 import 'package:efox_flutter/store/objects/flutter_ui_issues.dart' show IssuesContent;
 import 'package:efox_flutter/store/objects/issues_comment.dart' show IssuesDetails;
+import 'package:efox_flutter/page/app_login/index.dart' as LoginIndex;
 
 class Index extends StatefulWidget {
   int indexes;
@@ -12,6 +13,17 @@ class Index extends StatefulWidget {
 }
 
 class _IndexState extends State<Index> {
+  final TextEditingController _controller = TextEditingController();
+  var _getComment;
+  bool isCanSend = false;
+
+  @override
+    void initState() {
+      // TODO: implement initState
+      super.initState();
+      _getComment = this._getIssueComment(context);
+    }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,9 +34,15 @@ class _IndexState extends State<Index> {
           AppLocalizations.$t('title_comment_detials')
         ),
       ),
-      body: Container(
-        child: _ContentList(context)
-      ),
+      body: Stack(
+        children: <Widget>[
+          Container(
+            margin: EdgeInsets.only(bottom: 50),
+            child: _ContentList(context),
+          ),
+          _SendComment(context)
+        ],
+      )
     );
   }
 
@@ -79,7 +97,7 @@ class _IndexState extends State<Index> {
 
   Widget _CommentContent (BuildContext context) {
     return FutureBuilder(
-      future: _getIssueComment(context),
+      future: _getComment,
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Container(
@@ -112,8 +130,8 @@ class _IndexState extends State<Index> {
   }
 
   Future<String> _getIssueComment(BuildContext context) async {
-    IssuesContent issuesContent = Store.value<UserModel>(context).flutter_ui_issues.issuesContent[widget.indexes];
-    await Store.value<UserModel>(context).getIssueComment(issuesContent.number);
+    IssuesContent issuesContent = Store.valueNotCtx<UserModel>().flutter_ui_issues.issuesContent[widget.indexes];
+    await Store.valueNotCtx<UserModel>().getIssueComment(issuesContent.number);
     return 'end';
   }
 
@@ -135,5 +153,121 @@ class _IndexState extends State<Index> {
         ],
       ),
     );
+  }
+
+  Widget _SendComment (BuildContext context) {
+    return Positioned(
+      bottom: 0,
+      left: 0,
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: 50,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          border: Border(
+            top: BorderSide(width: 0.5, color: Color(int.parse('0xffe4e4e4')))
+          )
+        ),
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              flex: 1,
+              child: _InputBox(),
+            ),
+            Store.connect<UserModel>(
+              builder: (context, child, model) {
+                IssuesContent issuesContent = model.flutter_ui_issues.issuesContent[widget.indexes];
+                return GestureDetector(
+                  onTap: () async {
+                    if (isCanSend) {
+                      if (model.user.id != null) {
+                        print('发布内容：${_controller.text}');
+                        bool isSendSuccess = await model.setIssueComment(
+                          _controller.text,
+                          issuesContent.number
+                        );
+                        if (isSendSuccess) {
+                          await this._getIssueComment(context);
+                          _controller.text = '';
+                        } else {
+                          print('网络错误');
+                          Scaffold.of(context).showSnackBar(SnackBar(
+                            content: Text('网络出错，请稍后重试'),
+                          ));
+                        }
+                      } else {
+                        print('去往登陆');
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (BuildContext context) {
+                              return LoginIndex.Index();
+                            }
+                          )
+                        );
+                      }
+                    }
+                  },
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                    child: Text(
+                      '发布',
+                      style: TextStyle(
+                        color: isCanSend ? Theme.of(context).primaryColor : Colors.grey,
+                        fontSize: 17
+                      )
+                    ),
+                  ),
+                );
+              }
+            )
+          ],
+        )
+      ),
+    );
+  }
+  Widget _InputBox() {
+    return Container(
+      height: 30,
+      margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+      decoration: BoxDecoration(
+        color: Color(int.parse('0xffEDEDED')),
+        borderRadius: BorderRadius.circular(15)
+      ),
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            flex: 1,
+            child: TextField(
+              controller: _controller,
+              autofocus: false,
+              onChanged: _onChanged,
+              style: TextStyle(
+                fontSize: 18.0,
+                color: Colors.black,
+                fontWeight: FontWeight.w300
+              ),
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                border: InputBorder.none,
+                hintText: '说点什么吧',
+                hintStyle: TextStyle(fontSize: 15)
+              ),
+            ),
+          )
+        ],
+      )
+    );
+  }
+
+  _onChanged(String text) {
+    if (text.length > 0) {
+      setState(() {
+        isCanSend = true;
+      });
+    } else {
+      setState(() {
+        isCanSend = false;
+      });
+    }
   }
 }

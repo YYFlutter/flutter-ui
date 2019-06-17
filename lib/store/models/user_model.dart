@@ -246,4 +246,28 @@ class UserModel extends UserModelInfo with ChangeNotifier {
       print('获取对应issue下的回复内容出错：$error');
     }
   }
+
+  /**
+   * 回复issue评论
+   */
+  setIssueComment(String text, int number) async {
+    var data = {
+      "body": "$text"
+    };
+    var response = await Http.post(
+      url: 'https://api.github.com/repos/$owner_repo/issues/$number/comments',
+      data: data
+    );
+    try {
+      print('回复issue评论状态码：${response.statusCode}');
+      if (response.statusCode == 201) {
+        return true;
+      } else {
+        return false;
+      }
+    } catch (error) {
+      print('回复issue评论出错：$error');
+      return false;
+    }
+  }
 }
