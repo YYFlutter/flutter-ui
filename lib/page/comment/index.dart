@@ -60,19 +60,31 @@ class _IndexState extends State<Index> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                AspectRatio(
-                  aspectRatio: 16/9,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(6.0),
-                      topRight: Radius.circular(6.0),
-                      bottomLeft: Radius.circular(6.0),
-                      bottomRight: Radius.circular(6.0)
-                    ),
-                    child: Image.network(
+                // AspectRatio(
+                //   aspectRatio: 16/9,
+                //   child: ClipRRect(
+                //     borderRadius: BorderRadius.only(
+                //       topLeft: Radius.circular(6.0),
+                //       topRight: Radius.circular(6.0),
+                //       bottomLeft: Radius.circular(6.0),
+                //       bottomRight: Radius.circular(6.0)
+                //     ),
+                //     child: Image.network(
+                //       issuesContent.user.avatarUrl??'http://thumb10.jfcdns.com/2018-06/bce5b10ae530f530.png',
+                //       fit: BoxFit.cover,
+                //     ),
+                //   ),
+                // ),
+                ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(
                       issuesContent.user.avatarUrl??'http://thumb10.jfcdns.com/2018-06/bce5b10ae530f530.png',
-                      fit: BoxFit.cover,
                     ),
+                  ),
+                  title: Text('${issuesContent.user.login}', style: TextStyle(color: Theme.of(context).primaryColor),),
+                  subtitle: Text('更新时间：${issuesContent.updatedAt}'),
+                  trailing: Icon(
+                    Icons.keyboard_arrow_right
                   ),
                 ),
                 Container(
@@ -107,18 +119,18 @@ class _IndexState extends State<Index> {
                 )
               ],
             ),
-            Positioned(
-              top: 10,
-              left: 10,
-              child: Text(
-                issuesContent.user.login,
-                style: TextStyle(
-                  color: Theme.of(context).primaryColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20
-                ),
-              ),
-            )
+            // Positioned(
+            //   top: 10,
+            //   left: 10,
+            //   child: Text(
+            //     issuesContent.user.login,
+            //     style: TextStyle(
+            //       color: Theme.of(context).primaryColor,
+            //       fontWeight: FontWeight.bold,
+            //       fontSize: 20
+            //     ),
+            //   ),
+            // )
           ],
         )
       ),
