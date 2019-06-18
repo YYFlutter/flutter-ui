@@ -5,6 +5,8 @@ import 'package:efox_flutter/config/theme.dart' show AppTheme;
 import 'component/tabs.dart' as TabIndex;
 import 'mine/index.dart' as MyIndex;
 import 'app_login/index.dart' as LoginIndex;
+import 'comment/index.dart' as CommentIndex;
+import 'library/index.dart' as LibraryIndex;
 
 import 'package:efox_flutter/store/index.dart' show Store, UserModel;
 
@@ -30,20 +32,34 @@ class _IndexState extends State<Index> {
   }
 
   Widget _bottomNavigationBar() {
-    return BottomNavigationBar(
-      items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-            title: Text(AppLocalizations.$t('title_component')),
-            icon: Icon(Icons.dashboard)),
-        BottomNavigationBarItem(
-            title: Text(AppLocalizations.$t('title_my')),
-            icon: Icon(Icons.person_outline)),
-      ],
-      type: BottomNavigationBarType.fixed,
-      currentIndex: _currentIndex,
-      onTap: (int index) {
-        _pageController.jumpToPage(index);
-      },
+    return BottomAppBar(
+      shape: CircularNotchedRectangle(),
+      clipBehavior: Clip.antiAlias,
+      child: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+              title: Text(AppLocalizations.$t('title_component')),
+              icon: Icon(Icons.dashboard)),
+          BottomNavigationBarItem(
+            title: Text(AppLocalizations.$t('title_comment')),
+            icon: Icon(Icons.comment)),
+          BottomNavigationBarItem(
+            title: Text(AppLocalizations.$t('title_library')),
+            icon: Icon(Icons.library_add)),
+          BottomNavigationBarItem(
+              title: Text(AppLocalizations.$t('title_my')),
+              icon: Icon(Icons.person_outline)),
+        ],
+        // type: BottomNavigationBarType.fixed,
+        currentIndex: _currentIndex,
+        onTap: (int index) {
+          if(index == 1&&_currentIndex!=index) {
+            Store.value<UserModel>(context).getIssueFlutterUI();
+          }
+          _pageController.jumpToPage(index);
+        },
+      ),
     );
   }
 
@@ -58,6 +74,7 @@ class _IndexState extends State<Index> {
           title: Text(AppLocalizations.$t('common.logout')),
           onTap: () {
             Store.value<UserModel>(context).clearUserInfo();
+            Store.value<UserModel>(context).changeIsStar(false);
           },
         ),
         ListTile(
@@ -138,12 +155,59 @@ class _IndexState extends State<Index> {
     );
   }
 
+  Widget _floatingActionButton(context) {
+    return Store.connect<UserModel>(
+      builder: (context, child, model) {
+        return FloatingActionButton(
+          backgroundColor: Theme.of(context).primaryColor,
+          onPressed: () {
+            if(!model.isStar&&model.user.id != null) {
+              print('进行star');
+              model.setStarFlutterUI();
+            } else {
+              print('不满足进行star条件');
+              if(model.user.id == null) {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return LoginIndex.Index();
+                    }
+                  )
+                );
+              } else {
+                Scaffold.of(context).showSnackBar(SnackBar(
+                  content: Text('已star'),
+                ));
+              }
+            }
+          },
+          child: Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                model.isStar
+                ?Icon(Icons.star,size: 20, color: Colors.white)
+                :Icon(Icons.star_border, size: 20, color: Colors.white),
+                Text(
+                  '${model.flutter_ui_info.stargazersCount.toString()}',
+                  style: TextStyle(color: Colors.white)
+                )
+              ],
+            ),
+          ),
+        );
+      }
+    );
+  } 
+
   @override
   Widget build(BuildContext context) {
     Store.setWidgetCtx(context); // 初始化scaffold的上下文作为全局上下文，提供弹窗等使用。
     return Scaffold(
       drawer: renderDrawer(),
       bottomNavigationBar: _bottomNavigationBar(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: _floatingActionButton(context),
       body: PageView(
         controller: _pageController,
         physics: NeverScrollableScrollPhysics(),
@@ -154,6 +218,8 @@ class _IndexState extends State<Index> {
         },
         children: <Widget>[
           TabIndex.Index(),
+          CommentIndex.Index(),
+          LibraryIndex.Index(),
           MyIndex.Index(),
         ],
       ),
