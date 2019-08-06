@@ -33,20 +33,25 @@ class _IndexState extends State<Index> {
 
   Widget _bottomNavigationBar() {
     return BottomAppBar(
+      elevation: 0,
+      color: Color(0xFFf7f7f7),
       shape: CircularNotchedRectangle(),
       clipBehavior: Clip.antiAlias,
       child: BottomNavigationBar(
+        //backgroundColor: Color(0xff000000),
+        elevation: 0,
+        backgroundColor: Color(0xFFf7f7f7),
         type: BottomNavigationBarType.fixed,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
               title: Text(AppLocalizations.$t('title_component')),
               icon: Icon(Icons.dashboard)),
           BottomNavigationBarItem(
-            title: Text(AppLocalizations.$t('title_comment')),
-            icon: Icon(Icons.comment)),
+              title: Text(AppLocalizations.$t('title_comment')),
+              icon: Icon(Icons.comment)),
           BottomNavigationBarItem(
-            title: Text(AppLocalizations.$t('title_library')),
-            icon: Icon(Icons.library_add)),
+              title: Text(AppLocalizations.$t('title_library')),
+              icon: Icon(Icons.library_add)),
           BottomNavigationBarItem(
               title: Text(AppLocalizations.$t('title_my')),
               icon: Icon(Icons.person_outline)),
@@ -54,7 +59,7 @@ class _IndexState extends State<Index> {
         // type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,
         onTap: (int index) {
-          if(index == 1&&_currentIndex!=index) {
+          if (index == 1 && _currentIndex != index) {
             Store.value<UserModel>(context).getIssueFlutterUI();
           }
           _pageController.jumpToPage(index);
@@ -156,49 +161,42 @@ class _IndexState extends State<Index> {
   }
 
   Widget _floatingActionButton(context) {
-    return Store.connect<UserModel>(
-      builder: (context, child, model) {
-        return FloatingActionButton(
-          backgroundColor: Theme.of(context).primaryColor,
-          onPressed: () {
-            if(!model.isStar&&model.user.id != null) {
-              print('进行star');
-              model.setStarFlutterUI();
+    return Store.connect<UserModel>(builder: (context, child, model) {
+      return FloatingActionButton(
+        backgroundColor: Theme.of(context).primaryColor,
+        onPressed: () {
+          if (!model.isStar && model.user.id != null) {
+            print('进行star');
+            model.setStarFlutterUI();
+          } else {
+            print('不满足进行star条件');
+            if (model.user.id == null) {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (BuildContext context) {
+                return LoginIndex.Index();
+              }));
             } else {
-              print('不满足进行star条件');
-              if(model.user.id == null) {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      return LoginIndex.Index();
-                    }
-                  )
-                );
-              } else {
-                Scaffold.of(context).showSnackBar(SnackBar(
-                  content: Text('已star'),
-                ));
-              }
+              Scaffold.of(context).showSnackBar(SnackBar(
+                content: Text('已star'),
+              ));
             }
-          },
-          child: Container(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                model.isStar
-                ?Icon(Icons.star,size: 20, color: Colors.white)
-                :Icon(Icons.star_border, size: 20, color: Colors.white),
-                Text(
-                  '${model.flutter_ui_info.stargazersCount.toString()}',
-                  style: TextStyle(color: Colors.white)
-                )
-              ],
-            ),
+          }
+        },
+        child: Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              model.isStar
+                  ? Icon(Icons.star, size: 20, color: Colors.white)
+                  : Icon(Icons.star_border, size: 20, color: Colors.white),
+              Text('${model.flutter_ui_info.stargazersCount.toString()}',
+                  style: TextStyle(color: Colors.white))
+            ],
           ),
-        );
-      }
-    );
-  } 
+        ),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
