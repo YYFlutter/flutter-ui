@@ -5,7 +5,7 @@ import 'package:efox_flutter/utils/appVersion.dart' show AppVersion;
 
 void initState() {
   // 获取版本号
-  Store.valueNotCtx<ConfigModel>().$getAppVersion();
+  Store.valueNotCtx<ConfigModel>().getAppVersion();
   // 登录
   Store.valueNotCtx<UserModel>().getLocalUserInfo();
   Future.delayed(Duration(seconds: 3), () {
