@@ -12,27 +12,27 @@ class ConfigInfo {
 }
 
 class ConfigModel extends ConfigInfo with ChangeNotifier {
-  Future $getAppVersion() async {
+  Future getAppVersion() async {
     PackageInfo packageInfo = await PackageInfo.fromPlatform();
     appVersion = await packageInfo.version;
     notifyListeners();
   }
 
-  Future $getTheme() async {
+  Future getTheme() async {
     String _theme = await LocalStorage.get('theme');
     print('config get Theme ${_theme}');
     if (_theme != null) {
-      $setTheme(_theme);
+      setTheme(_theme);
     }
   }
 
-  Future $setTheme(payload) async {
+  Future setTheme(payload) async {
     theme = payload;
     LocalStorage.set('theme', payload);
     notifyListeners();
   }
 
-  Future $setIsPro() async {
+  Future setIsPro() async {
     isPro = !isPro;
     notifyListeners();
   }

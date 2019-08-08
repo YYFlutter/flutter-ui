@@ -44,14 +44,14 @@ class _IndexState extends State<Index> {
         type: BottomNavigationBarType.fixed,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
+              title: Text(AppLocalizations.$t('title_library')),
+              icon: Icon(Icons.library_add)),
+          BottomNavigationBarItem(
               title: Text(AppLocalizations.$t('title_component')),
               icon: Icon(Icons.dashboard)),
           BottomNavigationBarItem(
               title: Text(AppLocalizations.$t('title_comment')),
               icon: Icon(Icons.comment)),
-          BottomNavigationBarItem(
-              title: Text(AppLocalizations.$t('title_library')),
-              icon: Icon(Icons.library_add)),
           BottomNavigationBarItem(
               title: Text(AppLocalizations.$t('title_my')),
               icon: Icon(Icons.person_outline)),
@@ -215,9 +215,9 @@ class _IndexState extends State<Index> {
           });
         },
         children: <Widget>[
+          LibraryIndex.Index(),
           TabIndex.Index(),
           CommentIndex.Index(),
-          LibraryIndex.Index(),
           MyIndex.Index(),
         ],
       ),

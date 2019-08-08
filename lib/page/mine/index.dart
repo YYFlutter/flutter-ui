@@ -113,7 +113,7 @@ class _IndexState extends State<Index> {
             ),
             ListTile(
               onTap: () {
-                Store.value<ConfigModel>(context).$setIsPro();
+                Store.value<ConfigModel>(context).setIsPro();
               },
               leading: Icon(Icons.verified_user),
               title: Text(Store.value<ConfigModel>(context).isPro
@@ -152,7 +152,7 @@ class _IndexState extends State<Index> {
   Widget Edage(name, color, context) {
     return GestureDetector(
       onTap: () {
-        Store.value<ConfigModel>(context).$setTheme(name);
+        Store.value<ConfigModel>(context).setTheme(name);
       },
       child: Container(
         color: Color(color),

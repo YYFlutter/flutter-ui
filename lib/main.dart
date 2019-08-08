@@ -31,7 +31,7 @@ class MainAppState extends State<MainApp> {
 
   @override
   Widget build(BuildContext context) {
-    Store.value<ConfigModel>(context).$getTheme();
+    Store.value<ConfigModel>(context).getTheme();
 
     return Store.connect<ConfigModel>(
       builder: (context, child, model) {
