@@ -1,13 +1,15 @@
 #  Flutter UI <img src="https://github.com/efoxTeam/flutter-ui/blob/master/android/app/src/main/res/mipmap-ldpi/ic_launcher.png?raw=true" height="20"> <sup>v1.0.2</sup>
 
-
 > YY Flutter 开发者社区
-> 
-[![License](https://img.shields.io/github/issues/efoxTeam/flutter-ui.svg)](https://jitpack.io/#efoxTeam/flutter-ui) [![Stars](https://img.shields.io/github/stars/efoxTeam/flutter-ui.svg)](https://jitpack.io/#efoxTeam/flutter-ui) [![Stars](https://img.shields.io/github/forks/efoxTeam/flutter-ui.svg)](https://jitpack.io/#efoxTeam/flutter-ui) [![Forks](https://img.shields.io/github/issues/efoxTeam/flutter-ui.svg)](https://jitpack.io/#efoxTeam/flutter-ui)
+
+[![License](https://img.shields.io/github/issues/efoxTeam/flutter-ui.svg)](https://jitpack.io/#efoxTeam/flutter-ui) 
+[![Stars](https://img.shields.io/github/stars/efoxTeam/flutter-ui.svg)](https://jitpack.io/#efoxTeam/flutter-ui) 
+[![Stars](https://img.shields.io/github/forks/efoxTeam/flutter-ui.svg)](https://jitpack.io/#efoxTeam/flutter-ui) 
+[![Forks](https://img.shields.io/github/issues/efoxTeam/flutter-ui.svg)](https://jitpack.io/#efoxTeam/flutter-ui)
 
 ## 社区功能介绍  
 + [团队介绍]()
-+ ** FlutterUI Demo ** 
++ FlutterUI Demo
 + 文章类
 	+ Flutter系列教程
 	+ Flutter实战组件集锦
@@ -22,7 +24,6 @@
 <img src="https://github.com/efoxTeam/flutter-ui/blob/master/readme/1.0.2/1.jpg?raw=true" width="200" /> <img src="https://github.com/efoxTeam/flutter-ui/blob/master/readme/1.0.2/2.jpg?raw=true" width="200" /> <img src="https://github.com/efoxTeam/flutter-ui/blob/master/readme/1.0.2/3.jpg?raw=true" width="200" />  
 <img src="https://github.com/efoxTeam/flutter-ui/blob/master/readme/1.0.2/4.jpg?raw=true" width="200" /> <img src="https://github.com/efoxTeam/flutter-ui/blob/master/readme/1.0.2/5.jpg?raw=true" width="200" /> <img src="https://github.com/efoxTeam/flutter-ui/blob/master/readme/1.0.2/6.jpg?raw=true" width="200" />
 
-<a name="1b4593e9"></a>
 ### Flutter系列教程
 | 文章 | 文章状态 | 作者 | 变更日志 |
 | --- | --- | --- | --- |
