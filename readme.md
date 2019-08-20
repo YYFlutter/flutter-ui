@@ -1,11 +1,11 @@
-#  Flutter UI <img src="https://github.com/efoxTeam/flutter-ui/blob/master/android/app/src/main/res/mipmap-ldpi/ic_launcher.png?raw=true" height="20"> <sup>v1.0.2</sup>
+#  Flutter UI <img src="https://github.com/YYFlutter/flutter-ui/blob/master/android/app/src/main/res/mipmap-ldpi/ic_launcher.png?raw=true" height="20"> <sup>v1.0.2</sup>
 
 > YY Flutter 开发者社区
 
-[![License](https://img.shields.io/github/issues/efoxTeam/flutter-ui.svg)](https://jitpack.io/#efoxTeam/flutter-ui) 
-[![Stars](https://img.shields.io/github/stars/efoxTeam/flutter-ui.svg)](https://jitpack.io/#efoxTeam/flutter-ui) 
-[![Stars](https://img.shields.io/github/forks/efoxTeam/flutter-ui.svg)](https://jitpack.io/#efoxTeam/flutter-ui) 
-[![Forks](https://img.shields.io/github/issues/efoxTeam/flutter-ui.svg)](https://jitpack.io/#efoxTeam/flutter-ui)
+[![License](https://img.shields.io/github/issues/YYFlutter/flutter-ui.svg)](https://jitpack.io/#YYFlutter/flutter-ui) 
+[![Stars](https://img.shields.io/github/stars/YYFlutter/flutter-ui.svg)](https://jitpack.io/#YYFlutter/flutter-ui) 
+[![Stars](https://img.shields.io/github/forks/YYFlutter/flutter-ui.svg)](https://jitpack.io/#YYFlutter/flutter-ui) 
+[![Forks](https://img.shields.io/github/issues/YYFlutter/flutter-ui.svg)](https://jitpack.io/#YYFlutter/flutter-ui)
 
 ## 社区功能介绍  
 + [团队介绍]()
@@ -15,14 +15,14 @@
 	+ Flutter实战组件集锦
 	+ 其它推文
 + 插件类
-	+ [Flutter-animation-set 动画插件](https://github.com/efoxTeam/flutter-animation-set)
-+ [安卓包下载](https://github.com/efoxTeam/flutter-ui/releases/download/v1.0.2/app-release.apk)
+	+ [Flutter-animation-set 动画插件](https://github.com/YYFlutter/flutter-animation-set)
++ [安卓包下载](https://github.com/YYFlutter/flutter-ui/releases/download/v1.0.2/app-release.apk)
 + 社区互动与交流
 
 
 ## FlutterUI Demo预览 
-<img src="https://github.com/efoxTeam/flutter-ui/blob/master/readme/1.0.2/1.jpg?raw=true" width="200" /> <img src="https://github.com/efoxTeam/flutter-ui/blob/master/readme/1.0.2/2.jpg?raw=true" width="200" /> <img src="https://github.com/efoxTeam/flutter-ui/blob/master/readme/1.0.2/3.jpg?raw=true" width="200" />  
-<img src="https://github.com/efoxTeam/flutter-ui/blob/master/readme/1.0.2/4.jpg?raw=true" width="200" /> <img src="https://github.com/efoxTeam/flutter-ui/blob/master/readme/1.0.2/5.jpg?raw=true" width="200" /> <img src="https://github.com/efoxTeam/flutter-ui/blob/master/readme/1.0.2/6.jpg?raw=true" width="200" />
+<img src="https://github.com/YYFlutter/flutter-ui/blob/master/readme/1.0.2/1.jpg?raw=true" width="200" /> <img src="https://github.com/YYFlutter/flutter-ui/blob/master/readme/1.0.2/2.jpg?raw=true" width="200" /> <img src="https://github.com/YYFlutter/flutter-ui/blob/master/readme/1.0.2/3.jpg?raw=true" width="200" />  
+<img src="https://github.com/YYFlutter/flutter-ui/blob/master/readme/1.0.2/4.jpg?raw=true" width="200" /> <img src="https://github.com/YYFlutter/flutter-ui/blob/master/readme/1.0.2/5.jpg?raw=true" width="200" /> <img src="https://github.com/YYFlutter/flutter-ui/blob/master/readme/1.0.2/6.jpg?raw=true" width="200" />
 
 ### Flutter系列教程
 | 文章 | 文章状态 | 作者 | 变更日志 |
@@ -79,17 +79,17 @@
 
   
 ## apk 下载
-![安卓包下载](https://github.com/efoxTeam/flutter-ui/blob/master/readme/apk.png?raw=true)   
-[安卓包下载](https://github.com/efoxTeam/flutter-ui/releases/download/v1.0.2/app-release.apk)
+![安卓包下载](https://github.com/YYFlutter/flutter-ui/blob/master/readme/apk.png?raw=true)   
+[安卓包下载](https://github.com/YYFlutter/flutter-ui/releases/download/v1.0.2/app-release.apk)
 
 ## 项目相关
-+ [apk包历史版本](https://github.com/efoxTeam/flutter-ui/releases)
++ [apk包历史版本](https://github.com/YYFlutter/flutter-ui/releases)
 + [组件开发进度](readme/widget_progress.md)
 + [贡献PR参考](readme/pr.md)
 
 
 ## 项目交流   
-<img src="https://github.com/efoxTeam/flutter-ui/blob/master/readme/qq-qrcode.png?raw=true" width="200" />
+<img src="https://github.com/YYFlutter/flutter-ui/blob/master/readme/qq-qrcode.png?raw=true" width="200" />
 
 
 
