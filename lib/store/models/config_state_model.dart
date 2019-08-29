@@ -32,7 +32,7 @@ class ConfigModel extends ConfigInfo with ChangeNotifier {
     notifyListeners();
   }
 
-  Future $setIsPro() async {
+  Future setIsPro() async {
     isPro = !isPro;
     notifyListeners();
   }

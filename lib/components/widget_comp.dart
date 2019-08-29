@@ -50,7 +50,7 @@ class IndexState extends State<Index> {
           backgroundImage: NetworkImage(
             info.avatarUrl,
           ),
-          radius: 35,
+          radius: 30,
         ),
         title: Text(
           info.name,

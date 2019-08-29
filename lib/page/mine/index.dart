@@ -113,7 +113,7 @@ class _IndexState extends State<Index> {
             ),
             ListTile(
               onTap: () {
-                Store.value<ConfigModel>(context).$setIsPro();
+                Store.value<ConfigModel>(context).setIsPro();
               },
               leading: Icon(Icons.verified_user),
               title: Text(Store.value<ConfigModel>(context).isPro

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
 import 'package:efox_flutter/store/index.dart' show Store, UserModel;
+import './text.dart' as Content;
 
 class Index extends StatefulWidget {
   Index({Key key}) : super(key: key);
@@ -23,9 +24,87 @@ class _IndexState extends State<Index> {
    */
   renderOverlay(String text) {
     _overlayEntry?.remove();
+    Size _size = MediaQuery.of(context).size;
     _overlayState = Overlay.of(context);
     _overlayEntry = OverlayEntry(builder: (context) {
-      return Center(child: Text(text));
+      return Scaffold(
+        backgroundColor: Colors.transparent,
+        body: GestureDetector(
+          child: Stack(
+            children: <Widget>[
+              Opacity(
+                opacity: 0.75,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              SizedBox.expand(
+                child: Center(
+                  child: SizedBox(
+                    height: _size.height / 1.3,
+                    width: _size.width / 1.3,
+                    child: Container(
+                      padding: EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey,
+                            blurRadius: 2,
+                            // offset: Offset(0, 1),
+                          ),
+                        ],
+                      ),
+                      child: Column(
+                        children: <Widget>[
+                          Text(
+                            "说明",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 22,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Expanded(
+                            child: SingleChildScrollView(
+                              child: Text(
+                                text,
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ),
+                          ),
+                          FlatButton(
+                            textColor: Theme.of(context).primaryColor,
+                            onPressed: () {
+                              beforeDispose();
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.all(10),
+                              child: Text("确定"),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          onTap: () {
+            beforeDispose();
+          },
+        ),
+      );
     });
     _overlayState.insert(_overlayEntry);
   }
@@ -165,7 +244,7 @@ class _IndexState extends State<Index> {
                           ),
                         ),
                         onTap: () {
-                          renderOverlay(" Text 1");
+                          renderOverlay(Content.loginText);
                         },
                       ),
                       SizedBox(
