@@ -5,15 +5,15 @@ import 'package:efox_flutter/utils/appVersion.dart' show AppVersion;
 
 void initState() async {
   // 获取版本号
-  Store.valueNotCtx<ConfigModel>().getAppVersion();
+  Store.value<ConfigModel>().getAppVersion();
   // 登录
-  Store.valueNotCtx<UserModel>().getLocalUserInfo().then((res) {
+  /*Store.value<UserModel>().getLocalUserInfo().then((res) {
     if (res) {
-      Store.valueNotCtx<UserModel>().getUserStar();
+      Store.value<UserModel>().getUserStar();
     }
-  });
-  Store.valueNotCtx<UserModel>().getFlutterUIStar();
+  });*/
+  // Store.value<UserModel>().getFlutterUIStar();
   Future.delayed(Duration(seconds: 3), () {
-    AppVersion().check(Store.widgetCtx);
+    AppVersion().check(Store.context);
   });
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
-import 'package:efox_flutter/store/index.dart' show Store, UserModel;
+import 'package:efox_flutter/store/index.dart';
 import 'package:efox_flutter/store/objects/flutter_ui_issues.dart'
     show IssuesContent;
 import 'package:efox_flutter/router/index.dart' show FluroRouter;
@@ -26,7 +26,7 @@ class _IndexState extends State<Index> {
   }
 
   Widget _CommentList(BuildContext context) {
-    return Store.connect<UserModel>(builder: (context, child, model) {
+    return Consumer<UserModel>(builder: (context, model,child) {
       if (model.flutter_ui_issues != null &&
           model.flutter_ui_issues.issuesContent != null &&
           model.flutter_ui_issues.issuesContent.length != 0) {

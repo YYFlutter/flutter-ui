@@ -75,10 +75,10 @@ class IndexState extends State<Index> {
     this._bodyList.length = 0;
     String mdText = await this.getMdFile(widget.mdUrl);
     String nameKey = AuthorList.list[widget.title];
-    if (nameKey != null) {
+    /*if (nameKey != null) {
       this._bodyList.add(authorTile(nameKey));
       this._bodyList.add(Divider());
-    }
+    }*/
     print('文档完成长度：${mdText.length}');
     if (mdText.length > 30) {
       this._bodyList.add(await markdown_comp.Index(mdText));
@@ -152,7 +152,7 @@ class IndexState extends State<Index> {
 
   getActions(context) {
     return [
-      IconButton(
+      /*IconButton(
         color: Color(AppTheme.blackColor),
         icon: Icon(
           Icons.code
@@ -172,7 +172,7 @@ class IndexState extends State<Index> {
             '/webview?title=${widget.title}&url=${Uri.encodeComponent(widget.originCodeUrl)}',
           );
         },
-      ),
+      ),*/
       IconButton(
         icon: Icon(Icons.share),
         color: Color(AppTheme.blackColor),

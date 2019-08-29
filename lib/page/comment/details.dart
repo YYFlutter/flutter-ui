@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:efox_flutter/lang/index.dart' show AppLocalizations;
-import 'package:efox_flutter/store/index.dart' show Store, UserModel;
+import 'package:efox_flutter/store/index.dart';
 import 'package:efox_flutter/store/objects/flutter_ui_issues.dart' show IssuesContent;
 import 'package:efox_flutter/store/objects/issues_comment.dart' show IssuesDetails;
 import 'package:efox_flutter/page/app_login/index.dart' as LoginIndex;
 
 class Index extends StatefulWidget {
-  int indexes;
+  final int indexes;
   Index({ Key key, @required this.indexes }):super(key: key);
   @override
   _IndexState createState() => _IndexState();
@@ -56,8 +56,8 @@ class _IndexState extends State<Index> {
   }
 
   Widget _IssueContent (BuildContext context) {
-    return Store.connect<UserModel>(
-      builder: (context, child, model) {
+    return Consumer<UserModel>(
+      builder: (context, model,child) {
         IssuesContent issuesContent = model.flutter_ui_issues.issuesContent[widget.indexes];
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -98,6 +98,7 @@ class _IndexState extends State<Index> {
   Widget _CommentContent (BuildContext context) {
     return FutureBuilder(
       future: _getComment,
+      // ignore: missing_return
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Container(
@@ -108,8 +109,8 @@ class _IndexState extends State<Index> {
           );
         } else if(snapshot.connectionState == ConnectionState.done) {
           if (snapshot.hasData) {
-            return Store.connect<UserModel>(
-              builder: (context, child, model) {
+            return Consumer<UserModel>(
+              builder: (context, model,child) {
                 List<Widget> items = [];
                 for(var issuesDetails in model.issues_comment.issuesDetails) {
                   items.add(_CommentContentItem(context, issuesDetails));
@@ -130,8 +131,8 @@ class _IndexState extends State<Index> {
   }
 
   Future<String> _getIssueComment(BuildContext context) async {
-    IssuesContent issuesContent = Store.valueNotCtx<UserModel>().flutter_ui_issues.issuesContent[widget.indexes];
-    await Store.valueNotCtx<UserModel>().getIssueComment(issuesContent.number);
+    IssuesContent issuesContent = Store.value<UserModel>(context).flutter_ui_issues.issuesContent[widget.indexes];
+    await Store.value<UserModel>(context).getIssueComment(issuesContent.number);
     return 'end';
   }
 
@@ -174,8 +175,8 @@ class _IndexState extends State<Index> {
               flex: 1,
               child: _InputBox(),
             ),
-            Store.connect<UserModel>(
-              builder: (context, child, model) {
+            Consumer<UserModel>(
+              builder: (context, model,child) {
                 IssuesContent issuesContent = model.flutter_ui_issues.issuesContent[widget.indexes];
                 return GestureDetector(
                   onTap: () async {

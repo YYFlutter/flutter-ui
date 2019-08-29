@@ -23,6 +23,7 @@ class Index extends StatelessWidget {
           // 滚动时回调函数
           semanticIndexCallback: (widget, index) {
               print('index $index');
+              return index;
           },
         ),
         // 数量滚滚动限制，类似GridView.count

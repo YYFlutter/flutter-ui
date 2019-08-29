@@ -38,6 +38,7 @@ class _IndexState extends State<Index>
 
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
+  // ignore: must_call_super
   Widget build(BuildContext context) {
     return Scaffold(
         key: _scaffoldKey,

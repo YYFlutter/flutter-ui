@@ -61,6 +61,7 @@ class AppVersion {
       url:
           'https://raw.githubusercontent.com/efoxTeam/flutter-ui/master/version.json',
     );
+    // ignore: missing_return
     return await response.then((resp) {
       if (resp.data != null) {
         var data = json.decode(resp.data);

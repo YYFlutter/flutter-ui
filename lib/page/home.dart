@@ -8,7 +8,7 @@ import 'app_login/index.dart' as LoginIndex;
 import 'comment/index.dart' as CommentIndex;
 import 'library/index.dart' as LibraryIndex;
 
-import 'package:efox_flutter/store/index.dart' show Store, UserModel;
+import 'package:efox_flutter/store/index.dart';
 
 class Index extends StatefulWidget {
   @override
@@ -46,12 +46,12 @@ class _IndexState extends State<Index> {
           BottomNavigationBarItem(
               title: Text(AppLocalizations.$t('title_component')),
               icon: Icon(Icons.dashboard)),
-          BottomNavigationBarItem(
+/*          BottomNavigationBarItem(
               title: Text(AppLocalizations.$t('title_comment')),
               icon: Icon(Icons.comment)),
           BottomNavigationBarItem(
               title: Text(AppLocalizations.$t('title_library')),
-              icon: Icon(Icons.library_add)),
+              icon: Icon(Icons.library_add)),*/
           BottomNavigationBarItem(
               title: Text(AppLocalizations.$t('title_my')),
               icon: Icon(Icons.person_outline)),
@@ -59,9 +59,9 @@ class _IndexState extends State<Index> {
         // type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,
         onTap: (int index) {
-          if (index == 1 && _currentIndex != index) {
+         /* if (index == 1 && _currentIndex != index) {
             Store.value<UserModel>(context).getIssueFlutterUI();
-          }
+          }*/
           _pageController.jumpToPage(index);
         },
       ),
@@ -104,7 +104,7 @@ class _IndexState extends State<Index> {
   renderDrawer() {
     print('renderDrawer $context');
     return Drawer(
-      child: Store.connect<UserModel>(builder: (context, child, model) {
+      child: Consumer<UserModel>(builder: (context, model,child) {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -145,7 +145,7 @@ class _IndexState extends State<Index> {
   }
 
   Widget _floatingActionButton(context) {
-    return Store.connect<UserModel>(builder: (context, child, model) {
+    return Consumer<UserModel>(builder: (context, model,child) {
       return FloatingActionButton(
         backgroundColor: Theme.of(context).primaryColor,
         onPressed: () {
@@ -184,12 +184,12 @@ class _IndexState extends State<Index> {
 
   @override
   Widget build(BuildContext context) {
-    Store.setWidgetCtx(context); // 初始化scaffold的上下文作为全局上下文，提供弹窗等使用。
+    // Store.setWidgetCtx(context); // 初始化scaffold的上下文作为全局上下文，提供弹窗等使用。
     return Scaffold(
       drawer: renderDrawer(),
       bottomNavigationBar: _bottomNavigationBar(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: _floatingActionButton(context),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // floatingActionButton: _floatingActionButton(context),
       body: PageView(
         controller: _pageController,
         physics: NeverScrollableScrollPhysics(),
@@ -200,8 +200,8 @@ class _IndexState extends State<Index> {
         },
         children: <Widget>[
           TabIndex.Index(),
-          CommentIndex.Index(),
-          LibraryIndex.Index(),
+          // CommentIndex.Index(),
+          //LibraryIndex.Index(),
           MyIndex.Index(),
         ],
       ),
