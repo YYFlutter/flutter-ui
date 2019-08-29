@@ -118,13 +118,13 @@ class IndexState extends State<Index> {
   }
 
   showCode(context) async {
-    if (Store.value<ConfigModel>(context).isPro) {
+    /*if (Store.value<ConfigModel>(context).isPro) {
       // 线上文档
       FluroRouter.router.navigateTo(
         context,
         'webview?title=${widget.title}&url=${Uri.encodeComponent(Store.value<ConfigModel>(context).env.githubAssetOrigin+widget.mdUrl)}'
         );
-    } else {
+    } else {*/
       // 加载本地
       String mdStr = await AssetUtils.readLocaleFile(widget.mdUrl);
       Navigator.of(context).push(
@@ -137,7 +137,7 @@ class IndexState extends State<Index> {
           );
         })
       );
-    }
+    //}
   }
 
   Future getMdFile(url) async {

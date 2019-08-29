@@ -108,7 +108,7 @@ class _IndexState extends State<Index> {
                 )
               ],
             ),
-            Divider(
+           /* Divider(
               color: Color(AppTheme.lineColor),
             ),
             ListTile(
@@ -119,7 +119,7 @@ class _IndexState extends State<Index> {
               title: Text(Store.value<ConfigModel>(context).isPro
                   ? AppLocalizations.$t('common_mine_1.doc_online')
                   : AppLocalizations.$t('common_mine_1.doc_offline')),
-            ),
+            ),*/
             Divider(
               color: Color(AppTheme.lineColor),
             ),
