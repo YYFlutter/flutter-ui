@@ -12,12 +12,12 @@ export './models/author_state_model.dart' show AuthorModel;
 
 class Store {
   static BuildContext context;
-  static of(BuildContext context){
+  static of(BuildContext context) {
     Store.context ??= context;
     return context;
   }
-  static init({context, child}) {
-    Store.context ??= context;
+
+  static init({child}) {
     return MultiProvider(
       child: child,
       providers: [
@@ -30,15 +30,9 @@ class Store {
 
   static T value<T>([BuildContext context]) {
     context ??= Store.context;
-    return Provider.of(context);
+    return Provider.of<T>(context);
   }
+
+
 }
 
-class StoreProvider extends StatelessWidget {
-  final Widget child;
-  StoreProvider({this.child});
-  @override
-  Widget build(BuildContext context) {
-    return Store.init(child: child,context: context);
-  }
-}

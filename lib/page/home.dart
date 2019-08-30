@@ -105,6 +105,7 @@ class _IndexState extends State<Index> {
     print('renderDrawer $context');
     return Drawer(
       child: Consumer<UserModel>(builder: (context, model,child) {
+        print('render model $model');
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
