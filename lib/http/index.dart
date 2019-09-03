@@ -47,10 +47,12 @@ Dio getDio({options, loading}) {
       print("返回值 ${response.data}");
       print('=========【请求成功】End============');
       await AppLoading.afterResponse(response.request.uri, loading);
-      return response; 
+      return response;
     },
     onError: (DioError e) async {
-      await AppLoading.afterResponse(e.request.uri, loading);
+      print('e.request.uri=======================${e.request}');
+      if (e.request != null && e.request.uri != null)
+        await AppLoading.afterResponse(e.request.uri, loading);
       dynamic msg = e.message;
       dynamic code = 0; // 错误码
       dynamic status = e.type; // http请求状态
@@ -60,7 +62,7 @@ Dio getDio({options, loading}) {
         status = e.response.statusCode;
       }
       print('========【请求失败 Start】=============');
-      print("请求地址 ${e.request.uri}");
+      print("请求地址 ${e.request}");
       print("状态码 ${status}");
       print("返回msg ${msg}");
       print('=========【请求失败 End】============');
@@ -68,16 +70,20 @@ Dio getDio({options, loading}) {
     },
   ));
   dio.interceptors.add(LogInterceptor(responseBody: false)); //开启请求日志
-  
+
   return dio;
 }
 
 Future<dynamic> get({url, data = const {}, options, loading}) async {
-  return getDio(options: options, loading: loading ?? Map())
-      .get(url);
+  return getDio(options: options, loading: loading ?? Map()).get(url);
 }
 
 Future post({url, data = const {}, options, loading}) async {
   return getDio(options: options, loading: loading ?? Map())
       .post(url, data: data);
+}
+
+Future put({url, data = const {}, options, loading}) async {
+  return getDio(options: options, loading: loading ?? Map())
+      .put(url, data: data);
 }

@@ -16,7 +16,7 @@ void beforeRequest(uri, Map<dynamic, dynamic> options) {
 void afterResponse(uri, Map<dynamic, dynamic> options) {
   dict.remove(uri);
   if (dict.length == 0 && loading == true) {
-    Navigator.of(Store.widgetCtx, rootNavigator: true).pop('close dialog');
+    Navigator.of(Store.context, rootNavigator: true).pop('close dialog');
     loading = false;
   }
 }
@@ -31,7 +31,7 @@ void showAppLoading(Map<dynamic, dynamic> options) {
     'text': options['text'] ?? 'loading...'
   };
   showDialog(
-    context: Store.widgetCtx,
+    context: Store.context,
     builder: (context) {
       return LoadingDialog(text: options['text']);
     },

@@ -15,7 +15,7 @@ class AppTheme {
   static int blackColor = 0xFF000000;
   static int lineColor = 0xFFEEEEEE;
   static getThemeData(String theme) {
-    //print('==================================getThemeData=$theme');
+    print('==================================getThemeData=$theme');
     mainColor = materialColor[theme];
     ThemeData themData = ThemeData(
       textTheme: TextTheme(

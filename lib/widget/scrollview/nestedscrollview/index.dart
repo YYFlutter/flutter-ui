@@ -5,7 +5,7 @@ import 'demo.dart' as Demo;
 class Index extends StatefulWidget {
   static String title = 'NestedScrollView';
   static String mdUrl = 'docs/widget/scrollview/nestedscrollview/index.md';
-  static String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/Scrollbar-class.html';
+  static String originCodeUrl = 'https://docs.flutter.io/flutter/material/Scrollbar-class.html';
 
   @override
   _IndexState createState() => new _IndexState();

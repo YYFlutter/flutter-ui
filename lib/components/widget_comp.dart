@@ -50,7 +50,7 @@ class IndexState extends State<Index> {
           backgroundImage: NetworkImage(
             info.avatarUrl,
           ),
-          radius: 35,
+          radius: 30,
         ),
         title: Text(
           info.name,
@@ -75,10 +75,10 @@ class IndexState extends State<Index> {
     this._bodyList.length = 0;
     String mdText = await this.getMdFile(widget.mdUrl);
     String nameKey = AuthorList.list[widget.title];
-    if (nameKey != null) {
+    /*if (nameKey != null) {
       this._bodyList.add(authorTile(nameKey));
       this._bodyList.add(Divider());
-    }
+    }*/
     print('文档完成长度：${mdText.length}');
     if (mdText.length > 30) {
       this._bodyList.add(await markdown_comp.Index(mdText));
@@ -117,6 +117,29 @@ class IndexState extends State<Index> {
     );
   }
 
+  showCode(context) async {
+    /*if (Store.value<ConfigModel>(context).isPro) {
+      // 线上文档
+      FluroRouter.router.navigateTo(
+        context,
+        'webview?title=${widget.title}&url=${Uri.encodeComponent(Store.value<ConfigModel>(context).env.githubAssetOrigin+widget.mdUrl)}'
+        );
+    } else {*/
+      // 加载本地
+      String mdStr = await AssetUtils.readLocaleFile(widget.mdUrl);
+      Navigator.of(context).push(
+        MaterialPageRoute(builder: (BuildContext build) {
+          return Scaffold(
+            appBar: AppBar(title: Text(widget.title),),
+            body: ListView(
+              children: <Widget>[markdown_comp.Index(mdStr)],
+            ),
+          );
+        })
+      );
+    //}
+  }
+
   Future getMdFile(url) async {
     // bool productionEnv = Store.value<ConfigModel>(context).isPro;
     bool productionEnv = false;
@@ -129,6 +152,15 @@ class IndexState extends State<Index> {
 
   getActions(context) {
     return [
+      /*IconButton(
+        color: Color(AppTheme.blackColor),
+        icon: Icon(
+          Icons.code
+        ),
+        onPressed: () async {
+          this.showCode(context);
+        },
+      ),
       IconButton(
         color: Color(AppTheme.blackColor),
         icon: Icon(
@@ -140,7 +172,7 @@ class IndexState extends State<Index> {
             '/webview?title=${widget.title}&url=${Uri.encodeComponent(widget.originCodeUrl)}',
           );
         },
-      ),
+      ),*/
       IconButton(
         icon: Icon(Icons.share),
         color: Color(AppTheme.blackColor),

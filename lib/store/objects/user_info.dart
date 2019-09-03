@@ -1,4 +1,4 @@
-import 'dart:convert';
+//import 'dart:convert';
 
 class UserInfo extends Object {
   String login;

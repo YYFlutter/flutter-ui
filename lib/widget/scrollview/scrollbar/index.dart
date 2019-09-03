@@ -5,7 +5,7 @@ import 'demo.dart' as Demo;
 class Index extends StatefulWidget {
   static String title = 'Scrollbar';
   static String mdUrl = 'docs/widget/scrollview/scrollbar/index.md';
-  static String originCodeUrl = 'https://docs.flutter.io/flutter/widgets/Scrollbar-class.html';
+  static String originCodeUrl = 'https://docs.flutter.io/flutter/material/Scrollbar-class.html';
 
   @override
   _IndexState createState() => new _IndexState();

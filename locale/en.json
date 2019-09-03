@@ -1,6 +1,9 @@
 {
     "title_component": "Components",
     "title_my": "My",
+    "title_comment": "comment",
+    "title_comment_detials": "Comment details",
+    "title_library": "library",
     "common": {
         "login": "Sign In",
         "logout": "Logout"
@@ -13,7 +16,9 @@
         "compProgress": "Components Progress",
         "success": "Success To Change ",
         "theme": "Select Theme",
-        "version": "Version"
+        "version": "Version",
+        "doc_online": "document online",
+        "doc_offline": "document offline"
     },
     "mine": {
         "loadNetwork": "Load Network Document Resources",

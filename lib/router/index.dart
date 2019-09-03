@@ -2,6 +2,8 @@ import 'package:flutter/widgets.dart';
 import 'package:fluro/fluro.dart';
 //首页
 import 'package:efox_flutter/page/home.dart' as HomePage;
+// 评论详细页面
+import 'package:efox_flutter/page/comment/details.dart' as CommentDetails; 
 import 'package:efox_flutter/widget/index.dart' as WidgetConfig;
 import 'handles.dart';
 //统计
@@ -23,6 +25,18 @@ class FluroRouter {
           return HomePage.Index();
         },
       ),
+    );
+    // 评论详情页面
+    router.define(
+      '/commentdetails',
+      handler: Handler(
+        handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+          String indexes = params["indexes"]?.first;
+          return CommentDetails.Index(
+            indexes: int.parse('${indexes}')
+          );
+        }
+      )
     );
 
     router.define('/webview', handler: webviewHandler);

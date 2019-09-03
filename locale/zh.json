@@ -1,6 +1,9 @@
 {
     "title_component": "组件",
     "title_my": "我的",
+    "title_comment": "评论",
+    "title_comment_detials": "评论详情",
+    "title_library": "第三方库",
     "common": {
         "login": "登录",
         "logout": "退出"
@@ -13,7 +16,9 @@
         "compProgress": "组件进度",
         "success": "切换成功",
         "theme": "选择主题",
-        "version": "版本"
+        "version": "版本",
+        "doc_online": "线上文档",
+        "doc_offline": "离线文档"
     },
     "mine": {
         "loadNetwork": "网络优良,可选择加载线上文档资源",
