@@ -6,6 +6,7 @@ import 'package:efox_flutter/store/index.dart' show ConfigModel, Store;
 import 'package:efox_flutter/config/color.dart' show materialColor;
 import 'package:efox_flutter/utils/appVersion.dart' show AppVersion;
 import 'package:efox_flutter/components/expansion_tile.dart' as Comp;
+import 'package:oktoast/oktoast.dart';
 
 class _IndexState extends State<Index> {
   @override
@@ -108,7 +109,7 @@ class _IndexState extends State<Index> {
                 )
               ],
             ),
-           /* Divider(
+            /* Divider(
               color: Color(AppTheme.lineColor),
             ),
             ListTile(
@@ -123,28 +124,27 @@ class _IndexState extends State<Index> {
             Divider(
               color: Color(AppTheme.lineColor),
             ),
-            (Platform.isAndroid)
-                ? ListTile(
-                    onTap: () {
-                      AppVersion().check(context, showTips: true);
-                    },
-                    leading: Icon(Icons.history),
-                    title: Text(AppLocalizations.$t('common_mine_1.version')),
-                    trailing: Container(
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          Text(Store.value<ConfigModel>(context).appVersion),
-                          Icon(Icons.navigate_next)
-                        ],
-                      ),
-                    ))
-                : Container(),
-            (Platform.isAndroid)
-                ? Divider(
-                    color: Color(AppTheme.lineColor),
-                  )
-                : Container(),
+            if (Platform.isAndroid)
+              ListTile(
+                onTap: () {
+                  AppVersion().check(context, showTips: true);
+                },
+                leading: Icon(Icons.history),
+                title: Text(AppLocalizations.$t('common_mine_1.version')),
+                trailing: Container(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Text(Store.value<ConfigModel>(context).appVersion),
+                      Icon(Icons.navigate_next)
+                    ],
+                  ),
+                ),
+              ),
+            if (Platform.isAndroid)
+              Divider(
+                color: Color(AppTheme.lineColor),
+              ),
           ],
         ));
   }

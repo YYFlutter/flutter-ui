@@ -71,7 +71,9 @@ class MainAppState extends State<MainApp> {
 }
 
 void main() => runApp(
-      Store.init(
-        child: MainApp(),
+      OKToast(
+        child: Store.init(
+          child: MainApp(),
+        ),
       ),
     );

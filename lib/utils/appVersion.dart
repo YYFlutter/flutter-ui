@@ -7,6 +7,7 @@ import 'package:open_file/open_file.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:efox_flutter/http/index.dart' as Http;
 import 'package:flutter/material.dart';
+import 'package:oktoast/oktoast.dart';
 
 class AppVersion {
   Future<bool> _checkPermission() async {
@@ -45,9 +46,10 @@ class AppVersion {
     if (d['isNew']) {
       this._showDialog(context, d);
     } else if (showTips) {
-      Scaffold.of(context).showSnackBar(new SnackBar(
+      showToast('已经是最新版本');
+      /*Scaffold.of(context).showSnackBar(new SnackBar(
         content: new Text('已经是最新版本'),
-      ));
+      ));*/
     }
   }
 
