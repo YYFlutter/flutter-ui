@@ -61,8 +61,8 @@ class MainAppState extends State<MainApp> {
           ],
           supportedLocales: ConfigLanguage.supportedLocales,
           theme: AppTheme.getThemeData(configModel.theme),
-          // onGenerateRoute: FluroRouter.router.generator,
-          home:  HomePage.Index(),
+          onGenerateRoute: FluroRouter.router.generator,
+          // home:  HomePage.Index(),
           navigatorObservers: <NavigatorObserver>[Analytics.observer],
         );
       },
