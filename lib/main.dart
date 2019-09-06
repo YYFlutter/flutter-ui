@@ -70,10 +70,17 @@ class MainAppState extends State<MainApp> {
   }
 }
 
-void main() => runApp(
-      OKToast(
-        child: Store.init(
-          child: MainApp(),
-        ),
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: OKToast(
+        child: Store.init(child: MainApp()),
       ),
+    );
+  }
+}
+
+void main() => runApp(
+      MyApp(),
     );

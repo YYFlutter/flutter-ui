@@ -17,7 +17,8 @@ class Store {
     return context;
   }
 
-  static init({child}) {
+  static init({child,context}) {
+    Store.context ??= context;
     return MultiProvider(
       child: child,
       providers: [
