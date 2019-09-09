@@ -1,4 +1,4 @@
-#  Flutter UI <img src="https://github.com/YYFlutter/flutter-ui/blob/master/android/app/src/main/res/mipmap-ldpi/ic_launcher.png?raw=true" height="20"> <sup>v1.0.3</sup>
+#  Flutter UI <img src="https://github.com/YYFlutter/flutter-ui/blob/master/android/app/src/main/res/mipmap-ldpi/ic_launcher.png?raw=true" height="20"> <sup>v1.0.4</sup>
 + [项目正筹划新一轮更新欢迎建议OR提ISSUE](https://github.com/YYFlutter/flutter-ui/issues/55)
 + [点击下载](https://github.com/YYFlutter/flutter-ui/releases/download/v1.0.3/app-release.apk)
 
